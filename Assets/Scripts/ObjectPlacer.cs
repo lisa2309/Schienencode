@@ -5,16 +5,19 @@ using System.Diagnostics;
 using System.Dynamic;
 using UnityEngine;
 
+/* created by: SWT-P_WS_2021_Schienencode */
+
 public class ObjectPlacer : MonoBehaviour
 {
-    private Grid grid;
     public GameObject gameObject;
+    public bool isPreviewOn;
+    public BoxCollider boxColliderTerrain;
+
     private Vector3 oldMousePosition;
     private Vector3 newMousePosition;
-    public BoxCollider boxColliderTerrain;
+    private Grid grid;
     private GameObject objectPreview ;
-    public Boolean isPreviewOn;
-
+    
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
     /// </summary>
@@ -24,7 +27,7 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// A preview of an object is created if the variable "isPreviewOn" is true
     /// </summary>
     void OnMouseOver()
     {
@@ -44,7 +47,7 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// When the right mouse button is pressed, the "PlaceObjectNearPoint" method is called.
     /// </summary>
     private void Update()
     {
@@ -55,10 +58,11 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// The point you clicked on in the game world is transformed into a coordinate and also adapted to the grid. 
+    /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
     /// </summary>
-    /// <param name="isObjectPreview"></param>
-    private void PlaceObjectNearPoint(Boolean isObjectPreview)
+    /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
+    private void PlaceObjectNearPoint(bool isObjectPreview)
     {
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
