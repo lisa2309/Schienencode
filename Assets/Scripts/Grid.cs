@@ -5,6 +5,11 @@ public class Grid : MonoBehaviour
     [SerializeField]
     private float size = 2f;
 
+    /// <summary>
+    /// Transforms a coordinate into a point adapted to the grid system
+    /// </summary>
+    /// <param name="position">The point clicked in the game world</param>
+    /// <returns>A point adapted to the grid</returns>
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
         position -= transform.position;
@@ -23,6 +28,9 @@ public class Grid : MonoBehaviour
         return result;
     }
 
+    /// <summary>
+    /// Creates a grid of yellow dots that serve as orientation when designing a level and other objects
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -30,7 +38,6 @@ public class Grid : MonoBehaviour
         {
             for (float z = 0; z < 30; z += size)
             {
-                
                 var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
                 Gizmos.DrawSphere(point, 0.1f);
             }
