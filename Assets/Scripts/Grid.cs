@@ -1,10 +1,21 @@
 ﻿using UnityEngine;
 
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// A grid is created and points are adjusted to the grid
+/// </summary>
+/// @author Ronja Haas & Anna-Lisa Müller 
 public class Grid : MonoBehaviour
 {
     [SerializeField]
     private float size = 2f;
 
+    /// <summary>
+    /// Transforms a coordinate into a point adapted to the grid system
+    /// </summary>
+    /// <param name="position">The point clicked in the game world</param>
+    /// <returns>A point adapted to the grid</returns>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
         position -= transform.position;
@@ -23,6 +34,10 @@ public class Grid : MonoBehaviour
         return result;
     }
 
+    /// <summary>
+    /// Creates a grid of yellow dots that serve as orientation when designing a level and other objects
+    /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -30,7 +45,6 @@ public class Grid : MonoBehaviour
         {
             for (float z = 0; z < 30; z += size)
             {
-                
                 var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
                 Gizmos.DrawSphere(point, 0.1f);
             }
