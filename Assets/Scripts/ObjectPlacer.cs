@@ -11,12 +11,11 @@ public class ObjectPlacer : MonoBehaviour
 {
     public GameObject gameObject;
     public bool isPreviewOn;
-    public BoxCollider boxColliderTerrain;
 
     private Vector3 oldMousePosition;
     private Vector3 newMousePosition;
     private Grid grid;
-    private GameObject objectPreview ;
+    private GameObject objectPreview;
     
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
@@ -26,25 +25,6 @@ public class ObjectPlacer : MonoBehaviour
         grid = FindObjectOfType<Grid>();
     }
 
-    /// <summary>
-    /// A preview of an object is created if the variable "isPreviewOn" is true
-    /// </summary>
-    void OnMouseOver()
-    {
-        oldMousePosition = newMousePosition;
-        newMousePosition = Input.mousePosition;
-        if (boxColliderTerrain && (oldMousePosition != newMousePosition))
-        {
-            if (objectPreview != null)
-            { 
-                Destroy(objectPreview);
-            }
-            if (isPreviewOn)
-            {
-                PlaceObjectNearPoint(true);
-            }       
-        }
-    }
 
     /// <summary>
     /// When the right mouse button is pressed, the "PlaceObjectNearPoint" method is called.
@@ -55,6 +35,27 @@ public class ObjectPlacer : MonoBehaviour
         {
             PlaceObjectNearPoint(false);
         }
+        ObjectPreview();       
+    }
+
+    /// <summary>
+    /// Creates an preview of an object and destroys it
+    /// </summary>
+    private void ObjectPreview()
+    {
+        oldMousePosition = newMousePosition;
+        newMousePosition = Input.mousePosition;
+        if (oldMousePosition != newMousePosition)
+        {
+            if (objectPreview != null)
+            {
+                Destroy(objectPreview);
+            }
+            if (isPreviewOn)
+            {
+                PlaceObjectNearPoint(true);
+            }   
+        }
     }
 
     /// <summary>
@@ -62,7 +63,7 @@ public class ObjectPlacer : MonoBehaviour
     /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
-    private void PlaceObjectNearPoint(bool isObjectPreview)
+    public void PlaceObjectNearPoint(bool isObjectPreview)
     {
         RaycastHit hitInfo;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -79,7 +80,7 @@ public class ObjectPlacer : MonoBehaviour
                 {
                     if (c.name != "Route")
                     {
-                        c.GetComponent<Renderer>().material.color = new Color(255,20,147);
+                        c.GetComponent<Renderer>().material.color = new Color(255,20,147,0.5f);
                     }
                 }
             }
@@ -89,4 +90,5 @@ public class ObjectPlacer : MonoBehaviour
             }     
         }
     }
+
 }

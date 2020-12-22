@@ -357,11 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a40a4f867f6064ba15124cba437160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  railRenderer: {fileID: 0}
-  gameObject: {fileID: 3739519257042272129, guid: 9b29fd3888b742144821b844654b51b6,
-    type: 3}
-  boxColliderTerrain: {fileID: 1466023611}
-  isPreviewOn: 0
+  gameObject: {fileID: 0}
+  isPreviewOn: 1
 --- !u!4 &1466023610
 Transform:
   m_ObjectHideFlags: 0
