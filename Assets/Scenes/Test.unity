@@ -290,7 +290,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1466023610}
   - component: {fileID: 1466023609}
-  - component: {fileID: 1466023611}
   m_Layer: 0
   m_Name: ObjectPlacer
   m_TagString: Untagged
@@ -310,7 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a40a4f867f6064ba15124cba437160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
+  gameObject: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859,
+    type: 3}
   isPreviewOn: 1
 --- !u!4 &1466023610
 Transform:
@@ -326,19 +326,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1466023611
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466023608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 29.313019, y: 0.77412224, z: 44.205887}
-  m_Center: {x: -4.618122, y: -0.11293888, z: -3.0872746}
 --- !u!1 &1685589746
 GameObject:
   m_ObjectHideFlags: 0
