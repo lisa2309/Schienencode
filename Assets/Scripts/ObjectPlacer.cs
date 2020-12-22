@@ -6,7 +6,11 @@ using System.Dynamic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
-
+/// <summary>
+/// A preview of objects is generated, as well as the object itself. 
+/// The current coordinate depends on the mouse position
+/// </summary>
+/// @author Ronja Haas & Anna-Lisa Müller 
 public class ObjectPlacer : MonoBehaviour
 {
     public GameObject gameObject;
@@ -16,10 +20,11 @@ public class ObjectPlacer : MonoBehaviour
     private Vector3 newMousePosition;
     private Grid grid;
     private GameObject objectPreview;
-    
+
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
     /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     private void Awake()
     {
         grid = FindObjectOfType<Grid>();
@@ -29,6 +34,7 @@ public class ObjectPlacer : MonoBehaviour
     /// <summary>
     /// When the right mouse button is pressed, the "PlaceObjectNearPoint" method is called.
     /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -39,8 +45,11 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates an preview of an object and destroys it
+    /// Creates an preview of an object and destroys it. 
+    /// but this happens only when the position of the mouse pointer has changed. 
+    /// Because only then a new preview object is needed.
     /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     private void ObjectPreview()
     {
         oldMousePosition = newMousePosition;
@@ -63,6 +72,7 @@ public class ObjectPlacer : MonoBehaviour
     /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     public void PlaceObjectNearPoint(bool isObjectPreview)
     {
         RaycastHit hitInfo;
