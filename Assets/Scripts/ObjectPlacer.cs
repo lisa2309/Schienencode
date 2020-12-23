@@ -4,6 +4,8 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Dynamic;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
@@ -20,6 +22,9 @@ public class ObjectPlacer : MonoBehaviour
     private Vector3 newMousePosition;
     private Grid grid;
     private GameObject objectPreview;
+    public float rot=0;
+    private bool candrag;
+    private Ray ray;
 
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
@@ -41,7 +46,9 @@ public class ObjectPlacer : MonoBehaviour
         {
             PlaceObjectNearPoint(false);
         }
-        ObjectPreview();       
+        ObjectPreview(); 
+
+             
     }
 
     /// <summary>
@@ -75,17 +82,24 @@ public class ObjectPlacer : MonoBehaviour
     /// @author Ronja Haas & Anna-Lisa Müller 
     public void PlaceObjectNearPoint(bool isObjectPreview)
     {
+        candrag=true;
         RaycastHit hitInfo;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        
 
         if (Physics.Raycast(ray, out hitInfo))
         {
+             
             var finalPosition = grid.GetNearestPointOnGrid(hitInfo.point);
+
             if (isObjectPreview)
             {
-                objectPreview = Instantiate(gameObject, finalPosition, Quaternion.identity);
+                objectPreview = Instantiate(gameObject, finalPosition, Quaternion.Euler(0,rot, 0));
+                
+               
                 GameObject objectPreviwChild;
-                objectPreview.GetComponent<BoxCollider>().enabled = false;
+                objectPreview.GetComponent<Collider>().enabled = false;
                 foreach(Transform c in objectPreview.transform.GetChild(0).GetComponentInChildren<Transform>())
                 {
                     if (c.name != "Route")
@@ -96,8 +110,83 @@ public class ObjectPlacer : MonoBehaviour
             }
             else if (!isObjectPreview)
             {
-                Instantiate(gameObject, finalPosition, Quaternion.identity);
-            }     
+                GameObject gamob;
+                ///Debug.Log("links   "+finalPosition);
+
+
+                
+
+                if(gameObject.name == "Straight270Final"){
+                
+                Vector3 xsize= new Vector3((objectPreview.GetComponent<BoxCollider>().size.x)/2,0,0);
+                
+
+                
+                Vector3 startcapsul = objectPreview.GetComponent<BoxCollider>().center + finalPosition + xsize ;
+                Vector3 endcapsul= objectPreview.GetComponent<BoxCollider>().center + finalPosition - xsize ;
+                
+                
+                startcapsul = Quaternion.Euler(0,rot, 0) * (startcapsul - finalPosition) + finalPosition ;
+                endcapsul = Quaternion.Euler(0,rot, 0) *  (endcapsul - finalPosition) + finalPosition;
+
+            Collider[] colls = Physics.OverlapCapsule(startcapsul ,endcapsul, 1f);
+            ///Debug.DrawLine(startcapsul,endcapsul,Color.red,20f);
+                    candrag=true;
+                    
+                    foreach (Collider cool in colls ){
+                    gamob = cool.gameObject;
+                        
+                      if(gamob.name !="Terrain"){
+                            Debug.Log("gamobjeeect name "+gamob.name);
+                           candrag=false;
+                         }
+
+                    }
+                   
+           /// Debug.Log("punkt "+finalPosition+" hit punkt "+hitInfo.point+"gameobject "+hitInfo2.collider.gameObject.name);
+          
+
+
+                }
+                else if(gameObject.name == "CurveL0Final"){
+                Vector3 higth= new Vector3(0,0,(objectPreview.GetComponent<CapsuleCollider>().height)/2);
+                Vector3 startcapsul = objectPreview.GetComponent<CapsuleCollider>().center + finalPosition +higth ;
+                Vector3 endcapsul= objectPreview.GetComponent<CapsuleCollider>().center + finalPosition - higth;
+                
+              
+                startcapsul = Quaternion.Euler(0,rot, 0) * (startcapsul - finalPosition) + finalPosition ;
+                endcapsul = Quaternion.Euler(0,rot, 0) *  (endcapsul - finalPosition) + finalPosition;
+               
+
+            Collider[] colls = Physics.OverlapCapsule(startcapsul ,endcapsul,objectPreview.GetComponent<CapsuleCollider>().radius);
+           
+                    candrag=true;
+                    
+                    foreach (Collider cool in colls ){
+                    gamob = cool.gameObject;
+                        
+                      if(gamob.name !="Terrain"){
+                            Debug.Log("gamobjeeect name "+gamob.name);
+                           candrag=false;
+                         }
+
+                    }
+                   
+           /// Debug.Log("punkt "+finalPosition+" hit punkt "+hitInfo.point+"gameobject "+hitInfo2.collider.gameObject.name);
+          
+
+
+                }
+               
+                if(candrag){
+                        Instantiate(gameObject, finalPosition,Quaternion.Euler(0,rot, 0));
+                }
+   
+              
+               
+                //gameObject.transform.position = new Vector3(gamob.transform.position.x-4.05f,gamob.transform.position.y,gamob.transform.position.z);
+                
+            }    
         }
     }
 
