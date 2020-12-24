@@ -114,9 +114,8 @@ public class ObjectPlacer : MonoBehaviour
                 ///Debug.Log("links   "+finalPosition);
 
 
-                
 
-                if(gameObject.name == "Straight270Final"){
+        if(gameObject.name == "Straight270Final"){
                 
                 Vector3 xsize= new Vector3((objectPreview.GetComponent<BoxCollider>().size.x)/2,0,0);
                 
@@ -132,6 +131,49 @@ public class ObjectPlacer : MonoBehaviour
             Collider[] colls = Physics.OverlapCapsule(startcapsul ,endcapsul, 1f);
             ///Debug.DrawLine(startcapsul,endcapsul,Color.red,20f);
                     candrag=true;
+
+
+                 Vector3 point0;
+                 Vector3 point3;
+
+
+                    point0 = objectPreview.transform.GetChild(0).Find("Route").Find("Point0").position;
+                    point3 = objectPreview.transform.GetChild(0).Find("Route").Find("Point3").position;
+                    
+                    Collider[] hitColliders;
+        
+                            
+                hitColliders = Physics.OverlapSphere(point0, 2f);
+                           foreach (var hitCollider in hitColliders)
+                            {
+                                Debug.Log("name hit coll "+hitCollider.name );
+
+                                if(hitCollider.name  == "Straight270Final(Clone)" || hitCollider.name  == "CurveL0Final(Clone)" || hitCollider.name  == "CurveR0Final(Clone)"){
+                                Vector3 point00 = hitCollider.transform.GetChild(0).Find("Route").Find("Point0").position;
+                                float dist = Vector3.Distance(point00, point0);
+                                Debug.Log("distance "+dist);
+                               if(dist<0.5f){
+                                    candrag=false;
+                               }
+                                }
+                            }
+                                            
+                hitColliders = Physics.OverlapSphere(point3, 2f);
+                           foreach (var hitCollider in hitColliders)
+                            {
+                                if(hitCollider.name  == "Straight270Final(Clone)" || hitCollider.name  == "CurveL0Final(Clone)" || hitCollider.name  == "CurveR0Final(Clone)"){
+                                Transform point33 =hitCollider.transform.GetChild(0).Find("Route").Find("Point3");
+                                float dist = Vector3.Distance(point33.position, point3);
+                                Debug.Log("distance "+dist);
+                               if(dist<0.5f){
+                                    candrag=false;
+                               }
+                                }
+                            }
+                                            
+                        
+
+
                     
                     foreach (Collider cool in colls ){
                     gamob = cool.gameObject;
@@ -148,7 +190,7 @@ public class ObjectPlacer : MonoBehaviour
 
 
                 }
-                else if(gameObject.name == "CurveL0Final"){
+            else if(gameObject.name == "CurveL0Final" || gameObject.name =="CurveR0Final" ){
                 Vector3 higth= new Vector3(0,0,(objectPreview.GetComponent<CapsuleCollider>().height)/2);
                 Vector3 startcapsul = objectPreview.GetComponent<CapsuleCollider>().center + finalPosition +higth ;
                 Vector3 endcapsul= objectPreview.GetComponent<CapsuleCollider>().center + finalPosition - higth;
@@ -161,6 +203,45 @@ public class ObjectPlacer : MonoBehaviour
             Collider[] colls = Physics.OverlapCapsule(startcapsul ,endcapsul,objectPreview.GetComponent<CapsuleCollider>().radius);
            
                     candrag=true;
+                    Vector3 point0;
+                    Vector3 point3;
+
+
+                    point0 = objectPreview.transform.GetChild(0).Find("Route").Find("Point0").position;
+                    point3 = objectPreview.transform.GetChild(0).Find("Route").Find("Point3").position;
+                    Collider[] hitColliders;
+        
+                            
+                hitColliders = Physics.OverlapSphere(point0, 3f);
+                           foreach (var hitCollider in hitColliders)
+                            {
+                                if(hitCollider.name  == "Straight270Final(Clone)" || hitCollider.name  == "CurveL0Final(Clone)" || hitCollider.name  == "CurveR0Final(Clone)"){
+                                Vector3 point00 =hitCollider.transform.GetChild(0).Find("Route").Find("Point0").position;
+                                float dist = Vector3.Distance(point00, point0);
+                                Debug.Log("distance "+dist);
+                               if(dist<0.5f){
+                                    candrag=false;
+                               }
+                                }
+                            }
+                                            
+                hitColliders = Physics.OverlapSphere(point3, 3f);
+                           foreach (var hitCollider in hitColliders)
+                            {
+                                if(hitCollider.name  == "Straight270Final(Clone)" || hitCollider.name  == "CurveL0Final(Clone)" || hitCollider.name  == "CurveR0Final(Clone)"){
+                                Transform point33 =hitCollider.transform.GetChild(0).Find("Route").Find("Point3");
+                                float dist = Vector3.Distance(point33.position, point3);
+                                Debug.Log("distance "+dist);
+                               if(dist<0.5f){
+                                    candrag=false;
+                               }
+                                }
+                            }
+                                            
+                        
+                    
+
+                   
                     
                     foreach (Collider cool in colls ){
                     gamob = cool.gameObject;

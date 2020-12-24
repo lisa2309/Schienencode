@@ -17,12 +17,12 @@ public class Createprefab : MonoBehaviour
   
 
     rot = PlayerPrefs.GetFloat(myPrefab.name);
-  Debug.Log("creat prefabs  "+rot);
+  //Debug.Log("creat prefabs  "+rot);
  Vector3 position;
  
         Ray ray = new Ray(Camera.main.transform.position, Vector3.forward);
         position = ray.GetPoint(Camera.main.farClipPlane / 2);
-        Debug.Log("target is " + position + " pixels from the left");
+        //Debug.Log("target is " + position + " pixels from the left");
         ojplz = FindObjectOfType<ObjectPlacer>();
         ojplz.gameObject=myPrefab;
         ojplz.rot=rot;
