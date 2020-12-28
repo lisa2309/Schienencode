@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9102468729900164221}
-  - component: {fileID: 1888039236657733763}
   - component: {fileID: 3054599155660491978}
+  - component: {fileID: 7851246511561133767}
   m_Layer: 0
   m_Name: CurveR0Final
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1888039236657733763
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460971524279064734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.6001444, y: 1, z: 3.3350377}
-  m_Center: {x: 0.7590525, y: 0, z: -1.3291664}
 --- !u!114 &3054599155660491978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381f82841919fc444b63336e90367b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &7851246511561133767
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460971524279064734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 1, y: 0.28, z: -1}
 --- !u!1001 &4659616856408565926
 PrefabInstance:
   m_ObjectHideFlags: 0
