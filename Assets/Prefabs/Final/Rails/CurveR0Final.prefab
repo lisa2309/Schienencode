@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9102468729900164221}
+  - component: {fileID: 1888039236657733763}
   - component: {fileID: 3054599155660491978}
-  - component: {fileID: 2117102537520367565}
   m_Layer: 0
   m_Name: CurveR0Final
   m_TagString: Untagged
@@ -33,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1888039236657733763
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460971524279064734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6001444, y: 1, z: 3.3350377}
+  m_Center: {x: 0.7590525, y: 0, z: -1.3291664}
 --- !u!114 &3054599155660491978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,20 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381f82841919fc444b63336e90367b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &2117102537520367565
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460971524279064734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.1461148
-  m_Height: 2.665196
-  m_Direction: 0
-  m_Center: {x: 0.9160378, y: 0.4576254, z: -1.0094414}
 --- !u!1001 &4659616856408565926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,25 +130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curve
       objectReference: {fileID: 0}
-    - target: {fileID: 6359232357191355178, guid: 2e16ba3a3713af04690452544e15c874,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513819312097522874, guid: 2e16ba3a3713af04690452544e15c874,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7940677924749050715, guid: 2e16ba3a3713af04690452544e15c874,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8901179639283548303, guid: 2e16ba3a3713af04690452544e15c874,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e16ba3a3713af04690452544e15c874, type: 3}
