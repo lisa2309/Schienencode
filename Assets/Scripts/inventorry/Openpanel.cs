@@ -4,22 +4,35 @@ using UnityEngine;
 
 public class Openpanel : MonoBehaviour
 {
-    
+
     public GameObject auswahlpanel;
-   
-    public void panelopen(){
 
-        if (auswahlpanel!= null){
+    public void panelopen()
+    {
 
+        if (auswahlpanel != null)
+        {
 
-            if(auswahlpanel.activeSelf){
+            foreach (Transform panel in auswahlpanel.transform.parent.GetComponentInChildren<Transform>())
+            {
+                if (panel.name != auswahlpanel.name)
+                {
+                    panel.gameObject.SetActive(false);
+                }
 
- auswahlpanel.SetActive(false);
             }
-            else{
-                 auswahlpanel.SetActive(true);
+
+
+            if (auswahlpanel.activeSelf)
+            {
+
+                auswahlpanel.SetActive(false);
             }
-               
+            else
+            {
+                auswahlpanel.SetActive(true);
+            }
+
         }
     }
 
