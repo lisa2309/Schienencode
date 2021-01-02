@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8BA10D07-7A45-F793-0591-F3F9CF40733E}</ProjectGuid>
+    <ProjectGuid>{EE871297-5E3E-F088-9A6E-4FEC969B9702}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -65,9 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BezierFollow.cs" />
-    <Compile Include="Assets\Scripts\CubePlacer.cs" />
+    <Compile Include="Assets\Scripts\DeleteRail.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
+    <Compile Include="Assets\Scripts\ObjectPlacer.cs" />
     <Compile Include="Assets\Scripts\Route.cs" />
+    <Compile Include="Assets\Scripts\Routing.cs" />
+    <Compile Include="Assets\Scripts\inventorry\Buttonrotate.cs" />
+    <Compile Include="Assets\Scripts\inventorry\Createprefab.cs" />
+    <Compile Include="Assets\Scripts\inventorry\Openpanel.cs" />
     <None Include="Assets\LevelDesign\Low Poly Graveyard\Materials\vertexcolorsstandard.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -598,31 +603,31 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>F:/Uni neu/SWT-P/ws20-21-schienencode-grid/ws20-21-schienencode-grid/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>F:/Uni neu/SWT-P/3. Sprint/Ahmed neu/ws20-21-schienencode/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
