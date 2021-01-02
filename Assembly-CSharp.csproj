@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\ObjectPlacer.cs" />
     <Compile Include="Assets\Scripts\Route.cs" />
+    <Compile Include="Assets\Scripts\Routing.cs" />
     <Compile Include="Assets\Scripts\inventorry\Buttonrotate.cs" />
     <Compile Include="Assets\Scripts\inventorry\Createprefab.cs" />
     <Compile Include="Assets\Scripts\inventorry\Openpanel.cs" />
