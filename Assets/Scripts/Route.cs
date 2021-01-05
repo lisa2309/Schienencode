@@ -1,17 +1,23 @@
-﻿/*
-Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
-*/
-
+﻿
 using UnityEngine;
 
+/* created by: SWT-P_WS_2021_Schienencode */
+/*
+Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
+*/
+/// <summary>
+/// 
+/// </summary>
 public class Route : MonoBehaviour
 {
-
 	[SerializeField]
 	private Transform[] controlPoints;
-
 	private Vector3 gizmosPosition;
 
+	/// <summary>
+    /// 
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel
 	private void OnDrawGizmos()
 	{
 		for (float t = 0; t <= 1; t += 0.05f)

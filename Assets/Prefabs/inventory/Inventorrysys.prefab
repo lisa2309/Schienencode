@@ -195,7 +195,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3621211658465056025}
-        m_MethodName: Createschien
+        m_MethodName: CreateRail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d714f4774f7f4ca68d20bcd7d0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 8654538594090976254, guid: 539ee4839211fb24da4d208baff4d90e,
+  currentPrefab: {fileID: 8654538594090976254, guid: 539ee4839211fb24da4d208baff4d90e,
     type: 3}
 --- !u!1 &299352273461107633
 GameObject:
@@ -624,7 +624,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8678637693125038043}
-        m_MethodName: panelopen
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -643,10 +643,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505373431509408625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b04b3b8b4b26084ba15ba375f18ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 135af316b10a3ac4faca55c87ddef333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auswahlpanel: {fileID: 8185778944985305831}
+  selectionPanel: {fileID: 8185778944985305831}
 --- !u!1 &1566439519625876775
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8145511401448054240}
-        m_MethodName: Createschien
+        m_MethodName: CreateRail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d714f4774f7f4ca68d20bcd7d0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6,
+  currentPrefab: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6,
     type: 3}
 --- !u!1 &1650133697002661139
 GameObject:
@@ -913,7 +913,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6267950155430926095}
-        m_MethodName: rotate
+        m_MethodName: RotatePrefab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -932,11 +932,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1650133697002661139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7851a28c89cd82439551cd9f705c149, type: 3}
+  m_Script: {fileID: 11500000, guid: 38db7e9db3257de4ea1a5c9922dad6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: 
-  imgbutton: {fileID: 8541045272671195610}
+  imageButton: {fileID: 8541045272671195610}
 --- !u!1 &1808637557979586355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,7 +1311,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6554539986038677613}
-        m_MethodName: panelopen
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1330,10 +1330,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2342601445626828947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b04b3b8b4b26084ba15ba375f18ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 135af316b10a3ac4faca55c87ddef333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auswahlpanel: {fileID: 1808637557979586355}
+  selectionPanel: {fileID: 1808637557979586355}
 --- !u!1 &2401227208440296493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1735,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2975423380427021717}
-        m_MethodName: rotate
+        m_MethodName: RotatePrefab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1754,11 +1754,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3425763492666892552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7851a28c89cd82439551cd9f705c149, type: 3}
+  m_Script: {fileID: 11500000, guid: 38db7e9db3257de4ea1a5c9922dad6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: 
-  imgbutton: {fileID: 6752485595665283367}
+  imageButton: {fileID: 6752485595665283367}
 --- !u!1 &3825507089641482993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,7 +1985,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4195994123695684183}
-        m_MethodName: rotate
+        m_MethodName: RotatePrefab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2004,11 +2004,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3881648099333327241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7851a28c89cd82439551cd9f705c149, type: 3}
+  m_Script: {fileID: 11500000, guid: 38db7e9db3257de4ea1a5c9922dad6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: 
-  imgbutton: {fileID: 253944867505244349}
+  imageButton: {fileID: 253944867505244349}
 --- !u!1 &4372241129074005498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,7 +2658,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1931298452622198331}
-        m_MethodName: rotate
+        m_MethodName: RotatePrefab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2677,11 +2677,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6213537953302351273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7851a28c89cd82439551cd9f705c149, type: 3}
+  m_Script: {fileID: 11500000, guid: 38db7e9db3257de4ea1a5c9922dad6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: 
-  imgbutton: {fileID: 6351289014021478817}
+  imageButton: {fileID: 6351289014021478817}
 --- !u!1 &6263251746359765004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2848,7 +2848,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5235221294665030975}
-        m_MethodName: panelopen
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2867,10 +2867,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6263784613998506786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b04b3b8b4b26084ba15ba375f18ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 135af316b10a3ac4faca55c87ddef333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auswahlpanel: {fileID: 5315941807347031551}
+  selectionPanel: {fileID: 5315941807347031551}
 --- !u!1 &6351289014021478817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,7 +3217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1921087131128041749}
-        m_MethodName: panelopen
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3236,10 +3236,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6782750238815891418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b04b3b8b4b26084ba15ba375f18ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 135af316b10a3ac4faca55c87ddef333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auswahlpanel: {fileID: 2401227208440296493}
+  selectionPanel: {fileID: 2401227208440296493}
 --- !u!1 &6974554306258926121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,7 +3360,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8546167897538702150}
-        m_MethodName: panelopen
+        m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3379,10 +3379,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6974554306258926121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b04b3b8b4b26084ba15ba375f18ff7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 135af316b10a3ac4faca55c87ddef333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  auswahlpanel: {fileID: 7830288946876851775}
+  selectionPanel: {fileID: 7830288946876851775}
 --- !u!1 &7448861094880191747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,7 +3504,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 263932829090459087}
-        m_MethodName: Createschien
+        m_MethodName: CreateRail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d714f4774f7f4ca68d20bcd7d0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a,
+  currentPrefab: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a,
     type: 3}
 --- !u!1 &7469505003472652751
 GameObject:
@@ -3880,7 +3880,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9078778265527004738}
-        m_MethodName: Createschien
+        m_MethodName: CreateRail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3902,7 +3902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d714f4774f7f4ca68d20bcd7d0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859,
+  currentPrefab: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859,
     type: 3}
 --- !u!1 &7830288946876851775
 GameObject:
@@ -4127,7 +4127,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4584048935425268748}
-        m_MethodName: rotate
+        m_MethodName: RotatePrefab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4146,11 +4146,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8122623246431031901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7851a28c89cd82439551cd9f705c149, type: 3}
+  m_Script: {fileID: 11500000, guid: 38db7e9db3257de4ea1a5c9922dad6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: 
-  imgbutton: {fileID: 2056497651313885852}
+  imageButton: {fileID: 2056497651313885852}
 --- !u!1 &8185778944985305831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,7 +4452,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2307324382952005596}
-        m_MethodName: Createschien
+        m_MethodName: CreateRail
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4474,7 +4474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5d714f4774f7f4ca68d20bcd7d0fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myPrefab: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
+  currentPrefab: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
     type: 3}
 --- !u!1 &8541045272671195610
 GameObject:
