@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1357617595727074289, guid: 19383492fbcaac84f8638cb2ae4f722d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CreateRail
+      objectReference: {fileID: 0}
     - target: {fileID: 1663120445274379399, guid: 19383492fbcaac84f8638cb2ae4f722d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -632,7 +637,7 @@ MonoBehaviour:
   gameObject: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859,
     type: 3}
   isPreviewOn: 1
-  rot: 0
+  rotate: 0
 --- !u!4 &1466023610
 Transform:
   m_ObjectHideFlags: 0

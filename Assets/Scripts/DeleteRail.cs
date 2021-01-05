@@ -10,7 +10,6 @@ using UnityEngine;
 /// @author Ronja Haas & Anna-Lisa Müller 
 public class DeleteRail : MonoBehaviour
 {
-    public static BoxCollider railBoxCollider;
 
     /// <summary>
     /// Destroys the object attached to this script as soon as you left click on it 

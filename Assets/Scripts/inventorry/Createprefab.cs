@@ -3,36 +3,33 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Createprefab : MonoBehaviour
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// 
+/// </summary>
+/// @author Ahmed L'harrak
+public class CreatePrefab : MonoBehaviour
 {
-    public GameObject myPrefab;
-    private GameObject parentpanel;
-    private Transform target;
-    private float rot;
-    private ObjectPlacer ojplz;
+    public GameObject currentPrefab;
+    private float rotate;
+    private ObjectPlacer objectPlacer;
 
-    public void Createschien()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// @author Ahmed L'harrak
+    public void CreateRail()
     {
-
-
-
-        rot = PlayerPrefs.GetFloat(myPrefab.name);
-        //Debug.Log("creat prefabs  "+rot);
+        rotate = PlayerPrefs.GetFloat(currentPrefab.name);
         Vector3 position;
 
         Ray ray = new Ray(Camera.main.transform.position, Vector3.forward);
         position = ray.GetPoint(Camera.main.farClipPlane / 2);
-        //Debug.Log("target is " + position + " pixels from the left");
-        ojplz = FindObjectOfType<ObjectPlacer>();
-        ojplz.gameObject = myPrefab;
-        ojplz.rot = rot;
-        ojplz.isPreviewOn = true;
+        objectPlacer = FindObjectOfType<ObjectPlacer>();
+        objectPlacer.gameObject = currentPrefab;
+        objectPlacer.rotate = rotate;
+        objectPlacer.isPreviewOn = true;
         this.transform.parent.gameObject.SetActive(false);
-        //instantobjk = Instantiate(myPrefab, new Vector3(position.x,0.03f,position.y),Quaternion.Euler(0,rot, 0),parent.transform);
-
-
     }
-
-
 
 }

@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/* created by: SWT-P_WS_2021_Schienencode */
 /*
 Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
-Modified: Rotation
+Modified: rotation
 */
+/// <summary>
+/// 
+/// </summary>
+/// @author Florian Vogel & Bjarne Bensel
 public class BezierFollow : MonoBehaviour
 {
     [SerializeField]
@@ -16,6 +22,10 @@ public class BezierFollow : MonoBehaviour
     private bool coroutineAllowed;
     private Vector3 rotationVector;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel
     private void Start()
     {
         routeToGo = 0;
@@ -24,6 +34,10 @@ public class BezierFollow : MonoBehaviour
         coroutineAllowed = true;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel
     private void Update()
     {
         if (coroutineAllowed)
@@ -31,6 +45,13 @@ public class BezierFollow : MonoBehaviour
             StartCoroutine(GoByTheRoute(routeToGo));
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="routeNumber"></param>
+    /// <returns></returns>
+    /// @author Florian Vogel & Bjarne Bensel
     private IEnumerator GoByTheRoute(int routeNumber)
     {
         coroutineAllowed = false;
