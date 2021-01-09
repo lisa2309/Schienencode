@@ -41,6 +41,6 @@ public class RotationButton : MonoBehaviour
             rotate = 0f;
         }
         PlayerPrefs.SetFloat(prefab, rotate + 90);
-        imageButton.transform.rotation = Quaternion.Euler(0, 0, rotate + 90);
+        imageButton.transform.rotation = Quaternion.Euler(0, 0, -(rotate + 90));
     }
 }
