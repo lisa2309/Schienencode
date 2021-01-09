@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// 
+/// Not working, just a Plan for routing
 /// </summary>
 /// @author Florian Vogel & Bjarne Bensel 
 public class Routing : MonoBehaviour
@@ -14,7 +14,7 @@ public class Routing : MonoBehaviour
     List<GameObject> route = new List<GameObject>();
 
     /// <summary>
-    /// 
+    /// This Should be triggert when Player is finished. Generates the Route und starts the Train
     /// </summary>
     /// <param name="start"></param>
     /// @author Florian Vogel & Bjarne Bensel 
@@ -36,10 +36,10 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Calculates the offset on X axis
     /// </summary>
     /// <param name="gameObject"></param>
-    /// <returns></returns>
+    /// <returns>shift on X axis </returns>
     /// @author Florian Vogel & Bjarne Bensel 
     int GetDirectionX(GameObject gameObject)
     {
@@ -58,10 +58,10 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Calculates the offset on Z axis
     /// </summary>
     /// <param name="gameObject"></param>
-    /// <returns></returns>
+    /// <returns>shift on Z axis</returns>
     /// @author Florian Vogel & Bjarne Bensel 
     int GetDirectionZ(GameObject gameObject)
     {

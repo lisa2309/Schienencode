@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
@@ -6,7 +6,7 @@ using UnityEngine;
 Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
 */
 /// <summary>
-/// 
+/// Script to move the Train on the Rail
 /// </summary>
 public class Route : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class Route : MonoBehaviour
 	private Vector3 gizmosPosition;
 
 	/// <summary>
-    /// 
+    /// Lets the Train move on the rail
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel
 	private void OnDrawGizmos()

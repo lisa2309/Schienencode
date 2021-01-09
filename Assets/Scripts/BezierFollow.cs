@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
 Modified: rotation
 */
 /// <summary>
-/// 
+/// Bezier Curve for the train on the rail
 /// </summary>
 /// @author Florian Vogel & Bjarne Bensel
 public class BezierFollow : MonoBehaviour
@@ -23,7 +23,7 @@ public class BezierFollow : MonoBehaviour
     private Vector3 rotationVector;
 
     /// <summary>
-    /// 
+    /// inizializing for the Train
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel
     private void Start()
@@ -35,7 +35,7 @@ public class BezierFollow : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// starts the train could be placed in other funktion in the future
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel
     private void Update()
@@ -47,10 +47,9 @@ public class BezierFollow : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Moves the train on the rail
     /// </summary>
-    /// <param name="routeNumber"></param>
-    /// <returns></returns>
+    /// <param name="routeNumber">next Point on the Bezier Curve</param>
     /// @author Florian Vogel & Bjarne Bensel
     private IEnumerator GoByTheRoute(int routeNumber)
     {
