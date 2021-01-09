@@ -75,6 +75,9 @@ public class ObjectPlacer : MonoBehaviour
     /// <summary>
     /// The point you clicked on in the game world is transformed into a coordinate and also adapted to the grid. 
     /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
+    ///  if the created object generat a collision with other objectes  then will this object  destroyed
+    /// if the dictance of poit0 of the both objectes (created and adjacent object) not more than 0.5 units also (composed) 
+    /// but in in wrong direction then will this object  destroyed 
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
     /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
@@ -167,12 +170,15 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// this function becomm a collider gameobject and point name
+    ///it will search for the point ther is 3 options if the object tunel then the point in 3 level deep
+    ///if it is straight then deep level 2 else the object is somthing else the mybe have not rout gameobject that have points
     /// </summary>
-    /// <param name="hitCollider"></param>
-    /// <param name="point"></param>
-    /// <returns></returns>
+    /// <param name="hitCollider"> this game object (adjacent objecte) does not far more than 2 units from the place of instantiate the prefab </param>
+    /// <param name="point">the name of the point of the hitcolider (this point should at ende or begin this gameobject )</param>
+    /// <returns>this function will return vector3 of the searched point </returns>
     /// @author Ahmed L'harrak
+    ///
     Vector3 GetPosition(GameObject hitCollider, String point)
     {
         if (hitCollider.name == "TunnelOut" || hitCollider.name == "TunnelIn")
