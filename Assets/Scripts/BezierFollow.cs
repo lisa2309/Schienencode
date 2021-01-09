@@ -49,7 +49,7 @@ public class BezierFollow : MonoBehaviour
     /// <summary>
     /// Moves the train on the rail
     /// </summary>
-    /// <param name="routeNumber"></param>
+    /// <param name="routeNumber">next Point on the Bezier Curve</param>
     /// @author Florian Vogel & Bjarne Bensel
     private IEnumerator GoByTheRoute(int routeNumber)
     {
