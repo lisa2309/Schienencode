@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /* created by: SWT-P_WS_2021_Schienencode */
+// 
 /// <summary>
-/// 
+/// the current gameobject will marked as nexte instansiated gameobject
 /// </summary>
 /// @author Ahmed L'harrak
 public class CreatePrefab : MonoBehaviour
@@ -15,7 +16,8 @@ public class CreatePrefab : MonoBehaviour
     private ObjectPlacer objectPlacer;
 
     /// <summary>
-    /// 
+    /// call the public gameobject  variable of Objectplacer class and change it to current gameobject 
+    /// so that whenn the player an Object  created then will be the current object of this panel windows
     /// </summary>
     /// @author Ahmed L'harrak
     public void CreateRail()

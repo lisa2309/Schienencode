@@ -4,7 +4,7 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// 
+/// this is a windows the have all property(rotation) of the current gameobject of this windows
 /// </summary>
 /// @author Ahmed L'harrak
 public class Panel : MonoBehaviour
@@ -12,7 +12,8 @@ public class Panel : MonoBehaviour
     public GameObject selectionPanel;
 
     /// <summary>
-    /// 
+    /// this function makes the windows panel visible if it's not  and close the others 
+    /// if the panel is allredy visible then will be close after call of this function
     /// </summary>
     /// @author Ahmed L'harrak
     public void OpenPanel()
