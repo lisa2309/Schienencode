@@ -1,14 +1,34 @@
-# Description of the Issue
+# Description
 
+[Issue description]
 
+### Feature todos:
 
-### Todos:
+[Try to break the problem down into simple parts that can be solved individually]
 
-* [ ] Todo1
-* [ ] Todo2
-* [ ] Todo3
+- Todo1
+- Todo1
+- Todo1
 
-### Team Members
+### Definition of Done
 
-* @
+[Describe the steps/items that must be performed to complete the feature]
+
+*   [ ] DoD1
+*   [ ] Dod2
+*   [ ] Dod3
+
+### Members
+
+*  
+
+### Issues/merge requests/snippets
+
+*   To reference an issue: #123
+*   To reference a MR: !123
+*   To reference a snippet $123
+
+### Resources
+
+*  [Attach resources here](todo)
 
