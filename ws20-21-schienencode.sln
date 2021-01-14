@@ -1,19 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scripts", "Scripts.csproj", "{c923f42a-5ad5-f317-9db2-4ac0dce3c9fb}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scripts", "Scripts.csproj", "{2AF423C9-D55A-17F3-9DB2-4AC0DCE3C9FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayModeTest", "PlayModeTest.csproj", "{933d6373-f74b-e93d-0aee-65714d63cd34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayModeTest", "PlayModeTest.csproj", "{73633D93-4BF7-3DE9-0AEE-65714D63CD34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{c923f42a-5ad5-f317-9db2-4ac0dce3c9fb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{c923f42a-5ad5-f317-9db2-4ac0dce3c9fb}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{933d6373-f74b-e93d-0aee-65714d63cd34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{933d6373-f74b-e93d-0aee-65714d63cd34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF423C9-D55A-17F3-9DB2-4AC0DCE3C9FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF423C9-D55A-17F3-9DB2-4AC0DCE3C9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF423C9-D55A-17F3-9DB2-4AC0DCE3C9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF423C9-D55A-17F3-9DB2-4AC0DCE3C9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73633D93-4BF7-3DE9-0AEE-65714D63CD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73633D93-4BF7-3DE9-0AEE-65714D63CD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73633D93-4BF7-3DE9-0AEE-65714D63CD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73633D93-4BF7-3DE9-0AEE-65714D63CD34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
