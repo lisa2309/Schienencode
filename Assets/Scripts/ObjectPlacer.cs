@@ -15,9 +15,10 @@ using Debug = UnityEngine.Debug;
 /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
 public class ObjectPlacer : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject prefabtoinstant;
     public bool isPreviewOn;
     public float rotate = 0;
+    public Player player=null;
 
     private Vector3 oldMousePosition;
     private Vector3 newMousePosition;
@@ -93,11 +94,11 @@ public class ObjectPlacer : MonoBehaviour
 
             if (isObjectPreview)
             {
-                objectPreview = Instantiate(gameObject, finalPosition, Quaternion.Euler(0, rotate, 0));
-                objectPreview.name = gameObject.name;
+                objectPreview = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
+                objectPreview.name = prefabtoinstant.name;
 
                 objectPreview.GetComponent<Collider>().enabled = false;
-                if (gameObject.name == "TunnelIn" || gameObject.name == "TunnelOut" || gameObject.name == "TunnelInmitte")
+                if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut" || prefabtoinstant.name == "TunnelInmitte")
                 {
                     foreach (Transform c in objectPreview.transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
@@ -162,8 +163,15 @@ public class ObjectPlacer : MonoBehaviour
                 }
                 if (canDrag)
                 {
-                    GameObject cloneObj = Instantiate(gameObject, finalPosition, Quaternion.Euler(0, rotate, 0));
-                    cloneObj.name = gameObject.name;
+
+                if(player != null){
+                 player.anrufen(prefabtoinstant.name, finalPosition, rotate);
+                    
+                    
+                }
+                
+                   // GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
+                   // cloneObj.name = prefabtoinstant.name;
                 }
             }
         }

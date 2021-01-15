@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2766871203134061895}
   - component: {fileID: 6961820349941973108}
   - component: {fileID: 345856659881131266}
+  - component: {fileID: 7755593714975641533}
   m_Layer: 0
   m_Name: CurveL0Final
   m_TagString: Schiene
@@ -45,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381f82841919fc444b63336e90367b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  player: {fileID: 0}
 --- !u!65 &345856659881131266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58,6 +62,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: -1, y: 0, z: 1.12}
+--- !u!114 &7755593714975641533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268761637280383396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1001 &1773812910854467996
 PrefabInstance:
   m_ObjectHideFlags: 0

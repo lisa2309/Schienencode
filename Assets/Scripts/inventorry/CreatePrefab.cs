@@ -28,7 +28,7 @@ public class CreatePrefab : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Vector3.forward);
         position = ray.GetPoint(Camera.main.farClipPlane / 2);
         objectPlacer = FindObjectOfType<ObjectPlacer>();
-        objectPlacer.gameObject = currentPrefab;
+        objectPlacer.prefabtoinstant = currentPrefab;
         objectPlacer.rotate = rotate;
         Debug.Log(rotate);
         objectPlacer.isPreviewOn = true;
