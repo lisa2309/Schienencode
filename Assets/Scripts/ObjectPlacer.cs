@@ -164,11 +164,11 @@ public class ObjectPlacer : MonoBehaviour
                 if (canDrag)
                 {
 
-                
+                if(player != null){
                  player.anrufen(prefabtoinstant.name, finalPosition, rotate);
                     
                     
-                    
+                }
                 
                    // GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
                    // cloneObj.name = prefabtoinstant.name;
