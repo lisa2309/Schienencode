@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 162147335433602571}
   m_Layer: 0
   m_Name: LocFinal
-  m_TagString: Untagged
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   routes:
   - {fileID: 0}
   - {fileID: 0}
+  coroutineAllowed: 0
