@@ -14,12 +14,12 @@ Modified: rotation
 public class BezierFollow : MonoBehaviour
 {
     [SerializeField]
-    private Transform[] routes;
+    public List<Transform> routes;
     private int routeToGo;
     private float tParam;
     private Vector3 catPosition;
     private float speedModifier;
-    private bool coroutineAllowed;
+    public bool coroutineAllowed;
     private Vector3 rotationVector;
 
     /// <summary>
@@ -76,7 +76,7 @@ public class BezierFollow : MonoBehaviour
         tParam = 0f;
         routeToGo += 1;
 
-        if (routeToGo > routes.Length - 1)
+        if (routeToGo > routes.Count - 1)
         {
             routeToGo = 0;
         }
