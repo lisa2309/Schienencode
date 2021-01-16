@@ -41,9 +41,9 @@ public class Grid : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        for (float x = 0; x < 30; x += size)
+        for (float x = 0; x < 100; x += size)
         {
-            for (float z = 0; z < 30; z += size)
+            for (float z = 0; z < 55; z += size)
             {
                 var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
                 Gizmos.DrawSphere(point, 0.1f);
