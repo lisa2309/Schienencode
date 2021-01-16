@@ -80,3 +80,7 @@ MonoBehaviour:
     type: 3}
   switch_r_1: {fileID: 2961790561801857384, guid: 9666bf35e7933814cb9ea02cdf9b9f2c,
     type: 3}
+  rail_start: {fileID: 3372956890935203653, guid: 87a769d10fd872a4ca848612cd2c73c6,
+    type: 3}
+  rail_end: {fileID: 5215155605840322757, guid: 8f2038fac09915843a34de1891da0f15,
+    type: 3}

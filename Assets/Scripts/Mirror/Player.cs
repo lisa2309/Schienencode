@@ -19,6 +19,9 @@ public GameObject tunel_out;
     public GameObject switch_r_0;
     public GameObject switch_r_1;
 
+    public GameObject rail_start;
+    public GameObject rail_end;
+
     private GameObject prefabtoinstant;
 
 
@@ -72,6 +75,12 @@ if(this.isLocalPlayer){
                 break;
             case "SwitchR1Final":
                 prefabtoinstant = switch_r_1;
+                break;
+            case "RailStart":
+                prefabtoinstant = rail_start;
+                break;
+            case "RailEnd":
+                prefabtoinstant = rail_end;
                 break;
             default:
             prefabtoinstant = gerade_schiene;
