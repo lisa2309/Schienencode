@@ -108,6 +108,19 @@ public class ObjectPlacer : MonoBehaviour
                         }
                     }
                 }
+                else if (gameObject.name == "SwitchR0Final" || gameObject.name == "SwitchR1Final" || gameObject.name == "SwitchL0Final" || gameObject.name == "SwitchL1Final")
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        foreach (Transform c in objectPreview.transform.GetChild(i).GetComponentInChildren<Transform>())
+                        {
+                            if (c.name != "Route")
+                            {
+                                c.GetComponent<Renderer>().material.color = new Color(255, 20, 147, 0.5f);
+                            }
+                        }
+                    }
+                }
                 else
                 {
                     foreach (Transform c in objectPreview.transform.GetChild(0).GetComponentInChildren<Transform>())
@@ -193,7 +206,7 @@ public class ObjectPlacer : MonoBehaviour
         {
             return hitCollider.transform.GetChild(0).transform.GetChild(0).Find("Route").Find(point).position;
         }
-        else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final")
+        else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final" || hitCollider.name == "SwitchR0Final" || hitCollider.name == "SwitchR1Final" || hitCollider.name == "SwitchL0Final" || hitCollider.name == "SwitchL1Final")
         {
             return hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
         }
