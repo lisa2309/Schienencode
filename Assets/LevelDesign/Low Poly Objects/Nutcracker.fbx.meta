@@ -3,7 +3,37 @@ guid: 88c9cfd2ebafbf0419638915bbbccd2d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nutcracker Black
+    second: {fileID: 2100000, guid: c3b491999b6378a4aa34205afce6fc32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nutcracker Red
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nutcracker Skin
+    second: {fileID: 2100000, guid: c3b491999b6378a4aa34205afce6fc32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nutcracker White
+    second: {fileID: 2100000, guid: c3b491999b6378a4aa34205afce6fc32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NutcrackerBrown
+    second: {fileID: 2100000, guid: c3b491999b6378a4aa34205afce6fc32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nutracker Gold
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

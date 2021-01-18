@@ -3,7 +3,32 @@ guid: efb38159d50793e4db2c5faddb7ebe7e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Brown
+    second: {fileID: 2100000, guid: bd2805a1c1f48ef438b3d2532222792f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Decoration White
+    second: {fileID: 2100000, guid: 906fb8f784715194cae7c41e00ca54f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Green
+    second: {fileID: 2100000, guid: 906fb8f784715194cae7c41e00ca54f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Lights
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Stars Gold
+    second: {fileID: 2100000, guid: c3b491999b6378a4aa34205afce6fc32, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
