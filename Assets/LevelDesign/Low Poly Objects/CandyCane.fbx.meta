@@ -3,7 +3,12 @@ guid: d514860308a2004419e881501a5620a7
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CandyCane
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

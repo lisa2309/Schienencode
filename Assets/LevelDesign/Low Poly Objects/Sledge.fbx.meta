@@ -3,7 +3,22 @@ guid: f2db60a719e97b84daed0e12b064aa9d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sledge Gold
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sledge Red
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sledge Wood
+    second: {fileID: 2100000, guid: a660223ceea18624db364272c79745cf, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
