@@ -14,7 +14,15 @@ public GameObject kurve_lo;
 public GameObject tunel_in;
 public GameObject tunel_out;
 
-private GameObject prefabtoinstant;
+    public GameObject switch_l_0;
+    public GameObject switch_l_1;
+    public GameObject switch_r_0;
+    public GameObject switch_r_1;
+
+    public GameObject rail_start;
+    public GameObject rail_end;
+
+    private GameObject prefabtoinstant;
 
 
 private ObjectPlacer objectPlacer;
@@ -43,7 +51,6 @@ if(this.isLocalPlayer){
         switch (prefabto){
             case "Straight270Final":
             prefabtoinstant = gerade_schiene;
-
             break;
             case "CurveL0Final":
             prefabtoinstant = kurve_lo;
@@ -57,6 +64,24 @@ if(this.isLocalPlayer){
             case "TunnelOut":
             prefabtoinstant = tunel_out;
             break;
+            case "SwitchL0Final":
+                prefabtoinstant = switch_l_0;
+                break;
+            case "SwitchL1Final":
+                prefabtoinstant = switch_l_1;
+                break;
+            case "SwitchR0Final":
+                prefabtoinstant = switch_r_0;
+                break;
+            case "SwitchR1Final":
+                prefabtoinstant = switch_r_1;
+                break;
+            case "RailStart":
+                prefabtoinstant = rail_start;
+                break;
+            case "RailEnd":
+                prefabtoinstant = rail_end;
+                break;
             default:
             prefabtoinstant = gerade_schiene;
             break;

@@ -11,17 +11,16 @@ public class Routing : MonoBehaviour
 {
     List<GameObject> rails;
     GameObject buffer;
-    List<GameObject> route = new List<GameObject>();
+    List<Transform> routepoints = new List<Transform>();
     bool finished = false;
+
+    public bool straight = true;
 
     /// <summary>
     ///     This Should be triggered when Player is finished. Generates the Route and starts the Train.
     /// </summary>
-    /// <param name="start">
-    ///     GameObject which is the Startpoint for the Route.
-    /// </param>
     /// @author Florian Vogel & Bjarne Bensel 
-    void GenerateRoute(GameObject start)
+    public void GenerateRoute()
     {
         // Find GameObject Train
         GameObject train = GameObject.FindGameObjectWithTag("Train");
@@ -37,14 +36,14 @@ public class Routing : MonoBehaviour
             Debug.LogError("Finish not found");
         }
 
-        //buffer = GameObject.FindGameObjectWithTag("Start");
-        //if (buffer == null)
-        //{
-        //    Debug.LogError("Start not found");
-        //}
+        buffer = GameObject.FindGameObjectWithTag("Start");
+        if (buffer == null)
+        {
+            Debug.LogError("Start not found");
+        }
 
         // Add Start Gemobject to Route
-        route.Add(start);
+        routepoints.Add(buffer.transform.GetChild(0).Find("Route"));
 
         //route.Add(buffer);
         //buffer.getdirektion
@@ -81,23 +80,27 @@ public class Routing : MonoBehaviour
                     if (rail.transform.position.z == (buffer.transform.position.z + getDirectionZ(buffer) * 4) || rail.transform.position.z == (buffer.transform.position.z + getDirectionZ(buffer) * 6))
                     {
                         // check if next rail is directly connected
-                        if (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f)
+                        Debug.Log("1: " + rail.transform.GetChild(0).Find("Route").Find("Point0").position + " 2: " + buffer.transform.GetChild(0).Find("Route").Find("Point3").position);
+                        if (((buffer.name == "SwitchR0Final" || buffer.name == "SwitchR1Final") && straight && Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(1).Find("Route").Find("Point3").position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f))
                         {
+                            Debug.Log("next rail found: " + rail.name);
                             buffer = rail;
-                            route.Add(rail);
+
+                            if ((rail.name == "SwitchR0Final" || rail.name == "SwitchR1Final") && straight)
+                            {
+                                routepoints.Add(rail.transform.GetChild(1).Find("Route"));
+                            }
+                            else
+                            {
+                                routepoints.Add(rail.transform.GetChild(0).Find("Route"));
+                            }
+                           
 
                             // check if finish is reached
                             if (rail == finish)
                             {
                                 Debug.Log("Finish found");
                                 finished = true;
-
-                                // construct route and assign to train
-                                List<Transform> routepoints = new List<Transform>();
-                                foreach (GameObject routePoint in route)
-                                {
-                                    routepoints.Add(routePoint.transform.GetChild(0).Find("Route"));
-                                }
                                 train.GetComponent<BezierFollow>().routes = routepoints;
                                 train.GetComponent<BezierFollow>().coroutineAllowed = true;
                             }
@@ -117,9 +120,9 @@ public class Routing : MonoBehaviour
     /// <param name="gameObject"></param>
     /// <returns>+1, -1 or 0 based on Prefab orientation</returns>
     /// @author Florian Vogel & Bjarne Bensel 
-    private int getDirectionX(GameObject obj)
+    private double getDirectionX(GameObject obj)
     {
-        Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
+        //Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
 
         if (obj.name == "Straight270Final")
         {
@@ -165,6 +168,72 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
+        else if (obj.name == "SwitchR0Final")
+        {
+            if (straight)
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return 1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return -1;
+                }
+            } 
+            else
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return 0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return 1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return -0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return -1;
+                }
+            }
+        }
+        else if (obj.name == "SwitchR1Final")
+        {
+            if (straight)
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return 1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return 0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return -1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return -0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return 1;
+                }
+            }
+        }
         return 0;
     }
 
@@ -174,7 +243,7 @@ public class Routing : MonoBehaviour
     /// <param name="gameObject"></param>
     /// <returns>+1, -1 or 0 based on GameObject orientation</returns>
     /// @author Florian Vogel & Bjarne Bensel 
-    private int getDirectionZ(GameObject obj)
+    private double getDirectionZ(GameObject obj)
     {
         if (obj.name == "Straight270Final")
         {
@@ -218,6 +287,72 @@ public class Routing : MonoBehaviour
             else if ((int)obj.transform.localEulerAngles.y == 0)
             {
                 return -1;
+            }
+        }
+        else if (obj.name == "SwitchR0Final")
+        {
+            if (straight)
+            {
+                if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return -1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return 1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return -0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return -1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return 0.5;
+                }
+            }
+        }
+        else if (obj.name == "SwitchR1Final")
+        {
+            if (straight)
+            {
+                if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return -1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                if ((int)obj.transform.localEulerAngles.y == 0)
+                {
+                    return -1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 90)
+                {
+                    return -0.5;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 180)
+                {
+                    return 1;
+                }
+                else if ((int)obj.transform.localEulerAngles.y == 270)
+                {
+                    return 0.5;
+                }
             }
         }
         return 0;

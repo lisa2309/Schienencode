@@ -8,6 +8,7 @@ TagManager:
   - Start
   - Rail
   - Train
+  - Purpose
   layers:
   - Default
   - TransparentFX
