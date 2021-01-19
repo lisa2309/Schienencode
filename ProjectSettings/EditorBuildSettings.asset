@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: 209e6b1b393eb7f4fa296245dbd7707b
+  - enabled: 1
+    path: Assets/Scenes/Mirror.unity
+    guid: 53a15be6dba74294085faf013d5d7b6c
   m_configObjects: {}

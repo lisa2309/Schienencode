@@ -98,7 +98,7 @@ public class ObjectPlacer : MonoBehaviour
                 objectPreview.name = prefabtoinstant.name;
 
                 objectPreview.GetComponent<Collider>().enabled = false;
-                if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut" || prefabtoinstant.name == "TunnelInmitte")
+                if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut")
                 {
                     foreach (Transform c in objectPreview.transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
@@ -135,7 +135,7 @@ public class ObjectPlacer : MonoBehaviour
             else if (!isObjectPreview)
             {
                 GameObject gamob;
-                Vector3 point0, point00, point3, point33;
+                Vector3[] arrpoint0, arrpoint00, arrpoint3, arrpoint33;
                 Collider[] hitColliders, colls;
                 float dist;
 
@@ -143,32 +143,61 @@ public class ObjectPlacer : MonoBehaviour
                 centerpoint = Quaternion.Euler(0, rotate, 0) * (centerpoint - finalPosition) + finalPosition;
                 colls = Physics.OverlapBox(centerpoint, objectPreview.GetComponent<BoxCollider>().size / 2);
                 canDrag = true;
-                point0 = GetPosition(objectPreview, "Point0");
-                point3 = GetPosition(objectPreview, "Point3");
+                
+                arrpoint0 = GetPosition(objectPreview, "Point0");
+                arrpoint3 = GetPosition(objectPreview, "Point3");
 
+                foreach (Vector3 point0 in arrpoint0){
                 hitColliders = Physics.OverlapSphere(point0, 2f);
                 foreach (var hitCollider in hitColliders)
                 {
-                    point00 = GetPosition(hitCollider.gameObject, "Point0");
+                    arrpoint00 = GetPosition(hitCollider.gameObject, "Point0");
+                    foreach (Vector3 point00 in arrpoint00){
                     dist = Vector3.Distance(point00, point0);
+                    //Debug.Log("point00  "+point00+"  point0  "+point0);
+                    //Debug.Log("distance "+dist);
+
                     if (dist < 0.5f && point00 != Vector3.positiveInfinity)
                     {
+                       
                         canDrag = false;
+                        break;
+                    }
+                    }
+                    if(canDrag==false){
+                        break;
                     }
                 }
+                 if(canDrag==false){
+                        break;
+                    }
+                }
+
+                foreach (Vector3 point3 in arrpoint3){
                 hitColliders = Physics.OverlapSphere(point3, 2f);
                 foreach (var hitCollider in hitColliders)
                 {
-                    point33 = GetPosition(hitCollider.gameObject, "Point3");
+                    arrpoint33 = GetPosition(hitCollider.gameObject, "Point3");
+                    foreach (Vector3 point33 in arrpoint33){
                     dist = Vector3.Distance(point33, point3);
                     if (dist < 0.5f && point33 != Vector3.positiveInfinity)
                     {
                         canDrag = false;
+                        break;
+                    }
+                    }
+                    if(canDrag==false){
+                        break;
+                    }
+                }
+                 if(canDrag==false){
+                        break;
                     }
                 }
                 foreach (Collider cool in colls)
                 {
                     gamob = cool.gameObject;
+                    //Debug.Log("collision   "+gamob.name);
                     if (gamob.name != "Terrain" && gamob.name != "Inside" && gamob.name != "Outside")
                     {
                         canDrag = false;
@@ -200,20 +229,35 @@ public class ObjectPlacer : MonoBehaviour
     /// <returns>this function will return vector3 of the searched point </returns>
     /// @author Ahmed L'harrak
     ///
-    Vector3 GetPosition(GameObject hitCollider, String point)
+    Vector3[] GetPosition(GameObject hitCollider, String point)
     {
+     Vector3[] result= new Vector3[2];
+
+        
+
         if (hitCollider.name == "TunnelOut" || hitCollider.name == "TunnelIn")
         {
-            return hitCollider.transform.GetChild(0).transform.GetChild(0).Find("Route").Find(point).position;
+            result[0] = hitCollider.transform.GetChild(0).transform.GetChild(0).Find("Route").Find(point).position;
+            result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final" || hitCollider.name == "SwitchR0Final" || hitCollider.name == "SwitchR1Final" || hitCollider.name == "SwitchL0Final" || hitCollider.name == "SwitchL1Final")
+        else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final")
         {
-            return hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
+            result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
+            result[1] = Vector3.positiveInfinity;
+        }
+        else if (hitCollider.name == "SwitchL0Final" || hitCollider.name == "SwitchL1Final" || hitCollider.name == "SwitchR0Final" || hitCollider.name == "SwitchR1Final")
+        {
+            result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
+            result[1] = hitCollider.transform.GetChild(1).Find("Route").Find(point).position;
+            //Debug.Log("hitcollieder name : "+result[0]+"  result 1 :"+result[1]);
         }
         else
         {
-            return Vector3.positiveInfinity;
+            result[0] = Vector3.positiveInfinity;
+            result[1] = Vector3.positiveInfinity;
         }
+    
+        return result;
     }
 
 }
