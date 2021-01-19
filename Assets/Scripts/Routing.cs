@@ -81,20 +81,29 @@ public class Routing : MonoBehaviour
                     {
                         // check if next rail is directly connected
                         Debug.Log("1: " + rail.transform.GetChild(0).Find("Route").Find("Point0").position + " 2: " + buffer.transform.GetChild(0).Find("Route").Find("Point3").position);
-                        if (((buffer.name == "SwitchR0Final" || buffer.name == "SwitchR1Final") && straight && Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(1).Find("Route").Find("Point3").position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f))
+                        if (((buffer.name == "SwitchR0Final" || buffer.name == "SwitchR1Final") && straight && Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(1).Find("Route").Find("Point3").position) < 0.5f) || ((rail.name == "SwitchL0Final" || rail.name == "SwitchL1Final") && Vector3.Distance(rail.transform.GetChild(1).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f))
                         {
                             Debug.Log("next rail found: " + rail.name);
-                            buffer = rail;
-
+                            
                             if ((rail.name == "SwitchR0Final" || rail.name == "SwitchR1Final") && straight)
                             {
                                 routepoints.Add(rail.transform.GetChild(1).Find("Route"));
+                            }
+                            else if((rail.name == "SwitchL0Final" || rail.name == "SwitchL1Final"))
+                            {
+                                if (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) {
+                                    routepoints.Add(rail.transform.GetChild(0).Find("Route"));
+                                } else
+                                {
+                                    routepoints.Add(rail.transform.GetChild(1).Find("Route"));
+                                }
                             }
                             else
                             {
                                 routepoints.Add(rail.transform.GetChild(0).Find("Route"));
                             }
-                           
+
+                           buffer = rail;
 
                             // check if finish is reached
                             if (rail == finish)
@@ -234,6 +243,17 @@ public class Routing : MonoBehaviour
                 }
             }
         }
+        else if (obj.name == "SwitchL0Final" || obj.name == "SwitchL1Final")
+        {
+            if ((int)obj.transform.localEulerAngles.y == 0)
+            {
+                return -1;
+            }
+            else if ((int)obj.transform.localEulerAngles.y == 180)
+            {
+                return 1;
+            }
+        }
         return 0;
     }
 
@@ -353,6 +373,17 @@ public class Routing : MonoBehaviour
                 {
                     return 0.5;
                 }
+            }
+        }
+        else if (obj.name == "SwitchL0Final" || obj.name == "SwitchL1Final")
+        {
+            if ((int)obj.transform.localEulerAngles.y == 90)
+            {
+                return 1;
+            }
+            else if ((int)obj.transform.localEulerAngles.y == 270)
+            {
+                return -1;
             }
         }
         return 0;
