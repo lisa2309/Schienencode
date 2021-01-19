@@ -2,33 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// Music Volume Setting.
+/// </summary>
+/// @author Ronja Haas & Anna-Lisa Müller
+
 public class MusicPlayer : MonoBehaviour
 {
 
-    public AudioSource AudioSource;
-    public static float musicVolume = 1f;
+    public AudioSource audioSource;
+    public static float musicVolume = 0.5f;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start Music when play mode is active.
+    /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     void Start()
     {
-        AudioSource.Play();
+        audioSource.Play();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //leiser
-        if (Input.GetKey(KeyCode.O))
-        {
-            musicVolume -= 0.03f;
-        }
-
-        //lauter
-        if (Input.GetKey(KeyCode.P))
-        {
-            musicVolume += 0.03f; 
-        }
-        AudioSource.volume = musicVolume;
-    }
+	
+	/// <summary>
+    /// Update the Volume when the slider is changed.
+    /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
+	public void UpdateVolume(float volume)
+	{
+		audioSource.volume = volume;
+	}
 
 }
