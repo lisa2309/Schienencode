@@ -50,14 +50,17 @@ public class CameraMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse2))
         {
-            Vector3 cameraPosition = Camera.main.transform.position + new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
-            if (cameraPosition.z > minCameraZPosition && cameraPosition.z < maxCameraZPosition) 
+            if (Camera.main.fieldOfView == minFieldOfView)
             {
-                if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
+                Vector3 cameraPosition = Camera.main.transform.position + new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
+                if (cameraPosition.z > minCameraZPosition && cameraPosition.z < maxCameraZPosition) 
                 {
-                    Camera.main.transform.position = cameraPosition;
-                }   
-            }  
+                    if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
+                    {
+                        Camera.main.transform.position = cameraPosition;
+                    }   
+                } 
+            }    
         }
     }
 
