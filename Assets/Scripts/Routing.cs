@@ -81,15 +81,15 @@ public class Routing : MonoBehaviour
                     {
                         // check if next rail is directly connected
                         Debug.Log("1: " + rail.transform.GetChild(0).Find("Route").Find("Point0").position + " 2: " + buffer.transform.GetChild(0).Find("Route").Find("Point3").position);
-                        if (((buffer.name == "SwitchR0Final" || buffer.name == "SwitchR1Final") && straight && Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(1).Find("Route").Find("Point3").position) < 0.5f) || ((rail.name == "SwitchL0Final" || rail.name == "SwitchL1Final") && Vector3.Distance(rail.transform.GetChild(1).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f))
+                        if (((buffer.name.Contains("SwitchR0Final") || buffer.name.Contains("SwitchR1Final")) && straight && Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(1).Find("Route").Find("Point3").position) < 0.5f) || ((rail.name.Contains("SwitchL0Final") || rail.name.Contains("SwitchL1Final")) && Vector3.Distance(rail.transform.GetChild(1).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f))
                         {
                             Debug.Log("next rail found: " + rail.name);
                             
-                            if ((rail.name == "SwitchR0Final" || rail.name == "SwitchR1Final") && straight)
+                            if ((rail.name.Contains("SwitchR0Final") || rail.name.Contains("SwitchR1Final")) && straight)
                             {
                                 routepoints.Add(rail.transform.GetChild(1).Find("Route"));
                             }
-                            else if((rail.name == "SwitchL0Final" || rail.name == "SwitchL1Final"))
+                            else if((rail.name.Contains("SwitchL0Final") || rail.name.Contains("SwitchL1Final")))
                             {
                                 if (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) {
                                     routepoints.Add(rail.transform.GetChild(0).Find("Route"));
@@ -131,9 +131,9 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private double getDirectionX(GameObject obj)
     {
-        //Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
+        Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
 
-        if (obj.name == "Straight270Final")
+        if (obj.name.Contains("Straight270Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -144,7 +144,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name == "CurveL0Final")
+        else if (obj.name.Contains("CurveL0Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -155,7 +155,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name == "CurveR0Final")
+        else if (obj.name.Contains("CurveR0Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -166,7 +166,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name == "RailStart" || obj.name == "RailEnd")
+        else if (obj.name.Contains("RailStart") || obj.name.Contains("RailEnd"))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -177,7 +177,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name == "SwitchR0Final")
+        else if (obj.name.Contains("SwitchR0Final"))
         {
             if (straight)
             {
@@ -210,7 +210,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name == "SwitchR1Final")
+        else if (obj.name.Contains("SwitchR1Final"))
         {
             if (straight)
             {
@@ -243,7 +243,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name == "SwitchL0Final" || obj.name == "SwitchL1Final")
+        else if (obj.name.Contains("SwitchL0Final") || obj.name.Contains("SwitchL1Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -265,7 +265,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private double getDirectionZ(GameObject obj)
     {
-        if (obj.name == "Straight270Final")
+        if (obj.name.Contains("Straight270Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -276,7 +276,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name == "CurveL0Final")
+        else if (obj.name.Contains("CurveL0Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -287,7 +287,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name == "CurveR0Final")
+        else if (obj.name.Contains("CurveR0Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -298,7 +298,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name == "RailStart" || obj.name == "RailEnd")
+        else if (obj.name.Contains("RailStart") || obj.name.Contains("RailEnd"))
         {
             if ((int)obj.transform.localEulerAngles.y == 180)
             {
@@ -309,7 +309,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name == "SwitchR0Final")
+        else if (obj.name.Contains("SwitchR0Final"))
         {
             if (straight)
             {
@@ -342,7 +342,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name == "SwitchR1Final")
+        else if (obj.name.Contains("SwitchR1Final"))
         {
             if (straight)
             {
@@ -375,7 +375,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name == "SwitchL0Final" || obj.name == "SwitchL1Final")
+        else if (obj.name.Contains("SwitchL0Final") || obj.name.Contains("SwitchL1Final"))
         {
             if ((int)obj.transform.localEulerAngles.y == 90)
             {
