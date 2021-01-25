@@ -8,9 +8,12 @@ namespace DefaultNamespace
     {
         public string BoardString;
 
-        public Board(string bs)
+        public string MissionString;
+
+        public Board(string bs, string ms)
         {
             BoardString = bs;
+            MissionString = ms;
         }
 
         // public BoardComponent[] BoardList;
