@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using Database;
 
 
 public class Player : NetworkBehaviour
@@ -13,6 +14,8 @@ public GameObject kurve_lo;
 
 public GameObject tunel_in;
 public GameObject tunel_out;
+
+public GameObject station;
 
     public GameObject switch_l_0;
     public GameObject switch_l_1;
@@ -26,6 +29,7 @@ public GameObject tunel_out;
 
 
 private ObjectPlacer objectPlacer;
+private DatabaseConnector dbCon;
 private DeleteRail deletrail;
 
 
@@ -33,6 +37,8 @@ void Start() {
 prefabtoinstant = gerade_schiene;
 
 if(this.isLocalPlayer){
+    dbCon = FindObjectOfType<DatabaseConnector>();
+    dbCon.player = this;
 
    objectPlacer = FindObjectOfType<ObjectPlacer>();
    objectPlacer.player = this;
@@ -81,6 +87,9 @@ if(this.isLocalPlayer){
                 break;
             case "RailEnd":
                 prefabtoinstant = rail_end;
+                break;
+            case "TrainStation":
+                prefabtoinstant = station;
                 break;
             default:
             prefabtoinstant = gerade_schiene;

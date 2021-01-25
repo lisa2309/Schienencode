@@ -54,7 +54,7 @@ public class Routing : MonoBehaviour
         // Add Finish Gameobject to Rails
         rails.Add(finish);
 
-        Debug.Log("Größe rails List: " + rails.Count);
+        Debug.Log("GrÃ¶ÃŸe rails List: " + rails.Count);
 
 
         int boardcounter = 0;
