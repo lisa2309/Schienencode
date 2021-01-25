@@ -11,7 +11,7 @@ public class Routing : MonoBehaviour
 {
     List<GameObject> rails;
     GameObject buffer;
-    List<Transform> routepoints = new List<Transform>();
+    private List<Transform> routepoints;
     bool finished = false;
 
     public bool straight = true;
@@ -22,6 +22,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     public void GenerateRoute()
     {
+        routepoints = new List<Transform>();
         // Find GameObject Train
         GameObject train = GameObject.FindGameObjectWithTag("Train");
         if (train == null)
