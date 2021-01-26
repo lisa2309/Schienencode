@@ -1,13 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// @author
+/// </summary>
 namespace DefaultNamespace
 {
     public class Mission
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public int[] cargos;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int[] cargoCounters;
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// <param name="cargo"></param>
         public Mission(int[] cargo)
         {
             this.cargos = cargo;
@@ -21,6 +37,11 @@ namespace DefaultNamespace
             // }
         }
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// <returns></returns>
         public bool IsComplete()
         {
             int i = 0;

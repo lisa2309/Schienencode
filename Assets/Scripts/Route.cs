@@ -11,7 +11,14 @@ Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
 public class Route : MonoBehaviour
 {
 	[SerializeField]
+	/// <summary>
+	/// 
+	/// </summary>
 	private Transform[] controlPoints;
+
+	/// <summary>
+    /// 
+    /// </summary>
 	private Vector3 gizmosPosition;
 
 	/// <summary>

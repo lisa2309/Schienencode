@@ -2,14 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// 
+/// @author 
+/// </summary>
 namespace DefaultNamespace
 {
     public class Board
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public string BoardString;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string MissionString;
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// <param name="bs"></param>
+        /// <param name="ms"></param>
         public Board(string bs, string ms)
         {
             BoardString = bs;

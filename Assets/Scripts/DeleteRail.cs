@@ -8,10 +8,14 @@ using Mirror;
 /// <summary>
 /// This class is attached to a rail and ensures that the rail is deleted when the mouse is clicked on it
 /// </summary>
-/// @author Ronja Haas & Anna-Lisa Müller 
+/// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
 public class DeleteRail : NetworkBehaviour
 {
-   public Player player=null;
+    /// <summary>
+    /// 
+    /// </summary>
+    public Player player=null;
+
     /// <summary>
     /// Destroys the object attached to this script as soon as you left click on it 
     /// </summary>
