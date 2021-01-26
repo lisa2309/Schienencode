@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1311112541704443904}
   - component: {fileID: 2528696191688473748}
   m_Layer: 0
-  m_Name: default
+  m_Name: Curve90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7741625113677808684, guid: ef9f6d83fcd8fa04e83a22de21b7d512, type: 3}
+  - {fileID: 2100000, guid: 063116c25d480f24087ab73b47ce40d0, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
