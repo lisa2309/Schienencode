@@ -14,12 +14,38 @@ Modified: rotation
 public class BezierFollow : MonoBehaviour
 {
     [SerializeField]
+    /// <summary>
+    /// </summary>
     public List<Transform> routes;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private int routeToGo;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private float tParam;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 catPosition;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private float speedModifier;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public bool coroutineAllowed;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 rotationVector;
 
     /// <summary>
@@ -48,6 +74,10 @@ public class BezierFollow : MonoBehaviour
 
     /// <summary>
     /// Moves the train on the rail
+    /// p0:
+    /// p1:
+    /// p2:
+    /// p3:
     /// </summary>
     /// <param name="routeNumber">next Point on the Bezier Curve</param>
     /// @author Florian Vogel & Bjarne Bensel

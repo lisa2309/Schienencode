@@ -11,8 +11,14 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-
+    /// <summary>
+    /// This is the audioSource file with the music
+    /// </summary>
     public AudioSource audioSource;
+
+    /// <summary>
+    /// This is the musicVolume. It has an value between 0 and 1.
+    /// </summary>
     public static float musicVolume = 0.5f;
 
     /// <summary>

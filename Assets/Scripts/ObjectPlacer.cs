@@ -15,16 +15,54 @@ using Debug = UnityEngine.Debug;
 /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
 public class ObjectPlacer : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject prefabtoinstant;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public bool isPreviewOn;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public float rotate = 0;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public Player player=null;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 oldMousePosition;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 newMousePosition;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Grid grid;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private GameObject objectPreview;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private bool canDrag;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Ray ray;
 
     /// <summary>
@@ -79,6 +117,18 @@ public class ObjectPlacer : MonoBehaviour
     ///  if the created object generat a collision with other objectes  then will this object  destroyed
     /// if the dictance of poit0 of the both objectes (created and adjacent object) not more than 0.5 units also (composed) 
     /// but in in wrong direction then will this object  destroyed 
+    /// Variables:
+    /// hitInfo:
+    /// finalPosition:
+    /// gamob:
+    /// arrpoint0:
+    /// arrpoint00:
+    /// arrpoint3:
+    /// arrpoint33
+    /// hitColliders:
+    /// colls:
+    /// dist:
+    /// centerpoint:
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
     /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak

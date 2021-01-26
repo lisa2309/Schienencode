@@ -11,12 +11,39 @@ using UnityEngine;
 /// </summary>
 public class CameraMovement : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
     private const int maxCameraXPosition = 80;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private const int minCameraXPosition = 22;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private const int maxCameraZPosition = 30;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private const int minCameraZPosition = 0;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private const int maxFieldOfView = 59;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private const int minFieldOfView = 20;
+
+    /// <summary>
+    /// 
+    /// </summary>
     private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 10.6f);
 
     /// <summary>

@@ -11,10 +11,18 @@ Quelle: https://www.youtube.com/watch?v=VBZFYGWvm4A
 public class Grid : MonoBehaviour
 {
     [SerializeField]
+    /// <summary>
+    /// 
+    /// </summary>
     private float size = 2f;
 
     /// <summary>
     /// Transforms a coordinate into a point adapted to the grid system
+    /// Variables:
+    /// xCount:
+    /// yCount:
+    /// zCount:
+    /// result:
     /// </summary>
     /// <param name="position">The point clicked in the game world</param>
     /// <returns>A point adapted to the grid</returns>
@@ -37,6 +45,7 @@ public class Grid : MonoBehaviour
 
     /// <summary>
     /// Creates a grid of yellow dots that serve as orientation when designing a level and other objects
+    /// point:
     /// </summary>
     private void OnDrawGizmos()
     {

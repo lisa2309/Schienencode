@@ -4,25 +4,47 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-///     Calculates Route from Start to Finish, Finish Prefab has to be tagged as Finish
+/// Calculates Route from Start to Finish, Finish Prefab has to be tagged as Finish
 /// </summary>
 /// @author Florian Vogel & Bjarne Bensel 
 public class Routing : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
     List<GameObject> rails;
+
+    /// <summary>
+    /// 
+    /// </summary>
     GameObject buffer;
-    private List<Transform> routepoints;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private List<Transform> routePoints;
+
+    /// <summary>
+    /// 
+    /// </summary>
     bool finished = false;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public bool straight = true;
 
     /// <summary>
-    ///     This Should be triggered when Player is finished. Generates the Route and starts the Train.
+    /// This Should be triggered when Player is finished. Generates the Route and starts the Train.
+    /// Variables:
+    /// train:
+    /// finish:
+    /// boardCounter:
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
     public void GenerateRoute()
     {
-        routepoints = new List<Transform>();
+        routePoints = new List<Transform>();
         // Find GameObject Train
         GameObject train = GameObject.FindGameObjectWithTag("Train");
         if (train == null)
@@ -44,7 +66,7 @@ public class Routing : MonoBehaviour
         }
 
         // Add Start Gemobject to Route
-        routepoints.Add(buffer.transform.GetChild(0).Find("Route"));
+        routePoints.Add(buffer.transform.GetChild(0).Find("Route"));
 
         //route.Add(buffer);
         //buffer.getdirektion
@@ -58,13 +80,13 @@ public class Routing : MonoBehaviour
         Debug.Log("Größe rails List: " + rails.Count);
 
 
-        int boardcounter = 0;
+        int boardCounter = 0;
         finished = false;
 
         // Algorithm to build route, Limit iterations to terminate if unsuccessful to find route
-        while (!finished && boardcounter < 10 * rails.Count)
+        while (!finished && boardCounter < 10 * rails.Count)
         {
-            boardcounter++;
+            boardCounter++;
             Debug.Log("While durchgang");
 
             // Find next rail in list of rails
@@ -88,20 +110,20 @@ public class Routing : MonoBehaviour
                             
                             if ((rail.name.Contains("SwitchR0Final") || rail.name.Contains("SwitchR1Final")) && straight)
                             {
-                                routepoints.Add(rail.transform.GetChild(1).Find("Route"));
+                                routePoints.Add(rail.transform.GetChild(1).Find("Route"));
                             }
                             else if((rail.name.Contains("SwitchL0Final") || rail.name.Contains("SwitchL1Final")))
                             {
                                 if (Vector3.Distance(rail.transform.GetChild(0).Find("Route").Find("Point0").position, buffer.transform.GetChild(0).Find("Route").Find("Point3").position) < 0.5f) {
-                                    routepoints.Add(rail.transform.GetChild(0).Find("Route"));
+                                    routePoints.Add(rail.transform.GetChild(0).Find("Route"));
                                 } else
                                 {
-                                    routepoints.Add(rail.transform.GetChild(1).Find("Route"));
+                                    routePoints.Add(rail.transform.GetChild(1).Find("Route"));
                                 }
                             }
                             else
                             {
-                                routepoints.Add(rail.transform.GetChild(0).Find("Route"));
+                                routePoints.Add(rail.transform.GetChild(0).Find("Route"));
                             }
 
                            buffer = rail;
@@ -111,7 +133,7 @@ public class Routing : MonoBehaviour
                             {
                                 Debug.Log("Finish found");
                                 finished = true;
-                                train.GetComponent<BezierFollow>().routes = routepoints;
+                                train.GetComponent<BezierFollow>().routes = routePoints;
                                 train.GetComponent<BezierFollow>().coroutineAllowed = true;
                             }
                             break;

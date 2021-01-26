@@ -9,6 +9,9 @@ using UnityEngine;
 /// @author Ahmed L'harrak
 public class Panel : MonoBehaviour
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public GameObject selectionPanel;
 
     /// <summary>

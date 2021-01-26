@@ -49,11 +49,18 @@ if(this.isLocalPlayer){
 }
 
 
-
+/// <summary>
+/// 
+/// Variables:
+/// cloneObj:
+/// @author
+/// </summary>
+/// <param name="prefabto"></param>
+/// <param name="finalPosition"></param>
+/// <param name="rotate"></param>
 [Command]
  void insprefab(string prefabto, Vector3 finalPosition, float rotate)
     {
-        
         switch (prefabto){
             case "Straight270Final":
             prefabtoinstant = gerade_schiene;
@@ -94,34 +101,41 @@ if(this.isLocalPlayer){
             default:
             prefabtoinstant = gerade_schiene;
             break;
-        }
-            
+        }  
         GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
         cloneObj.name = prefabtoinstant.name;
-        NetworkServer.Spawn(cloneObj,this.connectionToClient);
-       
-        
+        NetworkServer.Spawn(cloneObj,this.connectionToClient);      
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// @author
+    /// </summary>
+    /// <param name="prefabname"></param>
+    /// <param name="finalPosition"></param>
+    /// <param name="rotate"></param>
   public  void anrufen(string prefabname, Vector3 finalPosition, float rotate)
     {
-          if (!isLocalPlayer) return;
-              
-               insprefab(prefabname, finalPosition, rotate);
-            
-
+        if (!isLocalPlayer) return;   
+        insprefab(prefabname, finalPosition, rotate);
     }
 
-
-    // Called by the Player
+    /// <summary>
+    /// Called by the Player
+    /// @author
+    /// </summary>
+    /// <param name="obj"></param>
     [Client]
     public void TellServerToDestroyObject(GameObject obj)
     {
         CmdDestroyObject(obj);
     }
 
-    // Executed only on the server
+    /// <summary>
+    /// Executed only on the server
+    /// @author
+    /// </summary>
+    /// <param name="obj"></param>
     [Command]
     private void CmdDestroyObject(GameObject obj)
     {

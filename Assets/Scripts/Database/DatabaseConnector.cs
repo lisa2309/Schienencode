@@ -6,38 +6,95 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+/// <summary>
+/// 
+/// @author
+/// </summary>
 namespace Database
 {
     
     public class DatabaseConnector : MonoBehaviour
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private ObjectPlacer placer;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Player player=null;
         //public String boardName;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int boardNumber = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string boardname;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private Board board;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private MissionProver _prover;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject curveR;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject curveL;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject straight;
         
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject railStart;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject railEnd;
         
+        /// <summary>
+        /// 
+        /// </summary>
         public GameObject station;
 
         //public InputField inputBoardName;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private Mission _mission;
 
-        //private String connectionstring = "https://schienencode-default-rtdb.europe-west1.firebasedatabase.app/";
-        private String connectionstring = "https://swt-p-ss20-profcollector.firebaseio.com/schienencode/";
+        //private String connectionString = "https://schienencode-default-rtdb.europe-west1.firebasedatabase.app/";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private String connectionString = "https://swt-p-ss20-profcollector.firebaseio.com/schienencode/";
+
+
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
         public void OnGetSubmit()
         {
             //boardname = inputBoardName.text;
@@ -46,6 +103,10 @@ namespace Database
             Debug.Log("Retrieved: " + board.BoardString);
         }
         
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
         public void OnPutSubmit()
         {
             
@@ -58,6 +119,17 @@ namespace Database
 
         }
 
+        /// <summary>
+        /// 
+        /// Varibles:
+        /// boardInfo:
+        /// structures:
+        /// coordinates:
+        /// x:
+        /// z:
+        /// rot:
+        /// @author
+        /// </summary>
         public void BuildFromDB()
         {
             // RetrieveFromDatabase();
@@ -87,6 +159,14 @@ namespace Database
             }
         }
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// Varibles:
+        /// obj:
+        /// <param name="code"></param>
+        /// <returns></returns>
         private GameObject GetObject(string code)
         {
             GameObject obj;
@@ -118,9 +198,13 @@ namespace Database
             return obj;
         }
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
         public void RetrieveFromDatabase()
         {
-            RestClient.Get<Board>(connectionstring + boardname + ".json").Then(response =>
+            RestClient.Get<Board>(connectionString + boardname + ".json").Then(response =>
             {
                 board = response;
                 CreateMission();
@@ -128,6 +212,15 @@ namespace Database
             });
         }
 
+        /// <summary>
+        /// 
+        /// Variables:
+        /// missionInfo:
+        /// cargos:
+        /// cargosInt:
+        /// i:
+        /// @author
+        /// </summary>
         private void CreateMission()
         {
             string missionInfo = board.MissionString.Split(':')[1];
@@ -142,21 +235,24 @@ namespace Database
             _prover.SetMission(new Mission(cargosInt));
         }
 
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// <param name="board"></param>
         public void PostToDatabase(Board board)
         {
-            RestClient.Put(connectionstring +  boardname + ".json", board);
+            RestClient.Put(connectionString +  boardname + ".json", board);
         }
 
-        // Start is called before the first frame update
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
         void Start()
         {
             _prover = FindObjectOfType<MissionProver>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }
