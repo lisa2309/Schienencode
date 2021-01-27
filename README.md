@@ -1,5 +1,5 @@
 ## Wilkommen zum dem SWT Projekt Schienencode !
-Hier finden Sie alle Informationen rund das Projekt.
+Hier finden Sie alle Informationen rund um das Projekt.
 
 ## Organisatorisches
 Semester: Wintersemester 20/21  
