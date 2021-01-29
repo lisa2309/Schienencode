@@ -132,7 +132,7 @@ public class Routing : MonoBehaviour
         //buffer.getdirektion
 
         // Find all Rail Parts
-        rails = new List<GameObject>(GameObject.FindGameObjectsWithTag(BEZIERSHAPE));
+        rails = new List<GameObject>(GameObject.FindGameObjectsWithTag("Rail"));
 
         // Add Finish Gameobject to Rails
         rails.Add(finish);
