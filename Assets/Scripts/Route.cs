@@ -3,28 +3,30 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /*
-Quelle: https://www.youtube.com/watch?v=11ofnLOE8pw
 */
 /// <summary>
 /// Script to move the Train on the Rail
 /// </summary>
+/// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+/// @source: https://www.youtube.com/watch?v=11ofnLOE8pw
 public class Route : MonoBehaviour
 {
 	[SerializeField]
 	/// <summary>
-	/// 
+	/// 4 points on every rail (entrance, exit, 2 shape modifiers)
 	/// </summary>
 	private Transform[] controlPoints;
 
 	/// <summary>
-    /// 
+    /// calculated point on bezier shape
     /// </summary>
 	private Vector3 gizmosPosition;
 
 	/// <summary>
-    /// Lets the Train move on the rail
-    /// </summary>
-    /// @author Florian Vogel & Bjarne Bensel
+	/// Lets the Train move on the rail
+	/// </summary>
+	/// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+	/// @source: https://www.youtube.com/watch?v=11ofnLOE8pw
 	private void OnDrawGizmos()
 	{
 		for (float t = 0; t <= 1; t += 0.05f)
