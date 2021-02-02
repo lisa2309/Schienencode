@@ -31,6 +31,15 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     public int stationCounter = 0;
 
+    private int tempValue;
+    
+    public int currentStation;
+    
+    private List<int> carogoCounters;
+
+    public Dropdown dd;
+    
+    
     /// <summary>
     /// 
     /// @author 
@@ -38,7 +47,9 @@ public class MissionProver : MonoBehaviour
     /// <returns></returns>
     public int RegisterNewStation()
     {
+        carogoCounters.Add(1);
         return stationCounter++;
+        //carogoCounters = new int[stationCounter];
     }
     
     /// <summary>
@@ -53,8 +64,36 @@ public class MissionProver : MonoBehaviour
             Debug.Log("Inconsistent number of stations");
             return;
         }
-        mission.cargoCounters[stationNumber]++;
+        mission.cargoCounters[stationNumber]+= carogoCounters[stationNumber];
         SetMissionField();
+    }
+    
+    
+    public void AcceptButtonClicked()
+    {
+        Debug.Log("Tempvalue Found: " + tempValue);
+        //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
+        carogoCounters[currentStation] = tempValue;
+        tempValue = 1;
+    }
+
+    public void ClosePanel()
+    {
+        GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;
+        if (panels != null)
+        {
+            foreach (Transform panel in panels.GetComponentInChildren<Transform>())
+            {
+                    panel.gameObject.SetActive(false);
+            }
+            panels.gameObject.SetActive(false);
+        }
+    }
+    
+    public void HandleDropdownValue(int val)
+    {
+        Debug.Log("Dropvalue Found: " + (dd.value+1));
+        tempValue = dd.value + 1;
     }
 
     /// <summary>
@@ -99,6 +138,7 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     void Start()
     {
+        carogoCounters = new List<int>();
         // mission = new Mission(new []{3});
         // Debug.Log("Cargo= " + mission.cargos[0]);
         //missiontext = GameObject.Find("MissionsText").GetComponent<Text>();;

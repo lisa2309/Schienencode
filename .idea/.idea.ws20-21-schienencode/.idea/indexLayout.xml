@@ -18,7 +18,6 @@
       <Path>.idea</Path>
       <Path>Library</Path>
       <Path>Schienencode_Data</Path>
-      <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>
