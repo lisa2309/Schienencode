@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44291fff-e630-44a3-8c1a-6e90f24197f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Final/Trainstations/TrainStation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Final/Trainstations/TrainStation.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Inventory/NewInventorySystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Inventory/NewInventorySystem.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Routing_Mission_DB_Mirror.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Routing_Mission_DB_Mirror.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/RailEndScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/RailEndScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +18,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CreatePrefab.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" />
       </list>
     </option>
   </component>
@@ -69,7 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1611845762437</updated>
       <workItem from="1611845801291" duration="1671000" />
-      <workItem from="1612270042632" duration="866000" />
+      <workItem from="1612270042632" duration="2532000" />
+      <workItem from="1612452486504" duration="5192000" />
     </task>
     <servers />
   </component>

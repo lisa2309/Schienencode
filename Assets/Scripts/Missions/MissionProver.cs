@@ -31,13 +31,25 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     public int stationCounter = 0;
 
-    private int tempValue;
+    private int tempValueStation;
+
+    private int tempValueSwitch;
+
+    private int tempCompareValueSwitch;
     
     public int currentStation;
     
     private List<int> carogoCounters;
 
-    public Dropdown dd;
+    public Dropdown ddStation;
+    
+    public Dropdown ddSwitchValue;
+    
+    public Dropdown ddSwitchCompare;
+
+    public InputField inputSwitchCount;
+
+    private bool ifCondition;
     
     
     /// <summary>
@@ -71,10 +83,35 @@ public class MissionProver : MonoBehaviour
     
     public void AcceptButtonClicked()
     {
-        Debug.Log("Tempvalue Found: " + tempValue);
+        Debug.Log("Tempvalue Found: " + tempValueStation);
         //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
-        carogoCounters[currentStation] = tempValue;
-        tempValue = 1;
+        carogoCounters[currentStation] = tempValueStation;
+        tempValueStation = 1;
+    }
+    
+    public void SwitchAcceptButtonClicked()
+    {
+        try
+        {
+            switch (tempCompareValueSwitch)
+            {
+                case 1:
+                    //obj = station;
+                    break;
+                default:
+                    //obj = null;
+                    break;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        Debug.Log("Tempvalue Found: " + tempValueStation);
+        //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
+        carogoCounters[currentStation] = tempValueStation;
+        tempValueStation = 1;
     }
 
     public void ClosePanel()
@@ -92,8 +129,20 @@ public class MissionProver : MonoBehaviour
     
     public void HandleDropdownValue(int val)
     {
-        Debug.Log("Dropvalue Found: " + (dd.value+1));
-        tempValue = dd.value + 1;
+        Debug.Log("Dropvalue Found: " + (ddStation.value+1));
+        tempValueStation = ddStation.value + 1;
+    }
+    
+    public void HandleDropdownValueSwitch(int val)
+    {
+        Debug.Log("Dropvalue Found on switch: " + (ddSwitchValue.value+1));
+        tempValueSwitch = ddStation.value + 1;
+    }
+    
+    public void HandleDropdownCompareSwitch(int val)
+    {
+        Debug.Log("Comparevalue Found on switch: " + (ddSwitchCompare.value+1));
+        tempCompareValueSwitch = ddStation.value + 1;
     }
 
     /// <summary>
@@ -138,11 +187,13 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     void Start()
     {
+        ifCondition = false;
         carogoCounters = new List<int>();
+        tempValueStation = tempValueSwitch = tempCompareValueSwitch = 1;
         // mission = new Mission(new []{3});
         // Debug.Log("Cargo= " + mission.cargos[0]);
         //missiontext = GameObject.Find("MissionsText").GetComponent<Text>();;
-        
+
         // SetMissionField();
     }
 
