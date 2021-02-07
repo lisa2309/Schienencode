@@ -54,6 +54,11 @@ public class Routing : MonoBehaviour
     private const string RAILEND = "RailEnd";
 
     /// <summary>
+    /// Array to count the amount of drive pasts
+    /// </summary>
+    int[] drivePast;
+
+    /// <summary>
     /// Subelement of Rail Prefab corresponds to route where Route script is attached
     /// </summary>
     private const string BEZIERSHAPE = "Route";
@@ -139,6 +144,7 @@ public class Routing : MonoBehaviour
 
         Debug.Log("Größe rails List: " + rails.Count);
 
+        drivePast = new int[rails.Count];
 
         int abortCounter = 0;
         finished = false;
@@ -150,6 +156,7 @@ public class Routing : MonoBehaviour
             Debug.Log("While durchgang");
 
             // Find next rail in list of rails
+            int i = 0; //counter for foreach
             foreach (GameObject rail in rails)
             {
                 Debug.Log("rail komponente: " + rail.transform);
@@ -167,7 +174,7 @@ public class Routing : MonoBehaviour
                         if (((buffer.name.Contains(RAILSWITCHLEFT) || buffer.name.Contains(RAILSWITCHRIGHT)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(1).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f) || ((rail.name.Contains(RAILCOLLECTRIGHT) || rail.name.Contains(RAILCOLLECTLEFT)) && Vector3.Distance(rail.transform.GetChild(1).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(0).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(0).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f))
                         {
                             Debug.Log("next rail found: " + rail.name);
-                            
+                            drivePast[i]++;
                             if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && straight)
                             {
                                 routePoints.Add(rail.transform.GetChild(1).Find(BEZIERSHAPE));
@@ -200,7 +207,7 @@ public class Routing : MonoBehaviour
                         }
                     }
                 }
-
+                i++;
             }
 
         }
