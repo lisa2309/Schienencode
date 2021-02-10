@@ -448,6 +448,7 @@
           <e p="Route.cs" t="Include" />
           <e p="Routing.cs" t="Include" />
           <e p="Scripts.asmdef" t="Include" />
+          <e p="SwitchScript.cs" t="Include" />
         </e>
         <e p="Tests" t="Include">
           <e p="PlayMode Test" t="Include">

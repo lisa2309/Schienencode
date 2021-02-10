@@ -44,9 +44,12 @@ public class StationScript : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("is clicked ");
-        _prover.currentStation = this._stationNumber;
         //if (!isLocalPlayer) return;
-        OpenPanel();
+        if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
+        {
+            _prover.currentStation = this._stationNumber;
+            OpenPanel();
+        }
     }
 
     
@@ -64,18 +67,15 @@ public class StationScript : MonoBehaviour
                 }
                 else
                 {
-                    if (panel.gameObject.activeSelf)
+                    if (!panel.gameObject.activeSelf)
                     {
-                        panel.gameObject.SetActive(false);
-                        panels.SetActive(false);
-                    }
-                    else
-                    {
+                        MissionProver.panelisOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
                 }
             }
+            _prover.UpdateStationSettings();
 
         }
     }

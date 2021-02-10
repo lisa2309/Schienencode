@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 2064778249178488150}
   - component: {fileID: 6259848558429197294}
   - component: {fileID: -7308767624015217510}
+  - component: {fileID: 7379455951321137232}
   m_Layer: 0
   m_Name: SwitchR0Final
   m_TagString: Rail
@@ -353,6 +354,19 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &7379455951321137232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875399049055815938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50879e7a4b834f35a4a0096ece03aaa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ComparationValues: 
 --- !u!1 &7437239705954205602
 GameObject:
   m_ObjectHideFlags: 0
