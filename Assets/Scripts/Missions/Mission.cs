@@ -29,12 +29,6 @@ namespace DefaultNamespace
             this.cargos = cargo;
             this.cargoCounters = new int[cargo.Length];
             Debug.Log("First element of cc: " + cargoCounters[0]);
-            //cargo.CopyTo(cargoCounters, cargo.Length);
-            // int i = 0;
-            // foreach (int c in cargoCounters)
-            // {
-            //     cargoCounters[i++] = 0;
-            // }
         }
 
         /// <summary>

@@ -11,6 +11,12 @@ using UnityEngine.UI;
 /// </summary>
 public class MissionProver : MonoBehaviour
 {
+    public static bool deleteOn;
+
+    public static bool panelisOpen;
+
+    public static bool buildOnDB;
+    
     /// <summary>
     /// 
     /// </summary>
@@ -31,25 +37,29 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     public int stationCounter = 0;
 
-    private int tempValueStation;
-
-    private int tempValueSwitch;
-
-    private int tempCompareValueSwitch;
-    
     public int currentStation;
     
-    private List<int> carogoCounters;
+    private List<int> cargoAdditions;
 
     public Dropdown ddStation;
     
     public Dropdown ddSwitchValue;
     
     public Dropdown ddSwitchCompare;
+    
+    public Dropdown ddGeneralSwitch;
 
-    public InputField inputSwitchCount;
+    public InputField inputIfSwitch;
 
-    private bool ifCondition;
+    public InputField inputWhileSwitch;
+
+    private SwitchScript currentSwitch;
+
+    public Sprite DeleteImageWhite;
+
+    public Sprite DeleteImageBlack;
+
+    public Button DeleteButton;
     
     
     /// <summary>
@@ -59,10 +69,12 @@ public class MissionProver : MonoBehaviour
     /// <returns></returns>
     public int RegisterNewStation()
     {
-        carogoCounters.Add(1);
+        cargoAdditions.Add(1);
         return stationCounter++;
         //carogoCounters = new int[stationCounter];
     }
+
+    
     
     /// <summary>
     /// 
@@ -76,46 +88,56 @@ public class MissionProver : MonoBehaviour
             Debug.Log("Inconsistent number of stations");
             return;
         }
-        mission.cargoCounters[stationNumber]+= carogoCounters[stationNumber];
+        mission.cargoCounters[stationNumber]+= cargoAdditions[stationNumber];
         SetMissionField();
     }
     
+    public void UpdateSwitch(SwitchScript switchScript)
+    {
+        this.currentSwitch = switchScript;
+        ddSwitchCompare.value = switchScript.ComparationValues[1] - 1;
+        ddSwitchValue.value = switchScript.ComparationValues[0] - 1;
+    }
+    
+    public void UpdateStationSettings()
+    {
+        ddStation.value = cargoAdditions[currentStation] - 1;
+    }
     
     public void AcceptButtonClicked()
     {
-        Debug.Log("Tempvalue Found: " + tempValueStation);
         //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
-        carogoCounters[currentStation] = tempValueStation;
-        tempValueStation = 1;
+        cargoAdditions[currentStation] = ddStation.value +1;
+        ClosePanel();
+    }
+   
+    public void IfSwitchAcceptButtonClicked()
+    {
+        
+        currentSwitch.ComparationValues = new []
+            {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
+        // Debug.Log("current cargo: " + mission.cargoCounters[ddSwitchValue.value]);
+        // Debug.Log("current compareVal: " + (ddSwitchCompare.value));
+        // Debug.Log("current inputVal: " + Int32.Parse(inputIfSwitch.text));
+        ClosePanel();
+    }
+    public void WhileSwitchAcceptButtonClicked()
+    {
+        currentSwitch.ComparationValues[2] = Int32.Parse(inputWhileSwitch.text);
+        ClosePanel();
     }
     
-    public void SwitchAcceptButtonClicked()
+    public void GeneralSwitchAcceptButtonClicked()
     {
-        try
-        {
-            switch (tempCompareValueSwitch)
-            {
-                case 1:
-                    //obj = station;
-                    break;
-                default:
-                    //obj = null;
-                    break;
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-        Debug.Log("Tempvalue Found: " + tempValueStation);
-        //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
-        carogoCounters[currentStation] = tempValueStation;
-        tempValueStation = 1;
+        currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value == 0);
+        ClosePanel();
+        currentSwitch.OpenPanel();
     }
+    
 
     public void ClosePanel()
     {
+        MissionProver.panelisOpen = false;
         GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;
         if (panels != null)
         {
@@ -126,25 +148,23 @@ public class MissionProver : MonoBehaviour
             panels.gameObject.SetActive(false);
         }
     }
-    
-    public void HandleDropdownValue(int val)
-    {
-        Debug.Log("Dropvalue Found: " + (ddStation.value+1));
-        tempValueStation = ddStation.value + 1;
-    }
-    
-    public void HandleDropdownValueSwitch(int val)
-    {
-        Debug.Log("Dropvalue Found on switch: " + (ddSwitchValue.value+1));
-        tempValueSwitch = ddStation.value + 1;
-    }
-    
-    public void HandleDropdownCompareSwitch(int val)
-    {
-        Debug.Log("Comparevalue Found on switch: " + (ddSwitchCompare.value+1));
-        tempCompareValueSwitch = ddStation.value + 1;
-    }
 
+    public void DeleteClicked()
+    {
+        deleteOn = !deleteOn;
+        if (deleteOn)
+        {
+            Debug.Log("Switch to white");
+            //DeleteButton.GetComponent<Image>().sprite.
+            DeleteButton.GetComponent<Image>().sprite = DeleteImageWhite;
+        }
+        else
+        {
+            Debug.Log("Switch to black");
+            DeleteButton.GetComponent<Image>().sprite = DeleteImageBlack;
+        }
+    }
+    
     /// <summary>
     /// 
     /// @author
@@ -187,9 +207,9 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     void Start()
     {
-        ifCondition = false;
-        carogoCounters = new List<int>();
-        tempValueStation = tempValueSwitch = tempCompareValueSwitch = 1;
+        panelisOpen = false;
+        deleteOn = false;
+        cargoAdditions = new List<int>();
         // mission = new Mission(new []{3});
         // Debug.Log("Cargo= " + mission.cargos[0]);
         //missiontext = GameObject.Find("MissionsText").GetComponent<Text>();;

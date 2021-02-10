@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
@@ -101,9 +102,25 @@ if(this.isLocalPlayer){
             default:
             prefabtoinstant = gerade_schiene;
             break;
-        }  
+        }
+
+        // if (MissionProver.buildOnDB)
+        // {
+        //     Debug.Log("In delete DeleteRail...");
+        //     try
+        //     {
+        //         prefabtoinstant.GetComponent<DeleteRail>().DeactivateDeletable();
+        //         //prefabtoinstant.GetComponent<DeleteRail>().enabled = false;
+        //         //Destroy(prefabtoinstant.GetComponent<DeleteRail>());
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         Console.WriteLine(e);
+        //     }
+        // }
         GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
         cloneObj.name = prefabtoinstant.name;
+        if (MissionProver.buildOnDB) Destroy(cloneObj.GetComponent<DeleteRail>());
         NetworkServer.Spawn(cloneObj,this.connectionToClient);      
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4413875635718306357}
   - component: {fileID: 6256982242258338274}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     type: 3}
   tunel_out: {fileID: 8654538594090976254, guid: 539ee4839211fb24da4d208baff4d90e,
     type: 3}
-  station: {fileID: 8842460872673624342, guid: 0494c4099d51ae14787726156667146b, type: 3}
+  station: {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
   switch_l_0: {fileID: 708939981515953305, guid: d877d5865b7dbcf498a2c6638a6edf08,
     type: 3}
   switch_l_1: {fileID: 1678551245358385553, guid: ddb38421596ea4542b0d1e4b6bd77aee,

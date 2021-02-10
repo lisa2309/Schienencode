@@ -16,6 +16,8 @@ public class DeleteRail : NetworkBehaviour
     /// </summary>
     public Player player=null;
 
+    //private bool isDeletable = true;
+
     /// <summary>
     /// Destroys the object attached to this script as soon as you left click on it 
     /// </summary>
@@ -24,9 +26,16 @@ public class DeleteRail : NetworkBehaviour
     {
         //Debug.Log("is local "+isLocalPlayer);
         //if (!isLocalPlayer) return;
-        destroyrail();
+        //if (!isDeletable) return;
+        if (MissionProver.deleteOn) destroyrail();
 
     }
+
+    // public void DeactivateDeletable()
+    // {
+    //     Debug.Log("In Deactivation deletable...");
+    //     isDeletable = false;
+    // }
 
             // destroy for everyone on the server
         [Command]

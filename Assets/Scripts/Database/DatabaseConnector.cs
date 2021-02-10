@@ -115,7 +115,8 @@ namespace Database
             //PostToDatabase(new Board("Board:6.6.0.0;10.6.0.0;16.6.10.0;16.12.10.270;12.12.0.180;8.12.0.180;2.12.10.180;2.6.10.90"));
             //PostToDatabase(new Board("Board:26.14.20.90;22.14.0.180;21.12.30.0;17.12.30.0;18.14.0.180;14.14.21.90", "Mission:5;5"));
             //PostToDatabase(new Board("Board:18.14.20.90;14.14.0.180;13.12.30.0;9.12.30.0;10.14.0.180;6.14.21.90", "Mission:5;5"));
-            PostToDatabase(new Board("Board:202.56.20.90;198.56.0.180;197.54.30.0;193.54.30.0;194.56.0.180;190.56.21.90", "Mission:5;5"));
+            //PostToDatabase(new Board("Board:202.56.20.90;198.56.0.180;197.54.30.0;193.54.30.0;194.56.0.180;190.56.21.90", "Mission:5;5"));
+            PostToDatabase(new Board("Board:202.56.20.90;198.56.30.180;194.56.30.180;190.56.21.90", "Mission:5;5"));
 
         }
 
@@ -132,12 +133,7 @@ namespace Database
         /// </summary>
         public void BuildFromDB()
         {
-            // RetrieveFromDatabase();
-            // if (board is null)
-            // {
-            //     Debug.Log("No board yet.");
-            //     return;
-            // }
+            MissionProver.buildOnDB = true;
             string boardInfo = board.BoardString.Split(':')[1];
             string[] structures = boardInfo.Split(';');
             string[] coordinates;
@@ -155,8 +151,8 @@ namespace Database
                 }
                 // var skeleton = Instantiate(GetObject(coordinates[2]), new Vector3(x, 0, z), Quaternion.Euler(0, rot, 0));
                 // skeleton.name = skeleton.name.Replace("(Clone)","").Trim();
-                
             }
+            MissionProver.buildOnDB = false;
         }
 
         /// <summary>
@@ -210,6 +206,7 @@ namespace Database
                 CreateMission();
                 BuildFromDB();
             });
+            
         }
 
         /// <summary>
@@ -227,12 +224,15 @@ namespace Database
             string[] cargos = missionInfo.Split(';');
             int[] cargosInt = new int[cargos.Length];
             int i = 0;
+            List<string> ddStrings = new List<string>();
             foreach (string cargo in cargos)
             {
+                ddStrings.Add("C" + (i +1));
                 cargosInt[i] = Int32.Parse(cargos[i]);
                 i++;
             }
             _prover.SetMission(new Mission(cargosInt));
+            _prover.ddSwitchValue.AddOptions(ddStrings);
         }
 
         /// <summary>
