@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DefaultNamespace
-{
+
     public class SwitchScript : MonoBehaviour
     {
         /// <summary>
@@ -20,7 +19,7 @@ namespace DefaultNamespace
     /// </summary>
     private GameObject panels;
 
-    private SwitchMode mode;
+    public SwitchMode mode;
 
     /// <summary>
     /// Array of the relevant dropdown-values from the switchPopUps
@@ -30,7 +29,7 @@ namespace DefaultNamespace
     /// </summary>
     public int[] ComparationValues;
     
-    private enum SwitchMode
+    public enum SwitchMode
     {
         Unchosen,
         If,
@@ -114,4 +113,3 @@ namespace DefaultNamespace
         //popUpPanel = GameObject.Find("PopUpPanel");
     }
     }
-}

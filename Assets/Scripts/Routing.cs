@@ -54,6 +54,11 @@ public class Routing : MonoBehaviour
     private const string RAILEND = "RailEnd";
 
     /// <summary>
+    /// Prefabname of Trainstation
+    /// </summary>
+    private const string TRAINSTATION = "TrainStation";
+
+    /// <summary>
     /// Array to count the amount of drive pasts
     /// </summary>
     int[] drivePast;
@@ -95,9 +100,9 @@ public class Routing : MonoBehaviour
     private bool finished = false;
 
     /// <summary>
-    /// Temporary: go always straight on switches
+    /// Buffer for Route on last Switch
     /// </summary>
-    public bool straight = true;
+    private bool straight = true;
 
     /// <summary>
     /// This Should be triggered when Player is finished. Generates the Route and starts the Train.
@@ -175,7 +180,7 @@ public class Routing : MonoBehaviour
                         {
                             Debug.Log("next rail found: " + rail.name);
                             drivePast[i]++;
-                            if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && straight)
+                            if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && switchGoStraight(rail))
                             {
                                 routePoints.Add(rail.transform.GetChild(1).Find(BEZIERSHAPE));
                             }
@@ -223,7 +228,7 @@ public class Routing : MonoBehaviour
     {
         Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
 
-        if (obj.name.Contains(RAILSTRAIGHT))
+        if (obj.name.Contains(RAILSTRAIGHT) || obj.name.Contains(TRAINSTATION))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -355,7 +360,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private double getDirectionZ(GameObject obj)
     {
-        if (obj.name.Contains(RAILSTRAIGHT))
+        if (obj.name.Contains(RAILSTRAIGHT) || obj.name.Contains(TRAINSTATION))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -477,5 +482,74 @@ public class Routing : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    private bool switchGoStraight(GameObject rail)
+    {
+        if (rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT))
+        {
+            Debug.Log(rail.name+" ABCDE "+rail.GetComponent<SwitchScript>().mode);
+            switch (rail.GetComponent<SwitchScript>().mode)
+            {
+                case SwitchScript.SwitchMode.If:
+                    {
+                        
+                        int railNumber = getTrainStation(rail.GetComponent<SwitchScript>().ComparationValues[0]);
+                        int cargoCount = rails[railNumber].transform.GetChild(1).GetComponent<StationScript>().cargoCount;
+                        Debug.Log(railNumber+" - "+drivePast[railNumber]+" - "+rails[railNumber].name+" cargo: "+ cargoCount);
+                        switch (rail.GetComponent<SwitchScript>().ComparationValues[1])
+                        {
+                            case 0: // >
+                                straight = !((drivePast[railNumber] * cargoCount ) > rail.GetComponent<SwitchScript>().ComparationValues[2]);
+                                break; //* rails[railNumber].GetComponent<StationScript>().cargoCount
+                            case 1: // <
+                                straight = !((drivePast[railNumber] * cargoCount) < rail.GetComponent<SwitchScript>().ComparationValues[2]);
+                                break;
+                            case 2: // ==                      
+                                straight = !((drivePast[railNumber] * cargoCount) == rail.GetComponent<SwitchScript>().ComparationValues[2]);
+                                break;
+                        }
+
+
+                        
+                        break;
+                    }
+                case SwitchScript.SwitchMode.While:
+                    {
+                        straight = true;
+                        break;
+                    }
+                default:
+                    
+                    straight = true;
+                    break;
+
+            }
+            return straight;
+        }
+        else {
+            return true;
+        }
+    }
+    int getTrainStation(int i)
+    {
+        int x = 0;
+        int counter = 0;
+        foreach(GameObject rail in rails)
+        {            
+            if (rail.name.Contains(TRAINSTATION))
+            {
+                if (x == i)
+                {
+                    return counter;
+                }
+                else
+                {
+                    x++;
+                }
+            }
+            counter++;
+        }
+        return -1;
     }
 }
