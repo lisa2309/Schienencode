@@ -24,7 +24,7 @@ using UnityEngine;
     /// <summary>
     /// Array of the relevant dropdown-values from the switchPopUps
     /// ComparationValues[0] relates to the stationnumber of the relevant StationScript (to get the cargo of the station).
-    /// ComparationValues[1] is a number for the comparation-sign: '1' means '>'; '2' means '<'; '3' means '=='.
+    /// ComparationValues[1] is a number for the comparation-sign: '0' means '>'; '1' means '<'; '2' means '=='.
     /// ComparationValues[2] is the value to compare with (only value which is also set in the 'For-Switch').
     /// </summary>
     public int[] ComparationValues;
@@ -33,6 +33,7 @@ using UnityEngine;
     {
         Unchosen,
         If,
+        For,
         While
     }
 
@@ -52,6 +53,12 @@ using UnityEngine;
         }
     }
 
+    public void ResetSwitch()
+    {
+        this.mode = SwitchMode.Unchosen;
+        this.ComparationValues = new int[] {0,0,1};
+    }
+
     public void OpenPanel()
     {
         switch (mode)
@@ -68,10 +75,24 @@ using UnityEngine;
         }
     }
 
-    public void ChangeSwitchMode(bool isIf)
+    public void ChangeSwitchMode(int switchVal)
     {
-        if (isIf) this.mode = SwitchMode.If;
-        else this.mode = SwitchMode.While;
+        switch (switchVal)
+        {
+            case 0:
+                this.mode = SwitchMode.If;
+                break;
+            case 1:
+                this.mode = SwitchMode.While;
+                break;
+            case 2:
+                this.mode = SwitchMode.For;
+                break;
+            default:
+                this.mode = SwitchMode.Unchosen;
+                break;
+                
+        }
     }
 
     
@@ -105,7 +126,7 @@ using UnityEngine;
     /// </summary>
     void Start()
     {
-        ComparationValues = new int[] {1,1,1};
+        ComparationValues = new int[] {0,0,1};
         mode = SwitchMode.Unchosen;
         _prover = FindObjectOfType<MissionProver>();
         //this._stationNumber = _prover.RegisterNewStation();

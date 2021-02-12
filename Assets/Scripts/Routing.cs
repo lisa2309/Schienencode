@@ -495,7 +495,7 @@ public class Routing : MonoBehaviour
                     {
                         
                         int railNumber = getTrainStation(rail.GetComponent<SwitchScript>().ComparationValues[0]);
-                        int cargoCount = rails[railNumber].transform.GetChild(1).GetComponent<StationScript>().cargoCount;
+                        int cargoCount = rails[railNumber].transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber;
                         Debug.Log(railNumber+" - "+drivePast[railNumber]+" - "+rails[railNumber].name+" cargo: "+ cargoCount);
                         switch (rail.GetComponent<SwitchScript>().ComparationValues[1])
                         {
