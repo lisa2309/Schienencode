@@ -180,7 +180,7 @@ public class Routing : MonoBehaviour
                         {
                             Debug.Log("next rail found: " + rail.name);
                             drivePast[i]++;
-                            if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && switchGoStraight(rail))
+                            if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && switchGoStraight(rail,i))
                             {
                                 routePoints.Add(rail.transform.GetChild(1).Find(BEZIERSHAPE));
                             }
@@ -484,16 +484,16 @@ public class Routing : MonoBehaviour
         return 0;
     }
 
-    private bool switchGoStraight(GameObject rail)
+    private bool switchGoStraight(GameObject rail, int railCounter)
     {
         if (rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT))
         {
             Debug.Log(rail.name+" ABCDE "+rail.GetComponent<SwitchScript>().mode);
+            
             switch (rail.GetComponent<SwitchScript>().mode)
             {
                 case SwitchScript.SwitchMode.If:
                     {
-                        
                         int railNumber = getTrainStation(rail.GetComponent<SwitchScript>().ComparationValues[0]);
                         int cargoCount = rails[railNumber].transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber;
                         Debug.Log(railNumber+" - "+drivePast[railNumber]+" - "+rails[railNumber].name+" cargo: "+ cargoCount);
@@ -501,7 +501,7 @@ public class Routing : MonoBehaviour
                         {
                             case 0: // >
                                 straight = !((drivePast[railNumber] * cargoCount ) > rail.GetComponent<SwitchScript>().ComparationValues[2]);
-                                break; //* rails[railNumber].GetComponent<StationScript>().cargoCount
+                                break; 
                             case 1: // <
                                 straight = !((drivePast[railNumber] * cargoCount) < rail.GetComponent<SwitchScript>().ComparationValues[2]);
                                 break;
@@ -509,14 +509,13 @@ public class Routing : MonoBehaviour
                                 straight = !((drivePast[railNumber] * cargoCount) == rail.GetComponent<SwitchScript>().ComparationValues[2]);
                                 break;
                         }
-
-
-                        
                         break;
                     }
                 case SwitchScript.SwitchMode.While:
                     {
-                        straight = true;
+                        Debug.Log("in While mode");
+                        Debug.Log(" drivepasts: "+ drivePast[railCounter]+" < "+ rail.GetComponent<SwitchScript>().ComparationValues[2]);
+                        straight = !(drivePast[railCounter] < rail.GetComponent<SwitchScript>().ComparationValues[2]);
                         break;
                     }
                 default:
@@ -552,4 +551,5 @@ public class Routing : MonoBehaviour
         }
         return -1;
     }
+
 }
