@@ -22,7 +22,7 @@ public class StationScript : MonoBehaviour
     /// </summary>
     private GameObject panels;
 
-    public int cargoCount;
+    public int cargoAdditionNumber;
 
 
     /// <summary>
@@ -47,7 +47,7 @@ public class StationScript : MonoBehaviour
         //if (!isLocalPlayer) return;
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
-            _prover.currentStation = this._stationNumber;
+            _prover.UpdateStation(this._stationNumber, this);
             OpenPanel();
         }
     }
@@ -86,7 +86,7 @@ public class StationScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-        cargoCount = 1;
+        cargoAdditionNumber = 1;
         _prover = FindObjectOfType<MissionProver>();
         this._stationNumber = _prover.RegisterNewStation();
         //popUpPanel = GameObject.FindGameObjectWithTag("PopUpPanel") as Panel;

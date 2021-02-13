@@ -37,7 +37,7 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     public int stationCounter = 0;
 
-    public int currentStation;
+    private int currentStation;
     
     private List<int> cargoAdditions;
 
@@ -53,7 +53,11 @@ public class MissionProver : MonoBehaviour
 
     public InputField inputWhileSwitch;
 
+    public Text stationCaption;
+
     private SwitchScript currentSwitch;
+
+    private StationScript currentStationBody;
 
     public Sprite DeleteImageWhite;
 
@@ -95,8 +99,22 @@ public class MissionProver : MonoBehaviour
     public void UpdateSwitch(SwitchScript switchScript)
     {
         this.currentSwitch = switchScript;
-        ddSwitchCompare.value = switchScript.ComparationValues[1] - 1;
-        ddSwitchValue.value = switchScript.ComparationValues[0] - 1;
+        ddSwitchCompare.value = switchScript.ComparationValues[1];
+        ddSwitchValue.value = switchScript.ComparationValues[0];
+    }
+
+    public void UpdateStation(int stationnumber, StationScript station)
+    {
+        this.currentStation = stationnumber;
+        this.currentStationBody = station;
+        this.stationCaption.text = "Bahnhof C" + (stationnumber + 1);
+    }
+
+    public void ResetSwitchClicked()
+    {
+        currentSwitch.ResetSwitch();
+        ClosePanel();
+        currentSwitch.OpenPanel();
     }
     
     public void UpdateStationSettings()
@@ -107,13 +125,12 @@ public class MissionProver : MonoBehaviour
     public void AcceptButtonClicked()
     {
         //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
-        cargoAdditions[currentStation] = ddStation.value +1;
+        currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
         ClosePanel();
     }
    
     public void IfSwitchAcceptButtonClicked()
     {
-        
         currentSwitch.ComparationValues = new []
             {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
         // Debug.Log("current cargo: " + mission.cargoCounters[ddSwitchValue.value]);
@@ -129,7 +146,7 @@ public class MissionProver : MonoBehaviour
     
     public void GeneralSwitchAcceptButtonClicked()
     {
-        currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value == 0);
+        currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
         ClosePanel();
         currentSwitch.OpenPanel();
     }
@@ -154,13 +171,12 @@ public class MissionProver : MonoBehaviour
         deleteOn = !deleteOn;
         if (deleteOn)
         {
-            Debug.Log("Switch to white");
-            //DeleteButton.GetComponent<Image>().sprite.
+            //Debug.Log("Switch to white");
             DeleteButton.GetComponent<Image>().sprite = DeleteImageWhite;
         }
         else
         {
-            Debug.Log("Switch to black");
+            //Debug.Log("Switch to black");
             DeleteButton.GetComponent<Image>().sprite = DeleteImageBlack;
         }
     }
