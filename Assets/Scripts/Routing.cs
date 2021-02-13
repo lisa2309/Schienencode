@@ -515,7 +515,7 @@ public class Routing : MonoBehaviour
                     {
                         Debug.Log("in While mode");
                         Debug.Log(" drivepasts: "+ drivePast[railCounter]+" < "+ rail.GetComponent<SwitchScript>().ComparationValues[2]);
-                        straight = !(drivePast[railCounter] < rail.GetComponent<SwitchScript>().ComparationValues[2]);
+                        straight = !((drivePast[railCounter] - 1) < rail.GetComponent<SwitchScript>().ComparationValues[2]);
                         break;
                     }
                 default:
