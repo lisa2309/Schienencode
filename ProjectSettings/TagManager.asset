@@ -9,6 +9,7 @@ TagManager:
   - Rail
   - Train
   - Purpose
+  - MusicSlider
   layers:
   - Default
   - TransparentFX
