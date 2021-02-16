@@ -12,37 +12,37 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     /// <summary>
-    /// 
+    /// Maximum x position from the camera
     /// </summary>
     private const int maxCameraXPosition = 80;
 
     /// <summary>
-    /// 
+    /// Minimum x position from the camera
     /// </summary>
     private const int minCameraXPosition = 22;
 
     /// <summary>
-    /// 
+    /// Maximum z position from the camera
     /// </summary>
     private const int maxCameraZPosition = 30;
 
     /// <summary>
-    /// 
+    /// Minimum z position from the camera
     /// </summary>
     private const int minCameraZPosition = 0;
 
     /// <summary>
-    /// 
+    /// Maximum zoom position from the camera 
     /// </summary>
     private const int maxFieldOfView = 59;
 
     /// <summary>
-    /// 
+    /// Minimum zoom position from the camera 
     /// </summary>
     private const int minFieldOfView = 20;
 
     /// <summary>
-    /// 
+    /// This is the start camera position from player one
     /// </summary>
     private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 10.6f);
 
@@ -95,7 +95,7 @@ public class CameraMovement : MonoBehaviour
     /// Set the camera to the right position, when the player use zoom out
     /// @author Ronja Haas & Anna-Lisa Müller 
     /// </summary>
-    void MaxFieldCameraView()
+    private void MaxFieldCameraView()
     {
         Camera.main.transform.position = playerOneCamera;
         Camera.main.fieldOfView = maxFieldOfView;
