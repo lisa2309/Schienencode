@@ -114,7 +114,7 @@ public class ObjectPlacer : MonoBehaviour
     /// <summary>
     /// The point you clicked on in the game world is transformed into a coordinate and also adapted to the grid. 
     /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
-    ///  if the created object generat a collision with other objectes  then will this object  destroyed
+    /// if the created object generat a collision with other objectes  then will this object  destroyed
     /// if the dictance of poit0 of the both objectes (created and adjacent object) not more than 0.5 units also (composed) 
     /// but in in wrong direction then will this object  destroyed 
     /// Variables:
@@ -146,7 +146,6 @@ public class ObjectPlacer : MonoBehaviour
             {
                 objectPreview = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
                 objectPreview.name = prefabtoinstant.name;
-
                 objectPreview.GetComponent<Collider>().enabled = false;
                 if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut")
                 {
@@ -158,7 +157,8 @@ public class ObjectPlacer : MonoBehaviour
                         }
                     }
                 }
-                else if (gameObject.name == "SwitchR0Final" || gameObject.name == "SwitchR1Final" || gameObject.name == "SwitchL0Final" || gameObject.name == "SwitchL1Final")
+                
+                else if (prefabtoinstant.name == "SwitchR0Final" || prefabtoinstant.name == "SwitchR1Final" || prefabtoinstant.name == "SwitchL0Final" || prefabtoinstant.name == "SwitchL1Final")
                 {
                     for (int i = 0; i < 2; i++)
                     {
