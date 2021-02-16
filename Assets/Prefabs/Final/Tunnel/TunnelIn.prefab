@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2074497289326961315}
   - component: {fileID: 7450158120938346373}
   - component: {fileID: -7365143837872348493}
+  - component: {fileID: -161080323827588460}
   m_Layer: 0
   m_Name: TunnelIn
   m_TagString: Untagged
@@ -110,6 +111,19 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &-161080323827588460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251271527635132867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91e72fb486949a997c2fe401de223be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RelatedOutTunnelNumber: -1
 --- !u!1 &4950155884315139691
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +277,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99f1d2c8bce554438ac864c02c6d1886, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
