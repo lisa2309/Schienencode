@@ -50,12 +50,33 @@ namespace Database
         /// 
         /// </summary>
         public GameObject curveR;
-
+        
+        
         /// <summary>
         /// 
         /// </summary>
         public GameObject curveL;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameObject switchL0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameObject switchL1;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameObject switchR0;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public GameObject switchR1;
+        
         /// <summary>
         /// 
         /// </summary>
@@ -116,7 +137,10 @@ namespace Database
             //PostToDatabase(new Board("Board:26.14.20.90;22.14.0.180;21.12.30.0;17.12.30.0;18.14.0.180;14.14.21.90", "Mission:5;5"));
             //PostToDatabase(new Board("Board:18.14.20.90;14.14.0.180;13.12.30.0;9.12.30.0;10.14.0.180;6.14.21.90", "Mission:5;5"));
             //PostToDatabase(new Board("Board:202.56.20.90;198.56.0.180;197.54.30.0;193.54.30.0;194.56.0.180;190.56.21.90", "Mission:5;5"));
-            PostToDatabase(new Board("Board:202.56.20.90;198.56.30.180;194.56.30.180;190.56.21.90", "Mission:5;5"));
+            //PostToDatabase(new Board("Board:202.56.20.90;198.56.30.180;194.56.30.180;190.56.21.90", "Mission:5;5"));
+            PostToDatabase(new Board("Board:206.56.20.90;198.56.30.180;194.56.30.180;204.50.21.270;188.50.11.180;200.50.15.180;" +
+                                     "196.50.0.0;192.50.18.0;202.56.15.0;190.56.17.180;184.56.10.90;184.62.10.180;202.62.10.270;" +
+                                     "188.62.0.0;192.62.0.0;196.62.0.0;194.44.11.180;200.44.11.90", "Mission:5;10"));
 
         }
 
@@ -147,13 +171,66 @@ namespace Database
                 // placer.gameObject = GetObject(coordinates[2]);
                 // placer.PlaceObjectNearPointManual(new Vector3(x, 0 , z));
                 if(player != null){
-                    player.anrufen(GetObject(coordinates[2]).name, new Vector3(x, 0, z), rot);
+                    //player.anrufen(GetObject(coordinates[2]).name, new Vector3(x, 0, z), rot);
+                    player.anrufen(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot);
                 }
                 // var skeleton = Instantiate(GetObject(coordinates[2]), new Vector3(x, 0, z), Quaternion.Euler(0, rot, 0));
                 // skeleton.name = skeleton.name.Replace("(Clone)","").Trim();
             }
             MissionProver.buildOnDB = false;
         }
+        
+        
+        /// <summary>
+        /// 
+        /// @author
+        /// </summary>
+        /// Varibles:
+        /// obj:
+        /// <param name="code"></param>
+        /// <returns></returns>
+        private string GetObjectName(string code)
+        {
+            string name;
+            switch (code)
+            {
+                case "0":
+                    name = "Straight270Final";
+                    break;
+                case "10":
+                    name = "CurveL0Final";
+                    break;
+                case "11":
+                    name = "CurveR0Final";
+                    break;
+                case "15":
+                    name = "SwitchL0Final";;
+                    break;
+                case "16":
+                    name = "SwitchL1Final";
+                    break;
+                case "17":
+                    name = "SwitchR0Final";
+                    break;
+                case "18":
+                    name = "SwitchR1Final";
+                    break;
+                case "20":
+                    name = "RailStart";
+                    break;
+                case "21":
+                    name = "RailEnd";
+                    break;
+                case "30":
+                    name = "TrainStation";
+                    break;
+                default:
+                    name = null;
+                    break;
+            }
+            return name;
+        }
+
 
         /// <summary>
         /// 
@@ -177,6 +254,18 @@ namespace Database
                     break;
                 case "11":
                     obj = curveR;
+                    break;
+                case "15":
+                    obj = switchL0;
+                    break;
+                case "16":
+                    obj = switchL1;
+                    break;
+                case "17":
+                    obj = switchR0;
+                    break;
+                case "18":
+                    obj = switchR1;
                     break;
                 case "20":
                     obj = railStart;
@@ -233,6 +322,7 @@ namespace Database
             }
             _prover.SetMission(new Mission(cargosInt));
             _prover.ddSwitchValue.AddOptions(ddStrings);
+            _prover.ddWhileSwitchValue.AddOptions(ddStrings);
         }
 
         /// <summary>

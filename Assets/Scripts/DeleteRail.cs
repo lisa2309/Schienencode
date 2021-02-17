@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using DefaultNamespace;
 using UnityEngine;
 using Mirror;
 
@@ -41,6 +42,10 @@ public class DeleteRail : NetworkBehaviour
         [Command]
         void destroyrail()
         {
+            if (gameObject.name.Equals("TunnelOut"))
+            {
+                OutTunnelScript.RemoveOutTunnel(gameObject.GetComponent<OutTunnelScript>().OutTunnelNumber);
+            }
             NetworkServer.Destroy(gameObject);
         }
 

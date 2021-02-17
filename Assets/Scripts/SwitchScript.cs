@@ -72,6 +72,9 @@ using UnityEngine;
             case SwitchMode.While:
                 OpenSpecificPanel("panel03");
                 break;
+            case SwitchMode.For:
+                OpenSpecificPanel("panel05");
+                break;
         }
     }
 

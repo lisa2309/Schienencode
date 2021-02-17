@@ -386,6 +386,7 @@
           </e>
           <e p="DeleteRail.cs" t="Include" />
           <e p="Grid.cs" t="Include" />
+          <e p="InTunnelScript.cs" t="Include" />
           <e p="Inventory" t="Include">
             <e p="CreatePrefab.cs" t="Include" />
             <e p="Panel.cs" t="Include" />
@@ -402,6 +403,7 @@
           </e>
           <e p="MusicPlayer.cs" t="Include" />
           <e p="ObjectPlacer.cs" t="Include" />
+          <e p="OutTunnelScript.cs" t="Include" />
           <e p="Panels.cs" t="Include" />
           <e p="RestClient" t="Include">
             <e p="DemoScene" t="Include">

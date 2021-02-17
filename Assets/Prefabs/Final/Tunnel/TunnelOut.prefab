@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99f1d2c8bce554438ac864c02c6d1886, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 7166948080408239781}
   - component: {fileID: 1790253776779291523}
   - component: {fileID: 7383024550260809397}
+  - component: {fileID: -1005569089121068894}
   m_Layer: 0
   m_Name: TunnelOut
   m_TagString: Untagged
@@ -348,6 +349,18 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &-1005569089121068894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954553928106778053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d097d137bc14f2c977ccb0161b667d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7183438089844184847
 GameObject:
   m_ObjectHideFlags: 0

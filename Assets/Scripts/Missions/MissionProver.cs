@@ -35,7 +35,9 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public int stationCounter = 0;
+    private int stationCounter = 0;
+    
+    private int tunnelCounter = 0;
 
     private int currentStation;
     
@@ -47,17 +49,31 @@ public class MissionProver : MonoBehaviour
     
     public Dropdown ddSwitchCompare;
     
+    public Dropdown ddWhileSwitchValue;
+    
+    public Dropdown ddWhileSwitchCompare;
+    
     public Dropdown ddGeneralSwitch;
+    
+    public Dropdown ddInTunnelOpenOuts;
+    
+    //public Dropdown ddOutTunnelToDelete;
 
     public InputField inputIfSwitch;
-
+    
     public InputField inputWhileSwitch;
 
+    public InputField inputForSwitch;
+
     public Text stationCaption;
+    
+    public Text outTunnelCaption;
 
     private SwitchScript currentSwitch;
 
     private StationScript currentStationBody;
+
+    private InTunnelScript currentInTunnel;
 
     public Sprite DeleteImageWhite;
 
@@ -78,7 +94,37 @@ public class MissionProver : MonoBehaviour
         //carogoCounters = new int[stationCounter];
     }
 
+    /// <summary>
+    /// 
+    /// @author 
+    /// </summary>
+    /// <returns></returns>
+    public void UpdateOutTunnel(int outTunnelNumber)
+    {
+        outTunnelCaption.text = "Tunnel-Ausgang: T" + outTunnelNumber;
+    }
     
+    /// <summary>
+    /// 
+    /// @author 
+    /// </summary>
+    /// <returns></returns>
+    public void UpdateInTunnel(InTunnelScript inTunnel)
+    {
+        this.currentInTunnel = inTunnel;
+        List<string> openTunnelStrings = new List<string>();
+        int currentValue = 0;
+        int tempValue = 0;
+        foreach (int i in OutTunnelScript.OpenTunnelNumbers)
+        {
+            openTunnelStrings.Add("T" + i);
+            if (i == inTunnel.RelatedOutTunnelNumber) currentValue = tempValue;
+            tempValue++;
+        }
+        ddInTunnelOpenOuts.options.Clear();
+        ddInTunnelOpenOuts.AddOptions(openTunnelStrings);
+        ddInTunnelOpenOuts.value = currentValue;
+    }
     
     /// <summary>
     /// 
@@ -99,8 +145,9 @@ public class MissionProver : MonoBehaviour
     public void UpdateSwitch(SwitchScript switchScript)
     {
         this.currentSwitch = switchScript;
-        ddSwitchCompare.value = switchScript.ComparationValues[1];
-        ddSwitchValue.value = switchScript.ComparationValues[0];
+        ddWhileSwitchCompare.value = ddSwitchCompare.value = switchScript.ComparationValues[1];
+        ddWhileSwitchValue.value = ddSwitchValue.value = switchScript.ComparationValues[0];
+        inputForSwitch.text = inputIfSwitch.text = inputWhileSwitch.text = switchScript.ComparationValues[2].ToString();
     }
 
     public void UpdateStation(int stationnumber, StationScript station)
@@ -138,9 +185,20 @@ public class MissionProver : MonoBehaviour
         // Debug.Log("current inputVal: " + Int32.Parse(inputIfSwitch.text));
         ClosePanel();
     }
+    
     public void WhileSwitchAcceptButtonClicked()
     {
-        currentSwitch.ComparationValues[2] = Int32.Parse(inputWhileSwitch.text);
+        currentSwitch.ComparationValues = new []
+            {ddWhileSwitchValue.value, ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text)};
+        // Debug.Log("current cargo: " + mission.cargoCounters[ddSwitchValue.value]);
+        // Debug.Log("current compareVal: " + (ddSwitchCompare.value));
+        // Debug.Log("current inputVal: " + Int32.Parse(inputIfSwitch.text));
+        ClosePanel();
+    }
+    
+    public void ForSwitchAcceptButtonClicked()
+    {
+        currentSwitch.ComparationValues[2] = Int32.Parse(inputForSwitch.text);
         ClosePanel();
     }
     
@@ -149,6 +207,12 @@ public class MissionProver : MonoBehaviour
         currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
         ClosePanel();
         currentSwitch.OpenPanel();
+    }
+    
+    public void InTunnelAcceptedButtonClicked()
+    {
+        currentInTunnel.RelatedOutTunnelNumber = OutTunnelScript.OpenTunnelNumbers[ddInTunnelOpenOuts.value];
+        ClosePanel();
     }
     
 
