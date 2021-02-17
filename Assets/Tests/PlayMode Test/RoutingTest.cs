@@ -25,9 +25,518 @@ namespace Tests
             Routing r = gameObject.AddComponent<Routing>();
             r.GenerateRoute();
 
-            LogAssert.Expect(LogType.Log, "Finish found");
+            LogAssert.Expect(LogType.Log, "Track completed");
 
             yield return null;
         }
+
+	// Straight
+	[UnityTest]
+	public IEnumerator RoutingTestStraight0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(194,0,56), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/Straight270Final.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(202, 0, 56), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestStraight90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(194,0,64), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/Straight270Final.prefab", typeof(GameObject)), new Vector3(194, 0, 60), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestStraight180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(206,0,56), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/Straight270Final.prefab", typeof(GameObject)), new Vector3(202, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestStraight270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(194,0,56), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/Straight270Final.prefab", typeof(GameObject)), new Vector3(194, 0, 60), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(194, 0, 64), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	// CurveL
+	[UnityTest]
+	public IEnumerator RoutingTestCurveL0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198,0,60), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveL0Final.prefab", typeof(GameObject)), new Vector3(198, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(194, 0, 54), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveL90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveL0Final.prefab", typeof(GameObject)), new Vector3(194, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(194, 0, 62), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveL180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(196,0,54), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveL0Final.prefab", typeof(GameObject)), new Vector3(196, 0, 60), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(200, 0, 60), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveL270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(192,0,60), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveL0Final.prefab", typeof(GameObject)), new Vector3(198, 0, 60), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	//CurveR
+	[UnityTest]
+	public IEnumerator RoutingTestCurveR0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,52), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 58), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(196, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveR90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(196,0,54), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(202, 0, 54), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(202, 0, 58), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveR180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198,0,60), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(198, 0, 54), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(202, 0, 54), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestCurveR270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(206,0,58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(200, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	//SwitchL0
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Straigth0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(204,0,56), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(196, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Curve0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,62), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(196, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Straigth90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198,0,54), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(198, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 62), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Curve90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(204,0,58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(198, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 62), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Straigth180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(196,0,56), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 56), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Curve180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,50), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(200, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 56), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Straigth270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(202,0,62), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(202, 0, 58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(202, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL0Curve270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(196,0,58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL0Final.prefab", typeof(GameObject)), new Vector3(202, 0, 58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(202, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	//SwitchL1
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Straigth0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(206,0,58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(202, 0, 58), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Curve0() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(202,0,52), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(202, 0, 58), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(198, 0, 58), Quaternion.AngleAxis(90, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Straigth90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(204,0,52), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(204, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 60), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Curve90() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198,0,56), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(204, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 60), Quaternion.AngleAxis(180, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Straigth180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(196,0,54), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(200, 0, 54), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 54), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Curve180() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,60), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(200, 0, 54), Quaternion.AngleAxis(180, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(204, 0, 54), Quaternion.AngleAxis(270, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Straigth270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(200,0,62), Quaternion.AngleAxis(0, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(200, 0, 58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(200, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
+	
+	[UnityTest]
+	public IEnumerator RoutingTestSwitchL1Curve270() 
+	{
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+	    
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(206,0,58), Quaternion.AngleAxis(90, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(200, 0, 58), Quaternion.AngleAxis(270, Vector3.up));
+	    GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(200, 0, 54), Quaternion.AngleAxis(0, Vector3.up));
+
+	    GameObject gameObject = new GameObject("TestGridY");
+            Routing r = gameObject.AddComponent<Routing>();
+            r.GenerateRoute();
+
+            LogAssert.Expect(LogType.Log, "Track completed");
+
+            yield return null;
+	}
     }
 }

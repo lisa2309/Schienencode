@@ -61,7 +61,7 @@ public class BezierFollow : MonoBehaviour
         routeToGo = 0;
         tParam = 0f;
         speedModifier = 0.5f;
-        coroutineAllowed = true;
+        coroutineAllowed = false;
     }
 
     /// <summary>
