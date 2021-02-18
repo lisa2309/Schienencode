@@ -1,41 +1,44 @@
 ﻿using System;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// @author
-/// </summary>
 namespace DefaultNamespace
 {
+    /* created by: SWT-P_WS_2021_Schienencode */
+    /// <summary>
+    /// This class describes the state of an in-game-mission.
+    /// </summary>
+    /// @author Bastian Badde
     public class Mission
     {
         /// <summary>
-        /// 
+        /// Array of CargoValues which should be reached to complete the mission.
+        /// Relevant CargoValue accessible by: cargos[stationNumber]
         /// </summary>
         public int[] cargos;
 
         /// <summary>
-        /// 
+        /// Array of CargoValues which are currently reached in the game.
+        /// Relevant CargoValue accessible by: cargoCounters[stationNumber]
         /// </summary>
         public int[] cargoCounters;
 
         /// <summary>
-        /// 
-        /// @author
+        /// constructor of a Mission-object. Setting all cargoCounters-values on 0
         /// </summary>
-        /// <param name="cargo"></param>
+        /// <param name="cargo">array to initialize cargos with</param>
+        /// @author
         public Mission(int[] cargo)
         {
             this.cargos = cargo;
             this.cargoCounters = new int[cargo.Length];
-            Debug.Log("First element of cc: " + cargoCounters[0]);
+            //Debug.Log("First element of cc: " + cargoCounters[0]);
         }
 
         /// <summary>
-        /// 
-        /// @author
+        /// returns the state of the mission-completion
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true if mission is completed, false if not</returns>
+        /// @author Bastian Badde
         public bool IsComplete()
         {
             int i = 0;

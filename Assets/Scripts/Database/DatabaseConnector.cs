@@ -6,131 +6,119 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-/// <summary>
-/// 
-/// @author
-/// </summary>
+
 namespace Database
 {
-    
+    /* created by: SWT-P_WS_2021_Schienencode */
+    /// <summary>
+    /// This class is a major control-instance. It communicates with the Firebase-database and organizes Board- and
+    /// Mission-objects to be loaded from or to the database.
+    /// </summary>
+    /// @author Bastian Badde
     public class DatabaseConnector : MonoBehaviour
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        private ObjectPlacer placer;
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // private ObjectPlacer placer;
 
         /// <summary>
-        /// 
+        /// the Player Object of the active Player
         /// </summary>
         public Player player=null;
-        //public String boardName;
+
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public int boardNumber = 0;
 
         /// <summary>
-        /// 
-        /// </summary>
-        public int boardNumber = 0;
-
-        /// <summary>
-        /// 
+        /// the name of the board in the Firebase-DB
         /// </summary>
         public string boardname;
 
         /// <summary>
-        /// 
+        /// the current selected Board-object
         /// </summary>
         private Board board;
 
         /// <summary>
-        /// 
+        /// MissionProver object of the scene for organisation
         /// </summary>
         private MissionProver _prover;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject curveR;
-        
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject curveL;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject switchL0;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject switchL1;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject switchR0;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject switchR1;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject straight;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject railStart;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject railEnd;
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public GameObject station;
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject curveR;
+        //
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject curveL;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject switchL0;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject switchL1;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject switchR0;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject switchR1;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject straight;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject railStart;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject railEnd;
+        //
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // public GameObject station;
 
         //public InputField inputBoardName;
 
         /// <summary>
-        /// 
+        /// the current selected Mission-object
         /// </summary>
         private Mission _mission;
 
         //private String connectionString = "https://schienencode-default-rtdb.europe-west1.firebasedatabase.app/";
 
         /// <summary>
-        /// 
+        /// the ConnectionString to the FirebaseDB
         /// </summary>
-        private String connectionString = "https://swt-p-ss20-profcollector.firebaseio.com/schienencode/";
-
-
-        /// <summary>
-        /// 
-        /// @author
-        /// </summary>
-        public void OnGetSubmit()
-        {
-            //boardname = inputBoardName.text;
-            boardname = "board0";
-            RetrieveFromDatabase();
-            Debug.Log("Retrieved: " + board.BoardString);
-        }
+        private readonly String connectionString = "https://swt-p-ss20-profcollector.firebaseio.com/schienencode/";
+        
         
         /// <summary>
-        /// 
-        /// @author
+        /// hard coded method to post data to the FirebaseDB
         /// </summary>
+        /// @author bastian Badde
         public void OnPutSubmit()
         {
-            
             //placer = FindObjectOfType<ObjectPlacer>();
             //PostToDatabase(new Board("Board:2.6.0.0;6.6.0.0;10.6.0.0"));
             //PostToDatabase(new Board("Board:6.6.0.0;10.6.0.0;16.6.10.0;16.12.10.270;12.12.0.180;8.12.0.180;2.12.10.180;2.6.10.90"));
@@ -145,16 +133,16 @@ namespace Database
         }
 
         /// <summary>
-        /// 
-        /// Varibles:
-        /// boardInfo:
-        /// structures:
-        /// coordinates:
-        /// x:
-        /// z:
-        /// rot:
-        /// @author
+        /// Builds a board out of a Board-object which is loaded from the Firebase-DB an instantiates it.
         /// </summary>
+        /// Variables:
+        /// boardInfo: relevant Boardstring data
+        /// structures: relevant Boardstring data for each gameobject to be instantiated
+        /// coordinates: coordinates as described in the Board-class
+        /// x: x-coordinate
+        /// z: z-coordinate
+        /// rot: rotation-value
+        /// @author Bastian Badde
         public void BuildFromDB()
         {
             MissionProver.buildOnDB = true;
@@ -182,13 +170,11 @@ namespace Database
         
         
         /// <summary>
-        /// 
-        /// @author
+        /// transforms a encrypted string into the name of the relevant gameobject
         /// </summary>
-        /// Varibles:
-        /// obj:
-        /// <param name="code"></param>
-        /// <returns></returns>
+        /// <param name="code">encrypted string</param>
+        /// <returns>name of the relevant gameobject</returns>
+        ///  /// @author Bastian Badde
         private string GetObjectName(string code)
         {
             string name;
@@ -231,62 +217,62 @@ namespace Database
             return name;
         }
 
+        //
+        // /// <summary>
+        // /// 
+        // /// @author
+        // /// </summary>
+        // /// Variables:
+        // /// obj:
+        // /// <param name="code"></param>
+        // /// <returns></returns>
+        // private GameObject GetObject(string code)
+        // {
+        //     GameObject obj;
+        //     switch (code)
+        //     {
+        //         case "0":
+        //             //obj = GameObject.Find("Straight270Final");
+        //             obj = straight;
+        //             break;
+        //         case "10":
+        //             obj = curveL;
+        //             break;
+        //         case "11":
+        //             obj = curveR;
+        //             break;
+        //         case "15":
+        //             obj = switchL0;
+        //             break;
+        //         case "16":
+        //             obj = switchL1;
+        //             break;
+        //         case "17":
+        //             obj = switchR0;
+        //             break;
+        //         case "18":
+        //             obj = switchR1;
+        //             break;
+        //         case "20":
+        //             obj = railStart;
+        //             break;
+        //         case "21":
+        //             obj = railEnd;
+        //             break;
+        //         case "30":
+        //             obj = station;
+        //             break;
+        //         default:
+        //             obj = null;
+        //             break;
+        //     }
+        //     return obj;
+        // }
 
         /// <summary>
-        /// 
-        /// @author
+        /// Loads a Board-Object from the database and interpret it.
         /// </summary>
-        /// Varibles:
-        /// obj:
-        /// <param name="code"></param>
-        /// <returns></returns>
-        private GameObject GetObject(string code)
-        {
-            GameObject obj;
-            switch (code)
-            {
-                case "0":
-                    //obj = GameObject.Find("Straight270Final");
-                    obj = straight;
-                    break;
-                case "10":
-                    obj = curveL;
-                    break;
-                case "11":
-                    obj = curveR;
-                    break;
-                case "15":
-                    obj = switchL0;
-                    break;
-                case "16":
-                    obj = switchL1;
-                    break;
-                case "17":
-                    obj = switchR0;
-                    break;
-                case "18":
-                    obj = switchR1;
-                    break;
-                case "20":
-                    obj = railStart;
-                    break;
-                case "21":
-                    obj = railEnd;
-                    break;
-                case "30":
-                    obj = station;
-                    break;
-                default:
-                    obj = null;
-                    break;
-            }
-            return obj;
-        }
-
-        /// <summary>
-        /// 
-        /// @author
-        /// </summary>
+        /// @author Bastian Badde
         public void RetrieveFromDatabase()
         {
             RestClient.Get<Board>(connectionString + boardname + ".json").Then(response =>
@@ -299,14 +285,13 @@ namespace Database
         }
 
         /// <summary>
-        /// 
+        /// interprets the MissionString of the current seleted Board-object and displays it
+        /// </summary> 
         /// Variables:
-        /// missionInfo:
-        /// cargos:
-        /// cargosInt:
-        /// i:
+        /// missionInfo: relevant data of the MissionString
+        /// cargos: string-values of the missionInfo
+        /// cargosInt: cargos transformed into int-values
         /// @author
-        /// </summary>
         private void CreateMission()
         {
             string missionInfo = board.MissionString.Split(':')[1];
@@ -326,19 +311,18 @@ namespace Database
         }
 
         /// <summary>
-        /// 
-        /// @author
+        /// Uploads a Board-Object to the database.
         /// </summary>
-        /// <param name="board"></param>
+        /// <param name="board">Board-object to be uploaded</param>
         public void PostToDatabase(Board board)
         {
             RestClient.Put(connectionString +  boardname + ".json", board);
         }
 
         /// <summary>
-        /// 
-        /// @author
+        /// Initialises the MissionProver-object
         /// </summary>
+        /// @author Bastian Badde
         void Start()
         {
             _prover = FindObjectOfType<MissionProver>();

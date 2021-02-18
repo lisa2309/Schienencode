@@ -453,6 +453,11 @@
           <e p="SwitchScript.cs" t="Include" />
         </e>
         <e p="Tests" t="Include">
+          <e p="EditMode Test" t="Include">
+            <e p="CameraMovementTest.cs" t="Include" />
+            <e p="EditMode Test.asmdef" t="Include" />
+            <e p="MusicPlayerTest.cs" t="Include" />
+          </e>
           <e p="PlayMode Test" t="Include">
             <e p="GridTest.cs" t="Include" />
             <e p="PlayMode Test.asmdef" t="Include" />
@@ -460,6 +465,7 @@
           </e>
         </e>
       </e>
+      <e p="EditModeTest.csproj" t="IncludeRecursive" />
       <e p="kcp2k.csproj" t="IncludeRecursive" />
       <e p="Mirror.Authenticators.csproj" t="IncludeRecursive" />
       <e p="Mirror.Cloud.csproj" t="IncludeRecursive" />
