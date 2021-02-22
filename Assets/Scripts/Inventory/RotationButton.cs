@@ -19,6 +19,7 @@ public class RotationButton : MonoBehaviour
     /// </summary>
     public GameObject imageButton;
 
+
     /// <summary>
     /// the rotation will in variable stored there by CreatePrefab class also used 
     /// so the variable name will be the prefab name and the prefab is in  CreatePrefab class declared 
@@ -30,9 +31,10 @@ public class RotationButton : MonoBehaviour
     /// @author Ahmed L'harrak
     void Awake()
     {   
-        GameObject parent = this.transform.parent.gameObject;
+        GameObject parent = this.transform.parent.parent.Find("createpanel").gameObject;
         prefab = parent.transform.Find("create").gameObject.GetComponent<CreatePrefab>().currentPrefab.name;
         PlayerPrefs.SetFloat(prefab, 0f);
+        
     }
 
     /// <summary>
@@ -44,14 +46,25 @@ public class RotationButton : MonoBehaviour
     /// rotate: 
     /// </summary>
     /// @author Ahmed L'harrak
-    public void RotatePrefab()
+    public void RotatePrefab_right()
     {
         float rotate = PlayerPrefs.GetFloat(prefab);
-        if (rotate == 360)
+        if (rotate == 360 || rotate == -360)
         {
             rotate = 0f;
         }
         PlayerPrefs.SetFloat(prefab, rotate + 90);
         imageButton.transform.rotation = Quaternion.Euler(0, 0, -(rotate + 90));
+    }
+
+    public void RotatePrefab_left()
+    {
+        float rotate = PlayerPrefs.GetFloat(prefab);
+        if (rotate == 360 || rotate == -360)
+        {
+            rotate = 0f;
+        }
+        PlayerPrefs.SetFloat(prefab, rotate - 90);
+        imageButton.transform.rotation = Quaternion.Euler(0, 0, -(rotate - 90));
     }
 }

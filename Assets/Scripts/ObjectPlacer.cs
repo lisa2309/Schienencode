@@ -149,10 +149,11 @@ public class ObjectPlacer : MonoBehaviour
                 objectPreview.GetComponent<Collider>().enabled = false;
                 if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut")
                 {
-                    foreach (Transform c in objectPreview.transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<Transform>())
+                    foreach (Transform c in objectPreview.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
                         if (c.name != "Route")
                         {
+                            
                             c.GetComponent<Renderer>().material.color = new Color(255, 20, 147, 0.5f);
                         }
                     }
@@ -209,7 +210,7 @@ public class ObjectPlacer : MonoBehaviour
 
                     if (dist < 0.5f && point00 != Vector3.positiveInfinity)
                     {
-                       
+                       Debug.Log("tuNNNNNNNNEL");
                         canDrag = false;
                         break;
                     }
@@ -250,12 +251,13 @@ public class ObjectPlacer : MonoBehaviour
                     //Debug.Log("collision   "+gamob.name);
                     if (gamob.name != "Terrain" && gamob.name != "Inside" && gamob.name != "Outside")
                     {
+                        Debug.Log("TunnelIn  collision with : "+gamob.name);
                         canDrag = false;
                     }
                 }
                 if (canDrag)
                 {
-
+                    
                 if(player != null){
                  player.anrufen(prefabtoinstant.name, finalPosition, rotate);
                     
@@ -287,7 +289,8 @@ public class ObjectPlacer : MonoBehaviour
 
         if (hitCollider.name == "TunnelOut" || hitCollider.name == "TunnelIn")
         {
-            result[0] = hitCollider.transform.GetChild(0).transform.GetChild(0).Find("Route").Find(point).position;
+            
+            result[0] = hitCollider.transform.GetChild(1).transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
         else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final")

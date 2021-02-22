@@ -46,7 +46,7 @@ public class CreatePrefab : MonoBehaviour
         objectPlacer.rotate = rotate;
         Debug.Log(rotate);
         objectPlacer.isPreviewOn = true;
-        this.transform.parent.gameObject.SetActive(false);
+        this.transform.parent.parent.gameObject.SetActive(false);
     }
 
 }

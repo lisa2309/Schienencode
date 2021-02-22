@@ -70,7 +70,7 @@ MonoBehaviour:
     type: 3}
   tunel_in: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6,
     type: 3}
-  tunel_out: {fileID: 8654538594090976254, guid: 539ee4839211fb24da4d208baff4d90e,
+  tunel_out: {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e,
     type: 3}
   station: {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
   switch_l_0: {fileID: 708939981515953305, guid: d877d5865b7dbcf498a2c6638a6edf08,
