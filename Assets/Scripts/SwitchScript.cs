@@ -1,24 +1,32 @@
 ﻿using System;
 using UnityEngine;
 
-
-    public class SwitchScript : MonoBehaviour
-    {
-        /// <summary>
-    /// 
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// This class is attached to a switch-prefab which have influence to the route of the train, so the player can define
+/// which path the train should chose
+/// </summary>
+/// @author Ahmed L'harrak & Bastian Badde
+public class SwitchScript : MonoBehaviour
+{
+    /// <summary>
+    /// ID of the switch
     /// </summary>
     private int _switchNumber;
 
     /// <summary>
-    /// 
+    /// Missionprover object of the scene for organisation
     /// </summary>
     private MissionProver _prover;
     
     /// <summary>
-    /// 
+    /// Collection of the different PopUp-Panels
     /// </summary>
     private GameObject panels;
 
+    /// <summary>
+    /// Enum-Element to differentiate the kind of switch 
+    /// </summary>
     public SwitchMode mode;
 
     /// <summary>
@@ -29,6 +37,9 @@ using UnityEngine;
     /// </summary>
     public int[] ComparationValues;
     
+    /// <summary>
+    /// Enum to differentiate the kind of switch 
+    /// </summary>
     public enum SwitchMode
     {
         Unchosen,
@@ -38,9 +49,9 @@ using UnityEngine;
     }
 
     /// <summary>
-    /// 
+    /// Opens the relevant PopUp-Panel, when the switch is clicked by mouse
     /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller 
+    /// @author Ahmed L'harrak & Bastian Badde
     void OnMouseDown()
     {
         Debug.Log("Switch is clicked ");
@@ -53,12 +64,20 @@ using UnityEngine;
         }
     }
 
+    /// <summary>
+    /// resets the settings of the switch
+    /// </summary>
+    /// @author Bastian Badde
     public void ResetSwitch()
     {
         this.mode = SwitchMode.Unchosen;
         this.ComparationValues = new int[] {0,0,1};
     }
 
+    /// <summary>
+    /// Opens the relevant popUp-Panel depending on the current SwitchMode
+    /// </summary>
+    /// @author Ahmed L'harrak & Bastian Badde
     public void OpenPanel()
     {
         switch (mode)
@@ -78,6 +97,11 @@ using UnityEngine;
         }
     }
 
+    /// <summary>
+    /// Changes the current SwitchMode
+    /// </summary>
+    /// <param name="switchVal">the dropdown Value of the appropriate SwitchMode</param>
+    /// @author Bastian Badde
     public void ChangeSwitchMode(int switchVal)
     {
         switch (switchVal)
@@ -98,7 +122,11 @@ using UnityEngine;
         }
     }
 
-    
+    /// <summary>
+    /// Opens the relevant popUp-Panel depending on the current SwitchMode
+    /// </summary>
+    /// <param name="panelString">the name of the panel what to open</param>
+    /// @author Ahmed L'harrak & Bastian Badde
     private void OpenSpecificPanel(string panelString)
     {
         panels = GameObject.FindObjectOfType<Panels>().allpanels;
@@ -124,16 +152,13 @@ using UnityEngine;
     }
 
     /// <summary>
-    /// 
-    /// @author
+    /// Initialises the components with default-Values
     /// </summary>
+    /// @author Ahmed L'harrak & Bastian Badde
     void Start()
     {
         ComparationValues = new int[] {0,0,1};
         mode = SwitchMode.Unchosen;
         _prover = FindObjectOfType<MissionProver>();
-        //this._stationNumber = _prover.RegisterNewStation();
-        //popUpPanel = GameObject.FindGameObjectWithTag("PopUpPanel") as Panel;
-        //popUpPanel = GameObject.Find("PopUpPanel");
     }
-    }
+}
