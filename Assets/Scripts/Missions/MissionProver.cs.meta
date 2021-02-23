@@ -3,7 +3,24 @@ guid: 093497615d4ad604a8cf167e42163c79
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - missiontext: {instanceID: 0}
+  - finalText: {instanceID: 0}
+  - ddStation: {instanceID: 0}
+  - ddSwitchValue: {instanceID: 0}
+  - ddSwitchCompare: {instanceID: 0}
+  - ddWhileSwitchValue: {instanceID: 0}
+  - ddWhileSwitchCompare: {instanceID: 0}
+  - ddGeneralSwitch: {instanceID: 0}
+  - ddInTunnelOpenOuts: {instanceID: 0}
+  - inputIfSwitch: {instanceID: 0}
+  - inputWhileSwitch: {instanceID: 0}
+  - inputForSwitch: {instanceID: 0}
+  - stationCaption: {instanceID: 0}
+  - outTunnelCaption: {instanceID: 0}
+  - DeleteImageWhite: {fileID: 21300000, guid: 047f0c409c14c9c4881d065e9deaa760, type: 3}
+  - DeleteImageBlack: {fileID: 21300000, guid: 924559982dc354b47a5da351ca252686, type: 3}
+  - DeleteButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
