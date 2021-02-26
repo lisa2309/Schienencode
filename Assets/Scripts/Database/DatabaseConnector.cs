@@ -4,7 +4,6 @@ using DefaultNamespace;
 using Proyecto26;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 
 namespace Database
@@ -27,11 +26,6 @@ namespace Database
         /// </summary>
         public Player player=null;
 
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public int boardNumber = 0;
-
         /// <summary>
         /// the name of the board in the Firebase-DB
         /// </summary>
@@ -46,60 +40,7 @@ namespace Database
         /// MissionProver object of the scene for organisation
         /// </summary>
         private MissionProver _prover;
-
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject curveR;
-        //
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject curveL;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject switchL0;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject switchL1;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject switchR0;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject switchR1;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject straight;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject railStart;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject railEnd;
-        //
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // public GameObject station;
-
-        //public InputField inputBoardName;
-
+        
         /// <summary>
         /// the current selected Mission-object
         /// </summary>
@@ -126,10 +67,9 @@ namespace Database
             //PostToDatabase(new Board("Board:18.14.20.90;14.14.0.180;13.12.30.0;9.12.30.0;10.14.0.180;6.14.21.90", "Mission:5;5"));
             //PostToDatabase(new Board("Board:202.56.20.90;198.56.0.180;197.54.30.0;193.54.30.0;194.56.0.180;190.56.21.90", "Mission:5;5"));
             //PostToDatabase(new Board("Board:202.56.20.90;198.56.30.180;194.56.30.180;190.56.21.90", "Mission:5;5"));
-            //PostToDatabase(new Board("Board:206.56.20.90;198.56.30.180;194.56.30.180;204.50.21.270;188.50.11.180;200.50.15.180;" +
-            //                         "196.50.0.0;192.50.18.0;202.56.15.0;190.56.17.180;184.56.10.90;184.62.10.180;202.62.10.270;" +
-            //                         "188.62.0.0;192.62.0.0;196.62.0.0;194.44.11.180;200.44.11.90", "Mission:5;10"));
-            PostToDatabase(new Board("Board:40.28.0.0", "Mission:0"));
+            PostToDatabase(new Board("Board:206.56.20.90;198.56.30.180;194.56.30.180;204.50.21.270;188.50.11.180;200.50.15.180;" +
+                                     "196.50.0.0;192.50.18.0;202.56.15.0;190.56.17.180;184.56.10.90;184.62.10.180;202.62.10.270;" +
+                                     "188.62.0.0;192.62.0.0;196.62.0.0;194.44.11.180;200.44.11.90", "Mission:5;10"));
 
         }
 
@@ -218,58 +158,6 @@ namespace Database
             return name;
         }
 
-        //
-        // /// <summary>
-        // /// 
-        // /// @author
-        // /// </summary>
-        // /// Variables:
-        // /// obj:
-        // /// <param name="code"></param>
-        // /// <returns></returns>
-        // private GameObject GetObject(string code)
-        // {
-        //     GameObject obj;
-        //     switch (code)
-        //     {
-        //         case "0":
-        //             //obj = GameObject.Find("Straight270Final");
-        //             obj = straight;
-        //             break;
-        //         case "10":
-        //             obj = curveL;
-        //             break;
-        //         case "11":
-        //             obj = curveR;
-        //             break;
-        //         case "15":
-        //             obj = switchL0;
-        //             break;
-        //         case "16":
-        //             obj = switchL1;
-        //             break;
-        //         case "17":
-        //             obj = switchR0;
-        //             break;
-        //         case "18":
-        //             obj = switchR1;
-        //             break;
-        //         case "20":
-        //             obj = railStart;
-        //             break;
-        //         case "21":
-        //             obj = railEnd;
-        //             break;
-        //         case "30":
-        //             obj = station;
-        //             break;
-        //         default:
-        //             obj = null;
-        //             break;
-        //     }
-        //     return obj;
-        // }
-
         /// <summary>
         /// Loads a Board-Object from the database and interpret it.
         /// </summary>
@@ -278,6 +166,7 @@ namespace Database
         {
             RestClient.Get<Board>(connectionString + boardname + ".json").Then(response =>
             {
+                Debug.Log("Data retrieved");
                 board = response;
                 CreateMission();
                 BuildFromDB();

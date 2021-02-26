@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace DefaultNamespace
-{
     /* created by: SWT-P_WS_2021_Schienencode */
     /// <summary>
     /// This class is attached to a OutTunnel-prefab to be able to connect an OutTunnel with an InTunnel
@@ -64,12 +62,33 @@ namespace DefaultNamespace
         /// <summary>
         /// Remove OutTunnelNumber from GivenTunnelNumbers
         /// </summary>
-        /// <param name="tunnelNumber">the tunnenNumber to remove</param>
+        /// <param name="tunnelNumber">the tunnenlNumber to remove</param>
         /// @author Bastian Badde
         public static void RemoveOutTunnel(int tunnelNumber)
         { 
             //if (GivenTunnelNumbers.Remove(tunnelNumber) || usedTunnelNumbers.Remove(tunnelNumber)) DeletedTunnelNumbers.Add(tunnelNumber);
             if (GivenTunnelNumbers.Remove(tunnelNumber)) DeletedTunnelNumbers.Add(tunnelNumber);
+        }
+        
+        /// <summary>
+        /// Add OutTunnelNumber to GivenTunnelNumbers
+        /// </summary>
+        /// @author Bastian Badde
+        public void AddOutTunnel()
+        { 
+            if (DeletedTunnelNumbers.Count > 0)
+            {
+                this.OutTunnelNumber = DeletedTunnelNumbers.First();
+                DeletedTunnelNumbers.Remove(DeletedTunnelNumbers.First());
+                GivenTunnelNumbers.Add(this.OutTunnelNumber);
+            }
+            else
+            {
+                this.OutTunnelNumber = _outTunnelCounter++;
+                GivenTunnelNumbers.Add(this.OutTunnelNumber);
+            }
+            GivenTunnelNumbers.Sort();
+            Debug.Log("OTN: " + this. OutTunnelNumber);
         }
         
         // public static void RemoveOutTunnel(List<int> tunnelNumbers)
@@ -118,25 +137,15 @@ namespace DefaultNamespace
         }
 
         /// <summary>
-        /// Initialises the components and sets the OutTunnelNumber on a free value
+        /// Initialises the MissionProver-object
         /// </summary>
         /// @author Bastian Badde
         void Start()
         {
-            if (!(_prover is null)) _prover = FindObjectOfType<MissionProver>();
-            if (DeletedTunnelNumbers.Count > 0)
-            {
-                this.OutTunnelNumber = DeletedTunnelNumbers.First();
-                DeletedTunnelNumbers.Remove(DeletedTunnelNumbers.First());
-                GivenTunnelNumbers.Add(this.OutTunnelNumber);
-            }
-            else
-            {
-                this.OutTunnelNumber = _outTunnelCounter++;
-                GivenTunnelNumbers.Add(this.OutTunnelNumber);
-            }
-            //popUpPanel = GameObject.FindGameObjectWithTag("PopUpPanel") as Panel;
-            //popUpPanel = GameObject.Find("PopUpPanel");
+            _prover = FindObjectOfType<MissionProver>();
         }
+        
+        
     }
-}
+    
+  

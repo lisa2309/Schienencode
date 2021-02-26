@@ -42,6 +42,16 @@ public class MissionProver : MonoBehaviour
     /// UI-Text-object which is displayed after the train enters the End of the route
     /// </summary>
     public Text finalText;
+    
+    /// <summary>
+    /// UI-Text-object which is displayed in the error-PopUp as caption
+    /// </summary>
+    public Text errorCaption;
+
+    /// <summary>
+    /// UI-Text-object which is displayed in the error-PopUp as error-message
+    /// </summary>
+    public Text errorText;
 
     /// <summary>
     /// Counter of registered TrainStations
@@ -410,6 +420,49 @@ public class MissionProver : MonoBehaviour
         this.mission = mission;
         SetMissionField();
     }
+
+    /// <summary>
+    /// Displays an error-message in case something went wrong.
+    /// </summary>
+    /// <param name="caption">the caption of the error message</param>
+    /// <param name="message">the error-message to display</param>
+    /// @author Bastian Badde
+    public void DisplayAlert(string caption, string message)
+    {
+        errorCaption.text = caption;
+        errorText.text = message;
+        ClosePanel();
+        OpenErrorPanel();
+    }
+    
+    /// <summary>
+    /// Opens the error-popUp-Panel
+    /// </summary>
+    /// @author Ahmed L'harrak & Bastian Badde
+    public void OpenErrorPanel()
+    {
+        GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;
+        if (panels != null)
+        {
+            foreach (Transform panel in panels.GetComponentInChildren<Transform>())
+            {
+
+                if (panel.name != "panel08")
+                {
+                    panel.gameObject.SetActive(false);
+                }
+                else
+                {
+                    if (!panel.gameObject.activeSelf)
+                    {
+                        MissionProver.panelisOpen = true;
+                        panels.SetActive(true);
+                        panel.gameObject.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
     
     /// <summary>
     /// Initialises the components with default-Values
@@ -422,4 +475,14 @@ public class MissionProver : MonoBehaviour
         cargoAdditions = new List<int>();
     }
 
+    /// <summary>
+    /// Does same as Start(), but can be executed manual for testing reasons.
+    /// </summary>
+    /// @author Bastian Badde
+    public void StartManual()
+    {
+        panelisOpen = false;
+        deleteOn = false;
+        cargoAdditions = new List<int>();
+    }
 }
