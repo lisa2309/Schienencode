@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="62f671a2-7cb7-4e9e-a5ea-f3f273c3a272" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +32,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Grid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/OverRail.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Hovertext.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/hovertext.cs" />
+        <option value="$PROJECT_DIR$/Hovertext.cs" />
+        <option value="$PROJECT_DIR$/OverRail.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1lQQxNk9UwiFGUMgNnnsb49mQd2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,6 +75,7 @@
       <workItem from="1607601868485" duration="6470000" />
       <workItem from="1608126225822" duration="371000" />
       <workItem from="1611150659730" duration="46000" />
+      <workItem from="1614253961854" duration="6795000" />
     </task>
     <servers />
   </component>

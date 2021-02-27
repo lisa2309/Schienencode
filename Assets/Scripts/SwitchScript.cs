@@ -59,6 +59,7 @@ public class SwitchScript : MonoBehaviour
         //if (!isLocalPlayer) return;
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
+            Debug.Log("Switch should open Panel");
             _prover.UpdateSwitch(this);
             OpenPanel();
         }

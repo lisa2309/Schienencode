@@ -16,8 +16,8 @@
     <explicitExcludes>
       <Path>.git</Path>
       <Path>.idea</Path>
+      <Path>.vscode</Path>
       <Path>Library</Path>
-      <Path>Schienencode_Data</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
     </explicitExcludes>
