@@ -15,6 +15,44 @@ using Debug = UnityEngine.Debug;
 /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
 public class ObjectPlacer : MonoBehaviour
 {
+
+
+/// <summary>
+/// name of prefab for Straight
+/// </summary>
+private const string str_geradeschiene = "Straight270Final";
+/// <summary>
+/// name of prefab for curve left
+/// </summary>
+private const string str_curveleft = "CurveL0Final";
+/// <summary>
+/// name of prefab for curve rigth
+/// </summary>
+private const string str_curverigth = "CurveR0Final";
+/// <summary>
+/// name of prefab for tunnel in
+/// </summary>
+private const string str_tunelin = "TunnelIn";
+/// <summary>
+/// name of prefab for tunnel out
+/// </summary>
+private const string str_tunelout = "TunnelOut";
+/// <summary>
+/// name of prefab for switch left 0
+/// </summary>
+private const string str_switchl0 = "SwitchL0Final";
+/// <summary>
+/// name of prefab for switch left 1
+/// </summary>
+private const string str_switchl1 = "SwitchL1Final";
+/// <summary>
+/// name of prefab for switch rigth 0
+/// </summary>
+private const string str_switchr0 ="SwitchR0Final";
+/// <summary>
+/// name of prefab for switch rigth 1
+/// </summary>
+private const string str_switchr1 ="SwitchR1Final";
     /// <summary>
     /// 
     /// </summary>
@@ -147,7 +185,7 @@ public class ObjectPlacer : MonoBehaviour
                 objectPreview = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
                 objectPreview.name = prefabtoinstant.name;
                 objectPreview.GetComponent<Collider>().enabled = false;
-                if (prefabtoinstant.name == "TunnelIn" || prefabtoinstant.name == "TunnelOut")
+                if (prefabtoinstant.name == str_tunelin || prefabtoinstant.name == str_tunelout)
                 {
                     foreach (Transform c in objectPreview.transform.GetChild(1).transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
@@ -159,7 +197,7 @@ public class ObjectPlacer : MonoBehaviour
                     }
                 }
                 
-                else if (prefabtoinstant.name == "SwitchR0Final" || prefabtoinstant.name == "SwitchR1Final" || prefabtoinstant.name == "SwitchL0Final" || prefabtoinstant.name == "SwitchL1Final")
+                else if (prefabtoinstant.name == str_switchr0 || prefabtoinstant.name == str_switchr1 || prefabtoinstant.name == str_switchl0 || prefabtoinstant.name == str_switchl1)
                 {
                     for (int i = 0; i < 2; i++)
                     {
@@ -210,7 +248,7 @@ public class ObjectPlacer : MonoBehaviour
 
                     if (dist < 0.5f && point00 != Vector3.positiveInfinity)
                     {
-                       Debug.Log("tuNNNNNNNNEL");
+                      /// Debug.Log("tuNNNNNNNNEL");
                         canDrag = false;
                         break;
                     }
@@ -251,7 +289,7 @@ public class ObjectPlacer : MonoBehaviour
                     //Debug.Log("collision   "+gamob.name);
                     if (gamob.name != "Terrain" && gamob.name != "Inside" && gamob.name != "Outside")
                     {
-                        Debug.Log("TunnelIn  collision with : "+gamob.name);
+                        //Debug.Log("TunnelIn  collision with : "+gamob.name);
                         canDrag = false;
                     }
                 }
@@ -287,18 +325,18 @@ public class ObjectPlacer : MonoBehaviour
 
         
 
-        if (hitCollider.name == "TunnelOut" || hitCollider.name == "TunnelIn")
+        if (hitCollider.name == str_tunelout || hitCollider.name == str_tunelin)
         {
             
             result[0] = hitCollider.transform.GetChild(1).transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == "Straight270Final" || hitCollider.name == "CurveL0Final" || hitCollider.name == "CurveR0Final")
+        else if (hitCollider.name == str_geradeschiene || hitCollider.name == str_curveleft|| hitCollider.name == str_curverigth)
         {
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == "SwitchL0Final" || hitCollider.name == "SwitchL1Final" || hitCollider.name == "SwitchR0Final" || hitCollider.name == "SwitchR1Final")
+        else if (hitCollider.name == str_switchl0 || hitCollider.name == str_switchl1 || hitCollider.name == str_switchr0 || hitCollider.name == str_switchr1)
         {
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = hitCollider.transform.GetChild(1).Find("Route").Find(point).position;

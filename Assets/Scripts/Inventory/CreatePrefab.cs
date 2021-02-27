@@ -12,17 +12,17 @@ using UnityEngine.UI;
 public class CreatePrefab : MonoBehaviour
 {
     /// <summary>
-    /// 
+    /// that is the prefab that will craeted
     /// </summary>
     public GameObject currentPrefab;
 
     /// <summary>
-    /// 
+    /// in this varible is the rotation of created prefabs saved
     /// </summary>
     private float rotate;
 
     /// <summary>
-    /// 
+    /// script objectplacer there is for placment this prefabe responsable is
     /// </summary>
     private ObjectPlacer objectPlacer;
 
