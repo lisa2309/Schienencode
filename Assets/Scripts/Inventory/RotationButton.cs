@@ -10,12 +10,12 @@ using UnityEngine;
 public class RotationButton : MonoBehaviour
 {
     /// <summary>
-    /// 
+    /// this is variable to save name of current created prefab
     /// </summary>
     public string prefab;
 
     /// <summary>
-    /// 
+    /// image of current created prefab this image will make a preview show bevore create the prefab
     /// </summary>
     public GameObject imageButton;
 
@@ -56,6 +56,12 @@ public class RotationButton : MonoBehaviour
         PlayerPrefs.SetFloat(prefab, rotate + 90);
         imageButton.transform.rotation = Quaternion.Euler(0, 0, -(rotate + 90));
     }
+    
+    /// <summary>
+    /// rotation left of the prefab
+    ///
+    ///
+    /// <summary>
 
     public void RotatePrefab_left()
     {

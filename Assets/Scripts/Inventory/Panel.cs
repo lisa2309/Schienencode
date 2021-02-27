@@ -10,7 +10,7 @@ using UnityEngine;
 public class Panel : MonoBehaviour
 {
     /// <summary>
-    /// 
+    /// this is panel windows who content  all proprietes(rotation create button) of the clicked prefabs 
     /// </summary>
     public GameObject selectionPanel;
 
