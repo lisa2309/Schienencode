@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7450158120938346373}
   - component: {fileID: -7365143837872348493}
   - component: {fileID: -161080323827588460}
+  - component: {fileID: 1501538718437282298}
   m_Layer: 0
   m_Name: TunnelIn
   m_TagString: Untagged
@@ -123,7 +124,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91e72fb486949a997c2fe401de223be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RelatedOutTunnelNumber: -1
+  relatedOutTunnelNumber: -1
+--- !u!114 &1501538718437282298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251271527635132867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ea64b36ef1fda4eb77ac93163fa6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+    type: 3}
 --- !u!1 &4950155884315139691
 GameObject:
   m_ObjectHideFlags: 0
