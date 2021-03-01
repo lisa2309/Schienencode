@@ -538,5 +538,175 @@ namespace Tests
 
             yield return null;
 	}
-    }
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileStraigthGT()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 3 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileStraigthLT()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 1, 1 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileStraigthEQ()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 2, 3 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileCurveGT()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 1 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileCurveLT()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 1, 3 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1IFWhileCurveEQ()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
+			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 2, 2 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+		[UnityTest]
+		public IEnumerator RoutingTestSwitchL1For()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(198, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject ifswitch = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchR0Final.prefab", typeof(GameObject)), new Vector3(190, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/SwitchL1Final.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(0, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(188, 0, 50), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(194, 0, 50), Quaternion.AngleAxis(90, Vector3.up));
+
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.For;
+			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 2 };
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+			LogAssert.Expect(LogType.Log, " drivepasts: 2 < 2");
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
+	}
 }
