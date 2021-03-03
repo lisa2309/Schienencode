@@ -80,7 +80,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7370882953248651152}
-  m_Text: Weiche
+  m_Text: Kurve
   m_OffsetZ: 0
   m_CharacterSize: 0.2
   m_LineSpacing: 1
@@ -103,6 +103,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7370882953248651152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee68688ae3fcc843b0a59262db91e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 845187f21b7c29b478776786b9620bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
