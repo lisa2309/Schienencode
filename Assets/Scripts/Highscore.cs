@@ -57,6 +57,11 @@ public class Highscore : MonoBehaviour
         }
     }
     
+	/// <summary>
+    /// Opens the relevant popUp-Panel depending on if the mission is complete or not
+    /// </summary>
+    /// <param name="panelName">the name of the panel what to open</param>
+    /// @author Ronja Haas & Anna-Lisa Müller
     public void OpenPanel(string panelName)
     {
         panels = GameObject.FindObjectOfType<Panels>().allpanels;
