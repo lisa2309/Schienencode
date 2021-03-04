@@ -170,15 +170,13 @@ private DeleteRail deletrail;
 void Start() {
 prefabtoinstant = gerade_schiene;
 
-if(this.isLocalPlayer){
-    dbCon = FindObjectOfType<DatabaseConnector>();
-    dbCon.player = this;
-
-   objectPlacer = FindObjectOfType<ObjectPlacer>();
-   objectPlacer.player = this;
-   deletrail = FindObjectOfType<DeleteRail>();
-   deletrail.player=this;
 // WIP ----------------------------------------------------------------------------
+if (!this.isLocalPlayer)
+{
+    playerCanvas.enabled = false;
+}
+else
+{
     // Iteration through JSON-Nodes
     foreach (KeyValuePair<string, JSONNode> kvp in GameServer.Instance.PlayerInfos)
     {
@@ -188,20 +186,28 @@ if(this.isLocalPlayer){
     {
         gameInfoText.text += kvp.Key + " : " + kvp.Value + "\n";
     }
-
+    
     // Accessing Single Value
-    //playerNameText.text = GameServer.Instance.PlayerInfos["name"].Value;
+    playerNameText.text = GameServer.Instance.PlayerInfos["name"].Value;
 // WIP ----------------------------------------------------------------------------   
+    dbCon = FindObjectOfType<DatabaseConnector>();
+    dbCon.player = this;
+   objectPlacer = FindObjectOfType<ObjectPlacer>();
+   objectPlacer.player = this;
+   deletrail = FindObjectOfType<DeleteRail>();
+   deletrail.player=this;
+
 }
 
 }
 // WIP ----------------------------------------------------------------------------   
     /// <summary>
-    /// Waits for gameResult to call FinishGame
+    /// Waits for game result to call FinishGame
     /// </summary>
+    /// TODO: requirements for end of game (bool from another class?)
     private void Update()
     {
-        
+        //if (isLocalPlayer && gameFinished) FinishGame();
     }
 // WIP ----------------------------------------------------------------------------   
 
@@ -331,8 +337,8 @@ if(this.isLocalPlayer){
     /// <summary>
     /// Function that handles game results.
     /// Currently lets Host automatically win.
-    /// TODO: Implement connection to actual game results
     /// </summary>
+    /// TODO: Implement connection to actual game results
     private void FinishGame()
     {
         if (GameServer.Instance.PlayerInfos["isHost"].AsBool)
@@ -361,6 +367,7 @@ if(this.isLocalPlayer){
     /// </summary>
     /// <param name="connection">Connection for the TargetRPC</param>
     /// <param name="hostName">Name of the host</param>
+    /// TODO: Implement connection to actual game results
     [TargetRpc]
     public void TargetReceiveHostName(NetworkConnection connection, string hostName)
     {
