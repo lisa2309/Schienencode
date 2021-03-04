@@ -38,7 +38,7 @@ public class BezierFollow : MonoBehaviour
     /// <summary>
     /// used to controll train speed
     /// </summary>
-    private float speedModifier;
+    public float speedModifier = 1;
 
     /// <summary>
     /// allows starting of goByTheRoute();
@@ -60,7 +60,7 @@ public class BezierFollow : MonoBehaviour
         routes = null;
         routeToGo = 0;
         tParam = 0f;
-        speedModifier = 0.5f;
+        //speedModifier = 0.5f;
         coroutineAllowed = false;
     }
 
