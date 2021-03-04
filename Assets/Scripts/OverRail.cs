@@ -52,6 +52,9 @@ public class OverRail : MonoBehaviour
 	private const string TRAINSTATIONREQUEST = "Train";
 
 	private const string TRAINSTATION = "TrainStation";
+	
+	private const string SWITCHPROGRAMMABLE= "R";
+	
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it.
@@ -76,9 +79,14 @@ public class OverRail : MonoBehaviour
 					break;
 
 				case RAILSWITCH:
-					Debug.Log("Test 1");
-					popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
-					Debug.Log("Test 2");
+					if (gameObject.name.Contains(SWITCHPROGRAMMABLE)) // Switch auseinandergehend 
+					{
+						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
+					}
+					else
+					{
+						popuptext.GetComponent<TextMesh>().text = "Weiche";
+					}
 					break;
 
 				case RAILSTART:
@@ -100,7 +108,8 @@ public class OverRail : MonoBehaviour
 
 				case TRAINSTATIONREQUEST:
 					Debug.Log("Test 3");
-					popuptext.GetComponent<TextMesh>().text = "Bahnhof " + gameObject.GetComponent<SwitchScript>().ComparationValues[0];
+					Debug.Log(gameObject.GetComponent<SwitchScript>().ComparationValues[0]);
+					popuptext.GetComponent<TextMesh>().text = "Bahnhof "; // + gameObject.GetComponent<SwitchScript>().ComparationValues[0];
 					Debug.Log("Test 4");
 					break;
 

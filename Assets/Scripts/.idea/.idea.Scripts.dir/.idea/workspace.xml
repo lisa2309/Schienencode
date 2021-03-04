@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62f671a2-7cb7-4e9e-a5ea-f3f273c3a272" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Map1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeleteRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DeleteRail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OverRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OverRail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +37,8 @@
     <setting file="file://$PROJECT_DIR$/ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DeleteRail.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OverRail.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Missions/StationScript.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SwitchScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Missions/StationScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BezierFollow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Missions/MissionProver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hovertext.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,8 +50,9 @@
         <option value="$PROJECT_DIR$/hovertext.cs" />
         <option value="$PROJECT_DIR$/Hovertext.cs" />
         <option value="$PROJECT_DIR$/Highscore.cs" />
-        <option value="$PROJECT_DIR$/OverRail.cs" />
         <option value="$PROJECT_DIR$/DeleteRail.cs" />
+        <option value="$PROJECT_DIR$/Grid.cs" />
+        <option value="$PROJECT_DIR$/OverRail.cs" />
       </list>
     </option>
   </component>
@@ -91,6 +89,7 @@
       <workItem from="1614253961854" duration="6795000" />
       <workItem from="1614775770766" duration="180000" />
       <workItem from="1614883556134" duration="2971000" />
+      <workItem from="1614886982992" duration="1876000" />
     </task>
     <servers />
   </component>
