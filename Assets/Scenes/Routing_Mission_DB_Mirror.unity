@@ -2815,6 +2815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MissionProver
       objectReference: {fileID: 0}
+    - target: {fileID: 7015809273591909164, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: m_TagString
+      value: MissionProver
+      objectReference: {fileID: 0}
     - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
         type: 3}
       propertyPath: ddStation

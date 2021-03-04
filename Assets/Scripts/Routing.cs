@@ -134,6 +134,8 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     public void GenerateRoute()
     {
+        GameObject missionProver = GameObject.FindGameObjectWithTag("MissionProver");
+        bool drivepastsReached = false;
         routePoints = new List<Transform>();
         // Find GameObject Train
         GameObject train = GameObject.FindGameObjectWithTag("Train");
@@ -210,7 +212,9 @@ public class Routing : MonoBehaviour
                             if(drivePast[i] > maxDrivepasts)
                             {
                                 railFound = false;
-                                Debug.Log("Maximum drivepast reached");
+                                drivepastsReached = true;
+                                Debug.Log("Maximum drivepast reached");                                
+                                missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Maximum drivepasts reached");
                                 break;
                             }
                             if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && switchGoStraight(rail, i))
@@ -271,10 +275,10 @@ public class Routing : MonoBehaviour
         {
             Debug.Log("Track completed");
         }
-        else if (!railFound)
+        else if (!railFound&& !drivepastsReached)
         {
-            //toDo popup Track incomplete
             Debug.Log("Track incomplete");
+            missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Track incomplete");
         }
     }
 
