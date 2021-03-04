@@ -187,7 +187,7 @@ private const string str_switchr1 ="SwitchR1Final";
                 objectPreview.GetComponent<Collider>().enabled = false;
                 if (prefabtoinstant.name == str_tunelin || prefabtoinstant.name == str_tunelout)
                 {
-                    foreach (Transform c in objectPreview.transform.GetChild(0).transform.GetChild(0).GetComponentInChildren<Transform>())
+                    foreach (Transform c in objectPreview.transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
                         if (c.name != "Route")
                         {
@@ -328,7 +328,7 @@ private const string str_switchr1 ="SwitchR1Final";
         if (hitCollider.name == str_tunelout || hitCollider.name == str_tunelin)
         {
             
-            result[0] = hitCollider.transform.GetChild(0).transform.GetChild(0).Find("Route").Find(point).position;
+            result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
         else if (hitCollider.name == str_geradeschiene || hitCollider.name == str_curveleft|| hitCollider.name == str_curverigth)
