@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 270508676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0089ed6d1008f24ab3298c122942f09, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f7c77e79bff665448cb3a0b24bf8d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -205,14 +205,14 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: 
-  onlineScene: Assets/Scenes/GameScene.unity
+  onlineScene: Assets/Scenes/Map1.unity
   transport: {fileID: 270508678}
   networkAddress: localhost
   maxConnections: 4
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 4809663445682273657, guid: 085c0b14a7305a244af6368ed7764246,
+  playerPrefab: {fileID: 7226852748911496473, guid: 2248d1b5ade430b42b28c584c9d9c3a8,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0

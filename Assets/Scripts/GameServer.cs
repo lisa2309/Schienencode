@@ -183,7 +183,9 @@ public class GameServer : NetworkManager
         gameInfos = new JSONObject();
 
         playerInfos.Add("name", "Mustermann");
-        gameInfos.Add("playerAmount",1);
+        gameInfos.Add("playerAmount",2);
+        gameInfos.Add("rounds", 6);
+        gameInfos.Add("board", "Pirates");
     }
 
     /// <summary>
