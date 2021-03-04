@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7638626511369948429}
   - component: {fileID: 1876662865654850188}
   - component: {fileID: 1313965884956234989}
+  - component: {fileID: 7878632518345105460}
   m_Layer: 0
   m_Name: RailStart
   m_TagString: Start
@@ -79,6 +80,20 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &7878632518345105460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372956890935203653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+    type: 3}
 --- !u!1 &6077443025227864972
 GameObject:
   m_ObjectHideFlags: 0

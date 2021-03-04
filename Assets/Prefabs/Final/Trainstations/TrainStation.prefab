@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3157766522146931377}
   - component: {fileID: 3272176985962773321}
   - component: {fileID: -7816859389570541127}
+  - component: {fileID: 1980439018517278747}
   m_Layer: 0
   m_Name: TrainStation
   m_TagString: Rail
@@ -79,6 +80,20 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &1980439018517278747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116579443113338526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+    type: 3}
 --- !u!1001 &1139607523831267868
 PrefabInstance:
   m_ObjectHideFlags: 0
