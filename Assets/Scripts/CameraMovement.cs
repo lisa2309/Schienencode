@@ -45,6 +45,11 @@ public class CameraMovement : MonoBehaviour
     /// This is the start camera position from player one
     /// </summary>
     private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 10.6f);
+    
+    private Vector3 playerTwoCamera = new Vector3(5f, 4f, 1f);
+
+    private Player player;
+
 
     /// <summary>
     /// Positions the camera correctly 
@@ -97,7 +102,15 @@ public class CameraMovement : MonoBehaviour
     /// </summary>
     private void MaxFieldCameraView()
     {
-        Camera.main.transform.position = playerOneCamera;
+       /* if (player.getId() == 1)
+        {
+           Camera.main.transform.position = playerOneCamera; 
+        }
+        else
+        {
+            Camera.main.transform.position = playerTwoCamera; 
+        }*/
+        Camera.main.transform.position = playerOneCamera; 
         Camera.main.fieldOfView = maxFieldOfView;
     }
 

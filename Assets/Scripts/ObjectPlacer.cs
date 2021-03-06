@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Dynamic;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
 
 
 /* created by: SWT-P_WS_2021_Schienencode */
@@ -102,6 +103,9 @@ private const string str_switchr1 ="SwitchR1Final";
     /// 
     /// </summary>
     private Ray ray;
+    
+    private int actualSceneIndex;
+    
 
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
@@ -110,6 +114,13 @@ private const string str_switchr1 ="SwitchR1Final";
     private void Awake()
     {
         grid = FindObjectOfType<Grid>();
+        actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (actualSceneIndex > 1)
+        {
+            player = Player.player;
+            player.newPlayer();
+        }
+        
     }
 
 
