@@ -131,6 +131,7 @@ private DatabaseConnector dbCon;
 private DeleteRail deletrail;
 
 public static Player player;
+private CameraMovement camera;
 
 /// <summary>
 /// 
@@ -142,6 +143,7 @@ void Start() {
     prefabtoinstant = gerade_schiene;
     player = this;
     newPlayer();
+    
 
     if (this.isServer)
     {
@@ -158,6 +160,7 @@ public void SceneChanger()
 public void newPlayer()
 {
     if(this.isLocalPlayer){
+        
         dbCon = FindObjectOfType<DatabaseConnector>();
         dbCon.player = this;
         Debug.Log("is Client " + this.netId);
@@ -166,6 +169,8 @@ public void newPlayer()
         objectPlacer.player = this;
         deletrail = FindObjectOfType<DeleteRail>();
         deletrail.player=this;
+        camera = FindObjectOfType<CameraMovement>(); 
+        camera.MaxFieldCameraView();
     }
 
     if (this.isServer)
