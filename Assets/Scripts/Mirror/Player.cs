@@ -167,6 +167,11 @@ public void newPlayer()
         deletrail = FindObjectOfType<DeleteRail>();
         deletrail.player=this;
     }
+
+    if (this.isServer)
+    {
+        dbCon.RetrieveFromDatabase();
+    }
 }
 
 public uint getId()
