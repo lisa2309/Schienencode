@@ -48,6 +48,13 @@ public class OverRail : MonoBehaviour
 	/// name of prefab the Tunnel Entry
 	/// </summary>
 	private const string RAILTUNNELIN = "TunnelIn";
+
+	private const string TRAINSTATIONREQUEST = "Train";
+
+	private const string TRAINSTATION = "TrainStation";
+	
+	private const string SWITCHPROGRAMMABLE= "R";
+	
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it.
@@ -72,7 +79,14 @@ public class OverRail : MonoBehaviour
 					break;
 
 				case RAILSWITCH:
-					popuptext.GetComponent<TextMesh>().text = "Weiche";
+					if (gameObject.name.Contains(SWITCHPROGRAMMABLE)) // Switch auseinandergehend 
+					{
+						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
+					}
+					else
+					{
+						popuptext.GetComponent<TextMesh>().text = "Weiche";
+					}
 					break;
 
 				case RAILSTART:
@@ -90,6 +104,13 @@ public class OverRail : MonoBehaviour
 					} else {
 						popuptext.GetComponent<TextMesh>().text = "Ausgang Tunnel";
 					}
+					break;
+
+				case TRAINSTATIONREQUEST:
+					Debug.Log("Test 3");
+					Debug.Log(gameObject.GetComponent<SwitchScript>().ComparationValues[0]);
+					popuptext.GetComponent<TextMesh>().text = "Bahnhof "; // + gameObject.GetComponent<SwitchScript>().ComparationValues[0];
+					Debug.Log("Test 4");
 					break;
 
 				default:

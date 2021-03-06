@@ -28,7 +28,11 @@ public class DeleteRail : NetworkBehaviour
         //Debug.Log("is local "+isLocalPlayer);
         //if (!isLocalPlayer) return;
         //if (!isDeletable) return;
-        if (MissionProver.deleteOn) destroyrail();
+        if (MissionProver.deleteOn)
+        {
+            destroyrail();
+            Destroy(GameObject.Find("RailPopUpText(Clone)"));
+        }
 
     }
 

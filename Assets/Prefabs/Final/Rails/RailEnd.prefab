@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 8979030735186810124}
   - component: {fileID: -8785080817536940015}
   - component: {fileID: -3262262072643725656}
+  - component: {fileID: -3696173452849186872}
   m_Layer: 0
   m_Name: RailEnd
   m_TagString: Finish
@@ -128,6 +129,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493c0538488c3f343a266c8ceda31cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3696173452849186872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215155605840322757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+    type: 3}
 --- !u!1001 &849280129408712216
 PrefabInstance:
   m_ObjectHideFlags: 0
