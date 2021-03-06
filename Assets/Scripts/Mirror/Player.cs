@@ -111,8 +111,7 @@ public GameObject station;
 ///   rail end prefab gameobject
 /// </summary>
     public GameObject rail_end;
-
-
+    
 
     /// <summary>
 ///    gameobjict variable to save instantiate prefabe
@@ -131,6 +130,9 @@ private DatabaseConnector dbCon;
 /// </summary>
 private DeleteRail deletrail;
 
+public static Player player;
+private CameraMovement camera;
+
 /// <summary>
 /// 
 /// @author Ahmed L'harrak
@@ -138,18 +140,48 @@ private DeleteRail deletrail;
 /// and then asignment current player object to player object in dbcon and  objectplacer scripts
 /// </summary>
 void Start() {
-prefabtoinstant = gerade_schiene;
+    prefabtoinstant = gerade_schiene;
+    player = this;
+    newPlayer();
+    
 
-if(this.isLocalPlayer){
-    dbCon = FindObjectOfType<DatabaseConnector>();
-    dbCon.player = this;
+    if (this.isServer)
+    {
+        Debug.Log("is Server " + this.netId);
+    }
 
-   objectPlacer = FindObjectOfType<ObjectPlacer>();
-   objectPlacer.player = this;
-   deletrail = FindObjectOfType<DeleteRail>();
-   deletrail.player=this;
 }
 
+public void SceneChanger()
+{
+    FindObjectOfType<NetworkManager>().ServerChangeScene("Map2");
+}
+
+public void newPlayer()
+{
+    if(this.isLocalPlayer){
+        
+        dbCon = FindObjectOfType<DatabaseConnector>();
+        dbCon.player = this;
+        Debug.Log("is Client " + this.netId);
+
+        objectPlacer = FindObjectOfType<ObjectPlacer>();
+        objectPlacer.player = this;
+        deletrail = FindObjectOfType<DeleteRail>();
+        deletrail.player=this;
+        camera = FindObjectOfType<CameraMovement>(); 
+        camera.MaxFieldCameraView();
+    }
+
+    if (this.isServer)
+    {
+        dbCon.RetrieveFromDatabase();
+    }
+}
+
+public uint getId()
+{
+    return this.netId;
 }
 
 

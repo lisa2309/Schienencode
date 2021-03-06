@@ -24,13 +24,22 @@ public class CameraMovement : MonoBehaviour
     /// <summary>
     /// Maximum z position from the camera
     /// </summary>
-    private const int maxCameraZPosition = 30;
+    private const int maxCameraZPositionPlayer1 = 30;
 
     /// <summary>
     /// Minimum z position from the camera
     /// </summary>
-    private const int minCameraZPosition = 0;
+    private const int minCameraZPositionPlayer1 = 0;
 
+    /// <summary>
+    /// Maximum z position from the camera
+    /// </summary>
+    private const int maxCameraZPositionPlayer2 = -5;
+
+    /// <summary>
+    /// Minimum z position from the camera
+    /// </summary>
+    private const int minCameraZPositionPlayer2 = -35;
     /// <summary>
     /// Maximum zoom position from the camera 
     /// </summary>
@@ -44,16 +53,21 @@ public class CameraMovement : MonoBehaviour
     /// <summary>
     /// This is the start camera position from player one
     /// </summary>
-    private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 10.6f);
+    private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 11f);
+    
+    private Vector3 playerTwoCamera = new Vector3(50.2f, 41.1f, -46f);
+
+    private Player player;
+
 
     /// <summary>
     /// Positions the camera correctly 
     /// @author Ronja Haas & Anna-Lisa Müller 
     /// </summary>
-    void Start()
-    {
-        MaxFieldCameraView();   
-    }
+    //void Start()
+    //{
+    //    MaxFieldCameraView();   
+    //}
 
     /// <summary>
     /// Ensures that the player can zoom and stay within his game world boundary.
@@ -80,13 +94,27 @@ public class CameraMovement : MonoBehaviour
             if (Camera.main.fieldOfView == minFieldOfView)
             {
                 Vector3 cameraPosition = Camera.main.transform.position + new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
-                if (cameraPosition.z > minCameraZPosition && cameraPosition.z < maxCameraZPosition) 
+                if (player.getId() == 1)
                 {
-                    if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
+                    if (cameraPosition.z > minCameraZPositionPlayer1 && cameraPosition.z < maxCameraZPositionPlayer1)
                     {
-                        Camera.main.transform.position = cameraPosition;
-                    }   
+                        if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
+                        {
+                            Camera.main.transform.position = cameraPosition;
+                        }
+                    }
                 } 
+                else if (player.getId() == 2)
+                {
+                    if (cameraPosition.z > minCameraZPositionPlayer2 && cameraPosition.z < maxCameraZPositionPlayer2)
+                    {
+                        if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
+                        {
+                            Camera.main.transform.position = cameraPosition;
+                        }
+                    }
+                }
+                
             }    
         }
     }
@@ -95,9 +123,18 @@ public class CameraMovement : MonoBehaviour
     /// Set the camera to the right position, when the player use zoom out
     /// @author Ronja Haas & Anna-Lisa Müller 
     /// </summary>
-    private void MaxFieldCameraView()
+    public void MaxFieldCameraView()
     {
-        Camera.main.transform.position = playerOneCamera;
+        player = FindObjectOfType<Player>();
+        Debug.Log("Camera " +player.getId());
+        if (player.getId() == 1)
+        {
+            Camera.main.transform.position = playerOneCamera;
+        }
+        else if (player.getId() == 2)
+        {
+            Camera.main.transform.position = playerTwoCamera;
+        }        
         Camera.main.fieldOfView = maxFieldOfView;
     }
 

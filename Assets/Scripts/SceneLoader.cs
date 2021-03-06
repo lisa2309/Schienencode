@@ -19,7 +19,14 @@ public class SceneLoader : MonoBehaviour
     /// <summary>
     /// Number of maximum scene that exist.
     /// </summary>
-    private const int MAXSCENES = 7;
+    private const int MAXSCENES = 6;
+    
+    /// <summary>
+    /// Number of actuel Scene.
+    /// </summary>
+    private int actualSceneIndex;
+
+    private Player player;
 
     /// <summary>
     /// Loads the next scene after the current scene.
@@ -27,13 +34,14 @@ public class SceneLoader : MonoBehaviour
     /// @author Ronja Haas & Anna-Lisa Müller
     public void NextScene()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        char[] sceneName = scene.name.ToCharArray();
-        char number = sceneName[3];
-        int sceneNumber = ((int)char.GetNumericValue(number)) + 1;
-        if (sceneNumber < MAXSCENES)
+        actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (actualSceneIndex < MAXSCENES)
         {
-            SceneManager.LoadScene("Map" + sceneNumber.ToString());
+            //SceneManager.LoadScene(actualSceneIndex + 1);
+            player = Player.player;
+            player.SceneChanger();
+            player.newPlayer();
+            
             //database.RetrieveFromDatabase();
         }     
     }
