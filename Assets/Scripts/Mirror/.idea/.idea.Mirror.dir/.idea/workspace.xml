@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7ae7761-d887-4205-b3b7-8f70aee5e3c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Prefabs/Mirror/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefabs/Mirror/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ObjectPlacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +70,14 @@
       <option name="presentableId" value="Default" />
       <updated>1615029237283</updated>
       <workItem from="1615029246856" duration="5538000" />
+      <workItem from="1615046754315" duration="369000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -91,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

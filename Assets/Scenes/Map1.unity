@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &108840285
 Transform:
   m_ObjectHideFlags: 0
@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 991345170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e014ac9a44a61014181c97b4ddbc82e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d9f49328d4f6e34a85e9777bf2ae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!81 &991345173
@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  boardname: pirates
+  boardname: marin
 --- !u!4 &1023321543
 Transform:
   m_ObjectHideFlags: 0
@@ -3895,6 +3895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewInventorySystem
       objectReference: {fileID: 0}
+    - target: {fileID: 2643592274455211804, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592274459681057, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4832,7 +4837,7 @@ PrefabInstance:
     - target: {fileID: 6372955301451741747, guid: c3a8c4fc8639a354486c5966984b2f16,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3a8c4fc8639a354486c5966984b2f16, type: 3}
