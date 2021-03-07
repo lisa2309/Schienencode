@@ -115,11 +115,11 @@ private const string str_switchr1 ="SwitchR1Final";
     {
         grid = FindObjectOfType<Grid>();
         actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (actualSceneIndex > 1)
-        {
-            player = Player.player;
-            player.newPlayer();
-        }
+        //if (actualSceneIndex > 1)
+        //{
+         //   player = Player.player;
+          //  player.newPlayer();
+        //}
         
     }
 

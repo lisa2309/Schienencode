@@ -21,7 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d7ae7761-d887-4205-b3b7-8f70aee5e3c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mirror.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mirror.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ObjectPlacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SceneLoader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,20 +42,24 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../../../../new2/ws20-21-schienencode/Assets/Scripts/SceneLoader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Routing.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Highscore.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Routing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Inventory/CreatePrefab.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../ObjectPlacer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Missions/MissionProver.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../CameraMovement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../SceneLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Missions/MissionProver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../new4/ws20-21-schienencode/Assets/Scripts/SceneLoader.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../ObjectPlacer.cs" />
-        <option value="$PROJECT_DIR$/Player.cs" />
         <option value="$PROJECT_DIR$/../SceneLoader.cs" />
+        <option value="$PROJECT_DIR$/Player.cs" />
+        <option value="$PROJECT_DIR$/../Highscore.cs" />
       </list>
     </option>
   </component>
@@ -70,7 +83,8 @@
       <option name="presentableId" value="Default" />
       <updated>1615029237283</updated>
       <workItem from="1615029246856" duration="5538000" />
-      <workItem from="1615046754315" duration="369000" />
+      <workItem from="1615046754315" duration="4960000" />
+      <workItem from="1615120885148" duration="3368000" />
     </task>
     <servers />
   </component>
@@ -93,5 +107,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2543" y="218" width="672" height="678" key="search.everywhere.popup" timestamp="1615056466527">
+      <screen x="1920" y="-7" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="218" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-7.1920.1040@1920.-7.1920.1040" timestamp="1615056466527" />
   </component>
 </project>
