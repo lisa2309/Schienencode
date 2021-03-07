@@ -39,7 +39,7 @@ public class SceneLoader : MonoBehaviour
         {
             //SceneManager.LoadScene(actualSceneIndex + 1);
             player = Player.player;
-            player.SceneChanger();
+            player.SceneChanger(actualSceneIndex);
             player.newPlayer();
             
             //database.RetrieveFromDatabase();

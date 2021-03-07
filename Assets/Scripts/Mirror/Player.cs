@@ -152,9 +152,10 @@ void Start() {
 
 }
 
-public void SceneChanger()
+public void SceneChanger(int scene)
 {
-    FindObjectOfType<NetworkManager>().ServerChangeScene("Map2");
+    scene = scene + 2;
+    FindObjectOfType<NetworkManager>().ServerChangeScene("Map" + scene.ToString());
 }
 
 public void newPlayer()
@@ -167,10 +168,10 @@ public void newPlayer()
 
         objectPlacer = FindObjectOfType<ObjectPlacer>();
         objectPlacer.player = this;
-        deletrail = FindObjectOfType<DeleteRail>();
-        deletrail.player=this;
-        camera = FindObjectOfType<CameraMovement>(); 
-        camera.MaxFieldCameraView();
+       // deletrail = FindObjectOfType<DeleteRail>();
+       // deletrail.player=this;
+       // camera = FindObjectOfType<CameraMovement>(); 
+        //camera.MaxFieldCameraView();
     }
 
     if (this.isServer)
