@@ -20,10 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44291fff-e630-44a3-8c1a-6e90f24197f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Mirror/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Mirror/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,27 +37,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E90BEB44-6898-4ECF-B706-59AC067ECC5C/77/da774742/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/CreatePrefab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TunnelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OuttTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DeleteRail.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OutTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Missions/Mission.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Database/Board.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1nhcQWoUHX0OofUED0NMwEQCc0l" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -74,7 +62,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -83,7 +71,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -109,6 +97,7 @@
       <workItem from="1614355683620" duration="418000" />
       <workItem from="1614418982686" duration="1546000" />
       <workItem from="1614424672503" duration="2577000" />
+      <workItem from="1615157802925" duration="1095000" />
     </task>
     <servers />
   </component>
