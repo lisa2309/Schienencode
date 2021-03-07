@@ -115,7 +115,7 @@ public class Routing : MonoBehaviour
     private bool finished = false;
 
     /// <summary>
-    /// Buffer for Route on last Switch
+    /// Bool for Route if last Switch was straight or not
     /// </summary>
     private bool straight = true;
 
@@ -123,6 +123,11 @@ public class Routing : MonoBehaviour
     /// Maximum Value of driving past a single rail
     /// </summary>
     public int maxDrivepasts = 20;
+
+    /// <summary>
+    /// Bool to save if tunnel was found
+    /// </summary>
+    private bool tunnelFound = true;
 
     /// <summary>
     /// This Should be triggered when Player is finished. Generates the Route and starts the Train.
@@ -236,6 +241,7 @@ public class Routing : MonoBehaviour
                             }
                             else if (rail.name.Contains(TUNNELIN))
                             {
+                                tunnelFound = false;
                                 routePoints.Add(rail.transform.GetChild(0).Find(BEZIERSHAPE));
                                 //find tunnelOut 
                                 foreach (GameObject tunnel in tunnelExits)
@@ -245,8 +251,15 @@ public class Routing : MonoBehaviour
                                         //add tunnelOut to routePoints
                                         routePoints.Add(tunnel.transform.GetChild(0).Find(BEZIERSHAPE));
                                         buffer = tunnel;
+                                        tunnelFound = true;
                                         break;
                                     }
+                                }
+                                if (!tunnelFound)
+                                {
+                                    missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Tunnel Exit not Found");
+                                    Debug.Log("Tunnel exit not found");
+                                    break;
                                 }
                             }
                             else
@@ -275,7 +288,7 @@ public class Routing : MonoBehaviour
         {
             Debug.Log("Track completed");
         }
-        else if (!railFound&& !drivepastsReached)
+        else if (!railFound && !drivepastsReached && tunnelFound)
         {
             Debug.Log("Track incomplete");
             missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Track incomplete");

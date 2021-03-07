@@ -708,5 +708,27 @@ namespace Tests
 
 			yield return null;
 		}
+		[UnityTest]
+		public IEnumerator RoutingTestTunnel()
+		{
+			GameObject o = new GameObject("MissionProver");
+			MissionProver m = o.AddComponent<MissionProver>();
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trains/LocFinal.prefab", typeof(GameObject)));
+
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailStart.prefab", typeof(GameObject)), new Vector3(40, 0, 16), Quaternion.AngleAxis(270, Vector3.up));
+			GameObject tunnelIn = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Tunnel/TunnelIn.prefab", typeof(GameObject)), new Vector3(46, 0, 16), Quaternion.AngleAxis(270, Vector3.up));
+			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(62, 0, 26), Quaternion.AngleAxis(180, Vector3.up));
+			GameObject tunnelOut = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Tunnel/TunnelOut.prefab", typeof(GameObject)), new Vector3(62, 0, 22), Quaternion.AngleAxis(0, Vector3.up));
+
+			tunnelIn.GetComponent<InTunnelScript>().relatedOutTunnelNumber = tunnelOut.GetComponent<OutTunnelScript>().OutTunnelNumber;
+
+			GameObject gameObject = new GameObject("TestGridY");
+
+			Routing r = gameObject.AddComponent<Routing>();
+			r.GenerateRoute();
+			LogAssert.Expect(LogType.Log, "Track completed");
+
+			yield return null;
+		}
 	}
 }
