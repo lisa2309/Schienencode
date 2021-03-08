@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+ using UnityEngine.Networking;
+using UnityEngine;
 using Mirror;
     // Custom NetworkManager that simply assigns the correct racket positions when
     // spawning players. The built in RoundRobin spawn method wouldn't work after
@@ -6,22 +9,30 @@ using Mirror;
     [AddComponentMenu("")]
     public class MyNetworkManager : NetworkManager
     {
-        public Transform leftRacketSpawn;
-        public Transform rightRacketSpawn;
-        GameObject ball;
 
         public override void OnServerAddPlayer(NetworkConnection conn)
         {
-            // add player at correct spawn position
+            
+
             GameObject player = Instantiate(playerPrefab);
             NetworkServer.AddPlayerForConnection(conn, player);
-           
+            
+
+
         }
 
-        public override void OnServerDisconnect(NetworkConnection conn)
+                public override void OnServerDisconnect(NetworkConnection conn)
         {
-            // destroy ball
+            Debug.Log("destroy server");
+
+            // call base functionality (actually destroys the player)
+            base.OnServerDisconnect(conn);
+        }
+
+        public override void OnClientConnect(NetworkConnection conn){
            
+            ClientScene.AddPlayer(conn);
+
         }
     }
 

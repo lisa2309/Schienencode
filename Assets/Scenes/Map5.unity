@@ -2089,6 +2089,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8378519577928054140, guid: 8881fad4ffa57234e9453e8e89ca2d65,
+        type: 3}
+      propertyPath: sceneId
+      value: 2961046139
+      objectReference: {fileID: 0}
     - target: {fileID: 321655504388260640, guid: 8881fad4ffa57234e9453e8e89ca2d65,
         type: 3}
       propertyPath: m_Name
@@ -6130,8 +6135,6 @@ MonoBehaviour:
   - {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6, type: 3}
   - {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e, type: 3}
   - {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
-  leftRacketSpawn: {fileID: 0}
-  rightRacketSpawn: {fileID: 0}
 --- !u!114 &1956577113 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2643592274717213412, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,

@@ -171,19 +171,21 @@ private CameraMovement camera;
 void Start() {
     prefabtoinstant = gerade_schiene;
     player = this;
-    newPlayer();
-    
+    if(this.isLocalPlayer){
+        
+        dbCon = FindObjectOfType<DatabaseConnector>();
+        dbCon.player = this;
+        Debug.Log("is Client " + this.netId);
 
-    if (this.isServer)
-    {
-        Debug.Log("is Server " + this.netId);
-    }
-    
-    // WIP ----------------------------------------------------------------------------
-    if (!this.isLocalPlayer)
-    {
+        objectPlacer = FindObjectOfType<ObjectPlacer>();
+        objectPlacer.player = this;
+       // deletrail = FindObjectOfType<DeleteRail>();
+       // deletrail.player=this;
+       // camera = FindObjectOfType<CameraMovement>(); 
+        //camera.MaxFieldCameraView();
         playerCanvas.enabled = false;
     }
+    // WIP ----------------------------------------------------------------------------
     else
     {
         // Iteration through JSON-Nodes
@@ -201,6 +203,15 @@ void Start() {
         playerNameText.text = GameServer.Instance.PlayerInfos["name"].Value;
     }
 // WIP ----------------------------------------------------------------------------   
+
+    if (this.isServer)
+    {
+    GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.RemoveAllListeners();
+    GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.AddListener(CmdPressButton);
+        Debug.Log("SERVER ");
+       dbCon.RetrieveFromDatabase();
+    }
+
 }
 
 // WIP ----------------------------------------------------------------------------   
@@ -214,32 +225,41 @@ private void Update()
 }
 // WIP ----------------------------------------------------------------------------  
 
-public void SceneChanger(int scene)
-{
-    scene = scene + 2;
-    FindObjectOfType<NetworkManager>().ServerChangeScene("Map" + scene.ToString());
+
+
+
+
+
+ void CmdPressButton()
+     {
+            if (this.isServer)
+    {
+
+        Debug.Log("SERVER -------");
+     
+    }
+        starttrain();
+
+    }
+
+public void starttrain(){
+ 
+     if (isServer)
+     {
+        Debug.Log("Start button gedrückt");
+        FindObjectOfType<Routing>().GenerateRoute();
+
+    }
+    else{
+        Debug.Log("ist kein Superplayer");
+    }
+ 
 }
 
-public void newPlayer()
+public void newscen(String map)
 {
-    if(this.isLocalPlayer){
-        
-        dbCon = FindObjectOfType<DatabaseConnector>();
-        dbCon.player = this;
-        Debug.Log("is Client " + this.netId);
+FindObjectOfType<MyNetworkManager>().ServerChangeScene(map); 
 
-        objectPlacer = FindObjectOfType<ObjectPlacer>();
-        objectPlacer.player = this;
-       // deletrail = FindObjectOfType<DeleteRail>();
-       // deletrail.player=this;
-       // camera = FindObjectOfType<CameraMovement>(); 
-        //camera.MaxFieldCameraView();
-    }
-
-    if (this.isServer)
-    {
-        dbCon.RetrieveFromDatabase();
-    }
 }
 
 public uint getId()
