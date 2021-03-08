@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using Database;
+using SimpleJSON;
+using UnityEngine.UI;
 
 
 public class Player : NetworkBehaviour
@@ -133,6 +135,33 @@ private DeleteRail deletrail;
 public static Player player;
 private CameraMovement camera;
 
+// WIP -----------------------------------------------------------------------------
+    /// <summary>
+    /// Canvas for player gui, displays all player data
+    /// </summary>
+    [SerializeField] private Canvas playerCanvas;
+
+    /// <summary>
+    /// Text to display the name of the player
+    /// </summary>
+    [SerializeField] private Text playerNameText;
+
+    /// <summary>
+    /// Text to display the players info from the game server
+    /// </summary>
+    [SerializeField] private Text playerInfoText;
+
+    /// <summary>
+    /// Text to display the games info from the game server
+    /// </summary>
+    [SerializeField] private Text gameInfoText;
+
+    /// <summary>
+    /// Player name
+    /// </summary>
+    private String playerName;
+// WIP ----------------------------------------------------------------------------  
+
 /// <summary>
 /// 
 /// @author Ahmed L'harrak
@@ -149,8 +178,41 @@ void Start() {
     {
         Debug.Log("is Server " + this.netId);
     }
+    
+    // WIP ----------------------------------------------------------------------------
+    if (!this.isLocalPlayer)
+    {
+        playerCanvas.enabled = false;
+    }
+    else
+    {
+        // Iteration through JSON-Nodes
+        foreach (KeyValuePair<string, JSONNode> kvp in GameServer.Instance.PlayerInfos)
+        {
+            playerInfoText.text += kvp.Key + " : " + kvp.Value + "\n";
+        }
 
+        foreach (KeyValuePair<string, JSONNode> kvp in GameServer.Instance.GameInfos)
+        {
+            gameInfoText.text += kvp.Key + " : " + kvp.Value + "\n";
+        }
+
+        // Accessing Single Value
+        playerNameText.text = GameServer.Instance.PlayerInfos["name"].Value;
+    }
+// WIP ----------------------------------------------------------------------------   
 }
+
+// WIP ----------------------------------------------------------------------------   
+/// <summary>
+/// Waits for game result to call FinishGame
+/// </summary>
+/// TODO: requirements for end of game (bool from another class?)
+private void Update()
+{
+    //if (isLocalPlayer && gameFinished) FinishGame();
+}
+// WIP ----------------------------------------------------------------------------  
 
 public void SceneChanger(int scene)
 {
@@ -307,6 +369,49 @@ public uint getId()
 
         NetworkServer.Destroy(obj);
     }
+    
+    // WIP ----------------------------------------------------------------------------
+    /// <summary>
+    /// Function that handles game results.
+    /// Currently lets Host automatically win.
+    /// </summary>
+    /// TODO: Implement connection to actual game results
+    private void FinishGame()
+    {
+        if (GameServer.Instance.PlayerInfos["isHost"].AsBool)
+        {
+            GameServer.Instance.HandleGameResults(1, GameServer.Instance.PlayerInfos["name"].Value);
+        }
+        else
+        {
+            CmdGetHostName(netId);
+        }
+    }
+
+    /// <summary>
+    /// Command for getting the hosts name, needed to handle game results
+    /// </summary>
+    /// <param name="connId">NetId of the player that called this command</param>
+    [Command]
+    public void CmdGetHostName(uint connId)
+    {
+        NetworkConnection receiverConnection = NetworkIdentity.spawned[connId].connectionToClient;
+        TargetReceiveHostName(receiverConnection, GameServer.Instance.PlayerInfos["name"].Value);
+    }
+    
+    /// <summary>
+    /// TargetRPC that sends the hosts name back to the local player and calls HandleGameResults
+    /// </summary>
+    /// <param name="connection">Connection for the TargetRPC</param>
+    /// <param name="hostName">Name of the host</param>
+    /// TODO: Implement connection to actual game results
+    [TargetRpc]
+    public void TargetReceiveHostName(NetworkConnection connection, string hostName)
+    {
+        GameServer.Instance.HandleGameResults(2,hostName);
+    }
+
+    // WIP ----------------------------------------------------------------------------
 }
 
 
