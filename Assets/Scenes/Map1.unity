@@ -915,6 +915,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8378519577928054140, guid: 8881fad4ffa57234e9453e8e89ca2d65,
+        type: 3}
+      propertyPath: sceneId
+      value: 3876765513
+      objectReference: {fileID: 0}
     - target: {fileID: 321655504388260640, guid: 8881fad4ffa57234e9453e8e89ca2d65,
         type: 3}
       propertyPath: m_Name
@@ -3709,6 +3714,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2643592274168050375, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592274189601400, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4895,14 +4905,14 @@ MonoBehaviour:
   onlineScene: 
   transport: {fileID: 2027543681}
   networkAddress: localhost
-  maxConnections: 4
+  maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7226852748911496473, guid: 2248d1b5ade430b42b28c584c9d9c3a8,
     type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859, type: 3}
   - {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a, type: 3}
@@ -4916,8 +4926,6 @@ MonoBehaviour:
   - {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6, type: 3}
   - {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e, type: 3}
   - {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
-  leftRacketSpawn: {fileID: 0}
-  rightRacketSpawn: {fileID: 0}
 --- !u!1001 &371865861491159798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5370,6 +5378,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643592274168050375, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6256982242258338274, guid: 2248d1b5ade430b42b28c584c9d9c3a8,
+        type: 3}
+    - target: {fileID: 2643592274168050375, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: starttrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643592274168050375, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2643592274189601400, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
