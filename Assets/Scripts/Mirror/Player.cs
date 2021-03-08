@@ -212,6 +212,8 @@ void Start() {
        dbCon.RetrieveFromDatabase();
     }
 
+    camera = FindObjectOfType<CameraMovement>();
+    camera.MaxFieldCameraView();
 }
 
 // WIP ----------------------------------------------------------------------------   

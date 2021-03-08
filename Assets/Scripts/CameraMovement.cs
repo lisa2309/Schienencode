@@ -59,16 +59,6 @@ public class CameraMovement : MonoBehaviour
 
     private Player player;
 
-
-    /// <summary>
-    /// Positions the camera correctly 
-    /// @author Ronja Haas & Anna-Lisa Müller 
-    /// </summary>
-    //void Start()
-    //{
-    //    MaxFieldCameraView();   
-    //}
-
     /// <summary>
     /// Ensures that the player can zoom and stay within his game world boundary.
     /// @author Ronja Haas & Anna-Lisa Müller 
@@ -94,7 +84,7 @@ public class CameraMovement : MonoBehaviour
             if (Camera.main.fieldOfView == minFieldOfView)
             {
                 Vector3 cameraPosition = Camera.main.transform.position + new Vector3(Input.GetAxis("Mouse X"), 0, Input.GetAxis("Mouse Y"));
-                if (player.getId() == 1)
+                if (player.isServer)
                 {
                     if (cameraPosition.z > minCameraZPositionPlayer1 && cameraPosition.z < maxCameraZPositionPlayer1)
                     {
@@ -104,7 +94,7 @@ public class CameraMovement : MonoBehaviour
                         }
                     }
                 } 
-                else if (player.getId() == 2)
+                else if (!player.isServer)
                 {
                     if (cameraPosition.z > minCameraZPositionPlayer2 && cameraPosition.z < maxCameraZPositionPlayer2)
                     {
@@ -126,12 +116,11 @@ public class CameraMovement : MonoBehaviour
     public void MaxFieldCameraView()
     {
         player = FindObjectOfType<Player>();
-        Debug.Log("Camera " +player.getId());
-        if (player.getId() == 1)
+        if (player.isServer)
         {
             Camera.main.transform.position = playerOneCamera;
         }
-        else if (player.getId() == 2)
+        else if (!player.isServer)
         {
             Camera.main.transform.position = playerTwoCamera;
         }        
