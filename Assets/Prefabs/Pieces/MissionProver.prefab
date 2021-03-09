@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7015809273591909165}
   m_Layer: 0
   m_Name: MissionProver
-  m_TagString: Untagged
+  m_TagString: MissionProver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missiontext: {fileID: 0}
   finalText: {fileID: 0}
+  errorCaption: {fileID: 0}
+  errorText: {fileID: 0}
   ddStation: {fileID: 0}
   ddSwitchValue: {fileID: 0}
   ddSwitchCompare: {fileID: 0}
