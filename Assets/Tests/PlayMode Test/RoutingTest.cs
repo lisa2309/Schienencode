@@ -550,7 +550,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 3 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -574,7 +574,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 1, 1 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -598,7 +598,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(186, 0, 56), Quaternion.AngleAxis(90, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 2, 3 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -622,7 +622,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 1 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -646,7 +646,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 1, 3 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -670,7 +670,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/RailEnd.prefab", typeof(GameObject)), new Vector3(188, 0, 52), Quaternion.AngleAxis(0, Vector3.up));
 			GameObject station = (GameObject)GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Trainstations/TrainStation.prefab", typeof(GameObject)), new Vector3(194, 0, 56), Quaternion.AngleAxis(180, Vector3.up));
 			station.transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber = 2;
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.If;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.If;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 2, 2 };
 
 			GameObject gameObject = new GameObject("TestGridY");
@@ -696,7 +696,7 @@ namespace Tests
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(188, 0, 50), Quaternion.AngleAxis(180, Vector3.up));
 			GameObject.Instantiate(AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Final/Rails/CurveR0Final.prefab", typeof(GameObject)), new Vector3(194, 0, 50), Quaternion.AngleAxis(90, Vector3.up));
 
-			ifswitch.GetComponent<SwitchScript>().mode = SwitchScript.SwitchMode.For;
+			ifswitch.GetComponent<SwitchScript>().mode = SwitchMode.For;
 			ifswitch.GetComponent<SwitchScript>().ComparationValues = new int[] { 0, 0, 2 };
 
 			GameObject gameObject = new GameObject("TestGridY");

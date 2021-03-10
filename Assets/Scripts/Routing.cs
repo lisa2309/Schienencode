@@ -601,8 +601,8 @@ public class Routing : MonoBehaviour
 
             switch (switchrail.GetComponent<SwitchScript>().mode)
             {
-                case SwitchScript.SwitchMode.If:
-                case SwitchScript.SwitchMode.While:
+                case SwitchMode.If:
+                case SwitchMode.While:
                     {
                         int railNumber = getTrainStation(switchrail.GetComponent<SwitchScript>().ComparationValues[0]);
                         int cargoCount = rails[railNumber].transform.GetChild(1).GetComponent<StationScript>().cargoAdditionNumber;
@@ -621,7 +621,7 @@ public class Routing : MonoBehaviour
                         }
                         break;
                     }
-                case SwitchScript.SwitchMode.For:
+                case SwitchMode.For:
                     {
                         Debug.Log("in For mode");
                         Debug.Log(" drivepasts: " + drivePast[railCounter] + " < " + switchrail.GetComponent<SwitchScript>().ComparationValues[2]);

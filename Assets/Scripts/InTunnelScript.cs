@@ -18,12 +18,17 @@ using UnityEngine;
         /// The OutTunnelNumber of the related OutTunnel.
         /// -1 by default.
         /// </summary>
-        public int relatedOutTunnelNumber = -1;
+        public int relatedOutTunnelNumber;
 
         /// <summary>
         /// Collection of the different PopUp-Panels
         /// </summary>
         private GameObject panels;
+
+        /// <summary>
+        /// bool which is true, when it is build on the db
+        /// </summary>
+        public bool buildOnDB = false;
         
         /// <summary>
         /// Opens the relevant PopUp-Panel, when the InTunnel is clicked by mouse
@@ -31,7 +36,7 @@ using UnityEngine;
         /// @author Bastian Badde
         void OnMouseDown()
         {
-            if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
+            if (!MissionProver.deleteOn && !MissionProver.panelisOpen && !buildOnDB)
             {
                 _prover.UpdateInTunnel(this);
                 OpenPanel();
@@ -75,6 +80,7 @@ using UnityEngine;
         /// @author Bastian Badde
         void Start()
         {
+            relatedOutTunnelNumber = 0;
             _prover = FindObjectOfType<MissionProver>();
         }
     }

@@ -34,9 +34,14 @@ public class MissionProver : MonoBehaviour
     public Mission mission;
 
     /// <summary>
-    /// UI-Text-object which is displayed in the missionfield of the inventory
+    /// UI-Text-object which is displayed in the missionfield of the inventory for Player 1
     /// </summary>
     public Text missiontext;
+    
+    /// <summary>
+    /// UI-Text-object which is displayed in the missionfield of the inventory for Player 2
+    /// </summary>
+    public Text missiontextP2;
 
     /// <summary>
     /// UI-Text-object which is displayed after the train enters the End of the route
@@ -406,6 +411,7 @@ public class MissionProver : MonoBehaviour
         foreach (int c in mission.cargos)
         {
             missiontext.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
+            missiontextP2.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
             i++;
         }
     }
