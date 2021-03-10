@@ -342,7 +342,11 @@ public uint getId()
         // }
         GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
         cloneObj.name = prefabtoinstant.name;
-        if (MissionProver.buildOnDB) Destroy(cloneObj.GetComponent<DeleteRail>());
+        if (MissionProver.buildOnDB)
+        {
+            Destroy(cloneObj.GetComponent<DeleteRail>());
+            if (cloneObj.name.Equals("TunnelIn")) cloneObj.GetComponent<InTunnelScript>().buildOnDB=true;
+        }
         if (cloneObj.name.Equals("TunnelOut")) cloneObj.GetComponent<OutTunnelScript>().AddOutTunnel();
         NetworkServer.Spawn(cloneObj,this.connectionToClient);      
     }

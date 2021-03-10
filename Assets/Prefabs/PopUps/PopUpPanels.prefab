@@ -99,6 +99,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6034807488473386259, guid: 267875d99b0b95c4d95970783006024f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9acf40a1a7198464e809a0ba3ff43a47,
+        type: 3}
     - target: {fileID: 6034807488547178771, guid: 267875d99b0b95c4d95970783006024f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -219,10 +225,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4826596878958812006}
     m_Modifications:
+    - target: {fileID: 2344934966417418467, guid: acb97f262bf88524999ba8b928579ca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344934966417418476, guid: acb97f262bf88524999ba8b928579ca0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2344934967659182041, guid: acb97f262bf88524999ba8b928579ca0,
         type: 3}
       propertyPath: m_Name
       value: panel03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344934967659182041, guid: acb97f262bf88524999ba8b928579ca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2344934967659182042, guid: acb97f262bf88524999ba8b928579ca0,
         type: 3}
@@ -344,6 +365,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4826596878958812006}
     m_Modifications:
+    - target: {fileID: 7832687428473186933, guid: be2a01d43334a3449b5d1f9a07b0ae66,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7832687428473186934, guid: be2a01d43334a3449b5d1f9a07b0ae66,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7832687429157029810, guid: be2a01d43334a3449b5d1f9a07b0ae66,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,6 +880,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4826596878958812006}
     m_Modifications:
+    - target: {fileID: 2430489841642078745, guid: 9c8f95007678aec48b721c75a4489a11,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430489841642078745, guid: 9c8f95007678aec48b721c75a4489a11,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -55
+      objectReference: {fileID: 0}
     - target: {fileID: 2430489842281741800, guid: 9c8f95007678aec48b721c75a4489a11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -958,6 +999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: panel07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2430489842281741807, guid: 9c8f95007678aec48b721c75a4489a11,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c8f95007678aec48b721c75a4489a11, type: 3}

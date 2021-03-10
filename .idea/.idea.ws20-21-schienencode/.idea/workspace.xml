@@ -20,13 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44291fff-e630-44a3-8c1a-6e90f24197f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartRailScript.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StartRailScript.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchMode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchMode.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Mirror/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Mirror/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Final/Rails/RailStart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Final/Rails/RailStart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PopUps/PopUpPanels.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PopUps/PopUpPanels.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/BoardComponent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/BoardComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/Tunnel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/Tunnel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Routing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Routing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayMode Test/RoutingTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayMode Test/RoutingTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +57,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Dropdown.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/SwitchMode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Routing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Tests/PlayMode Test/RoutingTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StartRailScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1nhcQWoUHX0OofUED0NMwEQCc0l" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -57,12 +85,20 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../P2Build\Schienencode.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Schienencode\Marz\P2Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -71,7 +107,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -98,6 +134,8 @@
       <workItem from="1614418982686" duration="1546000" />
       <workItem from="1614424672503" duration="2577000" />
       <workItem from="1615157802925" duration="1095000" />
+      <workItem from="1615364267298" duration="6329000" />
+      <workItem from="1615374988268" duration="44000" />
     </task>
     <servers />
   </component>
