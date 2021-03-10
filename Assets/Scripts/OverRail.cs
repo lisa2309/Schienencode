@@ -48,12 +48,13 @@ public class OverRail : MonoBehaviour
 	/// name of prefab the Tunnel Entry
 	/// </summary>
 	private const string RAILTUNNELIN = "TunnelIn";
-
+	/// <summary>
+	/// name of prefab the trainstation
+	/// </summary>
 	private const string TRAINSTATIONREQUEST = "Train";
 
-	private const string TRAINSTATION = "TrainStation";
-	
 	private const string SWITCHPROGRAMMABLE= "R";
+
 	
     
 	/// <summary>
@@ -107,10 +108,8 @@ public class OverRail : MonoBehaviour
 					break;
 
 				case TRAINSTATIONREQUEST:
-					Debug.Log("Test 3");
-					Debug.Log(gameObject.GetComponent<SwitchScript>().ComparationValues[0]);
-					popuptext.GetComponent<TextMesh>().text = "Bahnhof "; // + gameObject.GetComponent<SwitchScript>().ComparationValues[0];
-					Debug.Log("Test 4");
+					int stationNumber = gameObject.GetComponent<StationScript>()._stationNumber + 1;
+					popuptext.GetComponent<TextMesh>().text = "Bahnhof " + stationNumber;
 					break;
 
 				default:
