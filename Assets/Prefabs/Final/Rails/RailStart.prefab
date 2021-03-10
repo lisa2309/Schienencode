@@ -581,6 +581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point3
       objectReference: {fileID: 0}
+    - target: {fileID: 2271590541186218902, guid: 38bbff97d22fa334da369279f443ed21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 2733796198468693479, guid: 38bbff97d22fa334da369279f443ed21,
         type: 3}
       propertyPath: m_Name
@@ -590,6 +595,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Point2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765392412545864950, guid: 38bbff97d22fa334da369279f443ed21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032403018155968764, guid: 38bbff97d22fa334da369279f443ed21,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6118410516206494723, guid: 38bbff97d22fa334da369279f443ed21,
         type: 3}
