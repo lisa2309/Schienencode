@@ -22,6 +22,12 @@
     <list default="true" id="62f671a2-7cb7-4e9e-a5ea-f3f273c3a272" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Map2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Missions/StationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Missions/StationScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OverRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/OverRail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,19 +38,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../Mirror/Runtime/Logging/LogFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Mirror/Player.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/BezierFollow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/CameraMovement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Routing.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DeleteRail.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/OverRail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DeleteRail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Routing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Missions/StationScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Missions/MissionProver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hovertext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../new5/ws20-21-schienencode/Assets/Scripts/OverRail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Mirror/Runtime/Logging/LogFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Mirror/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Missions/Mission.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BezierFollow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CameraMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SwitchScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -54,10 +61,13 @@
         <option value="$PROJECT_DIR$/Highscore.cs" />
         <option value="$PROJECT_DIR$/DeleteRail.cs" />
         <option value="$PROJECT_DIR$/Grid.cs" />
-        <option value="$PROJECT_DIR$/OverRail.cs" />
         <option value="$PROJECT_DIR$/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Mirror/Player.cs" />
         <option value="$PROJECT_DIR$/CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/../../../../new5/ws20-21-schienencode/Assets/Scripts/OverRail.cs" />
+        <option value="$PROJECT_DIR$/OverRail.cs" />
+        <option value="$PROJECT_DIR$/Missions/StationScript.cs" />
+        <option value="$PROJECT_DIR$/Routing.cs" />
       </list>
     </option>
   </component>
@@ -97,6 +107,7 @@
       <workItem from="1614886982992" duration="1876000" />
       <workItem from="1615035104631" duration="2378000" />
       <workItem from="1615042175377" duration="649000" />
+      <workItem from="1615384267798" duration="1631000" />
     </task>
     <servers />
   </component>

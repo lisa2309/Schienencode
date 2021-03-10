@@ -3777,8 +3777,9 @@ GameObject:
   - component: {fileID: 858303799334238612}
   - component: {fileID: 5410966445321499843}
   - component: {fileID: 2819367563167478410}
+  - component: {fileID: 8607861216227856683}
   m_Layer: 0
-  m_Name: TrainStation
+  m_Name: TrainStationOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3811,6 +3812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c973d0db5e4a9b955cb745489ba2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stationNumber: 0
+  cargoAdditionNumber: 0
 --- !u!114 &5410966445321499843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3840,6 +3843,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 2, z: 3.5}
   m_Center: {x: 0, y: 1, z: 0.3}
+--- !u!114 &8607861216227856683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842460872673624342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+    type: 3}
 --- !u!1 &8949971268874716865
 GameObject:
   m_ObjectHideFlags: 0

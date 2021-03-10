@@ -12,7 +12,7 @@ public class StationScript : MonoBehaviour
     /// <summary>
     /// ID of the station
     /// </summary>
-    private int _stationNumber;
+    public int _stationNumber;
 
     /// <summary>
     /// MissionProver object of the scene for organisation

@@ -129,6 +129,21 @@ public class Routing : MonoBehaviour
     /// </summary>
     private bool tunnelFound = true;
 
+	/// <summary>
+    /// Button to start the train
+    /// </summary>
+	public GameObject startTrain;
+
+	/// <summary>
+    /// Button to delet rails
+    /// </summary>
+	public GameObject trash;
+
+	/// <summary>
+    /// Background for the deletebutton
+    /// </summary>
+	public GameObject trashBackground;
+
     /// <summary>
     /// This Should be triggered when Player is finished. Generates the Route and starts the Train.
     /// Variables:
@@ -220,6 +235,9 @@ public class Routing : MonoBehaviour
                                 drivepastsReached = true;
                                 Debug.Log("Maximum drivepast reached");                                
                                 missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Maximum drivepasts reached");
+								startTrain.SetActive(true);
+								trash.SetActive(true);
+								trashBackground.SetActive(true);
                                 break;
                             }
                             if ((rail.name.Contains(RAILSWITCHLEFT) || rail.name.Contains(RAILSWITCHRIGHT)) && switchGoStraight(rail, i))

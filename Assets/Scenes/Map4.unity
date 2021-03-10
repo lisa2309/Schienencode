@@ -7311,6 +7311,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7611244455199942984, guid: 8e9db0baf1aafd146b5dba0e3d36823c,
+        type: 3}
+      propertyPath: startTrain
+      value: 
+      objectReference: {fileID: 2045184630}
+    - target: {fileID: 7611244455199942984, guid: 8e9db0baf1aafd146b5dba0e3d36823c,
+        type: 3}
+      propertyPath: trash
+      value: 
+      objectReference: {fileID: 2045184628}
+    - target: {fileID: 7611244455199942984, guid: 8e9db0baf1aafd146b5dba0e3d36823c,
+        type: 3}
+      propertyPath: trashBackground
+      value: 
+      objectReference: {fileID: 2045184629}
     - target: {fileID: 7611244455199942985, guid: 8e9db0baf1aafd146b5dba0e3d36823c,
         type: 3}
       propertyPath: m_Name
