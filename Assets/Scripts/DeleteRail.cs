@@ -17,40 +17,31 @@ public class DeleteRail : NetworkBehaviour
     /// </summary>
     public Player player=null;
 
-    //private bool isDeletable = true;
-
     /// <summary>
     /// Destroys the object attached to this script as soon as you left click on it 
     /// </summary>
     /// @author Ronja Haas & Anna-Lisa Müller 
     void OnMouseDown()
     {
-        //Debug.Log("is local "+isLocalPlayer);
-        //if (!isLocalPlayer) return;
-        //if (!isDeletable) return;
         if (MissionProver.deleteOn)
         {
             destroyrail();
             Destroy(GameObject.Find("RailPopUpText(Clone)"));
         }
-
     }
 
-    // public void DeactivateDeletable()
-    // {
-    //     Debug.Log("In Deactivation deletable...");
-    //     isDeletable = false;
-    // }
-
-            // destroy for everyone on the server
-        [Command]
-        void destroyrail()
+    /// <summary>
+    /// destroy for everyone on the server
+    /// @author Ahmed L'harrak
+    /// </summary>
+    [Command]
+    void destroyrail()
+    {
+        if (gameObject.name.Equals("TunnelOut"))
         {
-            if (gameObject.name.Equals("TunnelOut"))
-            {
-                OutTunnelScript.RemoveOutTunnel(gameObject.GetComponent<OutTunnelScript>().OutTunnelNumber);
-            }
-            NetworkServer.Destroy(gameObject);
+            OutTunnelScript.RemoveOutTunnel(gameObject.GetComponent<OutTunnelScript>().OutTunnelNumber);
         }
+        NetworkServer.Destroy(gameObject);
+    }
 
 }

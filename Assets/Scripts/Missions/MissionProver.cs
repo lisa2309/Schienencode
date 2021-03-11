@@ -284,7 +284,6 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void AcceptButtonClicked()
     {
-        //Debug.Log("CCL: " + carogoCounters.Count + " CurrSt: " + currentStation);
         currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
         ClosePanel();
     }
@@ -298,9 +297,6 @@ public class MissionProver : MonoBehaviour
     {
         currentSwitch.ComparationValues = new []
             {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
-        // Debug.Log("current cargo: " + mission.cargoCounters[ddSwitchValue.value]);
-        // Debug.Log("current compareVal: " + (ddSwitchCompare.value));
-        // Debug.Log("current inputVal: " + Int32.Parse(inputIfSwitch.text));
         ClosePanel();
     }
     
@@ -313,9 +309,6 @@ public class MissionProver : MonoBehaviour
     {
         currentSwitch.ComparationValues = new []
             {ddWhileSwitchValue.value, ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text)};
-        // Debug.Log("current cargo: " + mission.cargoCounters[ddSwitchValue.value]);
-        // Debug.Log("current compareVal: " + (ddSwitchCompare.value));
-        // Debug.Log("current inputVal: " + Int32.Parse(inputIfSwitch.text));
         ClosePanel();
     }
     
@@ -380,12 +373,10 @@ public class MissionProver : MonoBehaviour
         deleteOn = !deleteOn;
         if (deleteOn)
         {
-            //Debug.Log("Switch to white");
             DeleteButton.GetComponent<Image>().sprite = DeleteImageWhite;
         }
         else
         {
-            //Debug.Log("Switch to black");
             DeleteButton.GetComponent<Image>().sprite = DeleteImageBlack;
         }
     }
@@ -445,6 +436,7 @@ public class MissionProver : MonoBehaviour
     /// Opens the error-popUp-Panel
     /// </summary>
     /// @author Ahmed L'harrak & Bastian Badde
+    /// panels: 
     public void OpenErrorPanel()
     {
         GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;

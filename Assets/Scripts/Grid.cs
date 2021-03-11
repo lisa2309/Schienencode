@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
-/*
-Quelle: https://www.youtube.com/watch?v=VBZFYGWvm4A
-*/
 /// <summary>
 /// A grid is created and points are adjusted to the grid
 /// </summary>
-/// @author Ronja Haas & Anna-Lisa Müller
+/// Quelle: https://www.youtube.com/watch?v=VBZFYGWvm4A
+/// @author Jason Weimann 
 public class Grid : MonoBehaviour
 {
     [SerializeField]

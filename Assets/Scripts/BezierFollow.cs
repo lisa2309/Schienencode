@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* 
- * created by: SWT-P_WS_2021_Schienencode */
-/*
-
-Modified: rotation
-*/
+/* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
 /// Bezier Curve for the train on the rail
 /// </summary>
 /// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+/// Modified: rotation
 /// @source: https://www.youtube.com/watch?v=11ofnLOE8pw
 public class BezierFollow : MonoBehaviour
 {
@@ -122,7 +118,6 @@ public class BezierFollow : MonoBehaviour
         {
             coroutineAllowed = true;
         }
-
     }
 
 }

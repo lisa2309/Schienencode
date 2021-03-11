@@ -16,10 +16,6 @@ namespace Database
     /// @author Bastian Badde
     public class DatabaseConnector : MonoBehaviour
     {
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // private ObjectPlacer placer;
 
         /// <summary>
         /// the Player Object of the active Player
@@ -45,8 +41,6 @@ namespace Database
         /// the current selected Mission-object
         /// </summary>
         private Mission _mission;
-
-        //private String connectionString = "https://schienencode-default-rtdb.europe-west1.firebasedatabase.app/";
 
         /// <summary>
         /// the ConnectionString to the FirebaseDB
@@ -130,7 +124,6 @@ namespace Database
         /// <summary>
         /// Builds a board out of a Board-object which is loaded from the Firebase-DB an instantiates it.
         /// </summary>
-        /// Variables:
         /// boardInfo: relevant Boardstring data
         /// structures: relevant Boardstring data for each gameobject to be instantiated
         /// coordinates: coordinates as described in the Board-class
@@ -151,14 +144,9 @@ namespace Database
                 x = float.Parse(coordinates[0]);
                 z = float.Parse(coordinates[1]);
                 rot = float.Parse(coordinates[3]);
-                // placer.gameObject = GetObject(coordinates[2]);
-                // placer.PlaceObjectNearPointManual(new Vector3(x, 0 , z));
                 if(player != null){
-                    //player.anrufen(GetObject(coordinates[2]).name, new Vector3(x, 0, z), rot);
                     player.anrufen(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot);
                 }
-                // var skeleton = Instantiate(GetObject(coordinates[2]), new Vector3(x, 0, z), Quaternion.Euler(0, rot, 0));
-                // skeleton.name = skeleton.name.Replace("(Clone)","").Trim();
             }
             MissionProver.buildOnDB = false;
         }
@@ -169,7 +157,7 @@ namespace Database
         /// </summary>
         /// <param name="code">encrypted string</param>
         /// <returns>name of the relevant gameobject</returns>
-        ///  /// @author Bastian Badde
+        /// @author Bastian Badde
         private string GetObjectName(string code)
         {
             string name;
@@ -228,7 +216,6 @@ namespace Database
             {
                 Debug.Log("Data retrieved");
                 board = response;
-                //CreateMission();
                 BuildFromDB();
             });
         }
@@ -250,7 +237,6 @@ namespace Database
         /// <summary>
         /// interprets the MissionString of the current seleted Board-object and displays it
         /// </summary> 
-        /// Variables:
         /// missionInfo: relevant data of the MissionString
         /// cargos: string-values of the missionInfo
         /// cargosInt: cargos transformed into int-values

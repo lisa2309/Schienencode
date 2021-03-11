@@ -26,12 +26,11 @@ namespace DefaultNamespace
         /// constructor of a Mission-object. Setting all cargoCounters-values on 0
         /// </summary>
         /// <param name="cargo">array to initialize cargos with</param>
-        /// @author
+        /// @author Bastian Badde 
         public Mission(int[] cargo)
         {
             this.cargos = cargo;
             this.cargoCounters = new int[cargo.Length];
-            //Debug.Log("First element of cc: " + cargoCounters[0]);
         }
 
         /// <summary>

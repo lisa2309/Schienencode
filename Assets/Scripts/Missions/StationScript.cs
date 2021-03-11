@@ -38,11 +38,9 @@ public class StationScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("+++++++++++Collision with:" + other.name);
         _prover.RaiseCounter(_stationNumber);
     }
     
-   
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the train-station is clicked by mouse
     /// </summary>
@@ -67,7 +65,6 @@ public class StationScript : MonoBehaviour
         {
             foreach (Transform panel in panels.GetComponentInChildren<Transform>())
             {
-
                 if (panel.name != "panel01")
                 {
                     panel.gameObject.SetActive(false);
@@ -83,7 +80,6 @@ public class StationScript : MonoBehaviour
                 }
             }
             _prover.UpdateStationSettings();
-
         }
     }
 
@@ -96,7 +92,5 @@ public class StationScript : MonoBehaviour
         cargoAdditionNumber = 1;
         _prover = FindObjectOfType<MissionProver>();
         this._stationNumber = _prover.RegisterNewStation();
-        //popUpPanel = GameObject.FindGameObjectWithTag("PopUpPanel") as Panel;
-        //popUpPanel = GameObject.Find("PopUpPanel");
     }
 }

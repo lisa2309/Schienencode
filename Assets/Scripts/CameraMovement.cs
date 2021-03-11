@@ -7,8 +7,8 @@ using UnityEngine;
 /// <summary>
 /// In the beginning, the camera is positioned correctly. 
 /// In the game, this class takes care of zooming in closer and keeping the player within his game world boundary. 
-/// @author Ronja Haas & Anna-Lisa Müller 
 /// </summary>
+/// @author Ronja Haas & Anna-Lisa Müller 
 public class CameraMovement : MonoBehaviour
 {
     /// <summary>
@@ -61,8 +61,8 @@ public class CameraMovement : MonoBehaviour
 
     /// <summary>
     /// Ensures that the player can zoom and stay within his game world boundary.
-    /// @author Ronja Haas & Anna-Lisa Müller 
     /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     void Update()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -111,8 +111,8 @@ public class CameraMovement : MonoBehaviour
 
     /// <summary>
     /// Set the camera to the right position, when the player use zoom out
-    /// @author Ronja Haas & Anna-Lisa Müller 
     /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller 
     public void MaxFieldCameraView()
     {
         player = FindObjectOfType<Player>();
