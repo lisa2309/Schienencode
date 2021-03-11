@@ -69,6 +69,9 @@ public class OverRail : MonoBehaviour
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it.
+	/// objectName: Name of the gameobject where the mouse is over
+	/// objectLetters: objectName split up in the separate letters
+	/// finalName: the first five letters of objectName
 	/// </summary>
 	/// @author Ronja Haas & Anna-Lisa Müller 
     void OnMouseEnter()
@@ -145,6 +148,7 @@ public class OverRail : MonoBehaviour
 
 	/// <summary>
 	/// Form's a new String from the char array with only the amount of number of char's from size
+	/// word: char array with the size of size
 	/// </summary>
 	/// <param name="size">size of how many letters is need for the return string</param>
 	/// <param name="name">char array wich is used to form a new string</param>

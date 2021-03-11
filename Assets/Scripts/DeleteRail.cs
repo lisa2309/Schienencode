@@ -13,9 +13,9 @@ using Mirror;
 public class DeleteRail : NetworkBehaviour
 {
     /// <summary>
-    /// 
+    /// Object from Player
     /// </summary>
-    public Player player=null;
+    public Player player = null;
 
     /// <summary>
     /// Destroys the object attached to this script as soon as you left click on it 

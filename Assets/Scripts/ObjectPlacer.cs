@@ -112,7 +112,7 @@ public class ObjectPlacer : MonoBehaviour
     private Ray ray;
     
     /// <summary>
-    /// 
+    /// Index from the actual Scene
     /// </summary>
     private int actualSceneIndex;
     
@@ -319,6 +319,7 @@ public class ObjectPlacer : MonoBehaviour
     /// this function becomm a collider gameobject and point name
     ///it will search for the point ther is 3 options if the object tunel then the point in 3 level deep
     ///if it is straight then deep level 2 else the object is somthing else the mybe have not rout gameobject that have points
+    /// result:
     /// </summary>
     /// <param name="hitCollider"> this game object (adjacent objecte) does not far more than 2 units from the place of instantiate the prefab </param>
     /// <param name="point">the name of the point of the hitcolider (this point should at ende or begin this gameobject )</param>

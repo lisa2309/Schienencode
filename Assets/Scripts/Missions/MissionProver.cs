@@ -193,6 +193,7 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Sets the settings used for appropriate displaying the PopUp of the current selected InTunnel
+    /// openTunnelStrings:
     /// </summary>
     /// <param name="inTunnel">the InTunnelScript-object of the currently selected InTunnel</param>
     /// @author Bastian Badde
@@ -348,6 +349,7 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Closes the current open PopUp-panel.
+    /// panels:
     /// </summary>
     /// @author Bastian Badde
     public void ClosePanel()
@@ -434,6 +436,7 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Opens the error-popUp-Panel
+    /// panels
     /// </summary>
     /// @author Ahmed L'harrak & Bastian Badde
     /// panels: 

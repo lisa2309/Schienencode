@@ -55,8 +55,14 @@ public class CameraMovement : MonoBehaviour
     /// </summary>
     private Vector3 playerOneCamera = new Vector3(50.2f, 41.1f, 11f);
     
+    /// <summary>
+    /// This is the start camera position from player two
+    /// </summary>
     private Vector3 playerTwoCamera = new Vector3(50.2f, 41.1f, -46f);
-
+    
+    /// <summary>
+    /// Object from Player
+    /// </summary>
     private Player player;
 
     /// <summary>

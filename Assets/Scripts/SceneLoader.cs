@@ -26,6 +26,9 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     private int actualSceneIndex;
 
+    /// <summary>
+    /// Object of the player
+    /// </summary>
     private Player player;
 
     /// <summary>

@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2714d581-b8ed-4e7c-9cb7-090c980c5f94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CameraMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseConnector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GameServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../InTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../InTunnelScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mirror/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missions/RailEndScript1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Missions/RailEndScript1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Missions/StationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Missions/StationScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DeleteRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DeleteRail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Grid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Highscore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Highscore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Inventory/RotationButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Inventory/RotationButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Missions/MissionProver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Missions/MissionProver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MusicPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../MusicPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ObjectPlacer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OutTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OutTunnelScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OverRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OverRail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Routing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Routing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SceneLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StartRailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../StartRailScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SwitchScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SwitchScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,14 +62,21 @@
         <option value="$PROJECT_DIR$/../Missions/StationScript.cs" />
         <option value="$PROJECT_DIR$/../GameServer.cs" />
         <option value="$PROJECT_DIR$/../InTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/../ObjectPlacer.cs" />
         <option value="$PROJECT_DIR$/../OutTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/../OverRail.cs" />
         <option value="$PROJECT_DIR$/../Routing.cs" />
-        <option value="$PROJECT_DIR$/../SceneLoader.cs" />
         <option value="$PROJECT_DIR$/../StartRailScript.cs" />
         <option value="$PROJECT_DIR$/../SwitchScript.cs" />
         <option value="$PROJECT_DIR$/DatabaseConnector.cs" />
+        <option value="$PROJECT_DIR$/../Inventory/RotationButton.cs" />
+        <option value="$PROJECT_DIR$/../Missions/MissionProver.cs" />
+        <option value="$PROJECT_DIR$/../CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/../DeleteRail.cs" />
+        <option value="$PROJECT_DIR$/../Grid.cs" />
+        <option value="$PROJECT_DIR$/../Highscore.cs" />
+        <option value="$PROJECT_DIR$/../ObjectPlacer.cs" />
+        <option value="$PROJECT_DIR$/../OverRail.cs" />
+        <option value="$PROJECT_DIR$/../MusicPlayer.cs" />
+        <option value="$PROJECT_DIR$/../SceneLoader.cs" />
       </list>
     </option>
   </component>
@@ -99,6 +101,7 @@
       <updated>1615044751053</updated>
       <workItem from="1615044756488" duration="93000" />
       <workItem from="1615493861532" duration="4362000" />
+      <workItem from="1615498362539" duration="2222000" />
     </task>
     <servers />
   </component>

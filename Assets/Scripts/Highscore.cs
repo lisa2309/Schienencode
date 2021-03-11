@@ -20,7 +20,7 @@ public class Highscore : MonoBehaviour
     private SceneLoader sceneLoader;
 
     /// <summary>
-    /// 
+    /// GameObject from all panels
     /// </summary>
     private GameObject panels;
 

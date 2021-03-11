@@ -10,17 +10,17 @@ public class Grid : MonoBehaviour
 {
     [SerializeField]
     /// <summary>
-    /// 
+    /// Size of a single grid field
     /// </summary>
     private float size = 2f;
 
     /// <summary>
     /// Transforms a coordinate into a point adapted to the grid system
     /// Variables:
-    /// xCount:
-    /// yCount:
-    /// zCount:
-    /// result:
+    /// xCount: X coordinate for a single grid point
+    /// yCount: Y coordinate for a single grid point
+    /// zCount: Z coordinate for a single grid point
+    /// result: Vector X, Y and Z coordinate for a single grid point
     /// </summary>
     /// <param name="position">The point clicked in the game world</param>
     /// <returns>A point adapted to the grid</returns>
@@ -43,7 +43,7 @@ public class Grid : MonoBehaviour
 
     /// <summary>
     /// Creates a grid of yellow dots that serve as orientation when designing a level and other objects
-    /// point:
+    /// point: Variable of the X, Y and Z coordinate for a single grid point
     /// </summary>
     private void OnDrawGizmos()
     {
