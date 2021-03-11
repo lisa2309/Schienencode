@@ -2,7 +2,11 @@
 using Database;
 using UnityEngine;
 
-
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// 
+/// </summary>
+/// @author 
 public class StartRailScript : MonoBehaviour
 {
     
@@ -11,6 +15,10 @@ public class StartRailScript : MonoBehaviour
     /// </summary>
     private DatabaseConnector _dbcn;
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// @author
     void Start()
     {
         _dbcn = FindObjectOfType<DatabaseConnector>();

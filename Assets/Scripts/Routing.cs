@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
 /// Calculates Route from Start to Finish, Finish Prefab has to be tagged as Finish
@@ -88,7 +89,6 @@ public class Routing : MonoBehaviour
     /// </summary>
     private const string EXITPOINT = "Point3";
 
-
     /// <summary>
     /// List of all gameobject with tag "rail"
     /// </summary>
@@ -157,14 +157,13 @@ public class Routing : MonoBehaviour
         GameObject missionProver = GameObject.FindGameObjectWithTag("MissionProver");
         bool drivepastsReached = false;
         routePoints = new List<Transform>();
-        // Find GameObject Train
+
         GameObject train = GameObject.FindGameObjectWithTag("Train");
         if (train == null)
         {
             Debug.LogError("Train not found");
         }
 
-        // Find Gameobject Finish
         GameObject finish = GameObject.FindGameObjectWithTag("Finish");
         if (finish == null)
         {
@@ -177,13 +176,10 @@ public class Routing : MonoBehaviour
             Debug.LogError("Start not found");
         }
 
-        // Add Start Gemobject to Route
         routePoints.Add(buffer.transform.GetChild(0).Find(BEZIERSHAPE));
 
-        // Find all Rail Parts
         rails = new List<GameObject>(GameObject.FindGameObjectsWithTag("Rail"));
 
-        // Add Finish Gameobject to Rails
         rails.Add(finish);
 
         Debug.Log("Größe rails List: " + rails.Count);
@@ -202,27 +198,22 @@ public class Routing : MonoBehaviour
         finished = false;
 
         bool railFound = true;
-        // Algorithm to build route, Limit iterations to terminate if unsuccessful to find route
         while (!finished && railFound)
         {
             railFound = false;
             Debug.Log("While durchgang");
 
-            // Find next rail in list of rails
-            int i = 0; //counter for foreach
+            int i = 0;
             foreach (GameObject rail in rails)
             {
                 Debug.Log("rail komponente: " + rail.transform);
                 Debug.Log("x: " + rail.transform.position.x + " = " + buffer.transform.position.x + " + " + getDirectionX(buffer));
 
-                // check for next rail in x direction, distance for straigth = 4, distance for curve = 6
                 if (rail.transform.position.x == (buffer.transform.position.x + getDirectionX(buffer) * 4) || rail.transform.position.x == (buffer.transform.position.x + getDirectionX(buffer) * 6))
                 {
                     Debug.Log("z: " + rail.transform.position.z + " = " + buffer.transform.position.z + " + " + getDirectionZ(buffer));
-                    // check for next rail in z direction, distance for straigth = 4, distance for curve = 6
                     if (rail.transform.position.z == (buffer.transform.position.z + getDirectionZ(buffer) * 4) || rail.transform.position.z == (buffer.transform.position.z + getDirectionZ(buffer) * 6))
                     {
-                        // check if next rail is directly connected
                         Debug.Log("1: " + rail.transform.GetChild(0).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position + " 2: " + buffer.transform.GetChild(0).Find(BEZIERSHAPE).Find(EXITPOINT).position);
                         if (((buffer.name.Contains(RAILSWITCHLEFT) || buffer.name.Contains(RAILSWITCHRIGHT)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(1).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f) || ((rail.name.Contains(RAILCOLLECTRIGHT) || rail.name.Contains(RAILCOLLECTLEFT)) && Vector3.Distance(rail.transform.GetChild(1).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(0).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BEZIERSHAPE).Find(ENTRANCEPOINT).position, buffer.transform.GetChild(0).Find(BEZIERSHAPE).Find(EXITPOINT).position) < 0.5f))
                         {
@@ -261,12 +252,10 @@ public class Routing : MonoBehaviour
                             {
                                 tunnelFound = false;
                                 routePoints.Add(rail.transform.GetChild(0).Find(BEZIERSHAPE));
-                                //find tunnelOut 
                                 foreach (GameObject tunnel in tunnelExits)
                                 {
                                     if (rail.GetComponent<InTunnelScript>().relatedOutTunnelNumber == tunnel.GetComponent<OutTunnelScript>().OutTunnelNumber)
                                     {
-                                        //add tunnelOut to routePoints
                                         routePoints.Add(tunnel.transform.GetChild(0).Find(BEZIERSHAPE));
                                         buffer = tunnel;
                                         tunnelFound = true;
@@ -286,7 +275,6 @@ public class Routing : MonoBehaviour
                                 buffer = rail;
                             }
 
-                            // check if finish is reached
                             if (rail == finish)
                             {
                                 Debug.Log("Finish found");
@@ -314,7 +302,7 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    ///     Returns the neutral number in x direction (positive or negative) based on GameObject Orientation
+    /// Returns the neutral number in x direction (positive or negative) based on GameObject Orientation
     /// </summary>
     /// <param name="obj">accurent rail, to find next rail in X position</param>
     /// <returns>+1, -1 or 0 based on Prefab orientation</returns>
@@ -459,7 +447,7 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    ///     Returns the neutral number in z direction (positive or negative) based on GameObject Orientation
+    /// Returns the neutral number in z direction (positive or negative) based on GameObject Orientation
     /// </summary>
     /// <param name = "obj" > accurent rail, to find next rail in y position</param>
     /// <returns>+1, -1 or 0 based on GameObject orientation</returns>
@@ -602,11 +590,10 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    ///     Returns either to go straight or turn at a switch
+    /// Returns either to go straight or turn at a switch
     /// </summary>
     /// <param name="switchrail">curent switch</param>
     /// <param name="railCounter">position in rails array of current switch</param>
-    /// Variables:
     /// railNumber: position of trainstation in rails array
     /// cargoCount: multiplier for how many cargo is added at the trainstation
     /// <returns>bool value to go straight (true) or not (false)</returns>
@@ -627,13 +614,13 @@ public class Routing : MonoBehaviour
                         Debug.Log(railNumber + " - " + drivePast[railNumber] + " - " + rails[railNumber].name + " cargo: " + cargoCount);
                         switch (switchrail.GetComponent<SwitchScript>().ComparationValues[1])
                         {
-                            case 0: // >
+                            case 0: 
                                 straight = !((drivePast[railNumber] * cargoCount) > switchrail.GetComponent<SwitchScript>().ComparationValues[2]);
                                 break;
-                            case 1: // <
+                            case 1: 
                                 straight = !((drivePast[railNumber] * cargoCount) < switchrail.GetComponent<SwitchScript>().ComparationValues[2]);
                                 break;
-                            case 2: // ==                      
+                            case 2:                     
                                 straight = !((drivePast[railNumber] * cargoCount) == switchrail.GetComponent<SwitchScript>().ComparationValues[2]);
                                 break;
                         }
@@ -661,10 +648,9 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    ///     Returns position of a trainstation in rails array 
+    /// Returns position of a trainstation in rails array 
     /// </summary>
     /// <param name="trainstationCounter">Number of Trainstation to find in rails array</param>
-    /// Variables:
     /// foundStation: counter for all found trainstations
     /// counter: position in rails array
     /// <returns>integer value between -1 (for error) and sizeofrails</returns>

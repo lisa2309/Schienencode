@@ -16,46 +16,56 @@ public class OverRail : MonoBehaviour
 	/// Textobject for the Popup
 	/// </summary>
     public Transform popuptext;
+
 	/// <summary>
 	/// String to tell if the Text is ON or Off
 	/// </summary>
     public static string textstatus = "off";
+
     /// <summary>
     /// name of prefab for all Curve Rails
     /// </summary>
 	private const string RAILCURVE = "Curve";
+
 	/// <summary>
 	/// name of prefab the Straight Rail
 	/// </summary>
 	private const string RAILSTRAIGHT = "Strai";
+
 	/// <summary>
 	/// name of prefab for all Switch Rails
 	/// </summary>
 	private const string RAILSWITCH = "Switc";
+
 	/// <summary>
 	/// name of prefab for the Startrail
 	/// </summary>
 	private const string RAILSTART = "RailS";
+
 	/// <summary>
 	/// name of prefab for the Endrail
 	/// </summary>
 	private const string RAILEND = "RailE";
+
 	/// <summary>
 	/// name of prefab all Tunnel Rails
 	/// </summary>
 	private const string RAILTUNNEL = "Tunne";
+
 	/// <summary>
 	/// name of prefab the Tunnel Entry
 	/// </summary>
 	private const string RAILTUNNELIN = "TunnelIn";
+
 	/// <summary>
 	/// name of prefab the trainstation
 	/// </summary>
 	private const string TRAINSTATIONREQUEST = "Train";
 
+	/// <summary>
+    /// r stands for a rail, which can be programmed with if, for, while
+    /// </summary>
 	private const string SWITCHPROGRAMMABLE= "R";
-
-	
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it.
@@ -80,7 +90,7 @@ public class OverRail : MonoBehaviour
 					break;
 
 				case RAILSWITCH:
-					if (gameObject.name.Contains(SWITCHPROGRAMMABLE)) // Switch auseinandergehend 
+					if (gameObject.name.Contains(SWITCHPROGRAMMABLE))
 					{
 						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
 					}

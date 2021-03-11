@@ -37,8 +37,6 @@ public class SwitchScript : MonoBehaviour
     /// </summary>
     public int[] ComparationValues;
     
-   
-
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the switch is clicked by mouse
     /// </summary>
@@ -46,8 +44,6 @@ public class SwitchScript : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Switch is clicked ");
-        //_prover.currentStation = this._stationNumber;
-        //if (!isLocalPlayer) return;
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
             Debug.Log("Switch should open Panel");
@@ -109,8 +105,7 @@ public class SwitchScript : MonoBehaviour
                 break;
             default:
                 this.mode = SwitchMode.Unchosen;
-                break;
-                
+                break;    
         }
     }
 

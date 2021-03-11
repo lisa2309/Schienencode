@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* created by: SWT-P_WS_2021_Schienencode */
+/* 
+ * created by: SWT-P_WS_2021_Schienencode */
 /*
 
 Modified: rotation
@@ -116,7 +117,8 @@ public class BezierFollow : MonoBehaviour
         if (routeToGo > routes.Count - 1)
         {
             routeToGo = 0;
-        }else
+        }
+        else
         {
             coroutineAllowed = true;
         }
