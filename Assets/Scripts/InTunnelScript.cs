@@ -12,7 +12,7 @@ public class InTunnelScript : MonoBehaviour
     /// <summary>
     /// MissionProver object of the scene for organisation
     /// </summary>
-    private MissionProver _prover;
+    private MissionProver prover;
 
     /// <summary>
     /// The OutTunnelNumber of the related OutTunnel.
@@ -38,7 +38,7 @@ public class InTunnelScript : MonoBehaviour
     {
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen && !buildOnDB)
         {
-            _prover.UpdateInTunnel(this);
+            prover.UpdateInTunnel(this);
             OpenPanel();
         }
     }
@@ -68,7 +68,7 @@ public class InTunnelScript : MonoBehaviour
                     }
                 }
             }
-            _prover.UpdateStationSettings();
+            prover.UpdateStationSettings();
         }
     }
 
@@ -79,6 +79,6 @@ public class InTunnelScript : MonoBehaviour
     void Start()
     {
         relatedOutTunnelNumber = 0;
-        _prover = FindObjectOfType<MissionProver>();
+        prover = FindObjectOfType<MissionProver>();
     }
 }

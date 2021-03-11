@@ -20,7 +20,7 @@ namespace Database
         /// <summary>
         /// the Player Object of the active Player
         /// </summary>
-        public Player player=null;
+        public Player player = null;
 
         /// <summary>
         /// the name of the board in the Firebase-DB
@@ -35,12 +35,12 @@ namespace Database
         /// <summary>
         /// MissionProver object of the scene for organisation
         /// </summary>
-        private MissionProver _prover;
+        private MissionProver prover;
         
         /// <summary>
         /// the current selected Mission-object
         /// </summary>
-        private Mission _mission;
+        private Mission mission;
 
         /// <summary>
         /// the ConnectionString to the FirebaseDB
@@ -254,9 +254,9 @@ namespace Database
                 cargosInt[i] = Int32.Parse(cargos[i]);
                 i++;
             }
-            _prover.SetMission(new Mission(cargosInt));
-            _prover.ddSwitchValue.AddOptions(ddStrings);
-            _prover.ddWhileSwitchValue.AddOptions(ddStrings);
+            prover.SetMission(new Mission(cargosInt));
+            prover.ddSwitchValue.AddOptions(ddStrings);
+            prover.ddWhileSwitchValue.AddOptions(ddStrings);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Database
         /// @author Bastian Badde
         void Start()
         {
-            _prover = FindObjectOfType<MissionProver>();
+            prover = FindObjectOfType<MissionProver>();
         }
 
     }

@@ -13,7 +13,7 @@ using UnityEngine;
         /// <summary>
         /// static counter to generate new OutTunnelNumbers if needed
         /// </summary>
-        private static int _outTunnelCounter = 0;
+        private static int outTunnelCounter = 0;
         
         /// <summary>
         /// List of previous TunnelNumbers which are deleted and open to use
@@ -33,7 +33,7 @@ using UnityEngine;
         /// <summary>
         /// MissionProver object of the scene for organisation
         /// </summary>
-        private static MissionProver _prover;
+        private static MissionProver prover;
     
         /// <summary>
         /// Collection of the different PopUp-Panels
@@ -49,7 +49,7 @@ using UnityEngine;
             Debug.Log("is clicked ");
             if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
             {
-                _prover.UpdateOutTunnel(this.OutTunnelNumber);
+                prover.UpdateOutTunnel(this.OutTunnelNumber);
                 OpenPanel();
             }
         }
@@ -78,7 +78,7 @@ using UnityEngine;
             }
             else
             {
-                this.OutTunnelNumber = _outTunnelCounter++;
+                this.OutTunnelNumber = outTunnelCounter++;
                 GivenTunnelNumbers.Add(this.OutTunnelNumber);
             }
             GivenTunnelNumbers.Sort();
@@ -111,7 +111,7 @@ using UnityEngine;
                         }
                     }
                 }
-                _prover.UpdateStationSettings();
+                prover.UpdateStationSettings();
             }
         }
 
@@ -121,7 +121,7 @@ using UnityEngine;
         /// @author Bastian Badde
         void Start()
         {
-            _prover = FindObjectOfType<MissionProver>();
+            prover = FindObjectOfType<MissionProver>();
         }
         
         

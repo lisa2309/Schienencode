@@ -13,87 +13,87 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// name of prefab for Straight
     /// </summary>
-    private const string str_geradeschiene = "Straight270Final";
+    private const string strGeradeschiene = "Straight270Final";
 
     /// <summary>
     /// name of prefab for curve left
     /// </summary>
-    private const string str_curveleft = "CurveL0Final";
+    private const string strCurveleft = "CurveL0Final";
 
     /// <summary>
     /// name of prefab for curve rigth
     /// </summary>
-    private const string str_curverigth = "CurveR0Final";
+    private const string strCurverigth = "CurveR0Final";
 
     /// <summary>
     /// name of prefab for tunnel in
     /// </summary>
-    private const string str_tunelin = "TunnelIn";
+    private const string strTunelin = "TunnelIn";
 
     /// <summary>
     /// name of prefab for tunnel out
     /// </summary>
-    private const string str_tunelout = "TunnelOut";
+    private const string strTunelout = "TunnelOut";
 
     /// <summary>
     /// name of prefab for switch left 0
     /// </summary>
-    private const string str_switchl0 = "SwitchL0Final";
+    private const string strSwitchl0 = "SwitchL0Final";
 
     /// <summary>
     /// name of prefab for switch left 1
     /// </summary>
-    private const string str_switchl1 = "SwitchL1Final";
+    private const string strSwitchl1 = "SwitchL1Final";
 
     /// <summary>
     /// name of prefab for switch rigth 0
     /// </summary>
-    private const string str_switchr0 ="SwitchR0Final";
+    private const string strSwitchr0 ="SwitchR0Final";
 
     /// <summary>
     /// name of prefab for switch rigth 1
     /// </summary>
-    private const string str_switchr1 ="SwitchR1Final";
+    private const string strSwitchr1 ="SwitchR1Final";
 
     /// <summary>
     /// name of prefab for rail start
     /// </summary>
-    private const string str_railstart = "RailStart";
+    private const string strRailstart = "RailStart";
 
     /// <summary>
     /// name of prefab for rail end
     /// </summary>
-    private const string str_railend = "RailEnd";
+    private const string strRailend = "RailEnd";
 
     /// <summary>
     /// name of prefab for trainstation
     /// </summary>
-    private const string str_trainstation = "TrainStation";
+    private const string strTrainstation = "TrainStation";
 
     /// <summary>
     ///   Straight prefab gameobject
     /// </summary>
-    public GameObject gerade_schiene;
+    public GameObject geradeSchiene;
 
     /// <summary>
     ///   curve rigth prefab gameobject
     /// </summary>
-    public GameObject kurve_ro;
+    public GameObject kurveRo;
 
     /// <summary>
     ///   curve left prefab gameobject
     /// </summary>
-    public GameObject kurve_lo;
+    public GameObject kurveLo;
 
     /// <summary>
     ///   tunel in  prefab gameobject
     /// </summary>
-    public GameObject tunel_in;
+    public GameObject tunelIn;
 
     /// <summary>
     ///   tunnel out prefab gameobject
     /// </summary>
-    public GameObject tunel_out;
+    public GameObject tunelOut;
 
     /// <summary>
     /// trainstation prefab gameobject
@@ -103,32 +103,32 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// switch left 0 prefab gameobject
     /// </summary>
-    public GameObject switch_l_0;
+    public GameObject switchL0;
 
     /// <summary>
     /// switch left 1 prefab gameobject
     /// </summary>
-    public GameObject switch_l_1;
+    public GameObject switchL1;
 
     /// <summary>
     ///   switch rigth 0 prefab gameobject
     /// </summary>
-    public GameObject switch_r_0;
+    public GameObject switchR0;
 
     /// <summary>
     ///   switch rigth 1 prefab gameobject
     /// </summary>
-    public GameObject switch_r_1;
+    public GameObject switchR1;
 
     /// <summary>
     /// rail start  prefab gameobject
     /// </summary>
-    public GameObject rail_start;
+    public GameObject railStart;
 
     /// <summary>
     /// rail end prefab gameobject
     /// </summary>
-    public GameObject rail_end;
+    public GameObject railEnd;
     
     /// <summary>
     /// gameobjict variable to save instantiate prefabe
@@ -192,7 +192,7 @@ public class Player : NetworkBehaviour
     /// </summary>
     /// @author Ahmed L'harrak
     void Start() {
-    prefabtoinstant = gerade_schiene;
+    prefabtoinstant = geradeSchiene;
     player = this;
     if(this.isLocalPlayer){
         
@@ -306,45 +306,45 @@ public class Player : NetworkBehaviour
     void insprefab(string prefabto, Vector3 finalPosition, float rotate)
     {
         switch (prefabto){
-            case str_geradeschiene:
-            prefabtoinstant = gerade_schiene;
-            break;
-            case str_curveleft:
-            prefabtoinstant = kurve_lo;
-            break;
-            case str_curverigth:
-            prefabtoinstant = kurve_ro;
-            break;
-            case str_tunelin:
-            prefabtoinstant = tunel_in;
-            break;
-            case str_tunelout:
-            prefabtoinstant = tunel_out;
-            break;
-            case str_switchl0:
-                prefabtoinstant = switch_l_0;
+            case strGeradeschiene:
+                prefabtoinstant = geradeSchiene;
                 break;
-            case str_switchl1:
-                prefabtoinstant = switch_l_1;
+            case strCurveleft: 
+                prefabtoinstant = kurveLo;
                 break;
-            case str_switchr0:
-                prefabtoinstant = switch_r_0;
+            case strCurverigth:
+                prefabtoinstant = kurveRo;
                 break;
-            case str_switchr1:
-                prefabtoinstant = switch_r_1;
+            case strTunelin:
+                prefabtoinstant = tunelIn;
                 break;
-            case str_railstart:
-                prefabtoinstant = rail_start;
+            case strTunelout:
+                prefabtoinstant = tunelOut;
                 break;
-            case str_railend:
-                prefabtoinstant = rail_end;
+            case strSwitchl0:
+                prefabtoinstant = switchL0;
                 break;
-            case str_trainstation:
+            case strSwitchl1:
+                prefabtoinstant = switchL1;
+                break;
+            case strSwitchr0:
+                prefabtoinstant = switchR0;
+                break;
+            case strSwitchr1:
+                prefabtoinstant = switchR1;
+                break;
+            case strRailstart:
+                prefabtoinstant = railStart;
+                break;
+            case strRailend:
+                prefabtoinstant = railEnd;
+                break;
+            case strTrainstation:
                 prefabtoinstant = station;
                 break;
             default:
-            prefabtoinstant = gerade_schiene;
-            break;
+                prefabtoinstant = geradeSchiene;
+                break;
         }
         GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
         cloneObj.name = prefabtoinstant.name;

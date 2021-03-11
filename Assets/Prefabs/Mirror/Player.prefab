@@ -225,29 +225,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  gerade_schiene: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
+  geradeSchiene: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
     type: 3}
-  kurve_ro: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a,
-    type: 3}
-  kurve_lo: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859,
-    type: 3}
-  tunel_in: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6,
-    type: 3}
-  tunel_out: {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e,
+  kurveRo: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a, type: 3}
+  kurveLo: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859, type: 3}
+  tunelIn: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6, type: 3}
+  tunelOut: {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e,
     type: 3}
   station: {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
-  switch_l_0: {fileID: 708939981515953305, guid: d877d5865b7dbcf498a2c6638a6edf08,
+  switchL0: {fileID: 708939981515953305, guid: d877d5865b7dbcf498a2c6638a6edf08, type: 3}
+  switchL1: {fileID: 1678551245358385553, guid: ddb38421596ea4542b0d1e4b6bd77aee,
     type: 3}
-  switch_l_1: {fileID: 1678551245358385553, guid: ddb38421596ea4542b0d1e4b6bd77aee,
+  switchR0: {fileID: 4875399049055815938, guid: 9b0f76441e22d3748aea319d19ff60d3,
     type: 3}
-  switch_r_0: {fileID: 4875399049055815938, guid: 9b0f76441e22d3748aea319d19ff60d3,
+  switchR1: {fileID: 2961790561801857384, guid: 9666bf35e7933814cb9ea02cdf9b9f2c,
     type: 3}
-  switch_r_1: {fileID: 2961790561801857384, guid: 9666bf35e7933814cb9ea02cdf9b9f2c,
+  railStart: {fileID: 3372956890935203653, guid: 87a769d10fd872a4ca848612cd2c73c6,
     type: 3}
-  rail_start: {fileID: 3372956890935203653, guid: 87a769d10fd872a4ca848612cd2c73c6,
-    type: 3}
-  rail_end: {fileID: 5215155605840322757, guid: 8f2038fac09915843a34de1891da0f15,
-    type: 3}
+  railEnd: {fileID: 5215155605840322757, guid: 8f2038fac09915843a34de1891da0f15, type: 3}
   playerCanvas: {fileID: 2024220976622652995}
   playerNameText: {fileID: 7865797384321561972}
   playerInfoText: {fileID: 4016355087692609941}

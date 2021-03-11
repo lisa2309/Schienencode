@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2714d581-b8ed-4e7c-9cb7-090c980c5f94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CameraMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CameraMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../CameraMovement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseConnector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GameServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../InTunnelScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mirror/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Missions/RailEndScript1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Missions/RailEndScript1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Missions/StationScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Missions/StationScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../ObjectPlacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OutTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OutTunnelScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OverRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../OverRail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Routing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Routing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StartRailScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../StartRailScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SwitchScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SwitchScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +27,53 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../StartRailScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../OverRail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../CameraMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Route.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SceneLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DatabaseConnector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../ObjectPlacer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Highscore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../InTunnelScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Hovertext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Grid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../OutTunnelScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../BezierFollow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SwitchScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Missions/StationScript.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Missions/MissionProver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DeleteRail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../MusicPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Missions/RailEndScript1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Missions/Mission.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Routing.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Mirror/MyNetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Inventory/Panel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../GameServer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SwitchMode.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Inventory/RotationButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Inventory/CreatePrefab.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../SimpleJSON.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Mirror/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Panels.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/../Mirror/Player.cs" />
+        <option value="$PROJECT_DIR$/../Missions/RailEndScript1.cs" />
+        <option value="$PROJECT_DIR$/../Missions/StationScript.cs" />
+        <option value="$PROJECT_DIR$/../GameServer.cs" />
+        <option value="$PROJECT_DIR$/../InTunnelScript.cs" />
+        <option value="$PROJECT_DIR$/../ObjectPlacer.cs" />
+        <option value="$PROJECT_DIR$/../OutTunnelScript.cs" />
+        <option value="$PROJECT_DIR$/../OverRail.cs" />
+        <option value="$PROJECT_DIR$/../Routing.cs" />
+        <option value="$PROJECT_DIR$/../SceneLoader.cs" />
+        <option value="$PROJECT_DIR$/../StartRailScript.cs" />
+        <option value="$PROJECT_DIR$/../SwitchScript.cs" />
         <option value="$PROJECT_DIR$/DatabaseConnector.cs" />
       </list>
     </option>
@@ -42,13 +98,14 @@
       <option name="presentableId" value="Default" />
       <updated>1615044751053</updated>
       <workItem from="1615044756488" duration="93000" />
+      <workItem from="1615493861532" duration="4362000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

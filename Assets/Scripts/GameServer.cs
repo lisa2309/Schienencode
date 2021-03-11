@@ -20,7 +20,7 @@ public class GameServer : NetworkManager
     /// the player that started the game.
     /// NOTE: This is not important for development.
     /// </summary>
-    private const string FILE_NAME = "Info.txt";
+    private const string fileName = "Info.txt";
 
     /// <summary>
     /// Defines how long the game server will try to connect the client before quitting the application.
@@ -143,13 +143,13 @@ public class GameServer : NetworkManager
         switch (SystemInfo.operatingSystemFamily)
         {
             case OperatingSystemFamily.Windows:
-                filePath = Application.dataPath + @"\..\..\..\..\Framework\Windows\" + FILE_NAME;
+                filePath = Application.dataPath + @"\..\..\..\..\Framework\Windows\" + fileName;
                 break;
             case OperatingSystemFamily.Linux:
-                filePath = Application.dataPath + @"\..\..\..\..\Framework\Linux\" + FILE_NAME;
+                filePath = Application.dataPath + @"\..\..\..\..\Framework\Linux\" + fileName;
                 break;
             case OperatingSystemFamily.MacOSX:
-                filePath = Application.dataPath + @"/../../../../../Framework/MACOSX/" + FILE_NAME;
+                filePath = Application.dataPath + @"/../../../../../Framework/MACOSX/" + fileName;
                 break;
             default:
                 throw new ArgumentException("Illegal OS !");
@@ -167,7 +167,7 @@ public class GameServer : NetworkManager
 
         // Close file
         file.Close();
-        File.Delete(FILE_NAME);
+        File.Delete(fileName);
     }
 
     /// <summary>
@@ -199,12 +199,12 @@ public class GameServer : NetworkManager
     public void HandleGameResults(int localPlayerWinningPlacement, string nameOfWinner)
     {
         // Create file
-        if (File.Exists(FILE_NAME))
+        if (File.Exists(fileName))
         {
-            File.Delete(FILE_NAME);
+            File.Delete(fileName);
         }
         
-        var sr = File.CreateText(FILE_NAME);
+        var sr = File.CreateText(fileName);
 
         // Write file
         JSONObject fileJson = new JSONObject();

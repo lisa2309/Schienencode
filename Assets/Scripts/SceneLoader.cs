@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
     /// <summary>
     /// Number of maximum scene that exist
     /// </summary>
-    private const int MAXSCENES = 6;
+    private const int maxScene = 6;
     
     /// <summary>
     /// Number of actuel Scene
@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
     public void NextScene()
     {
         actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (actualSceneIndex < MAXSCENES)
+        if (actualSceneIndex < maxScene)
         {
             player = Player.player;
             player.newscen(SceneUtility.GetScenePathByBuildIndex(actualSceneIndex + 1));

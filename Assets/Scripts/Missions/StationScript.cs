@@ -12,12 +12,12 @@ public class StationScript : MonoBehaviour
     /// <summary>
     /// ID of the station
     /// </summary>
-    public int _stationNumber;
+    public int stationNumber;
 
     /// <summary>
     /// MissionProver object of the scene for organisation
     /// </summary>
-    private MissionProver _prover;
+    private MissionProver prover;
     
     /// <summary>
     /// Collection of the different PopUp-Panels
@@ -38,7 +38,7 @@ public class StationScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     private void OnTriggerEnter(Collider other)
     {
-        _prover.RaiseCounter(_stationNumber);
+        prover.RaiseCounter(stationNumber);
     }
     
     /// <summary>
@@ -49,7 +49,7 @@ public class StationScript : MonoBehaviour
     {
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
-            _prover.UpdateStation(this._stationNumber, this);
+            prover.UpdateStation(this.stationNumber, this);
             OpenPanel();
         }
     }
@@ -79,7 +79,7 @@ public class StationScript : MonoBehaviour
                     }
                 }
             }
-            _prover.UpdateStationSettings();
+            prover.UpdateStationSettings();
         }
     }
 
@@ -90,7 +90,7 @@ public class StationScript : MonoBehaviour
     void Start()
     {
         cargoAdditionNumber = 1;
-        _prover = FindObjectOfType<MissionProver>();
-        this._stationNumber = _prover.RegisterNewStation();
+        prover = FindObjectOfType<MissionProver>();
+        this.stationNumber = prover.RegisterNewStation();
     }
 }
