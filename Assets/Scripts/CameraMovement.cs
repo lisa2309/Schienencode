@@ -66,11 +66,20 @@ public class CameraMovement : MonoBehaviour
     private Player player;
 
     /// <summary>
+    /// Object from Start Button
+    /// </summary>
+    public GameObject startButton;
+
+    /// <summary>
     /// Ensures that the player can zoom and stay within his game world boundary.
     /// </summary>
     /// @author Ronja Haas & Anna-Lisa Müller 
     void Update()
     {
+        if (!player.isServer)
+        {
+            startButton.SetActive(false);
+        }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (Camera.main.fieldOfView == maxFieldOfView)
