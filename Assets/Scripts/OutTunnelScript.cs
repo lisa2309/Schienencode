@@ -13,9 +13,7 @@ using UnityEngine;
         /// <summary>
         /// static counter to generate new OutTunnelNumbers if needed
         /// </summary>
-        private static int _outTunnelCounter = 0;
-        
-        //private static List<int> usedTunnelNumbers = new List<int>();
+        private static int outTunnelCounter = 0;
         
         /// <summary>
         /// List of previous TunnelNumbers which are deleted and open to use
@@ -35,15 +33,13 @@ using UnityEngine;
         /// <summary>
         /// MissionProver object of the scene for organisation
         /// </summary>
-        private static MissionProver _prover;
+        private static MissionProver prover;
     
         /// <summary>
         /// Collection of the different PopUp-Panels
         /// </summary>
         private GameObject panels;
 
-        
-        
         /// <summary>
         /// Opens the relevant PopUp-Panel, when the OutTunnel is clicked by mouse
         /// </summary>
@@ -51,10 +47,9 @@ using UnityEngine;
         void OnMouseDown()
         {
             Debug.Log("is clicked ");
-            //if (!isLocalPlayer) return;
             if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
             {
-                _prover.UpdateOutTunnel(this.OutTunnelNumber);
+                prover.UpdateOutTunnel(this.OutTunnelNumber);
                 OpenPanel();
             }
         }
@@ -66,7 +61,6 @@ using UnityEngine;
         /// @author Bastian Badde
         public static void RemoveOutTunnel(int tunnelNumber)
         { 
-            //if (GivenTunnelNumbers.Remove(tunnelNumber) || usedTunnelNumbers.Remove(tunnelNumber)) DeletedTunnelNumbers.Add(tunnelNumber);
             if (GivenTunnelNumbers.Remove(tunnelNumber)) DeletedTunnelNumbers.Add(tunnelNumber);
         }
         
@@ -84,26 +78,12 @@ using UnityEngine;
             }
             else
             {
-                this.OutTunnelNumber = _outTunnelCounter++;
+                this.OutTunnelNumber = outTunnelCounter++;
                 GivenTunnelNumbers.Add(this.OutTunnelNumber);
             }
             GivenTunnelNumbers.Sort();
             Debug.Log("OTN: " + this. OutTunnelNumber);
         }
-        
-        // public static void RemoveOutTunnel(List<int> tunnelNumbers)
-        // {
-        //     //usedTunnelNumbers.RemoveAll(x => tunnelNumbers.Contains(x));
-        //     foreach (int i in tunnelNumbers)
-        //     {
-        //         if (usedTunnelNumbers.Contains(i))
-        //         {
-        //             usedTunnelNumbers.Remove(i);
-        //             GivenTunnelNumbers.Add(i);
-        //         }
-        //     }
-        //     _prover.
-        // }
 
         /// <summary>
         /// Opens the relevant popUp-Panel
@@ -131,8 +111,7 @@ using UnityEngine;
                         }
                     }
                 }
-                _prover.UpdateStationSettings();
-
+                prover.UpdateStationSettings();
             }
         }
 
@@ -142,7 +121,7 @@ using UnityEngine;
         /// @author Bastian Badde
         void Start()
         {
-            _prover = FindObjectOfType<MissionProver>();
+            prover = FindObjectOfType<MissionProver>();
         }
         
         

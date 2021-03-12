@@ -8,7 +8,7 @@ public class RailEndScript : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    private MissionProver _prover;
+    private MissionProver prover;
 
     /// <summary>
     /// 
@@ -18,7 +18,7 @@ public class RailEndScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("------Collision with:" + other.name);
-        if (_prover.mission.IsComplete()) _prover.SetFinalText("Gewonnen!!");
+        if (prover.mission.IsComplete()) prover.SetFinalText("Gewonnen!!");
     }
 
     /// <summary>
@@ -27,6 +27,6 @@ public class RailEndScript : MonoBehaviour
     /// </summary>    
     void Start()
     {
-        _prover = FindObjectOfType<MissionProver>();
+        prover = FindObjectOfType<MissionProver>();
     }
 }

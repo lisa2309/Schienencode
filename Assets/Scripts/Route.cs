@@ -2,8 +2,6 @@
 using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
-/*
-*/
 /// <summary>
 /// Script to move the Train on the Rail
 /// </summary>

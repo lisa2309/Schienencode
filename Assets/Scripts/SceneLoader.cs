@@ -13,36 +13,35 @@ using Database;
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
-    /// database object of the class  DatabaseConnector.
+    /// database object of the class  DatabaseConnector
     /// </summary>
     private DatabaseConnector database;
     /// <summary>
-    /// Number of maximum scene that exist.
+    /// Number of maximum scene that exist
     /// </summary>
-    private const int MAXSCENES = 6;
+    private const int maxScene = 6;
     
     /// <summary>
-    /// Number of actuel Scene.
+    /// Number of actuel Scene
     /// </summary>
     private int actualSceneIndex;
 
+    /// <summary>
+    /// Object of the player
+    /// </summary>
     private Player player;
 
     /// <summary>
-    /// Loads the next scene after the current scene.
+    /// Loads the next scene after the current scene
     /// </summary>
     /// @author Ronja Haas & Anna-Lisa Müller
     public void NextScene()
     {
         actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (actualSceneIndex < MAXSCENES)
+        if (actualSceneIndex < maxScene)
         {
-            //SceneManager.LoadScene(actualSceneIndex + 1);
             player = Player.player;
             player.newscen(SceneUtility.GetScenePathByBuildIndex(actualSceneIndex + 1));
-
-            
-            //database.RetrieveFromDatabase();
         }     
     }
 

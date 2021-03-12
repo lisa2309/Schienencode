@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
-/*
-
-Modified: rotation
-*/
 /// <summary>
 /// Bezier Curve for the train on the rail
 /// </summary>
 /// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+/// Modified: rotation
 /// @source: https://www.youtube.com/watch?v=11ofnLOE8pw
 public class BezierFollow : MonoBehaviour
 {
@@ -116,11 +113,11 @@ public class BezierFollow : MonoBehaviour
         if (routeToGo > routes.Count - 1)
         {
             routeToGo = 0;
-        }else
+        }
+        else
         {
             coroutineAllowed = true;
         }
-
     }
 
 }

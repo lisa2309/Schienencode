@@ -12,12 +12,12 @@ public class SwitchScript : MonoBehaviour
     /// <summary>
     /// ID of the switch
     /// </summary>
-    private int _switchNumber;
+    private int switchNumber;
 
     /// <summary>
     /// Missionprover object of the scene for organisation
     /// </summary>
-    private MissionProver _prover;
+    private MissionProver prover;
     
     /// <summary>
     /// Collection of the different PopUp-Panels
@@ -37,8 +37,6 @@ public class SwitchScript : MonoBehaviour
     /// </summary>
     public int[] ComparationValues;
     
-   
-
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the switch is clicked by mouse
     /// </summary>
@@ -46,12 +44,10 @@ public class SwitchScript : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Switch is clicked ");
-        //_prover.currentStation = this._stationNumber;
-        //if (!isLocalPlayer) return;
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
             Debug.Log("Switch should open Panel");
-            _prover.UpdateSwitch(this);
+            prover.UpdateSwitch(this);
             OpenPanel();
         }
     }
@@ -109,8 +105,7 @@ public class SwitchScript : MonoBehaviour
                 break;
             default:
                 this.mode = SwitchMode.Unchosen;
-                break;
-                
+                break;    
         }
     }
 
@@ -151,6 +146,6 @@ public class SwitchScript : MonoBehaviour
     {
         ComparationValues = new int[] {0,0,1};
         mode = SwitchMode.Unchosen;
-        _prover = FindObjectOfType<MissionProver>();
+        prover = FindObjectOfType<MissionProver>();
     }
 }

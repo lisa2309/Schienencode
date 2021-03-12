@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /* created by: SWT-P_WS_2021_Schienencode */
-// 
 /// <summary>
 /// the current gameobject will marked as nexte instansiated gameobject
 /// </summary>
@@ -29,7 +28,6 @@ public class CreatePrefab : MonoBehaviour
     /// <summary>
     /// call the public gameobject  variable of Objectplacer class and change it to current gameobject 
     /// so that whenn the player an Object  created then will be the current object of this panel windows
-    /// Variables:
     /// position:
     /// ray:
     /// </summary>
@@ -38,7 +36,6 @@ public class CreatePrefab : MonoBehaviour
     {
         rotate = PlayerPrefs.GetFloat(currentPrefab.name);
         Vector3 position;
-
         Ray ray = new Ray(Camera.main.transform.position, Vector3.forward);
         position = ray.GetPoint(Camera.main.farClipPlane / 2);
         objectPlacer = FindObjectOfType<ObjectPlacer>();

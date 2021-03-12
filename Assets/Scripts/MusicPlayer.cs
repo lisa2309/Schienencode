@@ -7,8 +7,8 @@ using UnityEngine;
 /// <summary>
 /// Music Volume Setting.
 /// </summary>
-/// @author Ronja Haas & Anna-Lisa Müller
-
+/// Quelle: https://www.youtube.com/watch?v=-xvoJ7Q4vw0
+/// Modified by: Ronja Haas & Anna-Lisa Müller
 public class MusicPlayer : MonoBehaviour
 {
     /// <summary>

@@ -16,49 +16,62 @@ public class OverRail : MonoBehaviour
 	/// Textobject for the Popup
 	/// </summary>
     public Transform popuptext;
+
 	/// <summary>
 	/// String to tell if the Text is ON or Off
 	/// </summary>
     public static string textstatus = "off";
+
     /// <summary>
     /// name of prefab for all Curve Rails
     /// </summary>
-	private const string RAILCURVE = "Curve";
+	private const string railcurve = "Curve";
+
 	/// <summary>
 	/// name of prefab the Straight Rail
 	/// </summary>
-	private const string RAILSTRAIGHT = "Strai";
+	private const string railstraight = "Strai";
+
 	/// <summary>
 	/// name of prefab for all Switch Rails
 	/// </summary>
-	private const string RAILSWITCH = "Switc";
+	private const string railswitch = "Switc";
+
 	/// <summary>
 	/// name of prefab for the Startrail
 	/// </summary>
-	private const string RAILSTART = "RailS";
+	private const string railstart = "RailS";
+
 	/// <summary>
 	/// name of prefab for the Endrail
 	/// </summary>
-	private const string RAILEND = "RailE";
+	private const string railend = "RailE";
+
 	/// <summary>
 	/// name of prefab all Tunnel Rails
 	/// </summary>
-	private const string RAILTUNNEL = "Tunne";
+	private const string railtunnel = "Tunne";
+
 	/// <summary>
 	/// name of prefab the Tunnel Entry
 	/// </summary>
-	private const string RAILTUNNELIN = "TunnelIn";
+	private const string railtunnelin = "TunnelIn";
+
 	/// <summary>
 	/// name of prefab the trainstation
 	/// </summary>
-	private const string TRAINSTATIONREQUEST = "Train";
+	private const string trainstationrequest = "Train";
 
-	private const string SWITCHPROGRAMMABLE= "R";
-
-	
+	/// <summary>
+    /// r stands for a rail, which can be programmed with if, for, while
+    /// </summary>
+	private const string switchprogrammable = "R";
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it.
+	/// objectName: Name of the gameobject where the mouse is over
+	/// objectLetters: objectName split up in the separate letters
+	/// finalName: the first five letters of objectName
 	/// </summary>
 	/// @author Ronja Haas & Anna-Lisa Müller 
     void OnMouseEnter()
@@ -71,16 +84,16 @@ public class OverRail : MonoBehaviour
 
 			switch(finalName) 
 			{
-				case RAILCURVE:
+				case railcurve:
 					popuptext.GetComponent<TextMesh>().text = "Kurve";
 					break;
 
-				case RAILSTRAIGHT:
+				case railstraight:
 					popuptext.GetComponent<TextMesh>().text = "Gerade";
 					break;
 
-				case RAILSWITCH:
-					if (gameObject.name.Contains(SWITCHPROGRAMMABLE)) // Switch auseinandergehend 
+				case railswitch:
+					if (gameObject.name.Contains(switchprogrammable))
 					{
 						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
 					}
@@ -90,16 +103,16 @@ public class OverRail : MonoBehaviour
 					}
 					break;
 
-				case RAILSTART:
+				case railstart:
 					popuptext.GetComponent<TextMesh>().text = "Start";
 					break;
 
-				case RAILEND:
+				case railend:
 					popuptext.GetComponent<TextMesh>().text = "Ziel";
 					break;
 
-				case RAILTUNNEL:
-					if(objectName == RAILTUNNELIN)
+				case railtunnel:
+					if(objectName == railtunnelin)
 					{
 						popuptext.GetComponent<TextMesh>().text = "Eingang Tunnel";
 					} else {
@@ -107,8 +120,8 @@ public class OverRail : MonoBehaviour
 					}
 					break;
 
-				case TRAINSTATIONREQUEST:
-					int stationNumber = gameObject.GetComponent<StationScript>()._stationNumber + 1;
+				case trainstationrequest:
+					int stationNumber = gameObject.GetComponent<StationScript>().stationNumber + 1;
 					popuptext.GetComponent<TextMesh>().text = "Bahnhof " + stationNumber;
 					break;
 
@@ -135,6 +148,7 @@ public class OverRail : MonoBehaviour
 
 	/// <summary>
 	/// Form's a new String from the char array with only the amount of number of char's from size
+	/// word: char array with the size of size
 	/// </summary>
 	/// <param name="size">size of how many letters is need for the return string</param>
 	/// <param name="name">char array wich is used to form a new string</param>

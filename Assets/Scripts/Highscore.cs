@@ -19,6 +19,9 @@ public class Highscore : MonoBehaviour
     /// </summary>
     private SceneLoader sceneLoader;
 
+    /// <summary>
+    /// GameObject from all panels
+    /// </summary>
     private GameObject panels;
 
     /// <summary>
@@ -39,7 +42,7 @@ public class Highscore : MonoBehaviour
     /// @author Ronja Haas & Anna-Lisa Müller
     private void OnTriggerEnter(Collider other)
     {
-        if (missionProver.mission.IsComplete()) // gewonnen
+        if (missionProver.mission.IsComplete()) 
         {
 			missionProver.missiontext.text += "             " + "\n";
 			missionProver.missiontext.text += "------------------------------" + "\n";
@@ -47,7 +50,7 @@ public class Highscore : MonoBehaviour
             missionProver.missiontext.text += "Gewonnen!";
             OpenPanel("winPanel");
         }
-        else if (!missionProver.mission.IsComplete()) // verloren
+        else if (!missionProver.mission.IsComplete())
         {
 			missionProver.missiontext.text += "             " + "\n";
 			missionProver.missiontext.text += "------------------------------" + "\n";
