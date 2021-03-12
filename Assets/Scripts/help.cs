@@ -14,16 +14,20 @@ public class help : MonoBehaviour
     /// </summary>
     public Dropdown ddHelpValue;
 
+    int auswahl = 0;
+
     public void showHelp()
     {
         
         Debug.Log("Help opened");
+        
         OpenSpecificPanel("panelTutorial01");
     }
 
     public void openChoosenHelp()
     {
-        //Debug.Log(ddHelpValue.value);
+        
+        //Debug.Log(ddHelpValue.ToString());
         if (true)
         {
             OpenSpecificPanel("panelTutorial02");
@@ -31,8 +35,14 @@ public class help : MonoBehaviour
         {
             OpenSpecificPanel("panelTutorial03");
         }
+        Debug.Log(auswahl);
     }
 
+    
+    public void HandleInputData(int val)
+    {
+        auswahl = val;
+    }
 
     private void OpenSpecificPanel(string panelString)
     {
