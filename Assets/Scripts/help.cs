@@ -44,6 +44,18 @@ public class help : MonoBehaviour
         auswahl = val;
     }
 
+    public void openControll()
+    {
+        Debug.Log("Control opened");
+        OpenSpecificPanel("panelTutorial03");
+    }
+
+    public void openManual()
+    {
+        Debug.Log("Manual opened");
+        OpenSpecificPanel("panelTutorial02");
+    }
+
     private void OpenSpecificPanel(string panelString)
     {
         panels = GameObject.FindObjectOfType<Panels>().allpanels;
