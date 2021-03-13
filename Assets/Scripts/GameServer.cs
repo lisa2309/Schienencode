@@ -13,6 +13,8 @@ using UnityEngine.UI;
 /// This class represents a game server.
 /// The server starts automatically and loads the player prefab into the online scene.
 /// </summary>
+/// Quelle: SWTP Framework
+/// Modified by: Ronja Haas & Anna-Lisa Müller
 public class GameServer : NetworkManager
 {
     /// <summary>
@@ -52,10 +54,24 @@ public class GameServer : NetworkManager
     /// </summary>
     private bool readyToQuit;
 
+    /// <summary>
+    /// The number of rounds played is stored in here
+    /// </summary>
+    private int gameRounds;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public JSONNode PlayerInfos => playerInfos;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public JSONNode GameInfos => gameInfos;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static GameServer Instance => (GameServer) singleton;
 
     /// <summary>
@@ -82,6 +98,7 @@ public class GameServer : NetworkManager
         {
             StartHost();
         }
+        Debug.Log("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
     }
 
     /// <summary>
@@ -182,10 +199,30 @@ public class GameServer : NetworkManager
         playerInfos = new JSONObject();
         gameInfos = new JSONObject();
 
+        SetRounds(6);
+
         playerInfos.Add("name", "Mustermann");
         gameInfos.Add("playerAmount",2);
-        gameInfos.Add("rounds", 6);
+        gameInfos.Add("rounds", GetRounds());
         gameInfos.Add("board", "Pirates");
+    }
+
+    /// <summary>
+    /// Sets the number of laps
+    /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller
+    private void SetRounds(int rounds)
+    {
+        this.gameRounds = rounds;
+    }
+
+    /// <summary>
+    /// Returns the set number of laps
+    /// </summary>
+    /// @author Ronja Haas & Anna-Lisa Müller
+    public int GetRounds()
+    {
+        return this.gameRounds;
     }
 
     /// <summary>
