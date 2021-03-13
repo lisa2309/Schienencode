@@ -185,6 +185,8 @@ public class Player : NetworkBehaviour
     /// </summary>
     private String playerName;
 
+    
+private MissionProver       missionprv;
 
     /// <summary>
     /// initialisation of variables dbcon and objectplacer
@@ -198,6 +200,9 @@ public class Player : NetworkBehaviour
         
         dbCon = FindObjectOfType<DatabaseConnector>();
         dbCon.player = this;
+
+        missionprv = FindObjectOfType<MissionProver>();
+        missionprv.player = this;
         Debug.Log("is Client " + this.netId);
         
         objectPlacer = FindObjectOfType<ObjectPlacer>();
@@ -448,6 +453,38 @@ public class Player : NetworkBehaviour
     {
         GameServer.Instance.HandleGameResults(2,hostName);
     }
+
+
+
+    
+public void ladungchang(int currentStation,int  ladung){
+
+
+    if (this.isServer)
+    {
+       
+        ladungonclients(currentStation,ladung);
+    }
+    else {///client
+        if (!isLocalPlayer) return; 
+        serverchangladung(currentStation,ladung);
+    }
+}
+
+[Command]
+void serverchangladung(int currentStation,int  ladung){
+Debug.Log("serverrrrr");
+ladungchang(currentStation,ladung);
+}
+
+[ClientRpc]
+public void ladungonclients(int currentStation,int  ladung){
+Debug.Log("dddhkjhjdhjkdhdjkh");
+FindObjectOfType<MissionProver>().cargoAdditions[currentStation]=ladung;
+
+
+}
+
 
 }
 

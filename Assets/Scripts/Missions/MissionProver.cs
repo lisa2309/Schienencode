@@ -77,7 +77,7 @@ public class MissionProver : MonoBehaviour
     /// List of cargoAddition-values of the different registered TrainsStations
     /// Accessible via: cargoAdditions[stationNumber]
     /// </summary>
-    private List<int> cargoAdditions;
+    public List<int> cargoAdditions;
 
     /// <summary>
     /// UI-Dropdown-object of a TrainStation for choosing the cargoAdditionNumber
@@ -170,6 +170,8 @@ public class MissionProver : MonoBehaviour
     public Button DeleteButton;
     
     
+        public Player player;
+
     /// <summary>
     /// Creates a new stationNumber an registers a new TrainStation
     /// </summary>
@@ -285,6 +287,7 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void AcceptButtonClicked()
     {
+        player.ladungchang(currentStation, ddStation.value + 1);
         currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
         ClosePanel();
     }
