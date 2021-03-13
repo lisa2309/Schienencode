@@ -76,6 +76,10 @@ public class CameraMovement : MonoBehaviour
     /// @author Ronja Haas & Anna-Lisa Müller 
     void Update()
     {
+        if (player == null)
+        {
+            return;
+        }
         if (!player.isServer)
         {
             startButton.SetActive(false);
