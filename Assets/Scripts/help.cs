@@ -3,59 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// Class to open the help panels and switch between the detailed pages for manual and controlls
+/// </summary>
+/// @author Florian Vogel & Bjarne Bensel 
 public class help : MonoBehaviour
 {
     /// <summary>
     /// Collection of the different PopUp-Panels
     /// </summary>
     private GameObject panels;
+
     /// <summary>
-    /// UI-Dropdown-object of a Unchosen-Switch for choosing the SwitchMode
+    /// opens the initial help panel
     /// </summary>
-    public Dropdown ddHelpValue;
-
-    int auswahl = 0;
-
+    /// @author Florian Vogel & Bjarne Bensel 
     public void showHelp()
-    {
-        
-        Debug.Log("Help opened");
-        
+    {        
+        Debug.Log("Help opened");        
         OpenSpecificPanel("panelTutorial01");
     }
 
-    public void openChoosenHelp()
-    {
-        
-        //Debug.Log(ddHelpValue.ToString());
-        if (true)
-        {
-            OpenSpecificPanel("panelTutorial02");
-        }else if (ddHelpValue.value == 1)
-        {
-            OpenSpecificPanel("panelTutorial03");
-        }
-        Debug.Log(auswahl);
-    }
-
-    
-    public void HandleInputData(int val)
-    {
-        auswahl = val;
-    }
-
+    /// <summary>
+    /// opens the controll help page
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel 
     public void openControll()
     {
         Debug.Log("Control opened");
         OpenSpecificPanel("panelTutorial03");
     }
 
+    /// <summary>
+    /// opens the manual help page
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel 
     public void openManual()
     {
         Debug.Log("Manual opened");
         OpenSpecificPanel("panelTutorial02");
     }
 
+    /// <summary>
+    /// Opens the relevant popUp-Panel depending on the panelString
+    /// </summary>
+    /// <param name="panelString">the name of the panel what to open</param>
+    /// @author Ahmed L'harrak & Bastian Badde
     private void OpenSpecificPanel(string panelString)
     {
         panels = GameObject.FindObjectOfType<Panels>().allpanels;
@@ -79,6 +73,4 @@ public class help : MonoBehaviour
             }
         }
     }
-
-
 }
