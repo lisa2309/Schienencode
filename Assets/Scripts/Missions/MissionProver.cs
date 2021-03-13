@@ -64,6 +64,16 @@ public class MissionProver : MonoBehaviour
     private int stationCounter = 0;
     
     /// <summary>
+    /// Counter of registered Switches
+    /// </summary>
+    private int switchCounter = 0;
+    
+    /// <summary>
+    /// Counter of registered InTunnels
+    /// </summary>
+    private int inTunnelCounter = 0;
+    
+    /// <summary>
     /// Counter of registered OutTunnels
     /// </summary>
     private int tunnelCounter = 0;
@@ -169,17 +179,57 @@ public class MissionProver : MonoBehaviour
     /// </summary>
     public Button DeleteButton;
     
+    /// <summary>
+    /// List of registered StationScripts 
+    /// </summary>
+    private List<StationScript> stationBodies;
     
-        public Player player;
+    /// <summary>
+    /// List of registered StationScripts 
+    /// </summary>
+    private List<SwitchScript> switchBodies;
+    
+    /// <summary>
+    /// List of registered StationScripts 
+    /// </summary>
+    private List<InTunnelScript> inTunnelBodies;
+    
+    /// <summary>
+    /// Player Object of active player 
+    /// </summary>
+    public Player player;
 
+    /// <summary>
+    /// Creates a new switchNumber an registers a new Switch
+    /// </summary>
+    /// <returns>the stationNumber of the new registered TrainStation</returns>
+    /// @author Bastian Badde
+    public int RegisterNewSwitch(SwitchScript switchO)
+    {
+        switchBodies.Add(switchO);
+        return switchCounter++;
+    }
+    
+    /// <summary>
+    /// Creates a new inTunnelNumber ans registers a new InTunnel
+    /// </summary>
+    /// <returns>the stationNumber of the new registered TrainStation</returns>
+    /// @author Bastian Badde
+    public int RegisterNewInTunnel(InTunnelScript inTunnel)
+    {
+        inTunnelBodies.Add(inTunnel);
+        return inTunnelCounter++;
+    }
+    
     /// <summary>
     /// Creates a new stationNumber an registers a new TrainStation
     /// </summary>
     /// <returns>the stationNumber of the new registered TrainStation</returns>
     /// @author Bastian Badde
-    public int RegisterNewStation()
+    public int RegisterNewStation(StationScript station)
     {
         cargoAdditions.Add(1);
+        stationBodies.Add(station);
         return stationCounter++;
         //carogoCounters = new int[stationCounter];
     }
@@ -287,9 +337,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void AcceptButtonClicked()
     {
-        player.ladungchang(currentStation, ddStation.value + 1);
-        currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
+        player.CargoChanged(currentStation, ddStation.value + 1);
+        //currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
         ClosePanel();
+    }
+    
+    public void SetStationCargo(int stationNr, int value)
+    {
+        cargoAdditions[stationNr] = value;
+        stationBodies.Find(s => s.stationNumber.Equals(stationNr)).cargoAdditionNumber = value;
     }
    
     /// <summary>
@@ -299,9 +355,22 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void IfSwitchAcceptButtonClicked()
     {
-        currentSwitch.ComparationValues = new []
-            {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
+        // currentSwitch.ComparationValues = new []
+        //     {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
+        player.SwitchValuesChanged(
+            currentSwitch.switchNumber, ddSwitchValue.value, 
+            ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text));
         ClosePanel();
+    }
+
+    
+    
+    public void SetSwitchValues(int switchNumber, int cargo, int compare, int value)
+    {
+        switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ComparationValues = new[]
+        {
+            cargo,compare,value
+        };
     }
     
     /// <summary>
@@ -311,8 +380,11 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void WhileSwitchAcceptButtonClicked()
     {
-        currentSwitch.ComparationValues = new []
-            {ddWhileSwitchValue.value, ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text)};
+        player.SwitchValuesChanged(
+            currentSwitch.switchNumber, ddWhileSwitchValue.value, 
+            ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text));
+        // currentSwitch.ComparationValues = new []
+        //     {ddWhileSwitchValue.value, ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text)};
         ClosePanel();
     }
     
@@ -323,7 +395,9 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void ForSwitchAcceptButtonClicked()
     {
-        currentSwitch.ComparationValues[2] = Int32.Parse(inputForSwitch.text);
+        player.SwitchValuesChanged(
+            currentSwitch.switchNumber, 0, 0, Int32.Parse(inputForSwitch.text));
+        //currentSwitch.ComparationValues[2] = Int32.Parse(inputForSwitch.text);
         ClosePanel();
     }
     
@@ -334,9 +408,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void GeneralSwitchAcceptButtonClicked()
     {
-        currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
+        //currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
+        player.SwitchModeChanged(currentSwitch.switchNumber, ddGeneralSwitch.value);
         ClosePanel();
         currentSwitch.OpenPanel();
+    }
+    
+    public void SetSwitchMode(int switchNumber, int mode)
+    {
+        switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ChangeSwitchMode(mode);
     }
     
     /// <summary>
@@ -346,8 +426,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void InTunnelAcceptedButtonClicked()
     {
-        currentInTunnel.relatedOutTunnelNumber = OutTunnelScript.GivenTunnelNumbers[ddInTunnelOpenOuts.value];
+        player.InTunnelChanged(currentInTunnel.inTunnelNumber, 
+            OutTunnelScript.GivenTunnelNumbers[ddInTunnelOpenOuts.value]);
+        //currentInTunnel.relatedOutTunnelNumber = OutTunnelScript.GivenTunnelNumbers[ddInTunnelOpenOuts.value];
         ClosePanel();
+    }
+
+    public void SetInTunnelValues(int inTunnelNumber, int outTunnelNumber)
+    {
+        inTunnelBodies.Find(s => s.inTunnelNumber.Equals(inTunnelNumber)).relatedOutTunnelNumber = outTunnelNumber;
     }
     
     /// <summary>
@@ -477,6 +564,9 @@ public class MissionProver : MonoBehaviour
         panelisOpen = false;
         deleteOn = false;
         cargoAdditions = new List<int>();
+        stationBodies = new List<StationScript>();
+        inTunnelBodies = new List<InTunnelScript>();
+        switchBodies = new List<SwitchScript>();
     }
 
     /// <summary>
@@ -485,8 +575,6 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void StartManual()
     {
-        panelisOpen = false;
-        deleteOn = false;
-        cargoAdditions = new List<int>();
+       Start();
     }
 }

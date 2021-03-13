@@ -12,7 +12,7 @@ public class SwitchScript : MonoBehaviour
     /// <summary>
     /// ID of the switch
     /// </summary>
-    private int switchNumber;
+    public int switchNumber;
 
     /// <summary>
     /// Missionprover object of the scene for organisation
@@ -147,5 +147,6 @@ public class SwitchScript : MonoBehaviour
         ComparationValues = new int[] {0,0,1};
         mode = SwitchMode.Unchosen;
         prover = FindObjectOfType<MissionProver>();
+        this.switchNumber = prover.RegisterNewSwitch(this);
     }
 }

@@ -14,9 +14,9 @@ namespace Tests
             GameObject gameObject = new GameObject("TestTrainRegistration");
             MissionProver prover = gameObject.AddComponent<MissionProver>();
             prover.StartManual();
-            prover.RegisterNewStation();
-            prover.RegisterNewStation();
-            int thirdStationNumber= prover.RegisterNewStation();
+            prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
+            prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
+            int thirdStationNumber= prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
             
             Assert.AreEqual(2,thirdStationNumber);
             

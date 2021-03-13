@@ -454,37 +454,174 @@ private MissionProver       missionprv;
         GameServer.Instance.HandleGameResults(2,hostName);
     }
 
-
-
     
-public void ladungchang(int currentStation,int  ladung){
-
-
-    if (this.isServer)
-    {
-       
-        ladungonclients(currentStation,ladung);
+    
+    // +++++++ Synchronisation +++++++
+    
+    //Station
+    
+    /// <summary>
+    /// Method to synchronize the station cargos
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void CargoChanged(int currentStation,int  value){
+        if (this.isServer)
+        {
+            ClientCargoChanged(currentStation,value);
+        }
+        else {///client
+            if (!isLocalPlayer) return; 
+            ServerCargoChanged(currentStation,value);
+        }
     }
-    else {///client
-        if (!isLocalPlayer) return; 
-        serverchangladung(currentStation,ladung);
+
+    /// <summary>
+    /// Command to synchronize the station cargos from server-side
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerCargoChanged(int currentStation,int  value){
+        CargoChanged(currentStation,value);
     }
-}
 
-[Command]
-void serverchangladung(int currentStation,int  ladung){
-Debug.Log("serverrrrr");
-ladungchang(currentStation,ladung);
-}
+    /// <summary>
+    /// Command to synchronize the station cargos from client-side
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientCargoChanged(int currentStation,int  value){
+        FindObjectOfType<MissionProver>().SetStationCargo(currentStation, value);
+    }
+    
+    //Switch-values
+    
+    /// <summary>
+    /// Method to synchronize the switch-values
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="cargo, compare, value">values to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void SwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        if (this.isServer)
+        {
+            ClientSwitchValuesChanged(switchNumber, cargo, compare,value);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerSwitchValuesChanged(switchNumber, cargo, compare,value);
+        }
+    }
 
-[ClientRpc]
-public void ladungonclients(int currentStation,int  ladung){
-Debug.Log("dddhkjhjdhjkdhdjkh");
-FindObjectOfType<MissionProver>().cargoAdditions[currentStation]=ladung;
+    /// <summary>
+    /// Command to synchronize the switch-values from server-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="cargo, compare, value">values to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        SwitchValuesChanged(switchNumber, cargo, compare,value);
+    }
 
+    /// <summary>
+    /// Command to synchronize the switch-values from client-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="cargo, compare, value">values to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        FindObjectOfType<MissionProver>().SetSwitchValues(switchNumber, cargo, compare,value);
+    }
+    
+    //Switch-mode
+    
+    /// <summary>
+    /// Method to synchronize the switch-modes
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void SwitchModeChanged(int switchNumber, int mode){
+        if (this.isServer)
+        {
+            ClientSwitchModeChanged(switchNumber,mode);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerSwitchModeChanged(switchNumber, mode);
+        }
+    }
 
-}
+    /// <summary>
+    /// Command to synchronize the switch-modes from server-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerSwitchModeChanged(int switchNumber, int mode){
+        SwitchModeChanged(switchNumber, mode);
+    }
 
+    /// <summary>
+    /// Command to synchronize the switch-modes from client-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientSwitchModeChanged(int switchNumber, int mode){
+        FindObjectOfType<MissionProver>().SetSwitchMode(switchNumber, mode);
+    }
+
+    //In-Tunnel
+    
+    /// <summary>
+    /// Method to synchronize the In-Tunnels
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void InTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        if (this.isServer)
+        {
+            ClientInTunnelChanged(inTunnelNumber,outTunnelNumber);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerInTunnelChanged(inTunnelNumber, outTunnelNumber);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the In-Tunnels from server-side
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        InTunnelChanged(inTunnelNumber, outTunnelNumber);
+    }
+
+    /// <summary>
+    /// Command to synchronize the In-Tunnels from client-side
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        FindObjectOfType<MissionProver>().SetSwitchMode(inTunnelNumber, outTunnelNumber);
+    }
+    
 
 }
 

@@ -91,6 +91,6 @@ public class StationScript : MonoBehaviour
     {
         cargoAdditionNumber = 1;
         prover = FindObjectOfType<MissionProver>();
-        this.stationNumber = prover.RegisterNewStation();
+        this.stationNumber = prover.RegisterNewStation(this);
     }
 }

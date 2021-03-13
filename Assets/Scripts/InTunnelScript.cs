@@ -8,6 +8,11 @@ using UnityEngine;
 /// @author Ahmed L'harrak & Bastian Badde
 public class InTunnelScript : MonoBehaviour
 {
+    
+    /// <summary>
+    /// ID of the InTunnel
+    /// </summary>
+    public int inTunnelNumber;
         
     /// <summary>
     /// MissionProver object of the scene for organisation
@@ -80,5 +85,6 @@ public class InTunnelScript : MonoBehaviour
     {
         relatedOutTunnelNumber = 0;
         prover = FindObjectOfType<MissionProver>();
+        this.inTunnelNumber = prover.RegisterNewInTunnel(this);
     }
 }
