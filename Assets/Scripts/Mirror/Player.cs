@@ -199,7 +199,7 @@ public class Player : NetworkBehaviour
         dbCon = FindObjectOfType<DatabaseConnector>();
         dbCon.player = this;
         Debug.Log("is Client " + this.netId);
-
+        
         objectPlacer = FindObjectOfType<ObjectPlacer>();
         objectPlacer.player = this;
         playerCanvas.enabled = false;
@@ -222,6 +222,7 @@ public class Player : NetworkBehaviour
     {
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.AddListener(CmdPressButton);
+
         Debug.Log("SERVER ");
         dbCon.RetrieveFromDatabase();
     }

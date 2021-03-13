@@ -1870,6 +1870,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1312424872}
     m_Modifications:
+    - target: {fileID: 2643592273136793890, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592273136793948, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2099,6 +2104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnPutSubmit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643592274372350270, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2643592274402752226, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
@@ -4183,6 +4193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9f49328d4f6e34a85e9777bf2ae761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 704003487}
 --- !u!4 &1160505139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5f8f124c66d94b409c76a80286d2b23,
@@ -7103,7 +7114,7 @@ MonoBehaviour:
   showDebugMessages: 0
   serverTickRate: 30
   offlineScene: 
-  onlineScene: 
+  onlineScene: Assets/Scenes/Map1.unity
   transport: {fileID: 1592811442}
   networkAddress: localhost
   maxConnections: 4
