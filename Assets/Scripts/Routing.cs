@@ -226,9 +226,7 @@ public class Routing : MonoBehaviour
                                 drivepastsReached = true;
                                 Debug.Log("Maximum drivepast reached");                                
                                 missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Maximum drivepasts on a rail reached, check for Loops");
-								startTrain.SetActive(true);
-								trash.SetActive(true);
-								trashBackground.SetActive(true);
+                                resetStartbutton();
                                 break;
                             }
                             if ((rail.name.Contains(railSwitchLeft) || rail.name.Contains(railSwitchRight)) && switchGoStraight(rail, i))
@@ -266,6 +264,7 @@ public class Routing : MonoBehaviour
                                 {
                                     missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Tunnel exit not found");
                                     Debug.Log("Tunnel exit not found");
+                                    resetStartbutton();
                                     break;
                                 }
                             }
@@ -298,6 +297,7 @@ public class Routing : MonoBehaviour
         {
             Debug.Log("Track incomplete");
             missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Track incomplete");
+            resetStartbutton();
         }
     }
 
@@ -677,4 +677,10 @@ public class Routing : MonoBehaviour
         return -1;
     }
 
+    private void resetStartbutton()
+    {
+        startTrain.SetActive(true);
+        trash.SetActive(true);
+        trashBackground.SetActive(true);
+    }
 }
