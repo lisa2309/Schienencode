@@ -39,7 +39,7 @@ public class DeleteRail : NetworkBehaviour
     {
         if (gameObject.name.Equals("TunnelOut"))
         {
-            OutTunnelScript.RemoveOutTunnel(gameObject.GetComponent<OutTunnelScript>().OutTunnelNumber);
+            FindObjectOfType<MissionProver>().RemoveOutTunnel(gameObject.GetComponent<OutTunnelScript>().OutTunnelNumber);
         }
         NetworkServer.Destroy(gameObject);
     }

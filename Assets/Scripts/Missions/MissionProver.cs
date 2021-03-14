@@ -198,7 +198,45 @@ public class MissionProver : MonoBehaviour
     /// Player Object of active player 
     /// </summary>
     public Player player;
+    
+    /// <summary>
+    /// counter to generate new OutTunnelNumbers if needed
+    /// </summary>
+    public int outTunnelCounter;
+        
+    /// <summary>
+    /// List of previous TunnelNumbers which are deleted and open to use
+    /// </summary>
+    public List<int> deletedTunnelNumbers;
 
+    /// <summary>
+    /// List of current given TunnelNumbers
+    /// </summary>
+    public List<int> givenTunnelNumbers;
+
+    
+    /// <summary>
+    /// Call Server to remove OutTunnelNumber synchronized
+    /// </summary>
+    /// <param name="tunnelNumber">the tunnenlNumber to remove</param>
+    /// @author Bastian Badde
+    public void RemoveOutTunnel(int tunnelNumber)
+    { 
+        player.OutTunnelChanged(tunnelNumber);
+    }
+
+    /// <summary>
+    /// Remove OutTunnelNumber from givenTunnelNumbers
+    /// </summary>
+    /// <param name="tunnelNumber">the tunnenlNumber to remove</param>
+    /// @author Bastian Badde
+    public void SetRemovedOutTunnel(int tunnelNumber)
+    {
+        if (givenTunnelNumbers.Remove(tunnelNumber)) deletedTunnelNumbers.Add(tunnelNumber);
+    }
+    
+    
+    
     /// <summary>
     /// Creates a new switchNumber an registers a new Switch
     /// </summary>
@@ -255,7 +293,7 @@ public class MissionProver : MonoBehaviour
         List<string> openTunnelStrings = new List<string>();
         int currentValue = 0;
         int tempValue = 0;
-        foreach (int i in OutTunnelScript.GivenTunnelNumbers)
+        foreach (int i in givenTunnelNumbers)
         {
             openTunnelStrings.Add("T" + i);
             if (i == inTunnel.relatedOutTunnelNumber) currentValue = tempValue;
@@ -364,7 +402,14 @@ public class MissionProver : MonoBehaviour
     }
 
     
-    
+    /// <summary>
+    /// Retrieves synchronized data from player to set the switch-values
+    /// </summary>
+    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
+    /// <param name="compare">the decoded compare value</param>
+    /// <param name="value">the value to compare with</param>
+    /// @author Bastian Badde
     public void SetSwitchValues(int switchNumber, int cargo, int compare, int value)
     {
         switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ComparationValues = new[]
@@ -414,6 +459,12 @@ public class MissionProver : MonoBehaviour
         currentSwitch.OpenPanel();
     }
     
+    /// <summary>
+    /// Retrieves synchronized data from player to set the switch-mode
+    /// </summary>
+    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
+    /// <param name="mode">the decoded mode-value to set with</param>
+    /// @author Bastian Badde
     public void SetSwitchMode(int switchNumber, int mode)
     {
         switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ChangeSwitchMode(mode);
@@ -427,11 +478,17 @@ public class MissionProver : MonoBehaviour
     public void InTunnelAcceptedButtonClicked()
     {
         player.InTunnelChanged(currentInTunnel.inTunnelNumber, 
-            OutTunnelScript.GivenTunnelNumbers[ddInTunnelOpenOuts.value]);
-        //currentInTunnel.relatedOutTunnelNumber = OutTunnelScript.GivenTunnelNumbers[ddInTunnelOpenOuts.value];
+            givenTunnelNumbers[ddInTunnelOpenOuts.value]);
+        //currentInTunnel.relatedOutTunnelNumber = OutTunnelScript.givenTunnelNumbers[ddInTunnelOpenOuts.value];
         ClosePanel();
     }
 
+    /// <summary>
+    /// Retrieves synchronized data from player to set the in-Tunnel-values
+    /// </summary>
+    /// <param name="inTunnelNumber">the inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">the outTunnelNumber to set the related outTunnelNumber</param>
+    /// @author Bastian Badde
     public void SetInTunnelValues(int inTunnelNumber, int outTunnelNumber)
     {
         inTunnelBodies.Find(s => s.inTunnelNumber.Equals(inTunnelNumber)).relatedOutTunnelNumber = outTunnelNumber;
@@ -567,6 +624,9 @@ public class MissionProver : MonoBehaviour
         stationBodies = new List<StationScript>();
         inTunnelBodies = new List<InTunnelScript>();
         switchBodies = new List<SwitchScript>();
+        deletedTunnelNumbers = new List<int>();
+        givenTunnelNumbers = new List<int>();
+        outTunnelCounter = 0;
     }
 
     /// <summary>

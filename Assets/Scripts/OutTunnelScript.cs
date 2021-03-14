@@ -11,21 +11,6 @@ using UnityEngine;
     public class OutTunnelScript : MonoBehaviour
     {
         /// <summary>
-        /// static counter to generate new OutTunnelNumbers if needed
-        /// </summary>
-        private static int outTunnelCounter = 0;
-        
-        /// <summary>
-        /// List of previous TunnelNumbers which are deleted and open to use
-        /// </summary>
-        private static readonly List<int> DeletedTunnelNumbers = new List<int>();
-
-        /// <summary>
-        /// List of current given TunnelNumbers
-        /// </summary>
-        public static readonly List<int> GivenTunnelNumbers = new List<int>();
-        
-        /// <summary>
         /// ID of the OutTunnel
         /// </summary>
         public int OutTunnelNumber { private set; get; }
@@ -33,7 +18,7 @@ using UnityEngine;
         /// <summary>
         /// MissionProver object of the scene for organisation
         /// </summary>
-        private static MissionProver prover;
+        private MissionProver prover;
     
         /// <summary>
         /// Collection of the different PopUp-Panels
@@ -53,37 +38,7 @@ using UnityEngine;
                 OpenPanel();
             }
         }
-
-        /// <summary>
-        /// Remove OutTunnelNumber from GivenTunnelNumbers
-        /// </summary>
-        /// <param name="tunnelNumber">the tunnenlNumber to remove</param>
-        /// @author Bastian Badde
-        public static void RemoveOutTunnel(int tunnelNumber)
-        { 
-            if (GivenTunnelNumbers.Remove(tunnelNumber)) DeletedTunnelNumbers.Add(tunnelNumber);
-        }
-        
-        /// <summary>
-        /// Add OutTunnelNumber to GivenTunnelNumbers
-        /// </summary>
-        /// @author Bastian Badde
-        public void AddOutTunnel()
-        { 
-            if (DeletedTunnelNumbers.Count > 0)
-            {
-                this.OutTunnelNumber = DeletedTunnelNumbers.First();
-                DeletedTunnelNumbers.Remove(DeletedTunnelNumbers.First());
-                GivenTunnelNumbers.Add(this.OutTunnelNumber);
-            }
-            else
-            {
-                this.OutTunnelNumber = outTunnelCounter++;
-                GivenTunnelNumbers.Add(this.OutTunnelNumber);
-            }
-            GivenTunnelNumbers.Sort();
-            Debug.Log("OTN: " + this. OutTunnelNumber);
-        }
+       
 
         /// <summary>
         /// Opens the relevant popUp-Panel
@@ -116,12 +71,34 @@ using UnityEngine;
         }
 
         /// <summary>
+        /// Add OutTunnelNumber to givenTunnelNumbers
+        /// </summary>
+        /// @author Bastian Badde
+        public void InitOutTunnel()
+        {
+            prover = FindObjectOfType<MissionProver>();
+            if (prover.deletedTunnelNumbers.Count > 0)
+            {
+                this.OutTunnelNumber = prover.deletedTunnelNumbers.First();
+                prover.deletedTunnelNumbers.Remove(prover.deletedTunnelNumbers.First());
+                prover.givenTunnelNumbers.Add(this.OutTunnelNumber);
+            }
+            else
+            {
+                this.OutTunnelNumber = prover.outTunnelCounter++;
+                prover.givenTunnelNumbers.Add(this.OutTunnelNumber);
+            }
+            prover.givenTunnelNumbers.Sort();
+            Debug.Log("Init OTN: " + this. OutTunnelNumber);
+        }
+        
+        /// <summary>
         /// Initialises the MissionProver-object
         /// </summary>
         /// @author Bastian Badde
         void Start()
         {
-            prover = FindObjectOfType<MissionProver>();
+           // if (prover is null) InitOutTunnel();
         }
         
         
