@@ -237,6 +237,15 @@ private MissionProver       missionprv;
         {
             tunnel.InitOutTunnel();
         }
+        foreach (var tunnel in FindObjectsOfType<InTunnelScript>())
+        {
+            tunnel.Register();
+            tunnel.buildOnDB = true;
+        }
+        foreach (var switchScript in FindObjectsOfType<SwitchScript>())
+        {
+            switchScript.Register();
+        }
     }
 
     camera = FindObjectOfType<CameraMovement>();
@@ -370,9 +379,38 @@ private MissionProver       missionprv;
         
         if (cloneObj.name.Equals("TunnelOut"))
         {
-            //cloneObj.GetComponent<OutTunnelScript>().InitOutTunnel();
             initOutTunnelOnClient(cloneObj);
         }
+        if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+        {
+            RegisterSwitchOnClient(cloneObj);
+        }
+        if (cloneObj.name.Equals("TunnelIn"))
+        {
+            RegisterInTunnelOnClient(cloneObj);
+        }
+    }
+
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterSwitchOnClient(GameObject obj)
+    {
+        obj.GetComponent<SwitchScript>().Register();
+    }
+    
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterInTunnelOnClient(GameObject obj)
+    {
+        obj.GetComponent<InTunnelScript>().Register();
     }
 
     /// <summary>

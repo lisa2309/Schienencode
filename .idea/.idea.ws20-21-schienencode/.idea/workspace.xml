@@ -21,15 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="44291fff-e630-44a3-8c1a-6e90f24197f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ws20-21-schienencode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Final/Trainstations/TrainStation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Final/Trainstations/TrainStation.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeleteRail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeleteRail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutTunnelScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutTunnelScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PlayMode Test/PrefabScriptsTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PlayMode Test/PrefabScriptsTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,14 +43,14 @@
         <option value="$PROJECT_DIR$/Assets/Tests/PlayMode Test/RoutingTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartRailScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Missions/StationScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeleteRail.cs" />
         <option value="$PROJECT_DIR$/Assets/Tests/PlayMode Test/PrefabScriptsTest.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/OutTunnelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Database/DatabaseConnector.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Missions/MissionProver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SwitchScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InTunnelScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mirror/Player.cs" />
       </list>
     </option>
   </component>
@@ -124,6 +120,7 @@
       <workItem from="1615374988268" duration="44000" />
       <workItem from="1615652360704" duration="6818000" />
       <workItem from="1615723225222" duration="15502000" />
+      <workItem from="1615756494637" duration="2716000" />
     </task>
     <servers />
   </component>

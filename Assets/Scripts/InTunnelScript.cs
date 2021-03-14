@@ -83,13 +83,14 @@ public class InTunnelScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Initialises the MissionProver-object
+    /// Initialises the components with default-Values and register switch to the missionprover
     /// </summary>
     /// @author Bastian Badde
-    void Start()
+    public void Register()
     {
         relatedOutTunnelNumber = 0;
         prover = FindObjectOfType<MissionProver>();
         this.inTunnelNumber = prover.RegisterNewInTunnel(this);
     }
+
 }

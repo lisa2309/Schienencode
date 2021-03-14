@@ -234,9 +234,7 @@ public class MissionProver : MonoBehaviour
     {
         if (givenTunnelNumbers.Remove(tunnelNumber)) deletedTunnelNumbers.Add(tunnelNumber);
     }
-    
-    
-    
+
     /// <summary>
     /// Creates a new switchNumber an registers a new Switch
     /// </summary>
