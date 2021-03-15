@@ -166,7 +166,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainStationOld
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5410966445321499843, guid: 0494c4099d51ae14787726156667146b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0494c4099d51ae14787726156667146b, type: 3}
 --- !u!4 &1576125899125347648 stripped
 Transform:

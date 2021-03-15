@@ -8,6 +8,11 @@ using UnityEngine;
 /// @author Ahmed L'harrak & Bastian Badde
 public class InTunnelScript : MonoBehaviour
 {
+    
+    /// <summary>
+    /// ID of the InTunnel
+    /// </summary>
+    public int inTunnelNumber;
         
     /// <summary>
     /// MissionProver object of the scene for organisation
@@ -36,8 +41,12 @@ public class InTunnelScript : MonoBehaviour
     /// @author Bastian Badde
     void OnMouseDown()
     {
+        Debug.Log("InTunnel could open");
+        Debug.Log("OpenPanel: " + MissionProver.panelisOpen);
+        Debug.Log("OnDB: " + buildOnDB);
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen && !buildOnDB)
         {
+            Debug.Log("InTunnel should open");
             prover.UpdateInTunnel(this);
             OpenPanel();
         }
@@ -62,6 +71,7 @@ public class InTunnelScript : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
+                        Debug.Log("Open InTunnelPanel");
                         MissionProver.panelisOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
@@ -73,12 +83,14 @@ public class InTunnelScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Initialises the MissionProver-object
+    /// Initialises the components with default-Values and register switch to the missionprover
     /// </summary>
     /// @author Bastian Badde
-    void Start()
+    public void Register()
     {
         relatedOutTunnelNumber = 0;
         prover = FindObjectOfType<MissionProver>();
+        this.inTunnelNumber = prover.RegisterNewInTunnel(this);
     }
+
 }

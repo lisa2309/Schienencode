@@ -12,7 +12,7 @@ public class SwitchScript : MonoBehaviour
     /// <summary>
     /// ID of the switch
     /// </summary>
-    private int switchNumber;
+    public int switchNumber;
 
     /// <summary>
     /// Missionprover object of the scene for organisation
@@ -139,13 +139,26 @@ public class SwitchScript : MonoBehaviour
     }
 
     /// <summary>
+    /// Initialises the components with default-Values and register switch to the missionprover
+    /// </summary>
+    /// @author Bastian Badde
+    public void Register()
+    {
+        ComparationValues = new int[] {0,0,1};
+        mode = SwitchMode.Unchosen;
+        prover = FindObjectOfType<MissionProver>();
+        this.switchNumber = prover.RegisterNewSwitch(this);
+    }
+
+    /// <summary>
     /// Initialises the components with default-Values
     /// </summary>
     /// @author Ahmed L'harrak & Bastian Badde
     void Start()
     {
-        ComparationValues = new int[] {0,0,1};
-        mode = SwitchMode.Unchosen;
-        prover = FindObjectOfType<MissionProver>();
+        // ComparationValues = new int[] {0,0,1};
+        // mode = SwitchMode.Unchosen;
+        // prover = FindObjectOfType<MissionProver>();
+        //this.switchNumber = prover.RegisterNewSwitch(this);
     }
 }

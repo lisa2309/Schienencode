@@ -14,9 +14,9 @@ namespace Tests
             GameObject gameObject = new GameObject("TestTrainRegistration");
             MissionProver prover = gameObject.AddComponent<MissionProver>();
             prover.StartManual();
-            prover.RegisterNewStation();
-            prover.RegisterNewStation();
-            int thirdStationNumber= prover.RegisterNewStation();
+            prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
+            prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
+            int thirdStationNumber= prover.RegisterNewStation(gameObject.AddComponent<StationScript>());
             
             Assert.AreEqual(2,thirdStationNumber);
             
@@ -27,14 +27,15 @@ namespace Tests
         public IEnumerator TestOutTunnelRegistration()
         {
             GameObject gameObject = new GameObject("TestOTRegistration");
+            MissionProver prover = gameObject.AddComponent<MissionProver>();
             OutTunnelScript ot = gameObject.AddComponent<OutTunnelScript>();
-            ot.AddOutTunnel();
-            ot.AddOutTunnel();
-            Assert.AreEqual(1,OutTunnelScript.GivenTunnelNumbers[1]);
+            ot.InitOutTunnel();
+            ot.InitOutTunnel();
+            Assert.AreEqual(1,prover.givenTunnelNumbers[1]);
             
-            ot.AddOutTunnel();
-            OutTunnelScript.RemoveOutTunnel(1);
-            Assert.AreEqual(2,OutTunnelScript.GivenTunnelNumbers[1]);
+            ot.InitOutTunnel();
+            prover.RemoveOutTunnel(1);
+            Assert.AreEqual(2,prover.givenTunnelNumbers[1]);
             
             yield return null;
         }

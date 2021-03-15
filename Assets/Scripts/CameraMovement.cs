@@ -82,7 +82,7 @@ public class CameraMovement : MonoBehaviour
         }
         if (!player.isServer)
         {
-            startButton.SetActive(false);
+            //startButton.SetActive(false);
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {

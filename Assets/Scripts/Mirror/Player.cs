@@ -185,6 +185,8 @@ public class Player : NetworkBehaviour
     /// </summary>
     private String playerName;
 
+    
+private MissionProver       missionprv;
 
     /// <summary>
     /// initialisation of variables dbcon and objectplacer
@@ -198,6 +200,9 @@ public class Player : NetworkBehaviour
         
         dbCon = FindObjectOfType<DatabaseConnector>();
         dbCon.player = this;
+
+        missionprv = FindObjectOfType<MissionProver>();
+        missionprv.player = this;
         Debug.Log("is Client " + this.netId);
         
         objectPlacer = FindObjectOfType<ObjectPlacer>();
@@ -225,6 +230,22 @@ public class Player : NetworkBehaviour
 
         Debug.Log("SERVER ");
         dbCon.RetrieveFromDatabase();
+    }
+    else
+    {
+        foreach (var tunnel in FindObjectsOfType<OutTunnelScript>())
+        {
+            tunnel.InitOutTunnel();
+        }
+        foreach (var tunnel in FindObjectsOfType<InTunnelScript>())
+        {
+            tunnel.Register();
+            tunnel.buildOnDB = true;
+        }
+        foreach (var switchScript in FindObjectsOfType<SwitchScript>())
+        {
+            switchScript.Register();
+        }
     }
 
     camera = FindObjectOfType<CameraMovement>();
@@ -354,8 +375,54 @@ public class Player : NetworkBehaviour
             Destroy(cloneObj.GetComponent<DeleteRail>());
             if (cloneObj.name.Equals("TunnelIn")) cloneObj.GetComponent<InTunnelScript>().buildOnDB=true;
         }
-        if (cloneObj.name.Equals("TunnelOut")) cloneObj.GetComponent<OutTunnelScript>().AddOutTunnel();
-        NetworkServer.Spawn(cloneObj,this.connectionToClient);      
+        NetworkServer.Spawn(cloneObj,this.connectionToClient);  
+        
+        if (cloneObj.name.Equals("TunnelOut"))
+        {
+            initOutTunnelOnClient(cloneObj);
+        }
+        if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+        {
+            RegisterSwitchOnClient(cloneObj);
+        }
+        if (cloneObj.name.Equals("TunnelIn"))
+        {
+            RegisterInTunnelOnClient(cloneObj);
+        }
+    }
+
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterSwitchOnClient(GameObject obj)
+    {
+        obj.GetComponent<SwitchScript>().Register();
+    }
+    
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterInTunnelOnClient(GameObject obj)
+    {
+        obj.GetComponent<InTunnelScript>().Register();
+    }
+
+    /// <summary>
+    /// Initiate values of created OutTunnel
+    /// </summary>
+    /// <param name="obj"> Gameobject of the OutTunnel </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void initOutTunnelOnClient(GameObject obj)
+    {
+        Debug.Log("Init out on client+++++++++");
+        obj.GetComponent<OutTunnelScript>().InitOutTunnel();
     }
 
     /// <summary>
@@ -447,6 +514,218 @@ public class Player : NetworkBehaviour
     public void TargetReceiveHostName(NetworkConnection connection, string hostName)
     {
         GameServer.Instance.HandleGameResults(2,hostName);
+    }
+
+    
+    
+    // +++++++ Synchronisation +++++++
+    
+    //Station
+    
+    /// <summary>
+    /// Method to synchronize the station cargos
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void CargoChanged(int currentStation,int  value){
+        if (this.isServer)
+        {
+            ClientCargoChanged(currentStation,value);
+        }
+        else {///client
+            if (!isLocalPlayer) return; 
+            ServerCargoChanged(currentStation,value);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the station cargos from server-side
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerCargoChanged(int currentStation,int  value){
+        CargoChanged(currentStation,value);
+    }
+
+    /// <summary>
+    /// Command to synchronize the station cargos from client-side
+    /// </summary>
+    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
+    /// <param name="value">cargo-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientCargoChanged(int currentStation,int  value){
+        FindObjectOfType<MissionProver>().SetStationCargo(currentStation, value);
+    }
+    
+    //Switch-values
+    
+    /// <summary>
+    /// Method to synchronize the switch-values
+    /// </summary>
+    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
+    /// <param name="compare">the decoded compare value</param>
+    /// <param name="value">the value to compare with</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void SwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        if (this.isServer)
+        {
+            ClientSwitchValuesChanged(switchNumber, cargo, compare,value);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerSwitchValuesChanged(switchNumber, cargo, compare,value);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the switch-values from server-side
+    /// </summary>
+    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
+    /// <param name="compare">the decoded compare value</param>
+    /// <param name="value">the value to compare with</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        SwitchValuesChanged(switchNumber, cargo, compare,value);
+    }
+
+    /// <summary>
+    /// Command to synchronize the switch-values from client-side
+    /// </summary>
+    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
+    /// <param name="compare">the decoded compare value</param>
+    /// <param name="value">the value to compare with</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+        FindObjectOfType<MissionProver>().SetSwitchValues(switchNumber, cargo, compare,value);
+    }
+    
+    //Switch-mode
+    
+    /// <summary>
+    /// Method to synchronize the switch-modes
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void SwitchModeChanged(int switchNumber, int mode){
+        if (this.isServer)
+        {
+            ClientSwitchModeChanged(switchNumber,mode);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerSwitchModeChanged(switchNumber, mode);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the switch-modes from server-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerSwitchModeChanged(int switchNumber, int mode){
+        SwitchModeChanged(switchNumber, mode);
+    }
+
+    /// <summary>
+    /// Command to synchronize the switch-modes from client-side
+    /// </summary>
+    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">mode-value to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientSwitchModeChanged(int switchNumber, int mode){
+        FindObjectOfType<MissionProver>().SetSwitchMode(switchNumber, mode);
+    }
+
+    //In-Tunnel
+    
+    /// <summary>
+    /// Method to synchronize the In-Tunnels
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void InTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        if (this.isServer)
+        {
+            ClientInTunnelChanged(inTunnelNumber,outTunnelNumber);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerInTunnelChanged(inTunnelNumber, outTunnelNumber);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the In-Tunnels from server-side
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        InTunnelChanged(inTunnelNumber, outTunnelNumber);
+    }
+
+    /// <summary>
+    /// Command to synchronize the In-Tunnels from client-side
+    /// </summary>
+    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
+        FindObjectOfType<MissionProver>().SetInTunnelValues(inTunnelNumber, outTunnelNumber);
+    }
+    
+    //Remove Out-Tunnel
+    
+    /// <summary>
+    /// Method to synchronize Removing Out-Tunnels
+    /// </summary>
+    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void OutTunnelChanged(int outTunnelNumber){
+        if (this.isServer)
+        {
+            ClientOutTunnelChanged(outTunnelNumber);
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            ServerOutTunnelChanged(outTunnelNumber);
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize the Removing from Out-Tunnels from server-side
+    /// </summary>
+    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void ServerOutTunnelChanged(int outTunnelNumber){
+        OutTunnelChanged(outTunnelNumber);
+    }
+
+    /// <summary>
+    /// Command to synchronize the Removing from Out-Tunnels from client-side
+    /// </summary>
+    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void ClientOutTunnelChanged(int outTunnelNumber){
+        FindObjectOfType<MissionProver>().SetRemovedOutTunnel(outTunnelNumber);
     }
 
 }
