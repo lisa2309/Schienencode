@@ -225,7 +225,7 @@ public class Routing : MonoBehaviour
                                 railFound = false;
                                 drivepastsReached = true;
                                 Debug.Log("Maximum drivepast reached");                                
-                                missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Maximum drivepasts on a rail reached, check for Loops");
+                                missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Die maximale Anzahl an überfahrenen Schienen wurde erreicht, prüfe auf Endlosschleifen");
                                 resetStartbutton();
                                 break;
                             }
@@ -262,7 +262,7 @@ public class Routing : MonoBehaviour
                                 }
                                 if (!tunnelFound)
                                 {
-                                    missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Tunnel exit not found");
+                                    missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Tunnelausgang wurde nicht gefunden");
                                     Debug.Log("Tunnel exit not found");
                                     resetStartbutton();
                                     break;
@@ -296,7 +296,7 @@ public class Routing : MonoBehaviour
         else if (!railFound && !drivepastsReached && tunnelFound)
         {
             Debug.Log("Track incomplete");
-            missionProver.GetComponent<MissionProver>().DisplayAlert("Error", "Track incomplete");
+            missionProver.GetComponent<MissionProver>().DisplayAlert("Fehler", "Start und Ziel sind nicht verbunden");
             resetStartbutton();
         }
     }
