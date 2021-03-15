@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Media;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -9,7 +10,7 @@ namespace Tests
 {
     public class CameraMovementTest
     {
-        // Test if maxCameraZPosition is never less than 0
+        // Test if maxCameraZPosition is not less than -35
         [Test]
         public void CameraMovementMaxZValue()
         {
@@ -18,10 +19,10 @@ namespace Tests
             Vector3 cameraPos = camera.transform.position;
             float zTest = cameraPos.z;
             // ASSERT
-            Assert.IsTrue(0 <= zTest);
+            Assert.IsTrue(-35 <= zTest);
         }
 
-        // Test if maxCameraZPosition is never greater than 30
+        // Test if maxCameraZPosition is not greater than 30
         [Test]
         public void CameraMovementMinZValue()
         {
@@ -33,7 +34,7 @@ namespace Tests
             Assert.IsTrue(30 >= zTest);
         }
 
-        // Test if maxCameraXPosition is never greater than 80
+        // Test if maxCameraXPosition is not greater than 80
         [Test]
         public void CameraMovementMaxXValue()
         {
@@ -45,7 +46,7 @@ namespace Tests
             Assert.IsTrue(xTest <= 80);
         }
 
-        // Test if maxCameraZPosition is never less than 22
+        // Test if maxCameraZPosition is not less than 22
         [Test]
         public void CameraMovementMinXValue()
         {
@@ -58,7 +59,7 @@ namespace Tests
         }
 
 
-        // Test if the variable maxFieldOfView is never less than 20
+        // Test if the variable maxFieldOfView is not less than 20
         [Test]
         public void CameraMovementMinCameraFieldView()
         {
@@ -69,7 +70,7 @@ namespace Tests
             Assert.IsTrue(20 <= fTest);
         }
 
-        // Test if the variable maxFieldOfView is never greater than 59
+        // Test if the variable maxFieldOfView is not greater than 59 
         [Test]
         public void CameraMovementMaxCameraFieldView()
         {

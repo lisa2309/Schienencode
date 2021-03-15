@@ -14,7 +14,6 @@ using UnityEngine.UI;
 /// The server starts automatically and loads the player prefab into the online scene.
 /// </summary>
 /// Quelle: SWTP Framework
-/// Modified by: Ronja Haas & Anna-Lisa Müller
 public class GameServer : NetworkManager
 {
     /// <summary>
@@ -53,26 +52,6 @@ public class GameServer : NetworkManager
     /// Signals if the game can be quit.
     /// </summary>
     private bool readyToQuit;
-
-    /// <summary>
-    /// The number of rounds played is stored in here
-    /// </summary>
-    private int gameRounds;
-
-    /// <summary>
-    /// The number of players in the game
-    /// </summary>
-    private int numberOfPlayers;
-
-    /// <summary>
-    /// The name of the first scene 
-    /// </summary>
-    private string boardName;
-
-    /// <summary>
-    /// The name of the player
-    /// </summary>
-    private string playerName;
 
     /// <summary>
     /// 
@@ -214,60 +193,10 @@ public class GameServer : NetworkManager
         playerInfos = new JSONObject();
         gameInfos = new JSONObject();
 
-        SetPlayerName("Mustermann");
-        SetNumberOfPlayer(2);
-        SetGameRounds(6);
-        SetBoardName("Pirates");
-
-        playerInfos.Add("name", this.playerName);
-        gameInfos.Add("playerAmount", this.numberOfPlayers);
-        gameInfos.Add("rounds", this.gameRounds);
-        gameInfos.Add("board", this.boardName);
-    }
-
-    /// <summary>
-    /// Sets the number of laps
-    /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public void SetGameRounds(int rounds)
-    {
-        this.gameRounds = rounds;
-    }
-
-    /// <summary>
-    /// Returns the set number of laps
-    /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public int GetGameRounds()
-    {
-        return this.gameRounds;
-    }
-
-    /// <summary>
-    /// Sets the name of the player
-    /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public void SetPlayerName(string name)
-    {
-        this.playerName = name;
-    }
-
-    /// <summary>
-    /// Sets the number of players in the game
-    /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public void SetNumberOfPlayer(int number)
-    {
-        this.numberOfPlayers = number;
-    }
-
-    /// <summary>
-    /// Sets the name of the first board 
-    /// </summary>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public void SetBoardName(string name)
-    {
-        this.boardName = name;
+        playerInfos.Add("name", "Mustermann");
+        gameInfos.Add("playerAmount", 2);
+        gameInfos.Add("rounds", 6);
+        gameInfos.Add("board", "Pirates");
     }
 
     /// <summary>

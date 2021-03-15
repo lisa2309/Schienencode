@@ -72,7 +72,6 @@ public class Highscore : MonoBehaviour
         {
             foreach (Transform panel in panels.GetComponentInChildren<Transform>())
             {
-
                 if (panel.name != panelName)
                 {
                     panel.gameObject.SetActive(false);

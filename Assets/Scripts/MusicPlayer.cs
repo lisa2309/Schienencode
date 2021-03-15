@@ -17,11 +17,6 @@ public class MusicPlayer : MonoBehaviour
     public AudioSource audioSource;
 
     /// <summary>
-    /// This is the musicVolume. It has an value between 0 and 1.
-    /// </summary>
-    public static float musicVolume = 0.5f;
-
-    /// <summary>
     /// Start Music when play mode is active.
     /// </summary>
     /// @author Ronja Haas & Anna-Lisa Müller 

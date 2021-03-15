@@ -154,7 +154,7 @@ public class OverRail : MonoBehaviour
 	/// <param name="name">char array wich is used to form a new string</param>
 	/// <returns>String wich is based on the char array name</returns>
 	/// @author Ronja Haas & Anna-Lisa Müller 
-	string convertCharArrayToString(int size, char[] name) {
+	public string convertCharArrayToString(int size, char[] name) {
 		char[] word = new char[size];
 		for (int i = 0; i < size; i++)
 		{
