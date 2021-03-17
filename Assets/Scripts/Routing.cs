@@ -663,7 +663,7 @@ public class Routing : MonoBehaviour
         {
             if (rail.name.Contains(trainStation))
             {
-                if (foundStation == trainstationCounter)
+                if (rail.transform.GetChild(1).GetComponent<StationScript>().stationNumber == trainstationCounter)
                 {
                     return counter;
                 }

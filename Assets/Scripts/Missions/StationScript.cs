@@ -13,6 +13,11 @@ public class StationScript : MonoBehaviour
     /// ID of the station
     /// </summary>
     public int stationNumber;
+    
+    /// <summary>
+    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// </summary>
+    public bool IsInited { private set; get; }
 
     /// <summary>
     /// MissionProver object of the scene for organisation
@@ -86,11 +91,13 @@ public class StationScript : MonoBehaviour
     /// <summary>
     /// Initialises the components with default-Values
     /// </summary>
-    /// @author Ahmed L'harrak & Bastian Badde
-    void Start()
+    /// @author Bastian Badde
+    public void Register()
     {
         cargoAdditionNumber = 1;
         prover = FindObjectOfType<MissionProver>();
         this.stationNumber = prover.RegisterNewStation(this);
+        IsInited = true;
     }
+
 }

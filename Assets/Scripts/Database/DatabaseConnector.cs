@@ -152,7 +152,7 @@ namespace Database
                 z = float.Parse(coordinates[1]);
                 rot = float.Parse(coordinates[3]);
                 if(player != null){
-                    player.anrufen(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot);
+                    player.anrufen(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot, false);
                 }
             }
             MissionProver.buildOnDB = false;

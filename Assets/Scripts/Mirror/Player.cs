@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using Mirror;
 using Database;
@@ -233,8 +234,8 @@ private MissionProver       missionprv;
     }
     else
     {
-        Debug.Log("Register All on StartPlayer");
         RegisterAll();
+        
     }
     camera = FindObjectOfType<CameraMovement>();
     camera.MaxFieldCameraView();
@@ -315,7 +316,7 @@ private MissionProver       missionprv;
     /// @author 
     /// cloneObj: 
     [Command]
-    void insprefab(string prefabto, Vector3 finalPosition, float rotate)
+    void insprefab(string prefabto, Vector3 finalPosition, float rotate, bool buildByOP)
     {
         switch (prefabto){
             case strGeradeschiene:
@@ -360,61 +361,69 @@ private MissionProver       missionprv;
         }
         GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
         cloneObj.name = prefabtoinstant.name;
-        if (MissionProver.buildOnDB)
+        if (!buildByOP)
         {
             Destroy(cloneObj.GetComponent<DeleteRail>());
             if (cloneObj.name.Equals("TunnelIn")) cloneObj.GetComponent<InTunnelScript>().buildOnDB=true;
         }
-        NetworkServer.Spawn(cloneObj,this.connectionToClient);  
-        
-        // if (cloneObj.name.Equals("TunnelOut"))
-        // {
-        //     initOutTunnelOnClient(cloneObj);
-        // }
-        // if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
-        // {
-        //     RegisterSwitchOnClient(cloneObj);
-        // }
-        // if (cloneObj.name.Equals("TunnelIn"))
-        // {
-        //     RegisterInTunnelOnClient(cloneObj);
-        // }
+        NetworkServer.Spawn(cloneObj,this.connectionToClient);
+
+        if (buildByOP)
+        {
+            Debug.Log("Should only be built by ObjectPlacer");
+            if (cloneObj.name.Equals("TunnelOut"))
+            {
+                initOutTunnelOnClient(cloneObj);
+            }
+            if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+            {
+                RegisterSwitchOnClient(cloneObj);
+            }
+            if (cloneObj.name.Equals("TunnelIn"))
+            {
+                RegisterInTunnelOnClient(cloneObj);
+            }
+        }
     }
 
-    // /// <summary>
-    // /// Initiate values of created Switch
-    // /// </summary>
-    // /// <param name="obj"> Gameobject of the Switch </param>
-    // /// @author Ahmed L'harrak und Bastian Badde
-    // [ClientRpc]
-    // public void RegisterSwitchOnClient(GameObject obj)
-    // {
-    //     Debug.Log("++++++++++Register Switch on client++++++");
-    //     obj.GetComponent<SwitchScript>().Register();
-    // }
-    //
-    // /// <summary>
-    // /// Initiate values of created Switch
-    // /// </summary>
-    // /// <param name="obj"> Gameobject of the Switch </param>
-    // /// @author Ahmed L'harrak und Bastian Badde
-    // [ClientRpc]
-    // public void RegisterInTunnelOnClient(GameObject obj)
-    // {
-    //     obj.GetComponent<InTunnelScript>().Register();
-    // }
-    //
-    // /// <summary>
-    // /// Initiate values of created OutTunnel
-    // /// </summary>
-    // /// <param name="obj"> Gameobject of the OutTunnel </param>
-    // /// @author Ahmed L'harrak und Bastian Badde
-    // [ClientRpc]
-    // public void initOutTunnelOnClient(GameObject obj)
-    // {
-    //     Debug.Log("Init out on client+++++++++");
-    //     obj.GetComponent<OutTunnelScript>().InitOutTunnel();
-    // }
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterSwitchOnClient(GameObject obj)
+    {
+        Debug.Log("++++++++++Register Switch on client++++++");
+        SwitchScript s = obj.GetComponent<SwitchScript>();
+        if (!s.IsInited) s.Register();
+         
+    }
+    
+    /// <summary>
+    /// Initiate values of created Switch
+    /// </summary>
+    /// <param name="obj"> Gameobject of the Switch </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterInTunnelOnClient(GameObject obj)
+    {
+        InTunnelScript t= obj.GetComponent<InTunnelScript>();
+        if (!t.IsInited) t.Register();
+    }
+    
+    /// <summary>
+    /// Initiate values of created OutTunnel
+    /// </summary>
+    /// <param name="obj"> Gameobject of the OutTunnel </param>
+    /// @author Ahmed L'harrak und Bastian Badde
+    [ClientRpc]
+    public void initOutTunnelOnClient(GameObject obj)
+    {
+        Debug.Log("Init out on client+++++++++");
+        OutTunnelScript t= obj.GetComponent<OutTunnelScript>();
+        if (!t.IsInited) t.InitOutTunnel();
+    }
 
     /// <summary>
     /// Update is called once per frame
@@ -425,10 +434,10 @@ private MissionProver       missionprv;
     /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
     /// <param name="rotate"> with witch rotation should this prefab creatde</param>
     /// @author 
-    public  void anrufen(string prefabname, Vector3 finalPosition, float rotate)
+    public  void anrufen(string prefabname, Vector3 finalPosition, float rotate, bool buildOnOP)
     {
         if (!isLocalPlayer) return;   
-        insprefab(prefabname, finalPosition, rotate);
+        insprefab(prefabname, finalPosition, rotate, buildOnOP);
     }
 
     /// <summary>
@@ -766,6 +775,10 @@ private MissionProver       missionprv;
         foreach (var switchScript in FindObjectsOfType<SwitchScript>())
         {
             if(!switchScript.IsInited) switchScript.Register();
+        }
+        foreach (var station in FindObjectsOfType<StationScript>())
+        {
+            if(!station.IsInited) station.Register();
         }
     }
 

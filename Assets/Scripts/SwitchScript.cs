@@ -48,10 +48,10 @@ public class SwitchScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     void OnMouseDown()
     {
-        //Debug.Log("Switch is clicked ");
+        Debug.Log("Switch is clicked ");
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
-            //Debug.Log("Switch should open Panel");
+            Debug.Log("Switch should open Panel");
             prover.UpdateSwitch(this);
             OpenPanel();
         }
