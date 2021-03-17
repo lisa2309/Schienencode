@@ -233,21 +233,9 @@ private MissionProver       missionprv;
     }
     else
     {
-        foreach (var tunnel in FindObjectsOfType<OutTunnelScript>())
-        {
-            tunnel.InitOutTunnel();
-        }
-        foreach (var tunnel in FindObjectsOfType<InTunnelScript>())
-        {
-            tunnel.Register();
-            tunnel.buildOnDB = true;
-        }
-        foreach (var switchScript in FindObjectsOfType<SwitchScript>())
-        {
-            switchScript.Register();
-        }
+        Debug.Log("Register All on StartPlayer");
+        RegisterAll();
     }
-
     camera = FindObjectOfType<CameraMovement>();
     camera.MaxFieldCameraView();
     }
@@ -262,6 +250,8 @@ private MissionProver       missionprv;
     }*/
 
 
+    
+    
     /// <summary>
     /// 
     /// </summary>
@@ -377,53 +367,54 @@ private MissionProver       missionprv;
         }
         NetworkServer.Spawn(cloneObj,this.connectionToClient);  
         
-        if (cloneObj.name.Equals("TunnelOut"))
-        {
-            initOutTunnelOnClient(cloneObj);
-        }
-        if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
-        {
-            RegisterSwitchOnClient(cloneObj);
-        }
-        if (cloneObj.name.Equals("TunnelIn"))
-        {
-            RegisterInTunnelOnClient(cloneObj);
-        }
+        // if (cloneObj.name.Equals("TunnelOut"))
+        // {
+        //     initOutTunnelOnClient(cloneObj);
+        // }
+        // if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+        // {
+        //     RegisterSwitchOnClient(cloneObj);
+        // }
+        // if (cloneObj.name.Equals("TunnelIn"))
+        // {
+        //     RegisterInTunnelOnClient(cloneObj);
+        // }
     }
 
-    /// <summary>
-    /// Initiate values of created Switch
-    /// </summary>
-    /// <param name="obj"> Gameobject of the Switch </param>
-    /// @author Ahmed L'harrak und Bastian Badde
-    [ClientRpc]
-    public void RegisterSwitchOnClient(GameObject obj)
-    {
-        obj.GetComponent<SwitchScript>().Register();
-    }
-    
-    /// <summary>
-    /// Initiate values of created Switch
-    /// </summary>
-    /// <param name="obj"> Gameobject of the Switch </param>
-    /// @author Ahmed L'harrak und Bastian Badde
-    [ClientRpc]
-    public void RegisterInTunnelOnClient(GameObject obj)
-    {
-        obj.GetComponent<InTunnelScript>().Register();
-    }
-
-    /// <summary>
-    /// Initiate values of created OutTunnel
-    /// </summary>
-    /// <param name="obj"> Gameobject of the OutTunnel </param>
-    /// @author Ahmed L'harrak und Bastian Badde
-    [ClientRpc]
-    public void initOutTunnelOnClient(GameObject obj)
-    {
-        Debug.Log("Init out on client+++++++++");
-        obj.GetComponent<OutTunnelScript>().InitOutTunnel();
-    }
+    // /// <summary>
+    // /// Initiate values of created Switch
+    // /// </summary>
+    // /// <param name="obj"> Gameobject of the Switch </param>
+    // /// @author Ahmed L'harrak und Bastian Badde
+    // [ClientRpc]
+    // public void RegisterSwitchOnClient(GameObject obj)
+    // {
+    //     Debug.Log("++++++++++Register Switch on client++++++");
+    //     obj.GetComponent<SwitchScript>().Register();
+    // }
+    //
+    // /// <summary>
+    // /// Initiate values of created Switch
+    // /// </summary>
+    // /// <param name="obj"> Gameobject of the Switch </param>
+    // /// @author Ahmed L'harrak und Bastian Badde
+    // [ClientRpc]
+    // public void RegisterInTunnelOnClient(GameObject obj)
+    // {
+    //     obj.GetComponent<InTunnelScript>().Register();
+    // }
+    //
+    // /// <summary>
+    // /// Initiate values of created OutTunnel
+    // /// </summary>
+    // /// <param name="obj"> Gameobject of the OutTunnel </param>
+    // /// @author Ahmed L'harrak und Bastian Badde
+    // [ClientRpc]
+    // public void initOutTunnelOnClient(GameObject obj)
+    // {
+    //     Debug.Log("Init out on client+++++++++");
+    //     obj.GetComponent<OutTunnelScript>().InitOutTunnel();
+    // }
 
     /// <summary>
     /// Update is called once per frame
@@ -726,6 +717,56 @@ private MissionProver       missionprv;
     [ClientRpc]
     public void ClientOutTunnelChanged(int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetRemovedOutTunnel(outTunnelNumber);
+    }
+    
+    //Remove Out-Tunnel
+    
+    /// <summary>
+    /// Method to synchronize Tunnel and Switch-registration
+    /// </summary>
+    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    public void RegisterAll(){
+        if (this.isServer)
+        {
+            RegisterAllOnServerOnClient();
+        }
+        else {
+            if (!isLocalPlayer) return; 
+            RegisterAllOnServer();
+        }
+    }
+
+    /// <summary>
+    /// Command to synchronize Tunnel and Switch-registration on server-side
+    /// </summary>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [Command]
+    void RegisterAllOnServer(){
+        RegisterAll();
+    }
+
+    /// <summary>
+    /// Command to synchronize Tunnel and Switch-registration on client side
+    /// </summary>
+    /// @author Ahmed L'Harrak und Bastian Badde
+    [ClientRpc]
+    public void RegisterAllOnServerOnClient(){
+        //Debug.Log("++++++++++Register All on client++++++");
+        foreach (var tunnel in FindObjectsOfType<OutTunnelScript>())
+        {
+            if (!tunnel.IsInited) tunnel.InitOutTunnel();
+        }
+        foreach (var tunnel in FindObjectsOfType<InTunnelScript>())
+        {
+            if (tunnel.IsInited) continue;
+            tunnel.Register();
+            tunnel.buildOnDB = true;
+        }
+        foreach (var switchScript in FindObjectsOfType<SwitchScript>())
+        {
+            if(!switchScript.IsInited) switchScript.Register();
+        }
     }
 
 }

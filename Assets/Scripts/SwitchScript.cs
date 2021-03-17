@@ -28,6 +28,11 @@ public class SwitchScript : MonoBehaviour
     /// Enum-Element to differentiate the kind of switch 
     /// </summary>
     public SwitchMode mode;
+    
+    /// <summary>
+    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// </summary>
+    public bool IsInited { private set; get; }
 
     /// <summary>
     /// Array of the relevant dropdown-values from the switchPopUps
@@ -43,10 +48,10 @@ public class SwitchScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     void OnMouseDown()
     {
-        Debug.Log("Switch is clicked ");
+        //Debug.Log("Switch is clicked ");
         if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
         {
-            Debug.Log("Switch should open Panel");
+            //Debug.Log("Switch should open Panel");
             prover.UpdateSwitch(this);
             OpenPanel();
         }
@@ -68,6 +73,7 @@ public class SwitchScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     public void OpenPanel()
     {
+        Debug.Log("Open Panel with mode: " + mode);
         switch (mode)
         {
             case SwitchMode.Unchosen:
@@ -148,6 +154,8 @@ public class SwitchScript : MonoBehaviour
         mode = SwitchMode.Unchosen;
         prover = FindObjectOfType<MissionProver>();
         this.switchNumber = prover.RegisterNewSwitch(this);
+        Debug.Log("New SwitchNumber::::::: " + switchNumber);
+        IsInited = true;
     }
 
     /// <summary>

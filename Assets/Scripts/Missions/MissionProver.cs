@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.UI;
@@ -453,8 +454,8 @@ public class MissionProver : MonoBehaviour
     {
         //currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
         player.SwitchModeChanged(currentSwitch.switchNumber, ddGeneralSwitch.value);
-        ClosePanel();
-        currentSwitch.OpenPanel();
+        // ClosePanel();
+        // currentSwitch.OpenPanel();
     }
     
     /// <summary>
@@ -465,7 +466,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void SetSwitchMode(int switchNumber, int mode)
     {
+        // if(switchBodies.Find(s => s.switchNumber.Equals(switchNumber)) is null) Debug.Log("Switch not found");
+        // else Debug.Log("Switch Found with mode: " + mode);
         switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ChangeSwitchMode(mode);
+        if (!(currentSwitch is null) && currentSwitch.switchNumber == switchNumber)
+        {
+            ClosePanel();
+            currentSwitch.OpenPanel();
+        }
+        
     }
     
     /// <summary>
