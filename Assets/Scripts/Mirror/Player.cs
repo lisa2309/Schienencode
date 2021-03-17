@@ -180,11 +180,6 @@ public class Player : NetworkBehaviour
     /// </summary>
     [SerializeField] private Text gameInfoText;
 
-    /// <summary>
-    /// Player name
-    /// </summary>
-    private String playerName;
-
     
 private MissionProver       missionprv;
 
@@ -253,31 +248,22 @@ private MissionProver       missionprv;
     }
 
     /// <summary>
-    /// Waits for game result to call FinishGame
+    /// this method will called when a player click on own   start train button 
     /// </summary>
-    /// TODO: requirements for end of game (bool from another class?)
-    /*private void Update()
-    {
-    //if (isLocalPlayer && gameFinished) FinishGame();
-    }*/
-
-
-    /// <summary>
-    /// 
-    /// </summary>
+    /// @author Ahmed L'harrak
     void CmdPressButton()
     {
         if (this.isServer)
         {
-            Debug.Log("SERVER -------");
+           starttrain();
         }
-        starttrain();
+        
     }
 
     /// <summary>
-    /// 
+    /// start the train only from server side 
     /// </summary>
-    /// @author 
+    /// @author Ahmed L'harrak
     public void starttrain()
     {
         if (isServer)
@@ -292,9 +278,10 @@ private MissionProver       missionprv;
     }
 
     /// <summary>
-    /// 
+    /// change the scene for example when a level finished than it will new scen laoded
     /// </summary>
     /// <param name="map"></param>
+    /// @author Ahmed L'harrak
     public void newscen(String map)
     {
         FindObjectOfType<MyNetworkManager>().ServerChangeScene(map); 
@@ -322,8 +309,8 @@ private MissionProver       missionprv;
     /// <param name="prefabname"> the name of prefabe to be intantiate for alle Player in this Game </param>
     /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
     /// <param name="rotate"> with witch rotation should this prefab creatde</param>
-    /// @author 
-    /// cloneObj: 
+    /// @author Ahmed L'harrak
+    /// cloneObj: the instatiat game object
     [Command]
     void insprefab(string prefabto, Vector3 finalPosition, float rotate)
     {
@@ -395,7 +382,7 @@ private MissionProver       missionprv;
     /// Initiate values of created Switch
     /// </summary>
     /// <param name="obj"> Gameobject of the Switch </param>
-    /// @author Ahmed L'harrak und Bastian Badde
+    /// @author Ahmed L'harrak & Bastian Badde
     [ClientRpc]
     public void RegisterSwitchOnClient(GameObject obj)
     {
@@ -406,7 +393,7 @@ private MissionProver       missionprv;
     /// Initiate values of created Switch
     /// </summary>
     /// <param name="obj"> Gameobject of the Switch </param>
-    /// @author Ahmed L'harrak und Bastian Badde
+    /// @author Ahmed L'harrak & Bastian Badde
     [ClientRpc]
     public void RegisterInTunnelOnClient(GameObject obj)
     {
@@ -417,7 +404,7 @@ private MissionProver       missionprv;
     /// Initiate values of created OutTunnel
     /// </summary>
     /// <param name="obj"> Gameobject of the OutTunnel </param>
-    /// @author Ahmed L'harrak und Bastian Badde
+    /// @author Ahmed L'harrak & Bastian Badde
     [ClientRpc]
     public void initOutTunnelOnClient(GameObject obj)
     {
@@ -433,7 +420,7 @@ private MissionProver       missionprv;
     /// <param name="prefabname"> the name of prefabe to be intantiate for alle Player in this Game </param>
     /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
     /// <param name="rotate"> with witch rotation should this prefab creatde</param>
-    /// @author 
+    /// @author Ahmed L'harrak
     public  void anrufen(string prefabname, Vector3 finalPosition, float rotate)
     {
         if (!isLocalPlayer) return;   
@@ -446,7 +433,7 @@ private MissionProver       missionprv;
     /// call the function cmdDestroyobject()
     /// </summary>
     /// <param name="obj">the gameobject to be deleted </param>
-    /// @author
+    /// @author Ahmed L'harrak
     [Client]
     public void TellServerToDestroyObject(GameObject obj)
     {
@@ -459,7 +446,7 @@ private MissionProver       missionprv;
     /// if this gameobject exict it will be deleted from this Game for all Players
     /// </summary>
     /// <param name="obj"> gameobject to be destroyed </param>
-    /// @author
+    /// @author Ahmed L'harrak
     [Command]
     private void CmdDestroyObject(GameObject obj)
     {
@@ -527,7 +514,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="currentStation">stationNumber of the relevant StationScript</param>
     /// <param name="value">cargo-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void CargoChanged(int currentStation,int  value){
         if (this.isServer)
         {
@@ -544,7 +531,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="currentStation">stationNumber of the relevant StationScript</param>
     /// <param name="value">cargo-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerCargoChanged(int currentStation,int  value){
         CargoChanged(currentStation,value);
@@ -555,7 +542,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="currentStation">stationNumber of the relevant StationScript</param>
     /// <param name="value">cargo-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientCargoChanged(int currentStation,int  value){
         FindObjectOfType<MissionProver>().SetStationCargo(currentStation, value);
@@ -570,7 +557,7 @@ private MissionProver       missionprv;
     /// <param name="cargo">the stationNumber whose cargo to compare with</param>
     /// <param name="compare">the decoded compare value</param>
     /// <param name="value">the value to compare with</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void SwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
         if (this.isServer)
         {
@@ -589,7 +576,7 @@ private MissionProver       missionprv;
     /// <param name="cargo">the stationNumber whose cargo to compare with</param>
     /// <param name="compare">the decoded compare value</param>
     /// <param name="value">the value to compare with</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
         SwitchValuesChanged(switchNumber, cargo, compare,value);
@@ -602,7 +589,7 @@ private MissionProver       missionprv;
     /// <param name="cargo">the stationNumber whose cargo to compare with</param>
     /// <param name="compare">the decoded compare value</param>
     /// <param name="value">the value to compare with</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
         FindObjectOfType<MissionProver>().SetSwitchValues(switchNumber, cargo, compare,value);
@@ -615,7 +602,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
     /// <param name="mode">mode-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void SwitchModeChanged(int switchNumber, int mode){
         if (this.isServer)
         {
@@ -632,7 +619,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
     /// <param name="mode">mode-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerSwitchModeChanged(int switchNumber, int mode){
         SwitchModeChanged(switchNumber, mode);
@@ -643,7 +630,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
     /// <param name="mode">mode-value to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientSwitchModeChanged(int switchNumber, int mode){
         FindObjectOfType<MissionProver>().SetSwitchMode(switchNumber, mode);
@@ -656,7 +643,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
     /// <param name="outTunnelNumber">outTunnelNumber to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void InTunnelChanged(int inTunnelNumber, int outTunnelNumber){
         if (this.isServer)
         {
@@ -673,7 +660,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
     /// <param name="outTunnelNumber">outTunnelNumber to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
         InTunnelChanged(inTunnelNumber, outTunnelNumber);
@@ -684,7 +671,7 @@ private MissionProver       missionprv;
     /// </summary>
     /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
     /// <param name="outTunnelNumber">outTunnelNumber to set</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetInTunnelValues(inTunnelNumber, outTunnelNumber);
@@ -696,7 +683,7 @@ private MissionProver       missionprv;
     /// Method to synchronize Removing Out-Tunnels
     /// </summary>
     /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void OutTunnelChanged(int outTunnelNumber){
         if (this.isServer)
         {
@@ -712,7 +699,7 @@ private MissionProver       missionprv;
     /// Command to synchronize the Removing from Out-Tunnels from server-side
     /// </summary>
     /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerOutTunnelChanged(int outTunnelNumber){
         OutTunnelChanged(outTunnelNumber);
@@ -722,7 +709,7 @@ private MissionProver       missionprv;
     /// Command to synchronize the Removing from Out-Tunnels from client-side
     /// </summary>
     /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientOutTunnelChanged(int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetRemovedOutTunnel(outTunnelNumber);
