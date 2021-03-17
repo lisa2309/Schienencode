@@ -14,6 +14,11 @@ using UnityEngine;
         /// ID of the OutTunnel
         /// </summary>
         public int OutTunnelNumber { private set; get; }
+        
+        /// <summary>
+        /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+        /// </summary>
+        public bool IsInited { private set; get; }
 
         /// <summary>
         /// MissionProver object of the scene for organisation
@@ -89,7 +94,8 @@ using UnityEngine;
                 prover.givenTunnelNumbers.Add(this.OutTunnelNumber);
             }
             prover.givenTunnelNumbers.Sort();
-            Debug.Log("Init OTN: " + this. OutTunnelNumber);
+            //Debug.Log("Init OTN: " + this. OutTunnelNumber);
+            IsInited = true;
         }
         
         /// <summary>

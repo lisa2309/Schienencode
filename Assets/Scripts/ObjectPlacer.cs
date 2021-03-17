@@ -317,7 +317,7 @@ public class ObjectPlacer : MonoBehaviour
                 if (canDrag)
                 {
                     if(player != null){
-                        player.anrufen(prefabtoinstant.name, finalPosition, rotate);   
+                        player.anrufen(prefabtoinstant.name, finalPosition, rotate, true);   
                     }
                 }
             }

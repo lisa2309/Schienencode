@@ -13,6 +13,11 @@ public class InTunnelScript : MonoBehaviour
     /// ID of the InTunnel
     /// </summary>
     public int inTunnelNumber;
+    
+    /// <summary>
+    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// </summary>
+    public bool IsInited { private set; get; }
         
     /// <summary>
     /// MissionProver object of the scene for organisation
@@ -31,9 +36,9 @@ public class InTunnelScript : MonoBehaviour
     private GameObject panels;
 
     /// <summary>
-    /// bool which is true, when it is build on the db
+    /// bool which is true, when it is build on the db (default value is false).
     /// </summary>
-    public bool buildOnDB = false;
+    public bool buildOnDB;
         
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the InTunnel is clicked by mouse
@@ -91,6 +96,7 @@ public class InTunnelScript : MonoBehaviour
         relatedOutTunnelNumber = 0;
         prover = FindObjectOfType<MissionProver>();
         this.inTunnelNumber = prover.RegisterNewInTunnel(this);
+        IsInited = true;
     }
 
 }
