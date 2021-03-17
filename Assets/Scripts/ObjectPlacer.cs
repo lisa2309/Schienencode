@@ -22,6 +22,15 @@ public class ObjectPlacer : MonoBehaviour
     private const string strGeradeschiene = "Straight270Final";
 
     /// <summary>
+    /// name of prefab for begin or first Straight
+    /// </summary>
+    private const string strrailstart="RailStart";
+
+        /// <summary>
+    /// name of prefab for end or final  Straight
+    /// </summary>
+    private const string strrailend="RailEnd";
+    /// <summary>
     /// name of prefab for curve left
     /// </summary>
     private const string strCurveleft = "CurveL0Final";
@@ -62,32 +71,32 @@ public class ObjectPlacer : MonoBehaviour
     private const string strSwitchr1 ="SwitchR1Final";
 
     /// <summary>
-    /// 
+    /// game object for instantiate prefab
     /// </summary>
     public GameObject prefabtoinstant;
 
     /// <summary>
-    /// 
+    /// this will indicate if the prefab will  have a preview or not
     /// </summary>
     public bool isPreviewOn;
 
     /// <summary>
-    /// 
+    /// rotation of the instantiat prefab
     /// </summary>
     public float rotate = 0;
 
     /// <summary>
-    /// 
+    /// reference of the local player (current player) --> me 
     /// </summary>
     public Player player = null;
 
     /// <summary>
-    /// 
+    /// old mouse position on sean
     /// </summary>
     private Vector3 oldMousePosition;
 
     /// <summary>
-    /// 
+    ///  regestrait the new position of the mouse
     /// </summary>
     private Vector3 newMousePosition;
 
@@ -102,12 +111,12 @@ public class ObjectPlacer : MonoBehaviour
     private GameObject objectPreview;
 
     /// <summary>
-    /// 
+    /// a flag to indicat if is permited to drag a game object on the game if it is false than will note create the game object on the game
     /// </summary>
     private bool canDrag;
 
     /// <summary>
-    /// 
+    /// ray helfe to get mouse position on sean
     /// </summary>
     private Ray ray;
     
@@ -171,17 +180,17 @@ public class ObjectPlacer : MonoBehaviour
     /// if the dictance of poit0 of the both objectes (created and adjacent object) not more than 0.5 units also (composed) 
     /// but in in wrong direction then will this object  destroyed 
     /// Variables:
-    /// hitInfo:
-    /// finalPosition:
-    /// gamob:
-    /// arrpoint0:
-    /// arrpoint00:
-    /// arrpoint3:
-    /// arrpoint33
-    /// hitColliders:
-    /// colls:
-    /// dist:
-    /// centerpoint:
+    /// hitInfo: collision informations 
+    /// finalPosition: the adjusted position with Grid
+    /// gamob: helfs variabl to stor the colded game Object
+    /// arrpoint0: cordination of poin0 of the instantiate game object 
+    /// arrpoint00: cordination of poin0 of the hited colleder game object 
+    /// arrpoint3:cordination of poin3 of the instantiate game object 
+    /// arrpoint33 : cordination of poin3 of the hited colleder game object 
+    /// hitColliders: the hited collider with the instantiate gameobject
+    /// colls:collision informations  containt all collisions 
+    /// dist: the destance between tow same point of tow defrent game object (instantiated game object and the collided game object)
+    /// centerpoint: the cordenation of the created boxcollider  to detect wich object is around the instatiated game object
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
     /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
@@ -338,7 +347,7 @@ public class ObjectPlacer : MonoBehaviour
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == strGeradeschiene || hitCollider.name == strCurveleft|| hitCollider.name == strCurverigth)
+        else if (hitCollider.name == strGeradeschiene || hitCollider.name == strCurveleft|| hitCollider.name == strCurverigth|| hitCollider.name == strrailend|| hitCollider.name == strrailstart)
         {
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
