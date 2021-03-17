@@ -8,136 +8,140 @@ using Database;
 using SimpleJSON;
 using UnityEngine.UI;
 
-
+/* created by: SWT-P_WS_2021_Schienencode */
+/// <summary>
+/// 
+/// </summary>
+/// @author Ahmed L'harrak
 public class Player : NetworkBehaviour
 {
     /// <summary>
-    /// name of prefab for Straight
+    /// Name of prefab for Straight
     /// </summary>
     private const string strGeradeschiene = "Straight270Final";
 
     /// <summary>
-    /// name of prefab for curve left
+    /// Name of prefab for curve left
     /// </summary>
     private const string strCurveleft = "CurveL0Final";
 
     /// <summary>
-    /// name of prefab for curve rigth
+    /// Name of prefab for curve rigth
     /// </summary>
     private const string strCurverigth = "CurveR0Final";
 
     /// <summary>
-    /// name of prefab for tunnel in
+    /// Name of prefab for tunnel in
     /// </summary>
     private const string strTunelin = "TunnelIn";
 
     /// <summary>
-    /// name of prefab for tunnel out
+    /// Name of prefab for tunnel out
     /// </summary>
     private const string strTunelout = "TunnelOut";
 
     /// <summary>
-    /// name of prefab for switch left 0
+    /// Name of prefab for switch left 0
     /// </summary>
     private const string strSwitchl0 = "SwitchL0Final";
 
     /// <summary>
-    /// name of prefab for switch left 1
+    /// Name of prefab for switch left 1
     /// </summary>
     private const string strSwitchl1 = "SwitchL1Final";
 
     /// <summary>
-    /// name of prefab for switch rigth 0
+    /// Name of prefab for switch rigth 0
     /// </summary>
     private const string strSwitchr0 ="SwitchR0Final";
 
     /// <summary>
-    /// name of prefab for switch rigth 1
+    /// Name of prefab for switch rigth 1
     /// </summary>
     private const string strSwitchr1 ="SwitchR1Final";
 
     /// <summary>
-    /// name of prefab for rail start
+    /// Name of prefab for rail start
     /// </summary>
     private const string strRailstart = "RailStart";
 
     /// <summary>
-    /// name of prefab for rail end
+    /// Name of prefab for rail end
     /// </summary>
     private const string strRailend = "RailEnd";
 
     /// <summary>
-    /// name of prefab for trainstation
+    /// Name of prefab for trainstation
     /// </summary>
     private const string strTrainstation = "TrainStation";
 
     /// <summary>
-    ///   Straight prefab gameobject
+    /// Straight prefab gameobject
     /// </summary>
     public GameObject geradeSchiene;
 
     /// <summary>
-    ///   curve rigth prefab gameobject
+    /// Curve rigth prefab gameobject
     /// </summary>
     public GameObject kurveRo;
 
     /// <summary>
-    ///   curve left prefab gameobject
+    /// Curve left prefab gameobject
     /// </summary>
     public GameObject kurveLo;
 
     /// <summary>
-    ///   tunel in  prefab gameobject
+    /// Tunnel in  prefab gameobject
     /// </summary>
     public GameObject tunelIn;
 
     /// <summary>
-    ///   tunnel out prefab gameobject
+    /// Tunnel out prefab gameobject
     /// </summary>
     public GameObject tunelOut;
 
     /// <summary>
-    /// trainstation prefab gameobject
+    /// Trainstation prefab gameobject
     /// </summary>
     public GameObject station;
 
     /// <summary>
-    /// switch left 0 prefab gameobject
+    /// Switch left 0 prefab gameobject
     /// </summary>
     public GameObject switchL0;
 
     /// <summary>
-    /// switch left 1 prefab gameobject
+    /// Switch left 1 prefab gameobject
     /// </summary>
     public GameObject switchL1;
 
     /// <summary>
-    ///   switch rigth 0 prefab gameobject
+    /// Switch rigth 0 prefab gameobject
     /// </summary>
     public GameObject switchR0;
 
     /// <summary>
-    ///   switch rigth 1 prefab gameobject
+    /// Switch rigth 1 prefab gameobject
     /// </summary>
     public GameObject switchR1;
 
     /// <summary>
-    /// rail start  prefab gameobject
+    /// Rail start prefab gameobject
     /// </summary>
     public GameObject railStart;
 
     /// <summary>
-    /// rail end prefab gameobject
+    /// Rail end prefab gameobject
     /// </summary>
     public GameObject railEnd;
     
     /// <summary>
-    /// gameobjict variable to save instantiate prefabe
+    /// Gameobjict variable to save instantiate prefabe
     /// </summary>
-    private GameObject prefabtoinstant;
+    private GameObject prefabToInstant;
 
     /// <summary>
-    /// script objectplacer
+    /// Script objectplacer
     /// </summary>
     private ObjectPlacer objectPlacer;
 
@@ -181,18 +185,21 @@ public class Player : NetworkBehaviour
     /// </summary>
     [SerializeField] private Text gameInfoText;
 
-    
-private MissionProver       missionprv;
+    /// <summary>
+    /// 
+    /// </summary>
+    private MissionProver missionprv;
 
     /// <summary>
-    /// initialisation of variables dbcon and objectplacer
-    /// and then asignment current player object to player object in dbcon and  objectplacer scripts
+    /// Initialisation of variables dbcon and objectplacer
+    /// and then assign current player object to player object in dbcon and objectplacer scripts
     /// </summary>
     /// @author Ahmed L'harrak
     void Start() {
-    prefabtoinstant = geradeSchiene;
+    prefabToInstant = geradeSchiene;
     player = this;
-    if(this.isLocalPlayer){
+    if(this.isLocalPlayer)
+    {
         
         dbCon = FindObjectOfType<DatabaseConnector>();
         dbCon.player = this;
@@ -230,30 +237,28 @@ private MissionProver       missionprv;
     else
     {
         RegisterAll();
-        
     }
     camera = FindObjectOfType<CameraMovement>();
     camera.MaxFieldCameraView();
     }
 
     /// <summary>
-    /// this method will called when a player click on own   start train button 
+    /// This method will called when a player click on own start train button 
     /// </summary>
     /// @author Ahmed L'harrak
     void CmdPressButton()
     {
         if (this.isServer)
         {
-           starttrain();
+           StartTrain();
         }
-        
     }
 
     /// <summary>
-    /// start the train only from server side 
+    /// Start the train only from server side 
     /// </summary>
     /// @author Ahmed L'harrak
-    public void starttrain()
+    public void StartTrain()
     {
         if (isServer)
         {
@@ -267,30 +272,19 @@ private MissionProver       missionprv;
     }
 
     /// <summary>
-    /// change the scene for example when a level finished than it will new scen laoded
+    /// Change the scene for example when a level finished than it will new scen laoded
     /// </summary>
     /// <param name="map"></param>
     /// @author Ahmed L'harrak
-    public void newscen(String map)
+    public void NewScene(String map)
     {
         FindObjectOfType<MyNetworkManager>().ServerChangeScene(map); 
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    /// @author Ronja Haas & Anna-Lisa Müller
-    public uint getId()
-    {
-        return this.netId;
-    }
-
-
+    
     /// <summary>
     /// 
     /// Variables:
-    /// cloneObj:
+    /// cloneObj: The instatiat game object
     /// @author Ahmed L'harrak
     /// lokking for witch prefabe will be instiantiate  seqarch by name if ther exist then prefabtoinstant will be the correspend gameobject of this name
     /// then it will be this prefabe created for all players in this Game
@@ -299,53 +293,52 @@ private MissionProver       missionprv;
     /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
     /// <param name="rotate"> with witch rotation should this prefab creatde</param>
     /// @author Ahmed L'harrak
-    /// cloneObj: the instatiat game object
     [Command]
     void insprefab(string prefabto, Vector3 finalPosition, float rotate, bool buildByOP)
     {
         switch (prefabto){
             case strGeradeschiene:
-                prefabtoinstant = geradeSchiene;
+                prefabToInstant = geradeSchiene;
                 break;
             case strCurveleft: 
-                prefabtoinstant = kurveLo;
+                prefabToInstant = kurveLo;
                 break;
             case strCurverigth:
-                prefabtoinstant = kurveRo;
+                prefabToInstant = kurveRo;
                 break;
             case strTunelin:
-                prefabtoinstant = tunelIn;
+                prefabToInstant = tunelIn;
                 break;
             case strTunelout:
-                prefabtoinstant = tunelOut;
+                prefabToInstant = tunelOut;
                 break;
             case strSwitchl0:
-                prefabtoinstant = switchL0;
+                prefabToInstant = switchL0;
                 break;
             case strSwitchl1:
-                prefabtoinstant = switchL1;
+                prefabToInstant = switchL1;
                 break;
             case strSwitchr0:
-                prefabtoinstant = switchR0;
+                prefabToInstant = switchR0;
                 break;
             case strSwitchr1:
-                prefabtoinstant = switchR1;
+                prefabToInstant = switchR1;
                 break;
             case strRailstart:
-                prefabtoinstant = railStart;
+                prefabToInstant = railStart;
                 break;
             case strRailend:
-                prefabtoinstant = railEnd;
+                prefabToInstant = railEnd;
                 break;
             case strTrainstation:
-                prefabtoinstant = station;
+                prefabToInstant = station;
                 break;
             default:
-                prefabtoinstant = geradeSchiene;
+                prefabToInstant = geradeSchiene;
                 break;
         }
-        GameObject cloneObj = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
-        cloneObj.name = prefabtoinstant.name;
+        GameObject cloneObj = Instantiate(prefabToInstant, finalPosition, Quaternion.Euler(0, rotate, 0));
+        cloneObj.name = prefabToInstant.name;
         if (!buildByOP)
         {
             Destroy(cloneObj.GetComponent<DeleteRail>());
@@ -358,7 +351,7 @@ private MissionProver       missionprv;
             Debug.Log("Should only be built by ObjectPlacer");
             if (cloneObj.name.Equals("TunnelOut"))
             {
-                initOutTunnelOnClient(cloneObj);
+                InitOutTunnelOnClient(cloneObj);
             }
             if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
             {
@@ -382,7 +375,6 @@ private MissionProver       missionprv;
         Debug.Log("++++++++++Register Switch on client++++++");
         SwitchScript s = obj.GetComponent<SwitchScript>();
         if (!s.IsInited) s.Register();
-         
     }
     
     /// <summary>
@@ -403,7 +395,7 @@ private MissionProver       missionprv;
     /// <param name="obj"> Gameobject of the OutTunnel </param>
     /// @author Ahmed L'harrak & Bastian Badde
     [ClientRpc]
-    public void initOutTunnelOnClient(GameObject obj)
+    public void InitOutTunnelOnClient(GameObject obj)
     {
         Debug.Log("Init out on client+++++++++");
         OutTunnelScript t= obj.GetComponent<OutTunnelScript>();
@@ -411,15 +403,13 @@ private MissionProver       missionprv;
     }
 
     /// <summary>
-    /// Update is called once per frame
-    /// @author Ahmed L'harrak
-    /// this function is a public function to be called from other scripts like opbjectplacer it will then create the chosen prefabe in the chosen cordinaten and rotation value
+    /// This function is a public function to be called from other scripts like opbjectplacer it will then create the chosen prefabe in the chosen cordinaten and rotation value
     /// </summary>
-    /// <param name="prefabname"> the name of prefabe to be intantiate for alle Player in this Game </param>
-    /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
-    /// <param name="rotate"> with witch rotation should this prefab creatde</param>
-    /// @author 
-    public  void anrufen(string prefabname, Vector3 finalPosition, float rotate, bool buildOnOP)
+    /// <param name="prefabname"> The name of prefabe to be intantiate for alle Player in this Game </param>
+    /// <param name="finalPosition"> The position (cordinaten ) where the prefabe shoulde created </param>
+    /// <param name="rotate"> With witch rotation should this prefab creatde</param>
+    /// @author Ahmed L'harrak
+    public void Call(string prefabname, Vector3 finalPosition, float rotate, bool buildOnOP)
     {
         if (!isLocalPlayer) return;   
         insprefab(prefabname, finalPosition, rotate, buildOnOP);
@@ -427,10 +417,9 @@ private MissionProver       missionprv;
 
     /// <summary>
     /// Called by the Player
-    /// @author Ahmed L'harrak
-    /// call the function cmdDestroyobject()
+    /// Call the function cmdDestroyobject()
     /// </summary>
-    /// <param name="obj">the gameobject to be deleted </param>
+    /// <param name="obj">The gameobject to be deleted </param>
     /// @author Ahmed L'harrak
     [Client]
     public void TellServerToDestroyObject(GameObject obj)
@@ -440,21 +429,14 @@ private MissionProver       missionprv;
 
     /// <summary>
     /// Executed only on the server
-    /// @author Ahmed L'harrak
-    /// if this gameobject exict it will be deleted from this Game for all Players
+    /// If this gameobject exict it will be deleted from this Game for all Players
     /// </summary>
-    /// <param name="obj"> gameobject to be destroyed </param>
+    /// <param name="obj">Gameobject to be destroyed </param>
     /// @author Ahmed L'harrak
     [Command]
     private void CmdDestroyObject(GameObject obj)
     {
-        // It is very unlikely but due to the network delay
-        // possisble that the other player also tries to
-        // destroy exactly the same object beofre the server
-        // can tell him that this object was already destroyed.
-        // So in that case just do nothing.
         if(!obj) return;
-
         NetworkServer.Destroy(obj);
     }
     
@@ -463,7 +445,7 @@ private MissionProver       missionprv;
     /// Currently lets Host automatically win.
     /// </summary>
     /// TODO: Implement connection to actual game results
-    /// @author
+    /// @author Christopher-Marcel Klein
     private void FinishGame()
     {
         if (GameServer.Instance.PlayerInfos["isHost"].AsBool)
@@ -480,7 +462,7 @@ private MissionProver       missionprv;
     /// Command for getting the hosts name, needed to handle game results
     /// </summary>
     /// <param name="connId">NetId of the player that called this command</param>
-    /// @author 
+    /// @author Christopher-Marcel Klein
     [Command]
     public void CmdGetHostName(uint connId)
     {
@@ -494,14 +476,12 @@ private MissionProver       missionprv;
     /// <param name="connection">Connection for the TargetRPC</param>
     /// <param name="hostName">Name of the host</param>
     /// TODO: Implement connection to actual game results
-    /// @author 
+    /// @author Christopher-Marcel Klein
     [TargetRpc]
     public void TargetReceiveHostName(NetworkConnection connection, string hostName)
     {
         GameServer.Instance.HandleGameResults(2,hostName);
     }
-
-    
     
     // +++++++ Synchronisation +++++++
     
@@ -763,7 +743,7 @@ private MissionProver       missionprv;
         }
         foreach (var station in FindObjectsOfType<StationScript>())
         {
-            if(!station.IsInited) station.Register();
+            if(!station.isInited) station.Register();
         }
     }
 

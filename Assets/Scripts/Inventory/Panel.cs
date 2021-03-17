@@ -4,19 +4,19 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// this is a windows the have all property(rotation) of the current gameobject of this windows
+/// This is a window which has all property(rotation) of the current gameobject
 /// </summary>
 /// @author Ahmed L'harrak
 public class Panel : MonoBehaviour
 {
     /// <summary>
-    /// this is panel windows who content  all proprietes(rotation create button) of the clicked prefabs 
+    /// This is a panel window who contain all properties(rotation button, create button) of the clicked prefabs 
     /// </summary>
     public GameObject selectionPanel;
 
     /// <summary>
-    /// this function makes the windows panel visible if it's not  and close the others 
-    /// if the panel is allredy visible then will be close after call of this function
+    /// This function make the windows panel visible if it's not and close the others. 
+    /// If the panel is allredy visible, then the panel will be close after the function is called
     /// </summary>
     /// @author Ahmed L'harrak
     public void OpenPanel()

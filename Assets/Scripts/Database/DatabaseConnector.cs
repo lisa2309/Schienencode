@@ -25,7 +25,7 @@ namespace Database
         /// <summary>
         /// the name of the board in the Firebase-DB
         /// </summary>
-        public string boardname;
+        public string boardName;
 
         /// <summary>
         /// the current selected Board-object
@@ -141,7 +141,7 @@ namespace Database
         public void BuildFromDB()
         {
             MissionProver.buildOnDB = true;
-            string boardInfo = board.BoardString.Split(':')[1];
+            string boardInfo = board.boardString.Split(':')[1];
             string[] structures = boardInfo.Split(';');
             string[] coordinates;
             float x, z, rot;
@@ -152,7 +152,7 @@ namespace Database
                 z = float.Parse(coordinates[1]);
                 rot = float.Parse(coordinates[3]);
                 if(player != null){
-                    player.anrufen(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot, false);
+                    player.Call(GetObjectName(coordinates[2]), new Vector3(x, 0, z), rot, false);
                 }
             }
             MissionProver.buildOnDB = false;
@@ -219,7 +219,7 @@ namespace Database
         /// @author Bastian Badde
         public void RetrieveFromDatabase()
         {
-            RestClient.Get<Board>(connectionString + boardname + ".json").Then(response =>
+            RestClient.Get<Board>(connectionString + boardName + ".json").Then(response =>
             {
                 Debug.Log("BoardData retrieved");
                 board = response;
@@ -235,7 +235,7 @@ namespace Database
         /// @author Bastian Badde
         public void RetrieveFromDatabaseForMission()
         {
-            RestClient.Get<Board>(connectionString + boardname + ".json").Then(response =>
+            RestClient.Get<Board>(connectionString + boardName + ".json").Then(response =>
             {
                 Debug.Log("MissionData retrieved");
                 board = response;
@@ -252,7 +252,7 @@ namespace Database
         /// @author
         private void CreateMission()
         {
-            string missionInfo = board.MissionString.Split(':')[1];
+            string missionInfo = board.missionString.Split(':')[1];
             string[] cargos = missionInfo.Split(';');
             int[] cargosInt = new int[cargos.Length];
             int i = 0;
@@ -264,8 +264,8 @@ namespace Database
                 i++;
             }
             prover.SetMission(new Mission(cargosInt));
-            prover.ddSwitchValue.AddOptions(ddStrings);
-            prover.ddWhileSwitchValue.AddOptions(ddStrings);
+            prover.switchValue.AddOptions(ddStrings);
+            prover.whileSwitchValue.AddOptions(ddStrings);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Database
         /// <param name="board">Board-object to be uploaded</param>
         public void PostToDatabase(Board board)
         {
-            RestClient.Put(connectionString +  boardname + ".json", board);
+            RestClient.Put(connectionString +  boardName + ".json", board);
         }
 
         /// <summary>

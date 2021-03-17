@@ -36,7 +36,7 @@ public class InTunnelScript : MonoBehaviour
     private GameObject panels;
 
     /// <summary>
-    /// bool which is true, when it is build on the db (default value is false).
+    /// Bool which is true, when it is build on the db (default value is false).
     /// </summary>
     public bool buildOnDB;
         
@@ -47,9 +47,9 @@ public class InTunnelScript : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("InTunnel could open");
-        Debug.Log("OpenPanel: " + MissionProver.panelisOpen);
+        Debug.Log("OpenPanel: " + MissionProver.panelIsOpen);
         Debug.Log("OnDB: " + buildOnDB);
-        if (!MissionProver.deleteOn && !MissionProver.panelisOpen && !buildOnDB)
+        if (!MissionProver.deleteOn && !MissionProver.panelIsOpen && !buildOnDB)
         {
             Debug.Log("InTunnel should open");
             prover.UpdateInTunnel(this);
@@ -59,6 +59,7 @@ public class InTunnelScript : MonoBehaviour
         
     /// <summary>
     /// Opens the relevant popUp-Panel
+    /// panels: Collection of the different PopUp-Panels
     /// </summary>
     /// @author Ahmed L'harrak & Bastian Badde
     public void OpenPanel()
@@ -77,7 +78,7 @@ public class InTunnelScript : MonoBehaviour
                     if (!panel.gameObject.activeSelf)
                     {
                         Debug.Log("Open InTunnelPanel");
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
@@ -98,5 +99,4 @@ public class InTunnelScript : MonoBehaviour
         this.inTunnelNumber = prover.RegisterNewInTunnel(this);
         IsInited = true;
     }
-
 }

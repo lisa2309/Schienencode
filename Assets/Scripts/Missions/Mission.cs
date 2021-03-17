@@ -23,9 +23,9 @@ namespace DefaultNamespace
         public int[] cargoCounters;
 
         /// <summary>
-        /// constructor of a Mission-object. Setting all cargoCounters-values on 0
+        /// Constructor of a Mission-object. Setting all cargoCounters-values on 0
         /// </summary>
-        /// <param name="cargo">array to initialize cargos with</param>
+        /// <param name="cargo">Array to initialize cargos with</param>
         /// @author Bastian Badde 
         public Mission(int[] cargo)
         {
@@ -34,9 +34,9 @@ namespace DefaultNamespace
         }
 
         /// <summary>
-        /// returns the state of the mission-completion
+        /// Returns the state of the mission-completion
         /// </summary>
-        /// <returns>true if mission is completed, false if not</returns>
+        /// <returns>True if mission is completed, false if not</returns>
         /// @author Bastian Badde
         public bool IsComplete()
         {

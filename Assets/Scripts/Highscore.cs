@@ -11,11 +11,11 @@ using UnityEngine;
 public class Highscore : MonoBehaviour
 {
     /// <summary>
-    /// missionsProver object of the class MissionProver.
+    /// MissionsProver object of the class MissionProver
     /// </summary>
     private MissionProver missionProver;
     /// <summary>
-    /// sceneLoader object of the class SceneLoader.
+    /// SceneLoader object of the class SceneLoader
     /// </summary>
     private SceneLoader sceneLoader;
 
@@ -25,7 +25,7 @@ public class Highscore : MonoBehaviour
     private GameObject panels;
 
     /// <summary>
-    /// Searchs for the objects of the types MissionProver and SceneLoader.
+    /// Searchs for the objects of the types MissionProver and SceneLoader
     /// </summary>
     /// @author Ronja Haas & Anna-Lisa Müller
     void Awake()
@@ -36,7 +36,7 @@ public class Highscore : MonoBehaviour
 
     /// <summary>
     /// When the collider is triggert, add a new text to the Missionfield depends on if the Mission is complete or not.
-    /// After that the next scene get loaded.
+    /// After that the next scene get loaded
     /// </summary>
     /// <param name="other">The other Collider involved in this collision.</param>
     /// @author Ronja Haas & Anna-Lisa Müller
@@ -44,18 +44,10 @@ public class Highscore : MonoBehaviour
     {
         if (missionProver.mission.IsComplete()) 
         {
-			missionProver.missiontext.text += "             " + "\n";
-			missionProver.missiontext.text += "------------------------------" + "\n";
-			missionProver.missiontext.text += "             " + "\n";
-            missionProver.missiontext.text += "Gewonnen!";
             OpenPanel("winPanel");
         }
         else if (!missionProver.mission.IsComplete())
         {
-			missionProver.missiontext.text += "             " + "\n";
-			missionProver.missiontext.text += "------------------------------" + "\n";
-			missionProver.missiontext.text += "             " + "\n";
-            missionProver.missiontext.text += "Verloren!";
             OpenPanel("losePanel");
         }
     }
@@ -63,7 +55,7 @@ public class Highscore : MonoBehaviour
 	/// <summary>
     /// Opens the relevant popUp-Panel depending on if the mission is complete or not
     /// </summary>
-    /// <param name="panelName">the name of the panel what to open</param>
+    /// <param name="panelName">The name of the panel what to open</param>
     /// @author Ronja Haas & Anna-Lisa Müller
     public void OpenPanel(string panelName)
     {
@@ -80,7 +72,7 @@ public class Highscore : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
@@ -88,5 +80,4 @@ public class Highscore : MonoBehaviour
             }
         }
     }
-
 }

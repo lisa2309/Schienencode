@@ -21,14 +21,14 @@ namespace DefaultNamespace
         /// and with "d1", "d2"... as the rotation-value (either 0, 90, 180, or 270)
         /// so each group of abcd defines an actual gameobject to instantiate.
         /// </summary>
-        public string BoardString;
+        public string boardString;
 
         /// <summary>
         /// Encrypted String to define a gameboard.
         /// It always should look like this: "Mission:a0;a1;a2"
         /// with each "ax" as a CargoValue which should be reached at the TrainStation with stationNumber x.
         /// </summary>
-        public string MissionString;
+        public string missionString;
 
         /// <summary>
         /// constructor to define a Board
@@ -36,10 +36,10 @@ namespace DefaultNamespace
         /// <param name="bs">to set the BoardString</param>
         /// <param name="ms">to set the MissionString</param>
         /// @author Bastian Badde
-        public Board(string bs, string ms)
+        public Board(string boardStringSet, string missionStringSet)
         {
-            BoardString = bs;
-            MissionString = ms;
+            boardString = boardStringSet;
+            missionString = missionStringSet;
         }
     }
 }
