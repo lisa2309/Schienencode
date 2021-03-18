@@ -15,17 +15,17 @@ using UnityEngine.UI;
 public class MissionProver : MonoBehaviour
 {
     /// <summary>
-    /// bool which is true when Prefabs should be deletable
+    /// Bool which is true when Prefabs should be deletable
     /// </summary>
     public static bool deleteOn;
 
     /// <summary>
-    /// bool which is true when a PopUpPanel is open
+    /// Bool which is true when a PopUpPanel is open
     /// </summary>
-    public static bool panelisOpen;
+    public static bool panelIsOpen;
 
     /// <summary>
-    /// bool which is true when objects are instantiated by the database
+    /// Bool which is true when objects are instantiated by the database
     /// </summary>
     public static bool buildOnDB;
     
@@ -37,12 +37,12 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// UI-Text-object which is displayed in the missionfield of the inventory for Player 1
     /// </summary>
-    public Text missiontext;
+    public Text missionText;
     
     /// <summary>
     /// UI-Text-object which is displayed in the missionfield of the inventory for Player 2
     /// </summary>
-    public Text missiontextP2;
+    public Text missionTextP2;
 
     /// <summary>
     /// UI-Text-object which is displayed after the train enters the End of the route
@@ -93,37 +93,37 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// UI-Dropdown-object of a TrainStation for choosing the cargoAdditionNumber
     /// </summary>
-    public Dropdown ddStation;
+    public Dropdown station;
     
     /// <summary>
     /// UI-Dropdown-object of an If-Switch for choosing the related TrainStation-Cargo
     /// </summary>
-    public Dropdown ddSwitchValue;
+    public Dropdown switchValue;
     
     /// <summary>
     /// UI-Dropdown-object of an If-Switch for choosing a ComparationValue
     /// </summary>
-    public Dropdown ddSwitchCompare;
+    public Dropdown switchCompare;
     
     /// <summary>
     /// UI-Dropdown-object of a While-Switch for choosing the related TrainStation-Cargo
     /// </summary>
-    public Dropdown ddWhileSwitchValue;
+    public Dropdown whileSwitchValue;
     
     /// <summary>
     /// UI-Dropdown-object of a While-Switch for choosing a ComparationValue
     /// </summary>
-    public Dropdown ddWhileSwitchCompare;
+    public Dropdown whileSwitchCompare;
     
     /// <summary>
     /// UI-Dropdown-object of a Unchosen-Switch for choosing the SwitchMode
     /// </summary>
-    public Dropdown ddGeneralSwitch;
+    public Dropdown generalSwitch;
     
     /// <summary>
     /// UI-Dropdown-object of an InTunnel for choosing the related OutTunnel (tunnelNumber)
     /// </summary>
-    public Dropdown ddInTunnelOpenOuts;
+    public Dropdown inTunnelOpenOuts;
     
     /// <summary>
     /// UI-Inputfield-object of an If-Switch to enter the Value to compare with 
@@ -201,7 +201,7 @@ public class MissionProver : MonoBehaviour
     public Player player;
     
     /// <summary>
-    /// counter to generate new OutTunnelNumbers if needed
+    /// Counter to generate new OutTunnelNumbers if needed
     /// </summary>
     public int outTunnelCounter;
         
@@ -229,7 +229,7 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Remove OutTunnelNumber from givenTunnelNumbers
     /// </summary>
-    /// <param name="tunnelNumber">the tunnenlNumber to remove</param>
+    /// <param name="tunnelNumber">The tunnenlNumber to remove</param>
     /// @author Bastian Badde
     public void SetRemovedOutTunnel(int tunnelNumber)
     {
@@ -239,7 +239,8 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Creates a new switchNumber an registers a new Switch
     /// </summary>
-    /// <returns>the stationNumber of the new registered TrainStation</returns>
+    /// <param name="switchO">Object of the SwitchScript</param>
+    /// <returns>The stationNumber of the new registered TrainStation</returns>
     /// @author Bastian Badde
     public int RegisterNewSwitch(SwitchScript switchO)
     {
@@ -248,9 +249,10 @@ public class MissionProver : MonoBehaviour
     }
     
     /// <summary>
-    /// Creates a new inTunnelNumber ans registers a new InTunnel
+    /// Creates a new inTunnelNumber and registers a new InTunnel
     /// </summary>
-    /// <returns>the stationNumber of the new registered TrainStation</returns>
+    /// <param name="inTunnel">Object of the InTunnelScript</param>
+    /// <returns>The stationNumber of the new registered TrainStation</returns>
     /// @author Bastian Badde
     public int RegisterNewInTunnel(InTunnelScript inTunnel)
     {
@@ -259,21 +261,22 @@ public class MissionProver : MonoBehaviour
     }
     
     /// <summary>
-    /// Creates a new stationNumber an registers a new TrainStation
+    /// Creates a new stationNumber and registers a new TrainStation
     /// </summary>
-    /// <returns>the stationNumber of the new registered TrainStation</returns>
+    /// <param name="station">Object of the StationScript</param>
+    /// <returns>The stationNumber of the new registered TrainStation</returns>
     /// @author Bastian Badde
     public int RegisterNewStation(StationScript station)
     {
         cargoAdditions.Add(1);
         stationBodies.Add(station);
         return stationCounter++;
-        //carogoCounters = new int[stationCounter];
     }
 
     /// <summary>
     /// Sets the caption of the OutTunnel-PopUp-Panel
     /// </summary>
+    /// <param name="outTunnelNumber">Number of the out tunnel</param>
     /// @author Bastian Badde
     public void UpdateOutTunnel(int outTunnelNumber)
     {
@@ -282,9 +285,11 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Sets the settings used for appropriate displaying the PopUp of the current selected InTunnel
-    /// openTunnelStrings:
+    /// openTunnelStrings: List of all tunnels
+    /// currentValue:
+    /// tempValue:
     /// </summary>
-    /// <param name="inTunnel">the InTunnelScript-object of the currently selected InTunnel</param>
+    /// <param name="inTunnel">The InTunnelScript-object of the currently selected InTunnel</param>
     /// @author Bastian Badde
     public void UpdateInTunnel(InTunnelScript inTunnel)
     {
@@ -298,16 +303,16 @@ public class MissionProver : MonoBehaviour
             if (i == inTunnel.relatedOutTunnelNumber) currentValue = tempValue;
             tempValue++;
         }
-        ddInTunnelOpenOuts.options.Clear();
-        ddInTunnelOpenOuts.AddOptions(openTunnelStrings);
-        ddInTunnelOpenOuts.value = currentValue;
+        inTunnelOpenOuts.options.Clear();
+        inTunnelOpenOuts.AddOptions(openTunnelStrings);
+        inTunnelOpenOuts.value = currentValue;
     }
     
     /// <summary>
     /// Raises the cargoValue of the relevant TrainStation by the relevant cargoAddition and updates the MissionField
     /// in the inventory
     /// </summary>
-    /// <param name="stationNumber">the stationNumber of the relevant TrainStation</param> 
+    /// <param name="stationNumber">The stationNumber of the relevant TrainStation</param> 
     /// @author Bastian Badde
     public void RaiseCounter(int stationNumber)
     {
@@ -323,27 +328,27 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Sets the settings used for appropriate displaying the PopUp of the current selected Switch
     /// </summary>
-    /// <param name="switchScript">the SwitchScript-object of the currently selected Switch</param>
+    /// <param name="switchScript">The SwitchScript-object of the currently selected Switch</param>
     /// @author Bastian Badde
     public void UpdateSwitch(SwitchScript switchScript)
     {
         this.currentSwitch = switchScript;
-        ddWhileSwitchCompare.value = ddSwitchCompare.value = switchScript.ComparationValues[1];
-        ddWhileSwitchValue.value = ddSwitchValue.value = switchScript.ComparationValues[0];
-        inputForSwitch.text = inputIfSwitch.text = inputWhileSwitch.text = switchScript.ComparationValues[2].ToString();
+        whileSwitchCompare.value = switchCompare.value = switchScript.comparationValues[1];
+        whileSwitchValue.value = switchValue.value = switchScript.comparationValues[0];
+        inputForSwitch.text = inputIfSwitch.text = inputWhileSwitch.text = switchScript.comparationValues[2].ToString();
     }
 
     /// <summary>
     /// Sets the settings used for appropriate displaying the PopUp of the current selected TrainStation
     /// </summary>
-    /// <param name="stationnumber">the stationNumber of the currently selected TrainStation</param>
-    /// <param name="station">the StationScript-object of the currently selected TrainStation</param>
+    /// <param name="stationnumber">The stationNumber of the currently selected TrainStation</param>
+    /// <param name="station">The StationScript-object of the currently selected TrainStation</param>
     /// @author Bastian Badde
-    public void UpdateStation(int stationnumber, StationScript station)
+    public void UpdateStation(int stationNumber, StationScript station)
     {
-        this.currentStation = stationnumber;
+        this.currentStation = stationNumber;
         this.currentStationBody = station;
-        this.stationCaption.text = "Bahnhof C" + (stationnumber + 1);
+        this.stationCaption.text = "Bahnhof C" + (stationNumber + 1);
     }
 
     /// <summary>
@@ -364,7 +369,7 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void UpdateStationSettings()
     {
-        ddStation.value = cargoAdditions[currentStation] - 1;
+        station.value = cargoAdditions[currentStation] - 1;
     }
     
     /// <summary>
@@ -374,11 +379,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void AcceptButtonClicked()
     {
-        player.CargoChanged(currentStation, ddStation.value + 1);
-        //currentStationBody.cargoAdditionNumber = cargoAdditions[currentStation] = ddStation.value + 1;
+        player.CargoChanged(currentStation, station.value + 1);
         ClosePanel();
     }
     
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="stationNr"></param>
+    /// <param name="value"></param>
     public void SetStationCargo(int stationNr, int value)
     {
         cargoAdditions[stationNr] = value;
@@ -392,11 +401,9 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void IfSwitchAcceptButtonClicked()
     {
-        // currentSwitch.ComparationValues = new []
-        //     {ddSwitchValue.value, ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text)};
         player.SwitchValuesChanged(
-            currentSwitch.switchNumber, ddSwitchValue.value, 
-            ddSwitchCompare.value, Int32.Parse(inputIfSwitch.text));
+            currentSwitch.switchNumber, switchValue.value, 
+            switchCompare.value, Int32.Parse(inputIfSwitch.text));
         ClosePanel();
     }
 
@@ -404,14 +411,14 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Retrieves synchronized data from player to set the switch-values
     /// </summary>
-    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
-    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
-    /// <param name="compare">the decoded compare value</param>
-    /// <param name="value">the value to compare with</param>
+    /// <param name="switchNumber">The switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">The stationNumber whose cargo to compare with</param>
+    /// <param name="compare">The decoded compare value</param>
+    /// <param name="value">The value to compare with</param>
     /// @author Bastian Badde
     public void SetSwitchValues(int switchNumber, int cargo, int compare, int value)
     {
-        switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ComparationValues = new[]
+        switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).comparationValues = new[]
         {
             cargo,compare,value
         };
@@ -425,10 +432,8 @@ public class MissionProver : MonoBehaviour
     public void WhileSwitchAcceptButtonClicked()
     {
         player.SwitchValuesChanged(
-            currentSwitch.switchNumber, ddWhileSwitchValue.value, 
-            ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text));
-        // currentSwitch.ComparationValues = new []
-        //     {ddWhileSwitchValue.value, ddWhileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text)};
+            currentSwitch.switchNumber, whileSwitchValue.value, 
+            whileSwitchCompare.value, Int32.Parse(inputWhileSwitch.text));
         ClosePanel();
     }
     
@@ -439,9 +444,7 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void ForSwitchAcceptButtonClicked()
     {
-        player.SwitchValuesChanged(
-            currentSwitch.switchNumber, 0, 0, Int32.Parse(inputForSwitch.text));
-        //currentSwitch.ComparationValues[2] = Int32.Parse(inputForSwitch.text);
+        player.SwitchValuesChanged(currentSwitch.switchNumber, 0, 0, Int32.Parse(inputForSwitch.text));
         ClosePanel();
     }
     
@@ -452,29 +455,23 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void GeneralSwitchAcceptButtonClicked()
     {
-        //currentSwitch.ChangeSwitchMode(ddGeneralSwitch.value);
-        player.SwitchModeChanged(currentSwitch.switchNumber, ddGeneralSwitch.value);
-        // ClosePanel();
-        // currentSwitch.OpenPanel();
+        player.SwitchModeChanged(currentSwitch.switchNumber, generalSwitch.value);
     }
     
     /// <summary>
     /// Retrieves synchronized data from player to set the switch-mode
     /// </summary>
-    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
-    /// <param name="mode">the decoded mode-value to set with</param>
+    /// <param name="switchNumber">The switchNumber of the relevant SwicthScript</param>
+    /// <param name="mode">The decoded mode-value to set with</param>
     /// @author Bastian Badde
     public void SetSwitchMode(int switchNumber, int mode)
     {
-        // if(switchBodies.Find(s => s.switchNumber.Equals(switchNumber)) is null) Debug.Log("Switch not found");
-        // else Debug.Log("Switch Found with mode: " + mode);
         switchBodies.Find(s => s.switchNumber.Equals(switchNumber)).ChangeSwitchMode(mode);
         if (!(currentSwitch is null) && currentSwitch.switchNumber == switchNumber)
         {
             ClosePanel();
             currentSwitch.OpenPanel();
         }
-        
     }
     
     /// <summary>
@@ -484,17 +481,15 @@ public class MissionProver : MonoBehaviour
     /// @author Bastian Badde
     public void InTunnelAcceptedButtonClicked()
     {
-        player.InTunnelChanged(currentInTunnel.inTunnelNumber, 
-            givenTunnelNumbers[ddInTunnelOpenOuts.value]);
-        //currentInTunnel.relatedOutTunnelNumber = OutTunnelScript.givenTunnelNumbers[ddInTunnelOpenOuts.value];
+        player.InTunnelChanged(currentInTunnel.inTunnelNumber, givenTunnelNumbers[inTunnelOpenOuts.value]);
         ClosePanel();
     }
 
     /// <summary>
     /// Retrieves synchronized data from player to set the in-Tunnel-values
     /// </summary>
-    /// <param name="inTunnelNumber">the inTunnelNumber of the relevant InTunnelScript</param>
-    /// <param name="outTunnelNumber">the outTunnelNumber to set the related outTunnelNumber</param>
+    /// <param name="inTunnelNumber">The inTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">The outTunnelNumber to set the related outTunnelNumber</param>
     /// @author Bastian Badde
     public void SetInTunnelValues(int inTunnelNumber, int outTunnelNumber)
     {
@@ -503,18 +498,18 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Closes the current open PopUp-panel.
-    /// panels:
+    /// panels: Collection of the different PopUp-Panels
     /// </summary>
     /// @author Bastian Badde
     public void ClosePanel()
     {
-        MissionProver.panelisOpen = false;
+        MissionProver.panelIsOpen = false;
         GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;
         if (panels != null)
         {
             foreach (Transform panel in panels.GetComponentInChildren<Transform>())
             {
-                    panel.gameObject.SetActive(false);
+                panel.gameObject.SetActive(false);
             }
             panels.gameObject.SetActive(false);
         }
@@ -540,7 +535,7 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Sets the Text which is displayed after the train enters the RailEnd-object.
     /// </summary>
-    /// <param name="text">text to be displayed</param>
+    /// <param name="text">Text to be displayed</param>
     /// @author Bastian Badde
     public void SetFinalText(string text)
     {
@@ -549,16 +544,17 @@ public class MissionProver : MonoBehaviour
 
     /// <summary>
     /// Builds the text to be displayed in the MissionField of the inventory and displays it.
+    /// i: Index for the foreach loop
     /// </summary>
     /// @author Bastian Badde
     private void SetMissionField()
     {
-        missiontext.text = "Mission:\n\n";
+        missionText.text = "Mission:\n\n";
         int i = 1;
         foreach (int c in mission.cargos)
         {
-            missiontext.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
-            missiontextP2.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
+            missionText.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
+            missionTextP2.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
             i++;
         }
     }
@@ -566,7 +562,7 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Sets the Mission-object and then displays it.
     /// </summary>
-    /// <param name="mission">the relevant Mission-object</param>
+    /// <param name="mission">The relevant Mission-object</param>
     /// @author Bastian Badde
     public void SetMission(Mission mission)
     {
@@ -577,8 +573,8 @@ public class MissionProver : MonoBehaviour
     /// <summary>
     /// Displays an error-message in case something went wrong.
     /// </summary>
-    /// <param name="caption">the caption of the error message</param>
-    /// <param name="message">the error-message to display</param>
+    /// <param name="caption">The caption of the error message</param>
+    /// <param name="message">The error-message to display</param>
     /// @author Bastian Badde
     public void DisplayAlert(string caption, string message)
     {
@@ -590,10 +586,9 @@ public class MissionProver : MonoBehaviour
     
     /// <summary>
     /// Opens the error-popUp-Panel
-    /// panels
+    /// panels: Collection of the different PopUp-Panels
     /// </summary>
     /// @author Ahmed L'harrak & Bastian Badde
-    /// panels: 
     public void OpenErrorPanel()
     {
         GameObject panels = GameObject.FindObjectOfType<Panels>().allpanels;
@@ -601,7 +596,6 @@ public class MissionProver : MonoBehaviour
         {
             foreach (Transform panel in panels.GetComponentInChildren<Transform>())
             {
-
                 if (panel.name != "panel08")
                 {
                     panel.gameObject.SetActive(false);
@@ -610,7 +604,7 @@ public class MissionProver : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
@@ -620,12 +614,12 @@ public class MissionProver : MonoBehaviour
     }
     
     /// <summary>
-    /// Initialises the components with default-Values
+    /// Initialises the components with default values
     /// </summary>
     /// @author Bastian Badde
     void Start()
     {
-        panelisOpen = false;
+        panelIsOpen = false;
         deleteOn = false;
         cargoAdditions = new List<int>();
         stationBodies = new List<StationScript>();
@@ -637,7 +631,7 @@ public class MissionProver : MonoBehaviour
     }
 
     /// <summary>
-    /// Does same as Start(), but can be executed manual for testing reasons.
+    /// Does the same as Start(), but can be executed manual for testing reasons.
     /// </summary>
     /// @author Bastian Badde
     public void StartManual()

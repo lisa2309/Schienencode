@@ -36,10 +36,10 @@ namespace DefaultNamespace
         /// <param name="bs">to set the BoardString</param>
         /// <param name="ms">to set the MissionString</param>
         /// @author Bastian Badde
-        public Board(string bs, string ms)
+        public Board(string boardStringSet, string missionStringSet)
         {
-            BoardString = bs;
-            MissionString = ms;
+            BoardString = boardStringSet;
+            MissionString = missionStringSet;
         }
     }
 }

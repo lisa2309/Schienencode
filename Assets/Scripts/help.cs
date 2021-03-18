@@ -7,8 +7,8 @@ using UnityEngine.UI;
 /// <summary>
 /// Class to open the help panels and switch between the detailed pages for manual and controlls
 /// </summary>
-/// @author Florian Vogel & Bjarne Bensel 
-public class help : MonoBehaviour
+/// @author Florian Vogel & Bjarne Bensel & Ahmed L'harrak & Bastian Badde
+public class Help : MonoBehaviour
 {
     /// <summary>
     /// Collection of the different PopUp-Panels
@@ -16,30 +16,30 @@ public class help : MonoBehaviour
     private GameObject panels;
 
     /// <summary>
-    /// opens the initial help panel
+    /// Opens the initial help panel
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
-    public void showHelp()
+    public void ShowHelp()
     {        
         Debug.Log("Help opened");        
         OpenSpecificPanel("panelTutorial01");
     }
 
     /// <summary>
-    /// opens the controll help page
+    /// Opens the controll help page
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
-    public void openControll()
+    public void OpenControl()
     {
         Debug.Log("Control opened");
         OpenSpecificPanel("panelTutorial03");
     }
 
     /// <summary>
-    /// opens the manual help page
+    /// Opens the manual help page
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
-    public void openManual()
+    public void OpenManual()
     {
         Debug.Log("Manual opened");
         OpenSpecificPanel("panelTutorial02");
@@ -48,7 +48,7 @@ public class help : MonoBehaviour
     /// <summary>
     /// Opens the relevant popUp-Panel depending on the panelString
     /// </summary>
-    /// <param name="panelString">the name of the panel what to open</param>
+    /// <param name="panelString">The name of the panel what to open</param>
     /// @author Ahmed L'harrak & Bastian Badde
     private void OpenSpecificPanel(string panelString)
     {
@@ -65,7 +65,7 @@ public class help : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }

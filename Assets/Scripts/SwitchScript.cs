@@ -30,7 +30,7 @@ public class SwitchScript : MonoBehaviour
     public SwitchMode mode;
     
     /// <summary>
-    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// Bool which is true if InitOutTunnel() is already invoked (default value is false).
     /// </summary>
     public bool IsInited { private set; get; }
 
@@ -40,7 +40,7 @@ public class SwitchScript : MonoBehaviour
     /// ComparationValues[1] is a number for the comparation-sign: '0' means '>'; '1' means '<'; '2' means '=='.
     /// ComparationValues[2] is the value to compare with (only value which is also set in the 'For-Switch').
     /// </summary>
-    public int[] ComparationValues;
+    public int[] comparationValues;
     
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the switch is clicked by mouse
@@ -49,7 +49,7 @@ public class SwitchScript : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Switch is clicked ");
-        if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
+        if (!MissionProver.deleteOn && !MissionProver.panelIsOpen)
         {
             Debug.Log("Switch should open Panel");
             prover.UpdateSwitch(this);
@@ -58,13 +58,13 @@ public class SwitchScript : MonoBehaviour
     }
 
     /// <summary>
-    /// resets the settings of the switch
+    /// Resets the settings of the switch
     /// </summary>
     /// @author Bastian Badde
     public void ResetSwitch()
     {
         this.mode = SwitchMode.Unchosen;
-        this.ComparationValues = new int[] {0,0,1};
+        this.comparationValues = new int[] {0,0,1};
     }
 
     /// <summary>
@@ -118,7 +118,7 @@ public class SwitchScript : MonoBehaviour
     /// <summary>
     /// Opens the relevant popUp-Panel depending on the current SwitchMode
     /// </summary>
-    /// <param name="panelString">the name of the panel what to open</param>
+    /// <param name="panelString">The name of the panel what to open</param>
     /// @author Ahmed L'harrak & Bastian Badde
     private void OpenSpecificPanel(string panelString)
     {
@@ -135,7 +135,7 @@ public class SwitchScript : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
@@ -150,23 +150,11 @@ public class SwitchScript : MonoBehaviour
     /// @author Bastian Badde
     public void Register()
     {
-        ComparationValues = new int[] {0,0,1};
+        comparationValues = new int[] {0,0,1};
         mode = SwitchMode.Unchosen;
         prover = FindObjectOfType<MissionProver>();
         this.switchNumber = prover.RegisterNewSwitch(this);
         Debug.Log("New SwitchNumber::::::: " + switchNumber);
         IsInited = true;
-    }
-
-    /// <summary>
-    /// Initialises the components with default-Values
-    /// </summary>
-    /// @author Ahmed L'harrak & Bastian Badde
-    void Start()
-    {
-        // ComparationValues = new int[] {0,0,1};
-        // mode = SwitchMode.Unchosen;
-        // prover = FindObjectOfType<MissionProver>();
-        //this.switchNumber = prover.RegisterNewSwitch(this);
     }
 }

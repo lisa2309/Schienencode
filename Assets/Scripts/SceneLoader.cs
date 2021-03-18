@@ -13,9 +13,10 @@ using Database;
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
-    /// database object of the class  DatabaseConnector
+    /// Database object of the class DatabaseConnector
     /// </summary>
     private DatabaseConnector database;
+    
     /// <summary>
     /// Number of maximum scene that exist
     /// </summary>
@@ -41,7 +42,7 @@ public class SceneLoader : MonoBehaviour
         if (actualSceneIndex < (maxScene-1))
         {
             player = Player.player;
-            player.newscen(SceneUtility.GetScenePathByBuildIndex(actualSceneIndex + 1));
+            player.NewScene(SceneUtility.GetScenePathByBuildIndex(actualSceneIndex + 1));
         }     
     }
 
@@ -54,6 +55,4 @@ public class SceneLoader : MonoBehaviour
         database = FindObjectOfType<DatabaseConnector>();
         maxScene = 6;
     }
-
-
 }

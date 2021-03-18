@@ -17,106 +17,52 @@ using UnityEngine.SceneManagement;
 public class ObjectPlacer : MonoBehaviour
 {
     /// <summary>
-    /// name of prefab for Straight
+    /// Game object for instantiate prefab
     /// </summary>
-    private const string strGeradeschiene = "Straight270Final";
+    public GameObject prefabToInstant;
 
     /// <summary>
-    /// name of prefab for begin or first Straight
-    /// </summary>
-    private const string strrailstart="RailStart";
-
-        /// <summary>
-    /// name of prefab for end or final  Straight
-    /// </summary>
-    private const string strrailend="RailEnd";
-    /// <summary>
-    /// name of prefab for curve left
-    /// </summary>
-    private const string strCurveleft = "CurveL0Final";
-
-    /// <summary>
-    /// name of prefab for curve rigth
-    /// </summary>
-    private const string strCurverigth = "CurveR0Final";
-
-    /// <summary>
-    /// name of prefab for tunnel in
-    /// </summary>
-    private const string strTunelin = "TunnelIn";
-
-    /// <summary>
-    /// name of prefab for tunnel out
-    /// </summary>
-    private const string strTunelout = "TunnelOut";
-
-    /// <summary>
-    /// name of prefab for switch left 0
-    /// </summary>
-    private const string strSwitchl0 = "SwitchL0Final";
-
-    /// <summary>
-    /// name of prefab for switch left 1
-    /// </summary>
-    private const string strSwitchl1 = "SwitchL1Final";
-
-    /// <summary>
-    /// name of prefab for switch rigth 0
-    /// </summary>
-    private const string strSwitchr0 ="SwitchR0Final";
-
-    /// <summary>
-    /// name of prefab for switch rigth 1
-    /// </summary>
-    private const string strSwitchr1 ="SwitchR1Final";
-
-    /// <summary>
-    /// game object for instantiate prefab
-    /// </summary>
-    public GameObject prefabtoinstant;
-
-    /// <summary>
-    /// this will indicate if the prefab will  have a preview or not
+    /// This will indicate if the prefab will  have a preview or not
     /// </summary>
     public bool isPreviewOn;
 
     /// <summary>
-    /// rotation of the instantiat prefab
+    /// Rotation of the instantiat prefab
     /// </summary>
     public float rotate = 0;
 
     /// <summary>
-    /// reference of the local player (current player) --> me 
+    /// Reference of the local player (current player) --> me 
     /// </summary>
     public Player player = null;
 
     /// <summary>
-    /// old mouse position on sean
+    /// Old mouse position on sean
     /// </summary>
     private Vector3 oldMousePosition;
 
     /// <summary>
-    ///  regestrait the new position of the mouse
+    /// Regestrait the new position of the mouse
     /// </summary>
     private Vector3 newMousePosition;
 
     /// <summary>
-    /// 
+    /// Object of the script Grid 
     /// </summary>
     private Grid grid;
 
     /// <summary>
-    /// 
+    /// This is the preview of an object
     /// </summary>
     private GameObject objectPreview;
 
     /// <summary>
-    /// a flag to indicat if is permited to drag a game object on the game if it is false than will note create the game object on the game
+    /// A flag to indicat if is permited to drag a game object on the game if it is false than will note create the game object on the game
     /// </summary>
     private bool canDrag;
 
     /// <summary>
-    /// ray helfe to get mouse position on sean
+    /// Ray helfe to get mouse position on sean
     /// </summary>
     private Ray ray;
     
@@ -125,7 +71,6 @@ public class ObjectPlacer : MonoBehaviour
     /// </summary>
     private int actualSceneIndex;
     
-
     /// <summary>
     /// The object of type "Grid" is searched and stored in a local variable for later use. 
     /// </summary>
@@ -135,7 +80,6 @@ public class ObjectPlacer : MonoBehaviour
         grid = FindObjectOfType<Grid>();
         actualSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
-
 
     /// <summary>
     /// When the right mouse button is pressed, the "PlaceObjectNearPoint" method is called.
@@ -175,22 +119,20 @@ public class ObjectPlacer : MonoBehaviour
 
     /// <summary>
     /// The point you clicked on in the game world is transformed into a coordinate and also adapted to the grid. 
-    /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated. 
-    /// if the created object generat a collision with other objectes  then will this object  destroyed
-    /// if the dictance of poit0 of the both objectes (created and adjacent object) not more than 0.5 units also (composed) 
-    /// but in in wrong direction then will this object  destroyed 
-    /// Variables:
-    /// hitInfo: collision informations 
-    /// finalPosition: the adjusted position with Grid
-    /// gamob: helfs variabl to stor the colded game Object
-    /// arrpoint0: cordination of poin0 of the instantiate game object 
-    /// arrpoint00: cordination of poin0 of the hited colleder game object 
-    /// arrpoint3:cordination of poin3 of the instantiate game object 
-    /// arrpoint33 : cordination of poin3 of the hited colleder game object 
-    /// hitColliders: the hited collider with the instantiate gameobject
-    /// colls:collision informations  containt all collisions 
-    /// dist: the destance between tow same point of tow defrent game object (instantiated game object and the collided game object)
-    /// centerpoint: the cordenation of the created boxcollider  to detect wich object is around the instatiated game object
+    /// Depending on the value of the passing parameter, either an object is created or a preview of the object is generated.  
+    /// In addition, it is checked whether the rules of placing rails are observed. 
+    /// hitInfo: Collision informations 
+    /// finalPosition: The adjusted position with Grid
+    /// gamob: Help variable to store the current gameobject
+    /// arrpoint0: Coordinate of Point0 of the instantiate gameobject 
+    /// arrpoint00: Coordinate of Point0 of the hited collider gameobject 
+    /// arrpoint3: Coordinate of Point3 of the instantiate gameobject 
+    /// arrpoint33 : Coordinate of Point3 of the hit collider gameobject 
+    /// hitColliders: The hit collider with the instantiate gameobject
+    /// colls: Collision informations which contains all collisions 
+    /// dist: The distance between two same point of two different game objects (instantiated game object and the collided gameobject)
+    /// centerpoint: The coordinate of the created boxcollider to detect which object is around the instatiated gameobject
+    /// i: Index for the for loop 
     /// </summary>
     /// <param name="isObjectPreview">Is the object a preview of an object or not</param>
     /// @author Ronja Haas & Anna-Lisa Müller & Ahmed L'harrak
@@ -204,21 +146,20 @@ public class ObjectPlacer : MonoBehaviour
             var finalPosition = grid.GetNearestPointOnGrid(hitInfo.point);
             if (isObjectPreview)
             {
-                objectPreview = Instantiate(prefabtoinstant, finalPosition, Quaternion.Euler(0, rotate, 0));
-                objectPreview.name = prefabtoinstant.name;
+                objectPreview = Instantiate(prefabToInstant, finalPosition, Quaternion.Euler(0, rotate, 0));
+                objectPreview.name = prefabToInstant.name;
                 objectPreview.GetComponent<Collider>().enabled = false;
-                if (prefabtoinstant.name == strTunelin || prefabtoinstant.name == strTunelout)
+                if (prefabToInstant.name == RailName.TunnelIn || prefabToInstant.name == RailName.TunnelOut)
                 {
                     foreach (Transform c in objectPreview.transform.GetChild(0).GetComponentInChildren<Transform>())
                     {
                         if (c.name != "Route")
-                        {
-                            
+                        {    
                             c.GetComponent<Renderer>().material.color = new Color(255, 20, 147, 0.5f);
                         }
                     }
                 }
-                else if (prefabtoinstant.name == strSwitchr0 || prefabtoinstant.name == strSwitchr1 || prefabtoinstant.name == strSwitchl0 || prefabtoinstant.name == strSwitchl1)
+                else if (prefabToInstant.name == RailName.RailSwitchLeft || prefabToInstant.name == RailName.RailSwitchRight || prefabToInstant.name == RailName.RailCollectRight|| prefabToInstant.name == RailName.RailCollectLeft)
                 {
                     for (int i = 0; i < 2; i++)
                     {
@@ -271,12 +212,12 @@ public class ObjectPlacer : MonoBehaviour
                                 break;
                             }
                         }
-                        if(canDrag==false)
+                        if (canDrag==false)
                         {
                             break;
                         }
                     }
-                    if(canDrag==false)
+                    if (canDrag==false)
                     {
                         break;
                     }
@@ -296,12 +237,12 @@ public class ObjectPlacer : MonoBehaviour
                                 break;
                             }
                         }
-                        if(canDrag==false)
+                        if (canDrag==false)
                         {
                             break;
                         }
                     }
-                    if(canDrag==false)
+                    if (canDrag==false)
                     {
                         break;
                     }
@@ -316,8 +257,8 @@ public class ObjectPlacer : MonoBehaviour
                 }
                 if (canDrag)
                 {
-                    if(player != null){
-                        player.anrufen(prefabtoinstant.name, finalPosition, rotate, true);   
+                    if (player != null){
+                        player.Call(prefabToInstant.name, finalPosition, rotate, true);   
                     }
                 }
             }
@@ -325,45 +266,37 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     /// <summary>
-    /// this function becomm a collider gameobject and point name
-    ///it will search for the point ther is 3 options if the object tunel then the point in 3 level deep
-    ///if it is straight then deep level 2 else the object is somthing else the mybe have not rout gameobject that have points
-    /// result:
+    /// Finds the position of the gameobject which is in the Drag and Drop Bar.
+    /// result: This is the position which is searched
     /// </summary>
-    /// <param name="hitCollider"> this game object (adjacent objecte) does not far more than 2 units from the place of instantiate the prefab </param>
-    /// <param name="point">the name of the point of the hitcolider (this point should at ende or begin this gameobject )</param>
-    /// <returns>this function will return vector3 of the searched point </returns>
+    /// <param name="hitCollider">This game object (adjacent objecte) does not far more than 2 units from the place of instantiate the prefab </param>
+    /// <param name="point">The name of the point of the hitcolider (this point should be at the end or begin from this gameobject)</param>
+    /// <returns>Vector3 of the searched point</returns>
     /// @author Ahmed L'harrak
-    ///
     Vector3[] GetPosition(GameObject hitCollider, String point)
     {
-     Vector3[] result= new Vector3[2];
+        Vector3[] result = new Vector3[2];
 
-        
-
-        if (hitCollider.name == strTunelout || hitCollider.name == strTunelin)
-        {
-            
+        if (hitCollider.name == RailName.TunnelOut || hitCollider.name == RailName.TunnelIn)
+        {      
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == strGeradeschiene || hitCollider.name == strCurveleft|| hitCollider.name == strCurverigth|| hitCollider.name == strrailend|| hitCollider.name == strrailstart)
+        else if (hitCollider.name == RailName.RailStraight || hitCollider.name == RailName.RailCurveLeft|| hitCollider.name == RailName.RailCurveRight|| hitCollider.name == RailName.RailEnd|| hitCollider.name == RailName.RailStart)
         {
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = Vector3.positiveInfinity;
         }
-        else if (hitCollider.name == strSwitchl0 || hitCollider.name == strSwitchl1 || hitCollider.name == strSwitchr0 || hitCollider.name == strSwitchr1)
+        else if (hitCollider.name == RailName.RailCollectRight|| hitCollider.name == RailName.RailCollectLeft || hitCollider.name == RailName.RailSwitchLeft || hitCollider.name == RailName.RailSwitchRight)
         {
             result[0] = hitCollider.transform.GetChild(0).Find("Route").Find(point).position;
             result[1] = hitCollider.transform.GetChild(1).Find("Route").Find(point).position;
-            //Debug.Log("hitcollieder name : "+result[0]+"  result 1 :"+result[1]);
         }
         else
         {
             result[0] = Vector3.positiveInfinity;
             result[1] = Vector3.positiveInfinity;
         }
-    
         return result;
     }
 

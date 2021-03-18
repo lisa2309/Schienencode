@@ -4,7 +4,7 @@
 /// <summary>
 /// A grid is created and points are adjusted to the grid
 /// </summary>
-/// Quelle: https://www.youtube.com/watch?v=VBZFYGWvm4A
+/// @source: https://www.youtube.com/watch?v=VBZFYGWvm4A
 /// @author Jason Weimann 
 public class Grid : MonoBehaviour
 {
@@ -44,6 +44,8 @@ public class Grid : MonoBehaviour
     /// <summary>
     /// Creates a grid of yellow dots that serve as orientation when designing a level and other objects
     /// point: Variable of the X, Y and Z coordinate for a single grid point
+    /// x: Index for the for loop
+    /// z: Index for the for loop
     /// </summary>
     private void OnDrawGizmos()
     {

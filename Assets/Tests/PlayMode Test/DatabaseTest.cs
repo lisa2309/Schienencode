@@ -17,7 +17,7 @@ namespace Tests
         {
             GameObject gameObject = new GameObject("TestDB");
             DatabaseConnector dbc = gameObject.AddComponent<DatabaseConnector>();
-            dbc.boardname = "testName";
+            dbc.boardName = "testName";
             dbc.PostToDatabase(new Board("Board:", "Mission:"));
             Thread.Sleep(50);
             dbc.RetrieveFromDatabase();

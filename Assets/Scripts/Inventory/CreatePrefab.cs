@@ -5,41 +5,38 @@ using UnityEngine.UI;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// the current gameobject will marked as nexte instansiated gameobject
+/// The current gameobject will marked as nexte instansiated gameobject
 /// </summary>
 /// @author Ahmed L'harrak
 public class CreatePrefab : MonoBehaviour
 {
     /// <summary>
-    /// that is the prefab that will craeted
+    /// That is the prefab that will be created
     /// </summary>
     public GameObject currentPrefab;
 
     /// <summary>
-    /// in this varible is the rotation of created prefabs saved
+    /// The rotation of the created prefabs
     /// </summary>
     private float rotate;
 
     /// <summary>
-    /// script objectplacer there is for placment this prefabe responsable is
+    /// Object of the script ObjectPlacer
     /// </summary>
     private ObjectPlacer objectPlacer;
 
     /// <summary>
-    /// call the public gameobject  variable of Objectplacer class and change it to current gameobject 
-    /// so that whenn the player an Object  created then will be the current object of this panel windows
-    /// position:
-    /// ray:
+    /// Call the public gameobject  variable of Objectplacer class and change it to the current gameobject 
+    /// so that, when the player creats an object. Then this will be the current object of this panel window
+    /// ray: Mouse position in the scene
     /// </summary>
     /// @author Ahmed L'harrak
     public void CreateRail()
     {
         rotate = PlayerPrefs.GetFloat(currentPrefab.name);
-        Vector3 position;
         Ray ray = new Ray(Camera.main.transform.position, Vector3.forward);
-        position = ray.GetPoint(Camera.main.farClipPlane / 2);
         objectPlacer = FindObjectOfType<ObjectPlacer>();
-        objectPlacer.prefabtoinstant = currentPrefab;
+        objectPlacer.prefabToInstant = currentPrefab;
         objectPlacer.rotate = rotate;
         Debug.Log(rotate);
         objectPlacer.isPreviewOn = true;

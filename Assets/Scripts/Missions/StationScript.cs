@@ -3,8 +3,8 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// This class is attached to a trainstation-prefab which have influence to the route of the train, so the player can define
-/// which path the train should chose
+/// This class is attached to a trainstation-prefab which have influence to the route of the train. So the player can define
+/// which path the train should choose
 /// </summary>
 /// @author Ahmed L'harrak & Bastian Badde
 public class StationScript : MonoBehaviour
@@ -15,9 +15,9 @@ public class StationScript : MonoBehaviour
     public int stationNumber;
     
     /// <summary>
-    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// Bool which is true if InitOutTunnel() is already invoked (default value is false)
     /// </summary>
-    public bool IsInited { private set; get; }
+    public bool isInited { private set; get; }
 
     /// <summary>
     /// MissionProver object of the scene for organisation
@@ -35,7 +35,6 @@ public class StationScript : MonoBehaviour
     /// </summary>
     public int cargoAdditionNumber;
 
-
     /// <summary>
     /// Called by Collision. Increases the cargovalue of the station by the cargoAdditionNumber
     /// </summary>
@@ -52,7 +51,7 @@ public class StationScript : MonoBehaviour
     /// @author Ahmed L'harrak & Bastian Badde
     void OnMouseDown()
     {
-        if (!MissionProver.deleteOn && !MissionProver.panelisOpen)
+        if (!MissionProver.deleteOn && !MissionProver.panelIsOpen)
         {
             prover.UpdateStation(this.stationNumber, this);
             OpenPanel();
@@ -78,7 +77,7 @@ public class StationScript : MonoBehaviour
                 {
                     if (!panel.gameObject.activeSelf)
                     {
-                        MissionProver.panelisOpen = true;
+                        MissionProver.panelIsOpen = true;
                         panels.SetActive(true);
                         panel.gameObject.SetActive(true);
                     }
@@ -97,7 +96,7 @@ public class StationScript : MonoBehaviour
         cargoAdditionNumber = 1;
         prover = FindObjectOfType<MissionProver>();
         this.stationNumber = prover.RegisterNewStation(this);
-        IsInited = true;
+        isInited = true;
     }
 
 }
