@@ -9,66 +9,6 @@ using UnityEngine;
 /// @author Florian Vogel & Bjarne Bensel 
 public class Routing : MonoBehaviour
 {
-    ///// <summary>
-    ///// Prefabname of straight rail
-    ///// </summary>
-    //private const string RailStraight = "Straight270Final";
-
-    ///// <summary>
-    ///// Prefabname of Curve rail Left
-    ///// </summary>
-    //private const string RailCurveLeft = "CurveL0Final";
-
-    ///// <summary>
-    ///// Prefabname of Curve rail Right
-    ///// </summary>
-    //private const string RailCurveRight = "CurveR0Final";
-
-    ///// <summary>
-    ///// Prefabname of Switch rail Left
-    ///// </summary>
-    //private const string RailSwitchLeft = "SwitchR0Final";
-
-    ///// <summary>
-    ///// Prefabname of Switch rail Right
-    ///// </summary>
-    //private const string RailSwitchRight = "SwitchR1Final";
-
-    ///// <summary>
-    ///// Prefabname of Collection rail Right
-    ///// </summary>
-    //private const string RailCollectRight = "SwitchL0Final";
-
-    ///// <summary>
-    ///// Prefabname of Collection rail Left
-    ///// </summary>
-    //private const string RailCollectLeft = "SwitchL1Final";
-
-    ///// <summary>
-    ///// Prefabname of start rail
-    ///// </summary>
-    //private const string RailStart = "RailStart";
-
-    ///// <summary>
-    ///// Prefabname of End rail
-    ///// </summary>
-    //private const string RailEnd = "RailEnd";
-
-    ///// <summary>
-    ///// Prefabname of TrainStation
-    ///// </summary>
-    //private const string TrainStation = "TrainStation";
-
-    ///// <summary>
-    ///// Prefabname of Tunnel entrance
-    ///// </summary>
-    //private const string TunnelIn = "TunnelIn";
-
-    ///// <summary>
-    ///// Prefabname of Tunnel exit
-    ///// </summary>
-    //private const string TunnelOut = "TunnelOut";
-
     /// <summary>
     /// Subelement of Rail Prefab corresponds to route where Route script is attached
     /// </summary>
@@ -191,7 +131,7 @@ public class Routing : MonoBehaviour
         tunnelExits = new List<GameObject>();
         foreach (GameObject rail in rails)
         {
-            if (rail.name.Contains(TunnelOut))
+            if (rail.name.Contains(RailName.TunnelOut))
             {
                 tunnelExits.Add(rail);
             }
@@ -217,7 +157,7 @@ public class Routing : MonoBehaviour
                     if (rail.transform.position.z == (buffer.transform.position.z + GetDirectionZ(buffer) * 4) || rail.transform.position.z == (buffer.transform.position.z + GetDirectionZ(buffer) * 6))
                     {
                         Debug.Log("1: " + rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position + " 2: " + buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position);
-                        if (((buffer.name.Contains(RailSwitchLeft) || buffer.name.Contains(RailSwitchRight)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(1).Find(BezierShape).Find(exitPoint).position) < 0.5f) || ((rail.name.Contains(RailCollectRight) || rail.name.Contains(RailCollectLeft)) && Vector3.Distance(rail.transform.GetChild(1).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f))
+                        if (((buffer.name.Contains(RailName.RailSwitchLeft) || buffer.name.Contains(RailName.RailSwitchRight)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(1).Find(BezierShape).Find(exitPoint).position) < 0.5f) || ((rail.name.Contains(RailName.RailCollectRight) || rail.name.Contains(RailName.RailCollectLeft)) && Vector3.Distance(rail.transform.GetChild(1).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f))
                         {
                             Debug.Log("next rail found: " + rail.name);
                             railFound = true;
@@ -231,12 +171,12 @@ public class Routing : MonoBehaviour
                                 ResetStartbutton();
                                 break;
                             }
-                            if ((rail.name.Contains(RailSwitchLeft) || rail.name.Contains(RailSwitchRight)) && switchGoStraight(rail, i))
+                            if ((rail.name.Contains(RailName.RailSwitchLeft) || rail.name.Contains(RailName.RailSwitchRight)) && switchGoStraight(rail, i))
                             {
                                 routePoints.Add(rail.transform.GetChild(1).Find(BezierShape));
                                 buffer = rail;
                             }
-                            else if ((rail.name.Contains(RailCollectRight) || rail.name.Contains(RailCollectLeft)))
+                            else if ((rail.name.Contains(RailName.RailCollectRight) || rail.name.Contains(RailName.RailCollectLeft)))
                             {
                                 if (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f)
                                 {
@@ -248,7 +188,7 @@ public class Routing : MonoBehaviour
                                 }
                                 buffer = rail;
                             }
-                            else if (rail.name.Contains(TunnelIn))
+                            else if (rail.name.Contains(RailName.TunnelIn))
                             {
                                 tunnelFound = false;
                                 routePoints.Add(rail.transform.GetChild(0).Find(BezierShape));
@@ -313,7 +253,7 @@ public class Routing : MonoBehaviour
     {
         Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
 
-        if (obj.name.Contains(RailStraight) || obj.name.Contains(TrainStation))
+        if (obj.name.Contains(RailName.RailStraight) || obj.name.Contains(RailName.TrainStation))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -324,7 +264,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(TunnelOut))
+        else if (obj.name.Contains(RailName.TunnelOut))
         {
             if ((int)obj.transform.localEulerAngles.y == 90)
             {
@@ -335,7 +275,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(RailCurveLeft))
+        else if (obj.name.Contains(RailName.RailCurveLeft))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -346,7 +286,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name.Contains(RailCurveRight))
+        else if (obj.name.Contains(RailName.RailCurveRight))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -357,7 +297,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name.Contains(RailStart) || obj.name.Contains(RailEnd))
+        else if (obj.name.Contains(RailName.RailStart) || obj.name.Contains(RailName.RailEnd))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -368,7 +308,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(RailSwitchLeft))
+        else if (obj.name.Contains(RailName.RailSwitchLeft))
         {
             if (straight)
             {
@@ -401,7 +341,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name.Contains(RailSwitchRight))
+        else if (obj.name.Contains(RailName.RailSwitchRight))
         {
             if (straight)
             {
@@ -434,7 +374,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name.Contains(RailCollectRight) || obj.name.Contains(RailCollectLeft))
+        else if (obj.name.Contains(RailName.RailCollectRight) || obj.name.Contains(RailName.RailCollectLeft))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -456,7 +396,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private double GetDirectionZ(GameObject obj)
     {
-        if (obj.name.Contains(RailStraight) || obj.name.Contains(TrainStation))
+        if (obj.name.Contains(RailName.RailStraight) || obj.name.Contains(RailName.TrainStation))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -467,7 +407,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(TunnelOut))
+        else if (obj.name.Contains(RailName.TunnelOut))
         {
             if ((int)obj.transform.localEulerAngles.y == 0)
             {
@@ -478,7 +418,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(RailCurveLeft))
+        else if (obj.name.Contains(RailName.RailCurveLeft))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -489,7 +429,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name.Contains(RailCurveRight))
+        else if (obj.name.Contains(RailName.RailCurveRight))
         {
             if ((int)obj.transform.localEulerAngles.y == 270)
             {
@@ -500,7 +440,7 @@ public class Routing : MonoBehaviour
                 return 1;
             }
         }
-        else if (obj.name.Contains(RailStart) || obj.name.Contains(RailEnd))
+        else if (obj.name.Contains(RailName.RailStart) || obj.name.Contains(RailName.RailEnd))
         {
             if ((int)obj.transform.localEulerAngles.y == 180)
             {
@@ -511,7 +451,7 @@ public class Routing : MonoBehaviour
                 return -1;
             }
         }
-        else if (obj.name.Contains(RailSwitchLeft))
+        else if (obj.name.Contains(RailName.RailSwitchLeft))
         {
             if (straight)
             {
@@ -544,7 +484,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name.Contains(RailSwitchRight))
+        else if (obj.name.Contains(RailName.RailSwitchRight))
         {
             if (straight)
             {
@@ -577,7 +517,7 @@ public class Routing : MonoBehaviour
                 }
             }
         }
-        else if (obj.name.Contains(RailCollectRight) || obj.name.Contains(RailCollectLeft))
+        else if (obj.name.Contains(RailName.RailCollectRight) || obj.name.Contains(RailName.RailCollectLeft))
         {
             if ((int)obj.transform.localEulerAngles.y == 90)
             {
@@ -602,7 +542,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private bool switchGoStraight(GameObject switchrail, int railCounter)
     {
-        if (switchrail.name.Contains(RailSwitchLeft) || switchrail.name.Contains(RailSwitchRight))
+        if (switchrail.name.Contains(RailName.RailSwitchLeft) || switchrail.name.Contains(RailName.RailSwitchRight))
         {
             Debug.Log(switchrail.name + " ABCDE " + switchrail.GetComponent<SwitchScript>().mode);
 
@@ -662,7 +602,7 @@ public class Routing : MonoBehaviour
         int counter = 0;
         foreach (GameObject rail in rails)
         {
-            if (rail.name.Contains(TrainStation))
+            if (rail.name.Contains(RailName.TrainStation))
             {
                 if (rail.transform.GetChild(1).GetComponent<StationScript>().stationNumber == TrainStationCounter)
                 {

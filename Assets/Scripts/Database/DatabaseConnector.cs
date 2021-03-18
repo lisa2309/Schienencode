@@ -100,40 +100,40 @@ namespace Database
             switch (code)
             {
                 case "0":
-                    name = "Straight270Final";
+                    name = RailName.RailStraight; 
                     break;
                 case "5":
-                    name = "TunnelIn";
+                    name = RailName.TunnelIn;
                     break;
                 case "6":
-                    name = "TunnelOut";
+                    name = RailName.TunnelOut;
                     break;
                 case "10":
-                    name = "CurveL0Final";
+                    name = RailName.RailCurveLeft;
                     break;
                 case "11":
-                    name = "CurveR0Final";
+                    name = RailName.RailCurveRight;
                     break;
                 case "15":
-                    name = "SwitchL0Final";;
+                    name = RailName.RailCollectRight; 
                     break;
                 case "16":
-                    name = "SwitchL1Final";
+                    name = RailName.RailCollectLeft;
                     break;
                 case "17":
-                    name = "SwitchR0Final";
+                    name = RailName.RailSwitchLeft;
                     break;
                 case "18":
-                    name = "SwitchR1Final";
+                    name = RailName.RailSwitchRight;
                     break;
                 case "20":
-                    name = "RailStart";
+                    name = RailName.RailStart;
                     break;
                 case "21":
-                    name = "RailEnd";
+                    name = RailName.RailEnd;
                     break;
                 case "30":
-                    name = "TrainStation";
+                    name = RailName.TrainStation;
                     break;
                 default:
                     name = null;

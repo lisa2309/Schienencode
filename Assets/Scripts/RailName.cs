@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// 
+/// Here are all names for the prefab rails in the game. 
 /// </summary>
-/// @author Ronja Haas & Anna-Lisa Müller
-public static class RailNames 
+/// @author Ronja Haas & Anna-Lisa Müller & Florian Vogel & Bjarne Bensel
+public static class RailName
 {
-
     /// <summary>
     /// Prefabname of Straight rail
     /// </summary>
