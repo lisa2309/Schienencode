@@ -70,7 +70,7 @@ namespace Database
         public void BuildFromDB()
         {
             MissionProver.buildOnDB = true;
-            string boardInfo = board.boardString.Split(':')[1];
+            string boardInfo = board.BoardString.Split(':')[1];
             string[] structures = boardInfo.Split(';');
             string[] coordinates;
             float x, z, rot;
@@ -181,7 +181,7 @@ namespace Database
         /// @author
         private void CreateMission()
         {
-            string missionInfo = board.missionString.Split(':')[1];
+            string missionInfo = board.MissionString.Split(':')[1];
             string[] cargos = missionInfo.Split(';');
             int[] cargosInt = new int[cargos.Length];
             int i = 0;

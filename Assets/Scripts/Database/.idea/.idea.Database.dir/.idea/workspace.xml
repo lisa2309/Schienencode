@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2714d581-b8ed-4e7c-9cb7-090c980c5f94" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map5.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Database.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Routing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Routing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Board.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseConnector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseConnector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +55,11 @@
     <setting file="file://$PROJECT_DIR$/../Inventory/CreatePrefab.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../SwitchScript.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Tests/PlayMode Test/RoutingTest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../newMaster/ws20-21-schienencode/Assets/Scripts/Database/Board.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Tests/PlayMode Test/DatabaseTest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DeleteRail.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../MusicPlayer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../newMaster/ws20-21-schienencode/Assets/Scripts/Database/DatabaseConnector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Help.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Routing.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../GameServer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,6 +72,7 @@
     <setting file="file://$PROJECT_DIR$/../Route.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../SceneLoader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DatabaseConnector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Board.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -76,7 +85,6 @@
         <option value="$PROJECT_DIR$/../DeleteRail.cs" />
         <option value="$PROJECT_DIR$/../Grid.cs" />
         <option value="$PROJECT_DIR$/../MusicPlayer.cs" />
-        <option value="$PROJECT_DIR$/Board.cs" />
         <option value="$PROJECT_DIR$/../Inventory/Panel.cs" />
         <option value="$PROJECT_DIR$/../Inventory/RotationButton.cs" />
         <option value="$PROJECT_DIR$/../Mirror/MyNetworkManager.cs" />
@@ -93,13 +101,14 @@
         <option value="$PROJECT_DIR$/../SceneLoader.cs" />
         <option value="$PROJECT_DIR$/../SwitchScript.cs" />
         <option value="$PROJECT_DIR$/../Missions/MissionProver.cs" />
-        <option value="$PROJECT_DIR$/DatabaseConnector.cs" />
         <option value="$PROJECT_DIR$/../Mirror/Player.cs" />
         <option value="$PROJECT_DIR$/../../Tests/PlayMode Test/DatabaseTest.cs" />
         <option value="$PROJECT_DIR$/../../Tests/PlayMode Test/RoutingTest.cs" />
         <option value="$PROJECT_DIR$/../Inventory/CreatePrefab.cs" />
         <option value="$PROJECT_DIR$/../ObjectPlacer.cs" />
         <option value="$PROJECT_DIR$/../Routing.cs" />
+        <option value="$PROJECT_DIR$/DatabaseConnector.cs" />
+        <option value="$PROJECT_DIR$/Board.cs" />
       </list>
     </option>
   </component>
@@ -127,6 +136,8 @@
       <workItem from="1615498362539" duration="2222000" />
       <workItem from="1616008866606" duration="13744000" />
       <workItem from="1616058501538" duration="1343000" />
+      <workItem from="1616070618738" duration="1118000" />
+      <workItem from="1616075887326" duration="647000" />
     </task>
     <servers />
   </component>

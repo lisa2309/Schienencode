@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  boardName: pirates
+  boardName: marin
 --- !u!4 &1023321543
 Transform:
   m_ObjectHideFlags: 0
