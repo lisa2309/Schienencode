@@ -182,7 +182,7 @@ public class Routing : MonoBehaviour
 
         rails.Add(finish);
 
-        Debug.Log("Größe rails List: " + rails.Count);
+        Debug.Log("Size of rails List: " + rails.Count);
 
         drivePast = new int[rails.Count];
 
@@ -201,12 +201,12 @@ public class Routing : MonoBehaviour
         while (!finished && railFound)
         {
             railFound = false;
-            Debug.Log("While durchgang");
+            Debug.Log("In While");
 
             int i = 0;
             foreach (GameObject rail in rails)
             {
-                Debug.Log("rail komponente: " + rail.transform);
+                Debug.Log("rail: " + rail.transform);
                 Debug.Log("x: " + rail.transform.position.x + " = " + buffer.transform.position.x + " + " + getDirectionX(buffer));
 
                 if (rail.transform.position.x == (buffer.transform.position.x + getDirectionX(buffer) * 4) || rail.transform.position.x == (buffer.transform.position.x + getDirectionX(buffer) * 6))
@@ -309,7 +309,7 @@ public class Routing : MonoBehaviour
     /// @author Florian Vogel & Bjarne Bensel 
     private double getDirectionX(GameObject obj)
     {
-        Debug.Log("schienewinkel: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
+        Debug.Log("rail angle: " + (int)obj.transform.localEulerAngles.y + " Name: " + obj.name);
 
         if (obj.name.Contains(railStraight) || obj.name.Contains(trainStation))
         {
@@ -651,13 +651,11 @@ public class Routing : MonoBehaviour
     /// Returns position of a trainstation in rails array 
     /// </summary>
     /// <param name="trainstationCounter">Number of Trainstation to find in rails array</param>
-    /// foundStation: counter for all found trainstations
     /// counter: position in rails array
     /// <returns>integer value between -1 (for error) and sizeofrails</returns>
     /// @author Florian Vogel & Bjarne Bensel 
     int getTrainStation(int trainstationCounter)
     {
-        int foundStation = 0;
         int counter = 0;
         foreach (GameObject rail in rails)
         {
@@ -666,17 +664,17 @@ public class Routing : MonoBehaviour
                 if (rail.transform.GetChild(1).GetComponent<StationScript>().stationNumber == trainstationCounter)
                 {
                     return counter;
-                }
-                else
-                {
-                    foundStation++;
-                }
+                }               
             }
             counter++;
         }
         return -1;
     }
 
+    /// <summary>
+    /// reaktivates the start and delete button after a routing failure 
+    /// </summary>
+    /// @author Florian Vogel & Bjarne Bensel 
     private void resetStartbutton()
     {
         startTrain.SetActive(true);
