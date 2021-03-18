@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  boardName: snow
+  boardName: pirates
 --- !u!4 &1023321543
 Transform:
   m_ObjectHideFlags: 0
@@ -9692,12 +9692,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 272149007}
     m_Modifications:
+    - target: {fileID: 947119022209366333, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 947119022558542246, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 947119022558542247, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 947119023596864991, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
@@ -9710,6 +9720,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f8e1e57b07c3398409030edbe4fb7731,
         type: 3}
+    - target: {fileID: 2011705935707917366, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011705936191311020, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 2011705936191311021, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
@@ -9722,12 +9742,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f8e1e57b07c3398409030edbe4fb7731,
         type: 3}
+    - target: {fileID: 2511210206685272994, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 2511210206685272995, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 2511210207269329720, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592273136793890, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_IsActive
@@ -10080,6 +10110,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2643592274404551616, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592274404551617, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
@@ -10422,6 +10457,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2643592274751630170, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592274770669855, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -10494,12 +10534,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 4927125247791869555, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927125248138948329, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 5524555332989690309, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 03746fbb286fdd44bad7b63bf026ca7f,
         type: 3}
+    - target: {fileID: 5735292252141992212, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735292252589734286, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 5735292252589734287, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
@@ -10524,12 +10584,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 6837329776923401001, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837329777513749427, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 7445957631983960220, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 7445957631983960221, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445957632710623239, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 7445957633025981669, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
@@ -10542,12 +10622,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f8e1e57b07c3398409030edbe4fb7731,
         type: 3}
+    - target: {fileID: 8873736692728917306, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabRight
+      objectReference: {fileID: 0}
     - target: {fileID: 8873736692728917307, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 96631b2ac2b2f4d4e8809dd57d2d6ec2,
         type: 3}
+    - target: {fileID: 8873736693210213792, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RotatePrefabLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 8967074340862108174, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_Sprite

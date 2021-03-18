@@ -225,12 +225,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  geradeSchiene: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
+  straightRail: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
     type: 3}
-  kurveRo: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a, type: 3}
-  kurveLo: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859, type: 3}
-  tunelIn: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6, type: 3}
-  tunelOut: {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e,
+  curveR0: {fileID: 8460971524279064734, guid: a3881a7a41d0e6f45922cb98d7458e1a, type: 3}
+  curveL0: {fileID: 3268761637280383396, guid: e29bb1cfbe82fd14490605fb1f971859, type: 3}
+  tunnelIn: {fileID: 3251271527635132867, guid: 016628445d480e646ae9a3f810a630c6,
+    type: 3}
+  tunnelOut: {fileID: 5954553928106778053, guid: 539ee4839211fb24da4d208baff4d90e,
     type: 3}
   station: {fileID: 7116579443113338526, guid: 4c49f6d90788f564b8f21c594281461e, type: 3}
   switchL0: {fileID: 708939981515953305, guid: d877d5865b7dbcf498a2c6638a6edf08, type: 3}
