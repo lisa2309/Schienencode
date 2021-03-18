@@ -9,65 +9,65 @@ using UnityEngine;
 /// @author Florian Vogel & Bjarne Bensel 
 public class Routing : MonoBehaviour
 {
-    /// <summary>
-    /// Prefabname of straight rail
-    /// </summary>
-    private const string RailStraight = "Straight270Final";
+    ///// <summary>
+    ///// Prefabname of straight rail
+    ///// </summary>
+    //private const string RailStraight = "Straight270Final";
 
-    /// <summary>
-    /// Prefabname of Curve rail Left
-    /// </summary>
-    private const string RailCurveLeft = "CurveL0Final";
+    ///// <summary>
+    ///// Prefabname of Curve rail Left
+    ///// </summary>
+    //private const string RailCurveLeft = "CurveL0Final";
 
-    /// <summary>
-    /// Prefabname of Curve rail Right
-    /// </summary>
-    private const string RailCurveRight = "CurveR0Final";
+    ///// <summary>
+    ///// Prefabname of Curve rail Right
+    ///// </summary>
+    //private const string RailCurveRight = "CurveR0Final";
 
-    /// <summary>
-    /// Prefabname of Switch rail Left
-    /// </summary>
-    private const string RailSwitchLeft = "SwitchR0Final";
+    ///// <summary>
+    ///// Prefabname of Switch rail Left
+    ///// </summary>
+    //private const string RailSwitchLeft = "SwitchR0Final";
 
-    /// <summary>
-    /// Prefabname of Switch rail Right
-    /// </summary>
-    private const string RailSwitchRight = "SwitchR1Final";
+    ///// <summary>
+    ///// Prefabname of Switch rail Right
+    ///// </summary>
+    //private const string RailSwitchRight = "SwitchR1Final";
 
-    /// <summary>
-    /// Prefabname of Collection rail Right
-    /// </summary>
-    private const string RailCollectRight = "SwitchL0Final";
+    ///// <summary>
+    ///// Prefabname of Collection rail Right
+    ///// </summary>
+    //private const string RailCollectRight = "SwitchL0Final";
 
-    /// <summary>
-    /// Prefabname of Collection rail Left
-    /// </summary>
-    private const string RailCollectLeft = "SwitchL1Final";
+    ///// <summary>
+    ///// Prefabname of Collection rail Left
+    ///// </summary>
+    //private const string RailCollectLeft = "SwitchL1Final";
 
-    /// <summary>
-    /// Prefabname of start rail
-    /// </summary>
-    private const string RailStart = "RailStart";
+    ///// <summary>
+    ///// Prefabname of start rail
+    ///// </summary>
+    //private const string RailStart = "RailStart";
 
-    /// <summary>
-    /// Prefabname of End rail
-    /// </summary>
-    private const string RailEnd = "RailEnd";
+    ///// <summary>
+    ///// Prefabname of End rail
+    ///// </summary>
+    //private const string RailEnd = "RailEnd";
 
-    /// <summary>
-    /// Prefabname of TrainStation
-    /// </summary>
-    private const string TrainStation = "TrainStation";
+    ///// <summary>
+    ///// Prefabname of TrainStation
+    ///// </summary>
+    //private const string TrainStation = "TrainStation";
 
-    /// <summary>
-    /// Prefabname of Tunnel entrance
-    /// </summary>
-    private const string TunnelIn = "TunnelIn";
+    ///// <summary>
+    ///// Prefabname of Tunnel entrance
+    ///// </summary>
+    //private const string TunnelIn = "TunnelIn";
 
-    /// <summary>
-    /// Prefabname of Tunnel exit
-    /// </summary>
-    private const string TunnelOut = "TunnelOut";
+    ///// <summary>
+    ///// Prefabname of Tunnel exit
+    ///// </summary>
+    //private const string TunnelOut = "TunnelOut";
 
     /// <summary>
     /// Subelement of Rail Prefab corresponds to route where Route script is attached
