@@ -367,6 +367,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6372955301451741746, guid: c3a8c4fc8639a354486c5966984b2f16,
+        type: 3}
+      propertyPath: prefabToInstant
+      value: 
+      objectReference: {fileID: 7116579443113338526, guid: 7d78cb696cce38f428db5804c87515be,
+        type: 3}
     - target: {fileID: 6372955301451741747, guid: c3a8c4fc8639a354486c5966984b2f16,
         type: 3}
       propertyPath: m_Name
@@ -806,7 +812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ac3b447fdf8e54eaffaef764d226cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
 --- !u!1001 &555806431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2302,6 +2307,51 @@ PrefabInstance:
       propertyPath: missiontextP2
       value: 
       objectReference: {fileID: 2643592273404662569}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: missionText
+      value: 
+      objectReference: {fileID: 1803684388}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: missionTextP2
+      value: 
+      objectReference: {fileID: 2643592273404662569}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: station
+      value: 
+      objectReference: {fileID: 867372522}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: switchValue
+      value: 
+      objectReference: {fileID: 867372521}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: switchCompare
+      value: 
+      objectReference: {fileID: 867372520}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: whileSwitchValue
+      value: 
+      objectReference: {fileID: 867372519}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: whileSwitchCompare
+      value: 
+      objectReference: {fileID: 867372518}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: generalSwitch
+      value: 
+      objectReference: {fileID: 867372517}
+    - target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
+        type: 3}
+      propertyPath: inTunnelOpenOuts
+      value: 
+      objectReference: {fileID: 867372516}
     - target: {fileID: 7015809273591909166, guid: 6608d9de3e3c2034ea7da837432ae4d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2610,7 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  boardName: Pirates
+  boardName: snow
 --- !u!4 &1023321543
 Transform:
   m_ObjectHideFlags: 0
@@ -3793,7 +3843,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685589746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ac3b447fdf8e54eaffaef764d226cc, type: 3}
+  m_Script: {fileID: 11500000, guid: cdf51d4009bb9a349ba8b69b5aad1c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 2

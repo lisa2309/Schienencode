@@ -149,7 +149,7 @@ public class Routing : MonoBehaviour
             foreach (GameObject rail in rails)
             {
                 Debug.Log("rail: " + rail.transform);
-                Debug.Log("x: " + rail.transform.position.x + " = " + buffer.transform.position.x + " + " + getDirectionX(buffer));
+                Debug.Log("x: " + rail.transform.position.x + " = " + buffer.transform.position.x + " + " + GetDirectionX(buffer));
 
                 if (rail.transform.position.x == (buffer.transform.position.x + GetDirectionX(buffer) * 4) || rail.transform.position.x == (buffer.transform.position.x + GetDirectionX(buffer) * 6))
                 {
@@ -616,7 +616,7 @@ public class Routing : MonoBehaviour
     /// reaktivates the start and delete button after a routing failure 
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
-    private void resetStartbutton()
+    private void ResetStartbutton()
     {
         startTrain.SetActive(true);
         trash.SetActive(true);
