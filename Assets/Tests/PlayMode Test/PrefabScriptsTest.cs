@@ -28,13 +28,17 @@ namespace Tests
         {
             GameObject gameObject = new GameObject("TestOTRegistration");
             MissionProver prover = gameObject.AddComponent<MissionProver>();
+            prover.StartManual();
             OutTunnelScript ot = gameObject.AddComponent<OutTunnelScript>();
+            ot.prover = prover;
             ot.InitOutTunnel();
             ot.InitOutTunnel();
+            //Debug.Log("expected 1 but: " + prover.givenTunnelNumbers[1]);
             Assert.AreEqual(1,prover.givenTunnelNumbers[1]);
             
             ot.InitOutTunnel();
-            prover.RemoveOutTunnel(1);
+            prover.SetRemovedOutTunnel(1);
+            //Debug.Log("expected 2 but: " + prover.givenTunnelNumbers[1]);
             Assert.AreEqual(2,prover.givenTunnelNumbers[1]);
             
             yield return null;

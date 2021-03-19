@@ -13,7 +13,7 @@ public class OutTunnelScript : MonoBehaviour
     /// <summary>
     /// MissionProver object of the scene for organisation
     /// </summary>
-    private MissionProver prover;
+    public MissionProver prover;
     
     /// <summary>
     /// Collection of the different PopUp-Panels
@@ -81,7 +81,7 @@ public class OutTunnelScript : MonoBehaviour
     /// @author Bastian Badde
     public void InitOutTunnel()
     {
-        prover = FindObjectOfType<MissionProver>();
+        if (prover is null)prover = FindObjectOfType<MissionProver>();
         if (prover.deletedTunnelNumbers.Count > 0)
         {
             this.OutTunnelNumber = prover.deletedTunnelNumbers.First();
