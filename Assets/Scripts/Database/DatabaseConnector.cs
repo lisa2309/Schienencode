@@ -153,7 +153,6 @@ namespace Database
                 Debug.Log("BoardData retrieved");
                 board = response;
                 BuildFromDB();
-                Debug.Log("Register All on DB");
                 player.RegisterAll();
             });
         }

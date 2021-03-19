@@ -401,7 +401,6 @@
           <e p="Missions" t="Include">
             <e p="Mission.cs" t="Include" />
             <e p="MissionProver.cs" t="Include" />
-            <e p="RailEndScript1.cs" t="Include" />
             <e p="StationScript.cs" t="Include" />
           </e>
           <e p="MusicPlayer.cs" t="Include" />
@@ -409,6 +408,7 @@
           <e p="OutTunnelScript.cs" t="Include" />
           <e p="OverRail.cs" t="Include" />
           <e p="Panels.cs" t="Include" />
+          <e p="RailName.cs" t="Include" />
           <e p="RestClient" t="Include">
             <e p="DemoScene" t="Include">
               <e p="Scripts" t="Include">

@@ -15,6 +15,12 @@ using UnityEngine.UI;
 /// @author Ahmed L'harrak
 public class Player : NetworkBehaviour
 {
+    
+    /// <summary>
+    /// bool which is true if map is loaded from database
+    /// </summary>
+    private bool db_is_loaded;
+    
     /// <summary>
     /// Straight prefab gameobject
     /// </summary>
@@ -170,16 +176,21 @@ public class Player : NetworkBehaviour
     {
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.AddListener(CmdPressButton);
-
-        Debug.Log("SERVER ");
-        dbCon.RetrieveFromDatabase();
-    }
-    else
-    {
-        RegisterAll();
+        db_is_loaded = false;
     }
     camera = FindObjectOfType<CameraMovement>();
     camera.MaxFieldCameraView();
+    }
+    
+    /// <summary>
+    /// this method will load from database after 3 seconds delay until the client is ready. 
+    /// </summary>
+    /// @author Ahmed L'harrak
+    IEnumerator LoadFromDbDelayed()
+    {
+        Debug.Log("Load from DB!!");
+        yield return new WaitForSeconds(2);
+        dbCon.RetrieveFromDatabase();
     }
 
     /// <summary>
@@ -210,6 +221,25 @@ public class Player : NetworkBehaviour
             Debug.Log("ist kein Superplayer");
         }
     }
+    
+    /// <summary>
+    /// Update Method which is permanently executed and loads from DB once the number of connections is more than one.
+    /// </summary>
+    /// <returns></returns>
+    /// @author Ahmed L'harrak
+    void Update(){
+
+        if (this.isServer)
+        {
+            //Debug.Log("db_is_loaded"+ db_is_loaded);
+            if( NetworkServer.connections.Count > 1 && db_is_loaded==false){
+                db_is_loaded=true;
+                Debug.Log("loading ....");
+                StartCoroutine(LoadFromDbDelayed());
+            }
+        }
+    }
+    
 
     /// <summary>
     /// Change the scene for example when a level finished than it will new scen laoded
@@ -218,7 +248,10 @@ public class Player : NetworkBehaviour
     /// @author Ahmed L'harrak
     public void NewScene(String map)
     {
-        FindObjectOfType<MyNetworkManager>().ServerChangeScene(map); 
+        if (this.isServer)
+        {
+            FindObjectOfType<MyNetworkManager>().ServerChangeScene(map); 
+        }
     }
     
     /// <summary>
@@ -286,22 +319,19 @@ public class Player : NetworkBehaviour
         }
         NetworkServer.Spawn(cloneObj,this.connectionToClient);
 
-        if (buildByOP)
+        if (cloneObj.name.Equals("TunnelOut"))
         {
-            Debug.Log("Should only be built by ObjectPlacer");
-            if (cloneObj.name.Equals("TunnelOut"))
-            {
-                InitOutTunnelOnClient(cloneObj);
-            }
-            if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
-            {
-                RegisterSwitchOnClient(cloneObj);
-            }
-            if (cloneObj.name.Equals("TunnelIn"))
-            {
-                RegisterInTunnelOnClient(cloneObj);
-            }
+            InitOutTunnelOnClient(cloneObj);
         }
+        if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+        {
+            RegisterSwitchOnClient(cloneObj);
+        }
+        if (cloneObj.name.Equals("TunnelIn")) 
+        { 
+            RegisterInTunnelOnClient(cloneObj);
+        }
+        
     }
 
     /// <summary>
@@ -632,13 +662,12 @@ public class Player : NetworkBehaviour
     public void ClientOutTunnelChanged(int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetRemovedOutTunnel(outTunnelNumber);
     }
-    
-    //Remove Out-Tunnel
+   
+    //Register All
     
     /// <summary>
-    /// Method to synchronize Tunnel and Switch-registration
+    /// Registers all relevant Scripts of already loaded Gameobjects
     /// </summary>
-    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
     /// @author Ahmed L'Harrak und Bastian Badde
     public void RegisterAll(){
         if (this.isServer)
@@ -652,7 +681,7 @@ public class Player : NetworkBehaviour
     }
 
     /// <summary>
-    /// Command to synchronize Tunnel and Switch-registration on server-side
+    /// Command to register all relevant scripts of already loaded Gameobjects on server-side
     /// </summary>
     /// @author Ahmed L'Harrak und Bastian Badde
     [Command]
@@ -661,7 +690,7 @@ public class Player : NetworkBehaviour
     }
 
     /// <summary>
-    /// Command to synchronize Tunnel and Switch-registration on client side
+    /// Command to register all relevant scripts of already loaded Gameobjects on server-side
     /// </summary>
     /// @author Ahmed L'Harrak und Bastian Badde
     [ClientRpc]
