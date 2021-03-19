@@ -1313,12 +1313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 602111079403329878, guid: f7ad96cfff482e4499ff27edc23b2b5c,
-        type: 3}
+      objectReference: {fileID: 591121831}
     - target: {fileID: 3528203527732218930, guid: 5f30a06c3cdda864294be7c4f100ed77,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openManual
+      value: OpenManual
       objectReference: {fileID: 0}
     - target: {fileID: 4089811736579527204, guid: 5f30a06c3cdda864294be7c4f100ed77,
         type: 3}
@@ -1578,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 5723059060009810592, guid: 5f30a06c3cdda864294be7c4f100ed77,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openControll
+      value: OpenControl
       objectReference: {fileID: 0}
     - target: {fileID: 8253674384274000254, guid: 5f30a06c3cdda864294be7c4f100ed77,
         type: 3}
@@ -10041,6 +10040,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2643592274335675631, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2643592274372350264, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10351,7 +10355,7 @@ PrefabInstance:
     - target: {fileID: 2643592274717213419, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 48
+      value: 469
       objectReference: {fileID: 0}
     - target: {fileID: 2643592274717213419, guid: 308602d1386c17b4e8c7aa5abdcc8ec2,
         type: 3}
