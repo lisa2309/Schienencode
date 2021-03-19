@@ -54,17 +54,17 @@ public class GameServer : NetworkManager
     private bool readyToQuit;
 
     /// <summary>
-    /// 
+    /// @source SWTP-Framework
     /// </summary>
     public JSONNode PlayerInfos => playerInfos;
 
     /// <summary>
-    /// 
+    /// @source SWTP-Framework
     /// </summary>
     public JSONNode GameInfos => gameInfos;
 
     /// <summary>
-    /// 
+    /// @source SWTP-Framework
     /// </summary>
     public static GameServer Instance => (GameServer) singleton;
 
