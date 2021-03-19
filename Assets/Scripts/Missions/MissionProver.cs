@@ -553,8 +553,8 @@ public class MissionProver : MonoBehaviour
         int i = 1;
         foreach (int c in mission.cargos)
         {
-            missionText.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
-            missionTextP2.text += "Cargo " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
+            missionText.text += "Bahnhof " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
+            missionTextP2.text += "Bahnhof " + i + ": " + mission.cargoCounters[i-1] + "/" + c + "\n";
             i++;
         }
     }
