@@ -13,7 +13,7 @@ using UnityEngine.UI;
 /// This class represents a game server.
 /// The server starts automatically and loads the player prefab into the online scene.
 /// </summary>
-/// Quelle: SWTP Framework
+/// @source SWTP-Framework
 public class GameServer : NetworkManager
 {
     /// <summary>
@@ -75,6 +75,7 @@ public class GameServer : NetworkManager
     /// - the player is the client -> join server as client
     /// NOTE: This is not important for development.
     /// </summary>
+	/// @source SWTP-Framework
     void Start()
     {
         base.Start();
@@ -100,6 +101,7 @@ public class GameServer : NetworkManager
     /// Checks if the local player is a client and not connected.
     /// If so the client tries to connect and the disconnect timer is updated.
     /// </summary>
+	/// @source SWTP-Framework
     private void Update()
     {
         // Try connecting if not host
@@ -147,6 +149,7 @@ public class GameServer : NetworkManager
     /// Loads player info from file.
     /// NOTE: This is not important for development.
     /// </summary>
+	/// @source SWTP-Framework
     private void LoadPlayerInfo()
     {
         // Read file
@@ -186,6 +189,8 @@ public class GameServer : NetworkManager
     /// This can be used during development to simulate starting the game from the framework.
     /// NOTE: This is important for development.
     /// </summary>
+	/// @source SWTP-Framework
+	/// Modified by: Christopher-Marcel Klein
     private void LoadPlayerInfoMockup()
     {
         isHost = true;
@@ -207,6 +212,7 @@ public class GameServer : NetworkManager
     /// </summary>
     /// <param name="localPlayerWinningPlacement">Placement of the local player</param>
     /// <param name="nameOfWinner">Name of the winner</param>
+	/// @source SWTP-Framework
     public void HandleGameResults(int localPlayerWinningPlacement, string nameOfWinner)
     {
         // Create file

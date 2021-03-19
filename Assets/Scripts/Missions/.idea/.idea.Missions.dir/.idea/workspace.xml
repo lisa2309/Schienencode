@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68b3ee66-67b6-405c-b621-0f07982f7ead" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DBButton.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DBButton.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DB_Con.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DB_Con.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DB_Put_Button.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/DB_Put_Button.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/FinalText.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/FinalText.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/Help.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/Help.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/InputField.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/InputField.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/MissionsText.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/Inventory/DBnMission_Inventory/MissionsText.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../Prefabs/PopUps/RailPopUpText.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/Map6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/Map6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../GameServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameServer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../GameServer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mirror/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Mirror/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mirror/Player.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../Mirror/Player.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Terrain/Terrain DB.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Terrain/Terrain DB.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Terrain/TerrainData_3474aae4-7b52-424f-88f4-7d7318f99c28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Terrain/TerrainData_3474aae4-7b52-424f-88f4-7d7318f99c28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/MissionProver.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="1pz2rWg035OlftUikWdbaTP99i0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68b3ee66-67b6-405c-b621-0f07982f7ead" name="Default Changelist" comment="" />
+      <created>1616171799072</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616171799072</updated>
+      <workItem from="1616171813484" duration="600000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
