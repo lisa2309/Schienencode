@@ -279,9 +279,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 602111079403329878, guid: f7ad96cfff482e4499ff27edc23b2b5c,
+      - m_Target: {fileID: 1217520147298815071, guid: f7ad96cfff482e4499ff27edc23b2b5c,
           type: 3}
-        m_MethodName: showHelp
+        m_MethodName: ShowHelp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -566,7 +566,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6509603427939218411, guid: fd93f2814e705174992c61f8cdc4e12a,
+      - m_Target: {fileID: 7015809273591909165, guid: 6608d9de3e3c2034ea7da837432ae4d5,
           type: 3}
         m_MethodName: ClosePanel
         m_Mode: 1
