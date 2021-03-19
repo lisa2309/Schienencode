@@ -4,9 +4,9 @@ using UnityEngine;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// 
+/// Script to load the missionstring from the database
 /// </summary>
-/// @author 
+/// @author Bastian Badde
 public class StartRailScript : MonoBehaviour
 {
     
@@ -16,9 +16,9 @@ public class StartRailScript : MonoBehaviour
     private DatabaseConnector dbcn;
     
     /// <summary>
-    /// 
+    ///  Start method to load the missionstring from the database when the startrail prefab is instatiated
     /// </summary>
-    /// @author
+    /// @author Bastain Badde
     void Start()
     {
         dbcn = FindObjectOfType<DatabaseConnector>();
