@@ -138,9 +138,11 @@ public class Player : NetworkBehaviour
 
     /// <summary>
     /// Initialisation of variables dbcon and objectplacer
-    /// and then assign current player object to player object in dbcon and objectplacer scripts
+    /// and then assign current player object to player object in dbcon and objectplacer scripts.
+	/// Additionally retrieves all information from existing JSON-Files.
     /// </summary>
     /// @author Ahmed L'harrak
+	/// @source SWTP-Framework (JSON retrieval)
     void Start() {
     prefabToInstant = straightRail;
     player = this;
@@ -415,7 +417,8 @@ public class Player : NetworkBehaviour
     /// Currently lets Host automatically win.
     /// </summary>
     /// TODO: Implement connection to actual game results
-    /// @author Christopher-Marcel Klein
+    /// @source SWTP-Framework
+	/// modified by: Christopher-Marcel Klein
     private void FinishGame()
     {
         if (GameServer.Instance.PlayerInfos["isHost"].AsBool)
@@ -432,7 +435,7 @@ public class Player : NetworkBehaviour
     /// Command for getting the hosts name, needed to handle game results
     /// </summary>
     /// <param name="connId">NetId of the player that called this command</param>
-    /// @author Christopher-Marcel Klein
+    /// @source SWTP-Framework
     [Command]
     public void CmdGetHostName(uint connId)
     {
@@ -445,8 +448,9 @@ public class Player : NetworkBehaviour
     /// </summary>
     /// <param name="connection">Connection for the TargetRPC</param>
     /// <param name="hostName">Name of the host</param>
-    /// TODO: Implement connection to actual game results
-    /// @author Christopher-Marcel Klein
+	/// TODO: Implement connection to actual game results
+    /// @source SWTP-Framework
+	/// modified by: Christopher-Marcel Klein
     [TargetRpc]
     public void TargetReceiveHostName(NetworkConnection connection, string hostName)
     {
