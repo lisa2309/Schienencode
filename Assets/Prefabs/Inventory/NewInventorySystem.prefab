@@ -891,9 +891,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 602111079403329878, guid: f7ad96cfff482e4499ff27edc23b2b5c,
+      - m_Target: {fileID: 1217520147298815071, guid: f7ad96cfff482e4499ff27edc23b2b5c,
           type: 3}
-        m_MethodName: showHelp
+        m_MethodName: ShowHelp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
