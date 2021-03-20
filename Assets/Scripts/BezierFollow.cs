@@ -61,9 +61,10 @@ public class BezierFollow : MonoBehaviour
     }
 
     /// <summary>
-    /// starts the train could be placed in other funktion in the future
+    /// Starts the train could be placed in other funktion in the future
     /// </summary>
-    /// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+    /// @author Alexander Zotov
+    /// Modified by Florian Vogel & Bjarne Bensel
     private void Update()
     {
         if (coroutineAllowed)
@@ -75,13 +76,14 @@ public class BezierFollow : MonoBehaviour
 
     /// <summary>
     /// Moves the train on the rail
-    /// p0: entrance point 
-    /// p1: shape modifier point
-    /// p2: shape modifier point
-    /// p3: exit point
+    /// p0: Entrance point 
+    /// p1: Shape modifier point
+    /// p2: Shape modifier point
+    /// p3: Exit point
     /// </summary>
-    /// <param name="routeNumber">next Point on the Bezier Curve</param>
-    /// @author Alexander Zotov. Modified by Florian Vogel & Bjarne Bensel
+    /// <param name="routeNumber">Next Point on the Bezier Curve</param>
+    /// @author Alexander Zotov
+    /// Modified by Florian Vogel & Bjarne Bensel
     private IEnumerator GoByTheRoute(int routeNumber)
     {
         coroutineAllowed = false;
@@ -112,6 +114,5 @@ public class BezierFollow : MonoBehaviour
             coroutineAllowed = true;
         }
     }
-
 }
 

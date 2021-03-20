@@ -14,6 +14,7 @@ using UnityEngine.UI;
 /// The server starts automatically and loads the player prefab into the online scene.
 /// </summary>
 /// @source SWTP-Framework
+/// Modified by: Christopher-Marcel Klein
 public class GameServer : NetworkManager
 {
     /// <summary>
@@ -93,7 +94,6 @@ public class GameServer : NetworkManager
         {
             StartHost();
         }
-        Debug.Log("TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEST");
     }
 
     /// <summary>

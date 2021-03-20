@@ -17,12 +17,12 @@ public class Routing : MonoBehaviour
     /// <summary>
     /// Subelement of route begin of BEZIERSHAPE
     /// </summary>
-    private const string entrancePoint = "Point0";
+    private const string EntrancePoint = "Point0";
 
     /// <summary>
     /// Subelement of route end of BEZIERSHAPE
     /// </summary>
-    private const string exitPoint = "Point3";
+    private const string ExitPoint = "Point3";
 
     /// <summary>
     /// Array to count the amount of drive pasts
@@ -86,8 +86,8 @@ public class Routing : MonoBehaviour
 
     /// <summary>
     /// This Should be triggered when Player is finished. Generates the Route and starts the Train.
-    /// missionProver:
-    /// drivepastsReached: 
+    /// missionProver: Object of missionprover
+    /// drivepastsReached: Boolean to check if the max round number is reached
     /// train: Gameobject with tag "Train" must contain BezierFollow script. The thing that Drives arround.
     /// finish: Gameobject with tag "finish". End of the route
     /// railFound: boolean if a rail was found. Abort search if no next rail was found
@@ -156,8 +156,8 @@ public class Routing : MonoBehaviour
                     Debug.Log("z: " + rail.transform.position.z + " = " + buffer.transform.position.z + " + " + GetDirectionZ(buffer));
                     if (rail.transform.position.z == (buffer.transform.position.z + GetDirectionZ(buffer) * 4) || rail.transform.position.z == (buffer.transform.position.z + GetDirectionZ(buffer) * 6))
                     {
-                        Debug.Log("1: " + rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position + " 2: " + buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position);
-                        if (((buffer.name.Contains(RailName.RailSwitchLeft) || buffer.name.Contains(RailName.RailSwitchRight)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(1).Find(BezierShape).Find(exitPoint).position) < 0.5f) || ((rail.name.Contains(RailName.RailCollectRight) || rail.name.Contains(RailName.RailCollectLeft)) && Vector3.Distance(rail.transform.GetChild(1).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f))
+                        Debug.Log("1: " + rail.transform.GetChild(0).Find(BezierShape).Find(EntrancePoint).position + " 2: " + buffer.transform.GetChild(0).Find(BezierShape).Find(ExitPoint).position);
+                        if (((buffer.name.Contains(RailName.RailSwitchLeft) || buffer.name.Contains(RailName.RailSwitchRight)) && straight && Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(EntrancePoint).position, buffer.transform.GetChild(1).Find(BezierShape).Find(ExitPoint).position) < 0.5f) || ((rail.name.Contains(RailName.RailCollectRight) || rail.name.Contains(RailName.RailCollectLeft)) && Vector3.Distance(rail.transform.GetChild(1).Find(BezierShape).Find(EntrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(ExitPoint).position) < 0.5f) || (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(EntrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(ExitPoint).position) < 0.5f))
                         {
                             Debug.Log("next rail found: " + rail.name);
                             railFound = true;
@@ -178,7 +178,7 @@ public class Routing : MonoBehaviour
                             }
                             else if ((rail.name.Contains(RailName.RailCollectRight) || rail.name.Contains(RailName.RailCollectLeft)))
                             {
-                                if (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(entrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(exitPoint).position) < 0.5f)
+                                if (Vector3.Distance(rail.transform.GetChild(0).Find(BezierShape).Find(EntrancePoint).position, buffer.transform.GetChild(0).Find(BezierShape).Find(ExitPoint).position) < 0.5f)
                                 {
                                     routePoints.Add(rail.transform.GetChild(0).Find(BezierShape));
                                 }
@@ -592,8 +592,8 @@ public class Routing : MonoBehaviour
     /// Returns position of a TrainStation in rails array 
     /// </summary>
     /// <param name="trainstationCounter">Number of Trainstation to find in rails array</param>
-    /// counter: position in rails array
-    /// <returns>integer value between -1 (for error) and sizeofrails</returns>
+    /// counter: Position in rails array
+    /// <returns>Integer value between -1 (for error) and sizeofrails</returns>
     /// @author Florian Vogel & Bjarne Bensel 
     int GetTrainStation(int TrainStationCounter)
     {
@@ -613,7 +613,7 @@ public class Routing : MonoBehaviour
     }
 
     /// <summary>
-    /// reaktivates the start and delete button after a routing failure 
+    /// Reaktivates the start and delete button after a routing failure 
     /// </summary>
     /// @author Florian Vogel & Bjarne Bensel 
     private void ResetStartbutton()

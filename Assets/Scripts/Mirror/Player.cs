@@ -12,14 +12,14 @@ using UnityEngine.UI;
 /// <summary>
 /// 
 /// </summary>
-/// @author Ahmed L'harrak
+/// @author Ahmed L'harrak & Bastian Badde 
 public class Player : NetworkBehaviour
 {
     
     /// <summary>
     /// bool which is true if map is loaded from database
     /// </summary>
-    private bool db_is_loaded;
+    private bool databaseIsLoaded;
     
     /// <summary>
     /// Straight prefab gameobject
@@ -92,22 +92,17 @@ public class Player : NetworkBehaviour
     private ObjectPlacer objectPlacer;
 
     /// <summary>
-    /// 
+    /// Object of the databaseconnector
     /// </summary>
-    private DatabaseConnector dbCon;
+    private DatabaseConnector databaseConnector;
 
     /// <summary>
-    ///
-    /// </summary>
-    private DeleteRail deletrail;
-
-    /// <summary>
-    /// 
+    /// Object of this class
     /// </summary>
     public static Player player;
 
     /// <summary>
-    /// 
+    /// Object of CameraMovement
     /// </summary>
     private CameraMovement camera;
 
@@ -132,9 +127,9 @@ public class Player : NetworkBehaviour
     [SerializeField] private Text gameInfoText;
 
     /// <summary>
-    /// 
+    /// Object of the missionprover
     /// </summary>
-    private MissionProver missionprv;
+    private MissionProver missionProver;
 
     /// <summary>
     /// Initialisation of variables dbcon and objectplacer
@@ -148,12 +143,11 @@ public class Player : NetworkBehaviour
     player = this;
     if(this.isLocalPlayer)
     {
-        
-        dbCon = FindObjectOfType<DatabaseConnector>();
-        dbCon.player = this;
+        databaseConnector = FindObjectOfType<DatabaseConnector>();
+        databaseConnector.player = this;
 
-        missionprv = FindObjectOfType<MissionProver>();
-        missionprv.player = this;
+        missionProver = FindObjectOfType<MissionProver>();
+        missionProver.player = this;
         Debug.Log("is Client " + this.netId);
         
         objectPlacer = FindObjectOfType<ObjectPlacer>();
@@ -178,21 +172,21 @@ public class Player : NetworkBehaviour
     {
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ButtonStartTrain").GetComponent<Button>().onClick.AddListener(CmdPressButton);
-        db_is_loaded = false;
+        databaseIsLoaded = false;
     }
     camera = FindObjectOfType<CameraMovement>();
     camera.MaxFieldCameraView();
     }
     
     /// <summary>
-    /// this method will load from database after 3 seconds delay until the client is ready. 
+    /// This method will load from database after 3 seconds delay until the client is ready. 
     /// </summary>
     /// @author Ahmed L'harrak
     IEnumerator LoadFromDbDelayed()
     {
         Debug.Log("Load from DB!!");
         yield return new WaitForSeconds(2);
-        dbCon.RetrieveFromDatabase();
+        databaseConnector.RetrieveFromDatabase();
     }
 
     /// <summary>
@@ -234,8 +228,8 @@ public class Player : NetworkBehaviour
         if (this.isServer)
         {
             //Debug.Log("db_is_loaded"+ db_is_loaded);
-            if( NetworkServer.connections.Count > 1 && db_is_loaded==false){
-                db_is_loaded=true;
+            if( NetworkServer.connections.Count > 1 && databaseIsLoaded==false){
+                databaseIsLoaded=true;
                 Debug.Log("loading ....");
                 StartCoroutine(LoadFromDbDelayed());
             }
@@ -244,9 +238,9 @@ public class Player : NetworkBehaviour
     
 
     /// <summary>
-    /// Change the scene for example when a level finished than it will new scen laoded
+    /// Change the scene for example when a level finished. Then there will be a new scene laoded
     /// </summary>
-    /// <param name="map"></param>
+    /// <param name="map">String from the map</param>
     /// @author Ahmed L'harrak
     public void NewScene(String map)
     {
@@ -257,21 +251,19 @@ public class Player : NetworkBehaviour
     }
     
     /// <summary>
-    /// 
-    /// Variables:
-    /// cloneObj: The instatiat game object
-    /// @author Ahmed L'harrak
-    /// lokking for witch prefabe will be instiantiate  seqarch by name if ther exist then prefabtoinstant will be the correspend gameobject of this name
-    /// then it will be this prefabe created for all players in this Game
+    /// Looking for which prefabe will be instiantiate. Search by name if their exist then prefabtoinstant will be the correspend gameobject of this name
+    /// Then it will be this prefabe created for all players in this game
+    /// cloneObject: The instatiat game object
     /// </summary>
-    /// <param name="prefabname"> the name of prefabe to be intantiate for alle Player in this Game </param>
-    /// <param name="finalPosition"> the position (cordinaten ) where the prefabe shoulde created </param>
-    /// <param name="rotate"> with witch rotation should this prefab creatde</param>
+    /// <param name="prefabName"> The name of prefabe to be intantiate for alle Player in this Game </param>
+    /// <param name="finalPosition"> The position (cordinaten ) where the prefabe shoulde created </param>
+    /// <param name="rotate"> Which rotation should this prefab created</param>
+    /// <param name="buildByObjectPlacer">Bool to check if a rail is set by the ObjectPlacer</param>
     /// @author Ahmed L'harrak
     [Command]
-    void insprefab(string prefabto, Vector3 finalPosition, float rotate, bool buildByOP)
+    void InstatiatePrefab(string prefabName, Vector3 finalPosition, float rotate, bool buildByObjectPlacer)
     {
-        switch (prefabto){
+        switch (prefabName){
             case RailName.RailStraight:
                 prefabToInstant = straightRail;
                 break;
@@ -312,28 +304,27 @@ public class Player : NetworkBehaviour
                 prefabToInstant = straightRail;
                 break;
         }
-        GameObject cloneObj = Instantiate(prefabToInstant, finalPosition, Quaternion.Euler(0, rotate, 0));
-        cloneObj.name = prefabToInstant.name;
-        if (!buildByOP)
+        GameObject cloneObject = Instantiate(prefabToInstant, finalPosition, Quaternion.Euler(0, rotate, 0));
+        cloneObject.name = prefabToInstant.name;
+        if (!buildByObjectPlacer)
         {
-            Destroy(cloneObj.GetComponent<DeleteRail>());
-            if (cloneObj.name.Equals("TunnelIn")) cloneObj.GetComponent<InTunnelScript>().buildOnDB=true;
+            Destroy(cloneObject.GetComponent<DeleteRail>());
+            if (cloneObject.name.Equals("TunnelIn")) cloneObject.GetComponent<InTunnelScript>().buildOnDatabase=true;
         }
-        NetworkServer.Spawn(cloneObj,this.connectionToClient);
+        NetworkServer.Spawn(cloneObject,this.connectionToClient);
 
-        if (cloneObj.name.Equals("TunnelOut"))
+        if (cloneObject.name.Equals("TunnelOut"))
         {
-            InitOutTunnelOnClient(cloneObj);
+            InitOutTunnelOnClient(cloneObject);
         }
-        if (cloneObj.name.Equals("SwitchR1Final") || cloneObj.name.Equals("SwitchR0Final"))
+        if (cloneObject.name.Equals("SwitchR1Final") || cloneObject.name.Equals("SwitchR0Final"))
         {
-            RegisterSwitchOnClient(cloneObj);
+            RegisterSwitchOnClient(cloneObject);
         }
-        if (cloneObj.name.Equals("TunnelIn")) 
+        if (cloneObject.name.Equals("TunnelIn")) 
         { 
-            RegisterInTunnelOnClient(cloneObj);
+            RegisterInTunnelOnClient(cloneObject);
         }
-        
     }
 
     /// <summary>
@@ -377,14 +368,14 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// This function is a public function to be called from other scripts like opbjectplacer it will then create the chosen prefabe in the chosen cordinaten and rotation value
     /// </summary>
-    /// <param name="prefabname"> The name of prefabe to be intantiate for alle Player in this Game </param>
-    /// <param name="finalPosition"> The position (cordinaten ) where the prefabe shoulde created </param>
-    /// <param name="rotate"> With witch rotation should this prefab creatde</param>
+    /// <param name="prefabName"> The name of prefabe to be intantiate for alle Player in this Game </param>
+    /// <param name="finalPosition"> The position (cordinaten) where the prefabe should created </param>
+    /// <param name="rotate"> Which rotation should this prefab creatde</param>
     /// @author Ahmed L'harrak
-    public void Call(string prefabname, Vector3 finalPosition, float rotate, bool buildOnOP)
+    public void Call(string prefabName, Vector3 finalPosition, float rotate, bool buildOnOP)
     {
         if (!isLocalPlayer) return;   
-        insprefab(prefabname, finalPosition, rotate, buildOnOP);
+        InstatiatePrefab(prefabName, finalPosition, rotate, buildOnOP);
     }
 
     /// <summary>
@@ -401,7 +392,7 @@ public class Player : NetworkBehaviour
 
     /// <summary>
     /// Executed only on the server
-    /// If this gameobject exict it will be deleted from this Game for all Players
+    /// If this gameobject exist it will be deleted from this Game for all Players
     /// </summary>
     /// <param name="obj">Gameobject to be destroyed </param>
     /// @author Ahmed L'harrak
@@ -418,7 +409,7 @@ public class Player : NetworkBehaviour
     /// </summary>
     /// TODO: Implement connection to actual game results
     /// @source SWTP-Framework
-	/// modified by: Christopher-Marcel Klein
+	/// Modified by: Christopher-Marcel Klein
     private void FinishGame()
     {
         if (GameServer.Instance.PlayerInfos["isHost"].AsBool)
@@ -436,6 +427,7 @@ public class Player : NetworkBehaviour
     /// </summary>
     /// <param name="connId">NetId of the player that called this command</param>
     /// @source SWTP-Framework
+    /// Modified by: Christopher-Marcel Klein
     [Command]
     public void CmdGetHostName(uint connId)
     {
@@ -450,29 +442,25 @@ public class Player : NetworkBehaviour
     /// <param name="hostName">Name of the host</param>
 	/// TODO: Implement connection to actual game results
     /// @source SWTP-Framework
-	/// modified by: Christopher-Marcel Klein
+	/// Modified by: Christopher-Marcel Klein
     [TargetRpc]
     public void TargetReceiveHostName(NetworkConnection connection, string hostName)
     {
         GameServer.Instance.HandleGameResults(2,hostName);
     }
     
-    // +++++++ Synchronisation +++++++
-    
-    //Station
-    
     /// <summary>
     /// Method to synchronize the station cargos
     /// </summary>
-    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
-    /// <param name="value">cargo-value to set</param>
+    /// <param name="currentStation">StationNumber of the relevant StationScript</param>
+    /// <param name="value">Cargo-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
-    public void CargoChanged(int currentStation,int  value){
+    public void CargoChanged(int currentStation, int value){
         if (this.isServer)
         {
             ClientCargoChanged(currentStation,value);
         }
-        else {///client
+        else {
             if (!isLocalPlayer) return; 
             ServerCargoChanged(currentStation,value);
         }
@@ -481,36 +469,34 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the station cargos from server-side
     /// </summary>
-    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
-    /// <param name="value">cargo-value to set</param>
+    /// <param name="currentStation">StationNumber of the relevant StationScript</param>
+    /// <param name="value">Cargo-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
-    void ServerCargoChanged(int currentStation,int  value){
+    void ServerCargoChanged(int currentStation, int value){
         CargoChanged(currentStation,value);
     }
 
     /// <summary>
     /// Command to synchronize the station cargos from client-side
     /// </summary>
-    /// <param name="currentStation">stationNumber of the relevant StationScript</param>
-    /// <param name="value">cargo-value to set</param>
+    /// <param name="currentStation">StationNumber of the relevant StationScript</param>
+    /// <param name="value">Cargo-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
-    public void ClientCargoChanged(int currentStation,int  value){
+    public void ClientCargoChanged(int currentStation, int value){
         FindObjectOfType<MissionProver>().SetStationCargo(currentStation, value);
     }
-    
-    //Switch-values
-    
+
     /// <summary>
     /// Method to synchronize the switch-values
     /// </summary>
-    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
-    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
-    /// <param name="compare">the decoded compare value</param>
-    /// <param name="value">the value to compare with</param>
+    /// <param name="switchNumber">The switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">The stationNumber whose cargo to compare with</param>
+    /// <param name="compare">The decoded compare value</param>
+    /// <param name="value">The value to compare with</param>
     /// @author Ahmed L'Harrak & Bastian Badde
-    public void SwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+    public void SwitchValuesChanged(int switchNumber, int cargo,int compare, int value){
         if (this.isServer)
         {
             ClientSwitchValuesChanged(switchNumber, cargo, compare,value);
@@ -524,36 +510,34 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the switch-values from server-side
     /// </summary>
-    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
-    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
-    /// <param name="compare">the decoded compare value</param>
-    /// <param name="value">the value to compare with</param>
+    /// <param name="switchNumber">The switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">The stationNumber whose cargo to compare with</param>
+    /// <param name="compare">The decoded compare value</param>
+    /// <param name="value">The value to compare with</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
-    void ServerSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+    void ServerSwitchValuesChanged(int switchNumber, int cargo,int compare, int value){
         SwitchValuesChanged(switchNumber, cargo, compare,value);
     }
 
     /// <summary>
     /// Command to synchronize the switch-values from client-side
     /// </summary>
-    /// <param name="switchNumber">the switchNumber of the relevant SwicthScript</param>
-    /// <param name="cargo">the stationNumber whose cargo to compare with</param>
-    /// <param name="compare">the decoded compare value</param>
-    /// <param name="value">the value to compare with</param>
+    /// <param name="switchNumber">The switchNumber of the relevant SwicthScript</param>
+    /// <param name="cargo">The stationNumber whose cargo to compare with</param>
+    /// <param name="compare">The decoded compare value</param>
+    /// <param name="value">The value to compare with</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
-    public void ClientSwitchValuesChanged(int switchNumber, int cargo,int compare, int  value){
+    public void ClientSwitchValuesChanged(int switchNumber, int cargo,int compare, int value){
         FindObjectOfType<MissionProver>().SetSwitchValues(switchNumber, cargo, compare,value);
     }
-    
-    //Switch-mode
     
     /// <summary>
     /// Method to synchronize the switch-modes
     /// </summary>
-    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
-    /// <param name="mode">mode-value to set</param>
+    /// <param name="switchNumber">SwitchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">Mode-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     public void SwitchModeChanged(int switchNumber, int mode){
         if (this.isServer)
@@ -569,8 +553,8 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the switch-modes from server-side
     /// </summary>
-    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
-    /// <param name="mode">mode-value to set</param>
+    /// <param name="switchNumber">SwitchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">Mode-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerSwitchModeChanged(int switchNumber, int mode){
@@ -580,21 +564,19 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the switch-modes from client-side
     /// </summary>
-    /// <param name="switchNumber">switchNumber of the relevant SwitchScript</param>
-    /// <param name="mode">mode-value to set</param>
+    /// <param name="switchNumber">SwitchNumber of the relevant SwitchScript</param>
+    /// <param name="mode">Mode-value to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientSwitchModeChanged(int switchNumber, int mode){
         FindObjectOfType<MissionProver>().SetSwitchMode(switchNumber, mode);
     }
 
-    //In-Tunnel
-    
     /// <summary>
     /// Method to synchronize the In-Tunnels
     /// </summary>
-    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
-    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// <param name="inTunnelNumber">InTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     public void InTunnelChanged(int inTunnelNumber, int outTunnelNumber){
         if (this.isServer)
@@ -610,8 +592,8 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the In-Tunnels from server-side
     /// </summary>
-    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
-    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// <param name="inTunnelNumber">InTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
@@ -621,20 +603,18 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the In-Tunnels from client-side
     /// </summary>
-    /// <param name="inTunnelNumber">inTunnelNumber of the relevant InTunnelScript</param>
-    /// <param name="outTunnelNumber">outTunnelNumber to set</param>
+    /// <param name="inTunnelNumber">InTunnelNumber of the relevant InTunnelScript</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to set</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientInTunnelChanged(int inTunnelNumber, int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetInTunnelValues(inTunnelNumber, outTunnelNumber);
     }
-    
-    //Remove Out-Tunnel
-    
+
     /// <summary>
     /// Method to synchronize Removing Out-Tunnels
     /// </summary>
-    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to remove</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     public void OutTunnelChanged(int outTunnelNumber){
         if (this.isServer)
@@ -650,7 +630,7 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the Removing from Out-Tunnels from server-side
     /// </summary>
-    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to remove</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [Command]
     void ServerOutTunnelChanged(int outTunnelNumber){
@@ -660,19 +640,17 @@ public class Player : NetworkBehaviour
     /// <summary>
     /// Command to synchronize the Removing from Out-Tunnels from client-side
     /// </summary>
-    /// <param name="outTunnelNumber">outTunnelNumber to remove</param>
+    /// <param name="outTunnelNumber">OutTunnelNumber to remove</param>
     /// @author Ahmed L'Harrak & Bastian Badde
     [ClientRpc]
     public void ClientOutTunnelChanged(int outTunnelNumber){
         FindObjectOfType<MissionProver>().SetRemovedOutTunnel(outTunnelNumber);
     }
-   
-    //Register All
     
     /// <summary>
     /// Registers all relevant Scripts of already loaded Gameobjects
     /// </summary>
-    /// @author Ahmed L'Harrak und Bastian Badde
+    /// @author Ahmed L'Harrak & Bastian Badde
     public void RegisterAll(){
         if (this.isServer)
         {
@@ -694,7 +672,7 @@ public class Player : NetworkBehaviour
     }
 
     /// <summary>
-    /// Command to register all relevant scripts of already loaded Gameobjects on server-side
+    /// Command to register all relevant scripts of already loaded Gameobjects on server-side and on client-side
     /// </summary>
     /// @author Ahmed L'Harrak und Bastian Badde
     [ClientRpc]
@@ -708,7 +686,7 @@ public class Player : NetworkBehaviour
         {
             if (tunnel.IsInited) continue;
             tunnel.Register();
-            tunnel.buildOnDB = true;
+            tunnel.buildOnDatabase = true;
         }
         foreach (var switchScript in FindObjectsOfType<SwitchScript>())
         {
@@ -719,7 +697,6 @@ public class Player : NetworkBehaviour
             if(!station.isInited) station.Register();
         }
     }
-
 }
 
 

@@ -15,14 +15,14 @@ public class InTunnelScript : MonoBehaviour
     public int inTunnelNumber;
     
     /// <summary>
-    /// bool which is true if InitOutTunnel() is already invoked (default value is false).
+    /// Bool which is true if InitOutTunnel() is already invoked (default value is false).
     /// </summary>
     public bool IsInited { private set; get; }
         
     /// <summary>
     /// MissionProver object of the scene for organisation
     /// </summary>
-    private MissionProver prover;
+    private MissionProver missionProver;
 
     /// <summary>
     /// The OutTunnelNumber of the related OutTunnel.
@@ -38,7 +38,7 @@ public class InTunnelScript : MonoBehaviour
     /// <summary>
     /// Bool which is true, when it is build on the db (default value is false).
     /// </summary>
-    public bool buildOnDB;
+    public bool buildOnDatabase;
         
     /// <summary>
     /// Opens the relevant PopUp-Panel, when the InTunnel is clicked by mouse
@@ -48,11 +48,11 @@ public class InTunnelScript : MonoBehaviour
     {
         Debug.Log("InTunnel could open");
         Debug.Log("OpenPanel: " + MissionProver.panelIsOpen);
-        Debug.Log("OnDB: " + buildOnDB);
-        if (!MissionProver.deleteOn && !MissionProver.panelIsOpen && !buildOnDB)
+        Debug.Log("OnDB: " + buildOnDatabase);
+        if (!MissionProver.deleteOn && !MissionProver.panelIsOpen && !buildOnDatabase)
         {
             Debug.Log("InTunnel should open");
-            prover.UpdateInTunnel(this);
+            missionProver.UpdateInTunnel(this);
             OpenPanel();
         }
     }
@@ -84,7 +84,7 @@ public class InTunnelScript : MonoBehaviour
                     }
                 }
             }
-            prover.UpdateStationSettings();
+            missionProver.UpdateStationSettings();
         }
     }
 
@@ -95,8 +95,8 @@ public class InTunnelScript : MonoBehaviour
     public void Register()
     {
         relatedOutTunnelNumber = 0;
-        prover = FindObjectOfType<MissionProver>();
-        this.inTunnelNumber = prover.RegisterNewInTunnel(this);
+        missionProver = FindObjectOfType<MissionProver>();
+        this.inTunnelNumber = missionProver.RegisterNewInTunnel(this);
         IsInited = true;
     }
 }

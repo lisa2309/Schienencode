@@ -19,7 +19,7 @@ namespace Tests
             //Act
             string objectName = "CurveL0Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters); 
+            string result = or.ConvertCharArrayToString(5, objectLetters); 
             
             //Assert
             Assert.AreEqual("Curve", result);
@@ -37,7 +37,7 @@ namespace Tests
             //Act
             string objectName = "CurveR0Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Curve", result);
@@ -55,7 +55,7 @@ namespace Tests
             //Act
             string objectName = "RailEnd";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("RailE", result);
@@ -73,7 +73,7 @@ namespace Tests
             //Act
             string objectName = "RailStart";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("RailS", result);
@@ -91,7 +91,7 @@ namespace Tests
             //Act
             string objectName = "Straight270Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Strai", result);
@@ -109,7 +109,7 @@ namespace Tests
             //Act
             string objectName = "SwitchL0Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Switc", result);
@@ -127,7 +127,7 @@ namespace Tests
             //Act
             string objectName = "SwitchL1Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Switc", result);
@@ -145,7 +145,7 @@ namespace Tests
             //Act
             string objectName = "SwitchR0Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Switc", result);
@@ -163,7 +163,7 @@ namespace Tests
             //Act
             string objectName = "SwitchR1Final";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Switc", result);
@@ -181,7 +181,7 @@ namespace Tests
             //Act
             string objectName = "TunnelIn";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Tunne", result);
@@ -199,7 +199,7 @@ namespace Tests
             //Act
             string objectName = "TunnelOut";
             char[] objectLetters = objectName.ToCharArray();
-            string result = or.convertCharArrayToString(5, objectLetters);
+            string result = or.ConvertCharArrayToString(5, objectLetters);
             
             //Assert
             Assert.AreEqual("Tunne", result);
