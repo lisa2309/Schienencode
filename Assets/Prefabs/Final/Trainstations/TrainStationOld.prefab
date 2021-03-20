@@ -3812,7 +3812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c973d0db5e4a9b955cb745489ba2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stationNumber: 0
+  stationNumber: 0
   cargoAdditionNumber: 0
 --- !u!114 &5410966445321499843
 MonoBehaviour:
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+  popupText: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
     type: 3}
 --- !u!1 &8949971268874716865
 GameObject:

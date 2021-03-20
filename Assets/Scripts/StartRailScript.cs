@@ -13,7 +13,7 @@ public class StartRailScript : MonoBehaviour
     /// <summary>
     /// MissionProver object of the scene for organisation
     /// </summary>
-    private DatabaseConnector dbcn;
+    private DatabaseConnector databaseConnector;
     
     /// <summary>
     ///  Start method to load the missionstring from the database when the startrail prefab is instatiated
@@ -21,7 +21,7 @@ public class StartRailScript : MonoBehaviour
     /// @author Bastain Badde
     void Start()
     {
-        dbcn = FindObjectOfType<DatabaseConnector>();
-        dbcn.RetrieveFromDatabaseForMission();
+        databaseConnector = FindObjectOfType<DatabaseConnector>();
+        databaseConnector.RetrieveFromDatabaseForMission();
     }
 }

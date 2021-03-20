@@ -25,17 +25,17 @@ public class DeleteRail : NetworkBehaviour
     {
         if (MissionProver.deleteOn)
         {
-            destroyrail();
+            DestroyRail();
             Destroy(GameObject.Find("RailPopUpText(Clone)"));
         }
     }
 
     /// <summary>
-    /// destroy for everyone on the server
-    /// @author Ahmed L'harrak
+    /// Destroy rail for everyone on the server
     /// </summary>
+    /// @author Ahmed L'harrak
     [Command]
-    void destroyrail()
+    void DestroyRail()
     {
         if (gameObject.name.Equals("TunnelOut"))
         {

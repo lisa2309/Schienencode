@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50879e7a4b834f35a4a0096ece03aaa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchNumber: 0
   mode: 0
-  ComparationValues: 
+  comparationValues: 
 --- !u!114 &-2111567276613825178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18462c5199d15024b99821e250a1c9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popuptext: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
+  popupText: {fileID: 7370882953248651180, guid: bf9332975529e534bafecf2f67938fe1,
     type: 3}
 --- !u!1001 &2079331248340408656
 PrefabInstance:

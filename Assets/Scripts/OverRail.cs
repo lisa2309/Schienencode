@@ -13,7 +13,7 @@ public class OverRail : MonoBehaviour
 	/// <summary>
 	/// Textobject for the Popup
 	/// </summary>
-    public Transform popuptext;
+    public Transform popupText;
 
 	/// <summary>
 	/// String to tell if the Text is ON or Off
@@ -78,49 +78,49 @@ public class OverRail : MonoBehaviour
         {
 			string objectName = gameObject.name;
 			char[] objectLetters = objectName.ToCharArray();
-			string finalName = convertCharArrayToString(5, objectLetters);
+			string finalName = ConvertCharArrayToString(5, objectLetters);
 			switch(finalName) 
 			{
 				case RailCurve:
-					popuptext.GetComponent<TextMesh>().text = "Kurve";
+					popupText.GetComponent<TextMesh>().text = "Kurve";
 					break;
 				case RailStraight:
-					popuptext.GetComponent<TextMesh>().text = "Gerade";
+					popupText.GetComponent<TextMesh>().text = "Gerade";
 					break;
 				case RailSwitch:
 					if (gameObject.name.Contains(SwitchProgrammable))
 					{
-						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
+						popupText.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
 					}
 					else
 					{
-						popuptext.GetComponent<TextMesh>().text = "Weiche";
+						popupText.GetComponent<TextMesh>().text = "Weiche";
 					}
 					break;
 				case RailStart:
-					popuptext.GetComponent<TextMesh>().text = "Start";
+					popupText.GetComponent<TextMesh>().text = "Start";
 					break;
 				case RailEnd:
-					popuptext.GetComponent<TextMesh>().text = "Ziel";
+					popupText.GetComponent<TextMesh>().text = "Ziel";
 					break;
 				case RailTunnel:
 					if(objectName == RailTunnelIn)
 					{
-						popuptext.GetComponent<TextMesh>().text = "Eingang Tunnel";
+						popupText.GetComponent<TextMesh>().text = "Eingang Tunnel";
 					} else {
-						popuptext.GetComponent<TextMesh>().text = "Ausgang Tunnel";
+						popupText.GetComponent<TextMesh>().text = "Ausgang Tunnel";
 					}
 					break;
 				case TrainstationRequest:
 					int stationNumber = gameObject.GetComponent<StationScript>().stationNumber + 1;
-					popuptext.GetComponent<TextMesh>().text = "Bahnhof: C" + stationNumber;
+					popupText.GetComponent<TextMesh>().text = "Bahnhof: C" + stationNumber;
 					break;
 				default:
-					popuptext.GetComponent<TextMesh>().text = gameObject.name;
+					popupText.GetComponent<TextMesh>().text = gameObject.name;
 					break;
 			}
             TextStatus = "on";
-            Instantiate(popuptext, new Vector3(transform.position.x, transform.position.y, transform.position.z + 2), popuptext.rotation);
+            Instantiate(popupText, new Vector3(transform.position.x, transform.position.y, transform.position.z + 2), popupText.rotation);
         }
     }
 
@@ -144,7 +144,7 @@ public class OverRail : MonoBehaviour
 	/// <param name="name">Char array wich is used to form a new string</param>
 	/// <returns>String wich is based on the char array name</returns>
 	/// @author Ronja Haas & Anna-Lisa Müller 
-	public string convertCharArrayToString(int size, char[] name) {
+	public string ConvertCharArrayToString(int size, char[] name) {
 		char[] word = new char[size];
 		for (int i = 0; i < size; i++)
 		{
