@@ -23,7 +23,7 @@ namespace Tests
             dbc.RetrieveFromDatabase();
             Thread.Sleep(200);
             
-            LogAssert.Expect(LogType.Log, "Data retrieved");
+            LogAssert.Expect(LogType.Log, "BoardData retrieved");
             yield return null;
         }
     }
