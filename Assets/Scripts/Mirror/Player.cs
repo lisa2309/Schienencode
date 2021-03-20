@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 /* created by: SWT-P_WS_2021_Schienencode */
 /// <summary>
-/// 
+/// Each player has his own player script
 /// </summary>
 /// @author Ahmed L'harrak & Bastian Badde 
 public class Player : NetworkBehaviour

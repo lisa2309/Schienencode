@@ -16,7 +16,7 @@ namespace Tests
         {
             GameObject gameObject = GameObject.Find("SliderMusic");
             double test = gameObject.GetComponent<Slider>().maxValue;
-            Assert.AreEqual(1.0d, test);
+            Assert.AreEqual(0.4f, test);
         }
 
         // Test if the variable musicVolume is never less than <0
@@ -33,7 +33,7 @@ namespace Tests
         public void MusicVolumeStartValue()
         {
             GameObject gameObject = GameObject.Find("SliderMusic");
-            Assert.AreEqual(0.5, gameObject.GetComponent<Slider>().value);
+            Assert.AreEqual(0.2f, gameObject.GetComponent<Slider>().value);
         }
 
     }
