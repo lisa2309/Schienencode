@@ -6,8 +6,8 @@ using UnityEngine;
 /// <summary>
 /// A hovertext of the rail, which the mouse is currently on, is created
 /// </summary>
+/// @source https://www.youtube.com/watch?v=D9DrW7_tMa8
 /// Modified by Ronja Haas & Anna-Lisa Müller
-/// @source Quelle: https://www.youtube.com/watch?v=D9DrW7_tMa8
 public class OverRail : MonoBehaviour
 {
 	/// <summary>
