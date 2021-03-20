@@ -18,52 +18,52 @@ public class OverRail : MonoBehaviour
 	/// <summary>
 	/// String to tell if the Text is ON or Off
 	/// </summary>
-    public static string textstatus = "off";
+    public static string TextStatus = "off";
 
     /// <summary>
     /// Name of prefab for all Curve Rails
     /// </summary>
-	private const string railcurve = "Curve";
+	private const string RailCurve = "Curve";
 
 	/// <summary>
 	/// Name of prefab the Straight Rail
 	/// </summary>
-	private const string railstraight = "Strai";
+	private const string RailStraight = "Strai";
 
 	/// <summary>
 	/// Name of prefab for all Switch Rails
 	/// </summary>
-	private const string railswitch = "Switc";
+	private const string RailSwitch = "Switc";
 
 	/// <summary>
 	/// Name of prefab for the Startrail
 	/// </summary>
-	private const string railstart = "RailS";
+	private const string RailStart = "RailS";
 
 	/// <summary>
 	/// Name of prefab for the Endrail
 	/// </summary>
-	private const string railend = "RailE";
+	private const string RailEnd = "RailE";
 
 	/// <summary>
 	/// Name of prefab all Tunnel Rails
 	/// </summary>
-	private const string railtunnel = "Tunne";
+	private const string RailTunnel = "Tunne";
 
 	/// <summary>
 	/// Name of prefab the Tunnel Entry
 	/// </summary>
-	private const string railtunnelin = "TunnelIn";
+	private const string RailTunnelIn = "TunnelIn";
 
 	/// <summary>
 	/// Name of prefab the trainstation
 	/// </summary>
-	private const string trainstationrequest = "Train";
+	private const string TrainstationRequest = "Train";
 
 	/// <summary>
     /// R stands for a rail, which can be programmed with if, for, while
     /// </summary>
-	private const string switchprogrammable = "R";
+	private const string SwitchProgrammable = "R";
     
 	/// <summary>
 	/// Create the popuptext depends on wich Rail the mouse is on and instantiate it
@@ -74,21 +74,21 @@ public class OverRail : MonoBehaviour
 	/// @author Ronja Haas & Anna-Lisa Müller 
     void OnMouseEnter()
     {
-        if (textstatus == "off")
+        if (TextStatus == "off")
         {
 			string objectName = gameObject.name;
 			char[] objectLetters = objectName.ToCharArray();
 			string finalName = convertCharArrayToString(5, objectLetters);
 			switch(finalName) 
 			{
-				case railcurve:
+				case RailCurve:
 					popuptext.GetComponent<TextMesh>().text = "Kurve";
 					break;
-				case railstraight:
+				case RailStraight:
 					popuptext.GetComponent<TextMesh>().text = "Gerade";
 					break;
-				case railswitch:
-					if (gameObject.name.Contains(switchprogrammable))
+				case RailSwitch:
+					if (gameObject.name.Contains(SwitchProgrammable))
 					{
 						popuptext.GetComponent<TextMesh>().text = "Weiche " + gameObject.GetComponent<SwitchScript>().mode;
 					}
@@ -97,29 +97,29 @@ public class OverRail : MonoBehaviour
 						popuptext.GetComponent<TextMesh>().text = "Weiche";
 					}
 					break;
-				case railstart:
+				case RailStart:
 					popuptext.GetComponent<TextMesh>().text = "Start";
 					break;
-				case railend:
+				case RailEnd:
 					popuptext.GetComponent<TextMesh>().text = "Ziel";
 					break;
-				case railtunnel:
-					if(objectName == railtunnelin)
+				case RailTunnel:
+					if(objectName == RailTunnelIn)
 					{
 						popuptext.GetComponent<TextMesh>().text = "Eingang Tunnel";
 					} else {
 						popuptext.GetComponent<TextMesh>().text = "Ausgang Tunnel";
 					}
 					break;
-				case trainstationrequest:
+				case TrainstationRequest:
 					int stationNumber = gameObject.GetComponent<StationScript>().stationNumber + 1;
-					popuptext.GetComponent<TextMesh>().text = "Bahnhof " + stationNumber;
+					popuptext.GetComponent<TextMesh>().text = "Bahnhof: C" + stationNumber;
 					break;
 				default:
 					popuptext.GetComponent<TextMesh>().text = gameObject.name;
 					break;
 			}
-            textstatus = "on";
+            TextStatus = "on";
             Instantiate(popuptext, new Vector3(transform.position.x, transform.position.y, transform.position.z + 2), popuptext.rotation);
         }
     }
@@ -130,9 +130,9 @@ public class OverRail : MonoBehaviour
 	/// @author Ronja Haas & Anna-Lisa Müller 
     void OnMouseExit()
     {
-        if (textstatus == "on")
+        if (TextStatus == "on")
         {
-            textstatus = "off";
+            TextStatus = "off";
         }
     }
 

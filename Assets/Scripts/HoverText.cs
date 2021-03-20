@@ -16,7 +16,7 @@ public class HoverText : MonoBehaviour
     /// @author Ronja Haas & Anna-Lisa Müller 
     void Update()
     {
-        if (OverRail.textstatus == "off")
+        if (OverRail.TextStatus == "off")
         {
             Destroy(gameObject);
         }
