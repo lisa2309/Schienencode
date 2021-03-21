@@ -22,9 +22,6 @@ Verwendete Technologien:
 - Ahmed L´harrak
 
 ## Dokumentation und Präsentation
-### Von der Abgabe des fertigen Projektes
-
-### Von der Zwischenabgabe
-Die [Dokumentation](https://rianvegeta.github.io/Schienencode-Doku/index.html) für unser Team.  
-Die Zwischenpräsentation von unserer Gruppe: [Schienencode.pdf](uploads/170a6ed02e1ac3c752bccff429174549/Schienencode.pdf) 
+## Dokumentation und Präsentation
+Die [Dokumentation](https://rianvegeta.github.io/Schienencode-Doc/index.html) für unser Team.  
  
