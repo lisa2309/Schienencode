@@ -34,12 +34,12 @@ public class CameraMovement : MonoBehaviour
     /// <summary>
     /// Maximum z position from the camera
     /// </summary>
-    private const int maxCameraZPositionPlayer2 = -5;
+    private const int maxCameraZPositionPlayer2 = -29;
 
     /// <summary>
     /// Minimum z position from the camera
     /// </summary>
-    private const int minCameraZPositionPlayer2 = -35;
+    private const int minCameraZPositionPlayer2 = -60;
     /// <summary>
     /// Maximum zoom position from the camera 
     /// </summary>
@@ -112,13 +112,15 @@ public class CameraMovement : MonoBehaviour
                             Camera.main.transform.position = cameraPosition;
                         }
                     }
-                } 
+                }
                 else if (!player.isServer)
                 {
                     if (cameraPosition.z > minCameraZPositionPlayer2 && cameraPosition.z < maxCameraZPositionPlayer2)
                     {
+                        Debug.Log("If 1");
                         if (cameraPosition.x > minCameraXPosition && cameraPosition.x < maxCameraXPosition)
                         {
+                            Debug.Log("If 2");
                             Camera.main.transform.position = cameraPosition;
                         }
                     }

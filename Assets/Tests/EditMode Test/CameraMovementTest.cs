@@ -19,7 +19,7 @@ namespace Tests
             Vector3 cameraPos = camera.transform.position;
             float zTest = cameraPos.z;
             // ASSERT
-            Assert.IsTrue(-35 <= zTest);
+            Assert.IsTrue(-60 <= zTest);
         }
 
         // Test if maxCameraZPosition is not greater than 30
