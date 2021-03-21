@@ -21,7 +21,9 @@ Verwendete Technologien:
 - Christopher-Marcel Klein
 - Ahmed L´harrak
 
-## Dokumentation und Präsentation
+## Hinweise
+Die Playmode Tests zu der Klasse "RoutingTests" müssen einzeln gestartet werden, damit diese durchlaufen können. 
+
 ## Dokumentation und Präsentation
 Die [Dokumentation](https://rianvegeta.github.io/Schienencode-Doc/index.html) für unser Team.  
  
